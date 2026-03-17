@@ -1341,7 +1341,6 @@ CarTab:CreateToggle({Name="No Car Crash", CurrentValue=false,
 			if hitbox then hitbox:Destroy() end
 		end
 	end})
-
 local CombatTab = Window:CreateTab(L0.tabs.Combat, 4483362458)
 CombatTab:CreateSection(L0.sec.Zombies)
 SL.Zombies = grabLabel(L0.sec.Zombies)
