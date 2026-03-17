@@ -9,8 +9,8 @@ if not s or not r then return nil end
 return r
 end
 
-local a=ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript")
-local b=ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen")
+local a=ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen")
+local b=ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript")
 
 if not a or not b then
 error("Loader error: scripts failed to load.")
