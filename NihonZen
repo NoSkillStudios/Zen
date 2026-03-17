@@ -815,7 +815,7 @@ Rayfield:Notify({Title="🌺 Nihon Hub | 日本", Content=LANGS[chosenLang].noti
 
 local Window = Rayfield:CreateWindow({
 	Name="🌺 Nihon Hub | 日本", LoadingTitle="Bloom Zen", LoadingSubtitle="by MrDuck",
-	Theme="Bloom",
+	Theme="AmberGlow",
 	ConfigurationSaving={Enabled=true, FolderName="NihonHub", FileName="Config"},
 	KeySystem=false,
 })
@@ -1320,6 +1320,25 @@ E.LoopBrake = CarTab:CreateToggle({Name=L0.ui.LoopBrake, CurrentValue=false,
 		brakeLoop = v
 		if not v then
 			ReplicatedStorage:WaitForChild("toggle"):FireServer(Workspace:WaitForChild("car 69150"):WaitForChild("Misc"):WaitForChild("pbrake"):WaitForChild("h"))
+		end
+	end})
+local noCrashActive = false
+workspace.DescendantAdded:Connect(function(inst)
+	if noCrashActive and inst.Name == "CRASHhitbox" then
+		local p = inst.Parent
+		if p and p.Name == "Body" and p.Parent and p.Parent.Name == "car" then
+			inst:Destroy()
+		end
+	end
+end)
+CarTab:CreateToggle({Name="No Car Crash", CurrentValue=false,
+	Callback=function(v)
+		noCrashActive = v
+		if v then
+			local car = Workspace:FindFirstChild("car")
+			local body = car and car:FindFirstChild("Body")
+			local hitbox = body and body:FindFirstChild("CRASHhitbox")
+			if hitbox then hitbox:Destroy() end
 		end
 	end})
 
