@@ -9,9 +9,7 @@ local cam=workspace.CurrentCamera
 local lp=p.LocalPlayer
 local OWNER="SkibidihhhToiwet"
 local EXPAND_DIST=35
-local TAG_PX=UDim2.fromOffset(180,58)
-local DOT_PX=UDim2.fromOffset(30,30)
-local BASE_STUD_DIST=20
+local BASE_DIST=20
 
 local C={
 	owner=Color3.fromRGB(255,200,80),
@@ -19,27 +17,34 @@ local C={
 	bg=Color3.fromRGB(14,13,18),
 	bgrim=Color3.fromRGB(22,20,28),
 	text=Color3.fromRGB(235,235,240),
-	sub=Color3.fromRGB(140,135,155),
 	stroke_o=Color3.fromRGB(255,190,60),
 	stroke_u=Color3.fromRGB(90,150,240),
 }
 
+if not getgenv()._nihon_executors then
+	getgenv()._nihon_executors={}
+end
+getgenv()._nihon_executors[lp.Name]=true
+
 local boards={}
 local expanded={}
+
+local function isExec(name)
+	return getgenv()._nihon_executors[name]==true
+end
 
 local function clearKids(inst)
 	for _,v in inst:GetChildren() do v:Destroy() end
 end
 
-local function corner(p2,r2)
-	local c=Instance.new("UICorner",p2)
-	c.CornerRadius=UDim.new(0,r2)
+local function mkCorner(par,rad)
+	local c=Instance.new("UICorner",par)
+	c.CornerRadius=UDim.new(0,rad)
 end
 
-local function stroke(p2,col,thick,trans)
-	local s=Instance.new("UIStroke",p2)
+local function mkStroke(par,col,thick,trans)
+	local s=Instance.new("UIStroke",par)
 	s.Color=col s.Thickness=thick s.Transparency=trans or 0
-	return s
 end
 
 local function buildExpanded(bill,plr,isOwner)
@@ -51,8 +56,8 @@ local function buildExpanded(bill,plr,isOwner)
 	root.Size=UDim2.fromScale(1,1)
 	root.BackgroundColor3=C.bg
 	root.BorderSizePixel=0
-	corner(root,12)
-	stroke(root,sc,1.5,0.1)
+	mkCorner(root,12)
+	mkStroke(root,sc,1.5,0.1)
 
 	local grad=Instance.new("UIGradient",root)
 	grad.Color=ColorSequence.new{
@@ -65,44 +70,43 @@ local function buildExpanded(bill,plr,isOwner)
 	bar.Size=UDim2.new(1,0,0,3)
 	bar.BackgroundColor3=ac
 	bar.BorderSizePixel=0
-	local bc=Instance.new("UICorner",bar)
-	bc.CornerRadius=UDim.new(0,12)
+	mkCorner(bar,12)
 
-	local glow=Instance.new("Frame",root)
-	glow.Size=UDim2.new(0.4,0,0,1)
-	glow.Position=UDim2.new(0.3,0,0,2)
-	glow.BackgroundColor3=Color3.fromRGB(255,255,255)
-	glow.BackgroundTransparency=0.7
-	glow.BorderSizePixel=0
-	corner(glow,4)
+	local shine=Instance.new("Frame",root)
+	shine.Size=UDim2.new(0.4,0,0,1)
+	shine.Position=UDim2.new(0.3,0,0,2)
+	shine.BackgroundColor3=Color3.fromRGB(255,255,255)
+	shine.BackgroundTransparency=0.7
+	shine.BorderSizePixel=0
+	mkCorner(shine,4)
 
-	local avatar=Instance.new("TextLabel",root)
-	avatar.Size=UDim2.fromOffset(40,52)
-	avatar.Position=UDim2.new(0,8,0,3)
-	avatar.BackgroundTransparency=1
-	avatar.Text=isOwner and "👑" or "✦"
-	avatar.TextSize=isOwner and 22 or 16
-	avatar.Font=Enum.Font.Gotham
-	avatar.TextColor3=ac
-	avatar.TextXAlignment=Enum.TextXAlignment.Center
-	avatar.TextYAlignment=Enum.TextYAlignment.Center
+	local icon=Instance.new("TextLabel",root)
+	icon.Size=UDim2.fromOffset(40,52)
+	icon.Position=UDim2.new(0,8,0,3)
+	icon.BackgroundTransparency=1
+	icon.Text=isOwner and "👑" or "✦"
+	icon.TextSize=isOwner and 22 or 16
+	icon.Font=Enum.Font.Gotham
+	icon.TextColor3=ac
+	icon.TextXAlignment=Enum.TextXAlignment.Center
+	icon.TextYAlignment=Enum.TextYAlignment.Center
 
 	local right=Instance.new("Frame",root)
 	right.Size=UDim2.new(1,-54,1,-4)
 	right.Position=UDim2.new(0,50,0,3)
 	right.BackgroundTransparency=1
 
-	local name=Instance.new("TextLabel",right)
-	name.Size=UDim2.new(1,0,0,26)
-	name.Position=UDim2.new(0,0,0,6)
-	name.BackgroundTransparency=1
-	name.Text=plr.Name
-	name.Font=Enum.Font.GothamBold
-	name.TextSize=13
-	name.TextColor3=C.text
-	name.TextXAlignment=Enum.TextXAlignment.Left
-	name.TextTruncate=Enum.TextTruncate.AtEnd
-	name.ClipsDescendants=true
+	local nameLabel=Instance.new("TextLabel",right)
+	nameLabel.Size=UDim2.new(1,0,0,26)
+	nameLabel.Position=UDim2.new(0,0,0,6)
+	nameLabel.BackgroundTransparency=1
+	nameLabel.Text=plr.Name..(isOwner and " 👑" or " ✦")
+	nameLabel.Font=Enum.Font.GothamBold
+	nameLabel.TextSize=13
+	nameLabel.TextColor3=C.text
+	nameLabel.TextXAlignment=Enum.TextXAlignment.Left
+	nameLabel.TextTruncate=Enum.TextTruncate.AtEnd
+	nameLabel.ClipsDescendants=true
 
 	local badge=Instance.new("Frame",right)
 	badge.Size=UDim2.new(0,isOwner and 68 or 52,0,16)
@@ -110,8 +114,8 @@ local function buildExpanded(bill,plr,isOwner)
 	badge.BackgroundColor3=ac
 	badge.BackgroundTransparency=0.82
 	badge.BorderSizePixel=0
-	corner(badge,6)
-	stroke(badge,ac,1,0.4)
+	mkCorner(badge,6)
+	mkStroke(badge,ac,1,0.4)
 
 	local badgeTxt=Instance.new("TextLabel",badge)
 	badgeTxt.Size=UDim2.fromScale(1,1)
@@ -134,8 +138,8 @@ local function buildDot(bill,isOwner)
 	ring.BackgroundColor3=C.bg
 	ring.BackgroundTransparency=0.1
 	ring.BorderSizePixel=0
-	corner(ring,50)
-	stroke(ring,ac,1.5,0.2)
+	mkCorner(ring,50)
+	mkStroke(ring,ac,1.5,0.2)
 
 	local dot=Instance.new("Frame",ring)
 	dot.Name="d"
@@ -144,15 +148,15 @@ local function buildDot(bill,isOwner)
 	dot.Position=UDim2.fromScale(0.5,0.5)
 	dot.BackgroundColor3=ac
 	dot.BorderSizePixel=0
-	corner(dot,50)
+	mkCorner(dot,50)
 
 	local alive=true
 	task.spawn(function()
 		while alive and ring.Parent do
-			local i=TweenInfo.new(0.6,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut)
-			t:Create(dot,i,{Size=UDim2.fromOffset(10,10)}):Play()
+			local ti=TweenInfo.new(0.6,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut)
+			t:Create(dot,ti,{Size=UDim2.fromOffset(10,10)}):Play()
 			task.wait(0.6)
-			t:Create(dot,i,{Size=UDim2.fromOffset(6,6)}):Play()
+			t:Create(dot,ti,{Size=UDim2.fromOffset(6,6)}):Play()
 			task.wait(0.6)
 		end
 	end)
@@ -179,7 +183,7 @@ local function makeBoard(plr,char,isOwner)
 	bill.AlwaysOnTop=false
 	bill.LightInfluence=0
 	bill.SizeOffset=Vector2.zero
-	bill.Size=TAG_PX
+	bill.Size=UDim2.fromOffset(180,58)
 	bill.Parent=hrp
 
 	buildExpanded(bill,plr,isOwner)
@@ -187,6 +191,9 @@ local function makeBoard(plr,char,isOwner)
 end
 
 local function hookPlayer(plr)
+	if plr==lp then return end
+	if not isExec(plr.Name) then return end
+
 	local isOwner=plr.Name==OWNER
 	if plr.Character then
 		task.defer(makeBoard,plr,plr.Character,isOwner)
@@ -197,12 +204,19 @@ local function hookPlayer(plr)
 	end)
 end
 
+for _,plr in ipairs(p:GetPlayers()) do
+	hookPlayer(plr)
+end
+
+p.PlayerAdded:Connect(hookPlayer)
+
 p.PlayerRemoving:Connect(function(plr)
 	if boards[plr.Name] then
 		boards[plr.Name]:Destroy()
 		boards[plr.Name]=nil
 	end
 	expanded[plr.Name]=nil
+	getgenv()._nihon_executors[plr.Name]=nil
 end)
 
 local frame=0
@@ -217,7 +231,6 @@ r.RenderStepped:Connect(function()
 			boards[n]=nil
 			continue
 		end
-
 		local adorn=bill.Adornee
 		if not adorn or not adorn.Parent then
 			bill:Destroy()
@@ -225,44 +238,37 @@ r.RenderStepped:Connect(function()
 			continue
 		end
 
-		if frame%2==0 then
-			local dist=lhrp and (lhrp.Position-adorn.Position).Magnitude or 999
-			local wantExpand=dist<EXPAND_DIST
+		local dist=lhrp and (lhrp.Position-adorn.Position).Magnitude or 999
 
+		if frame%2==0 then
+			local wantExpand=dist<EXPAND_DIST
 			if wantExpand and not expanded[n] then
 				local plr=p:FindFirstChild(n)
-				if plr then
-					bill.Size=TAG_PX
-					buildExpanded(bill,plr,n==OWNER)
-				end
+				if plr then buildExpanded(bill,plr,n==OWNER) end
 			elseif not wantExpand and expanded[n] then
-				bill.Size=DOT_PX
 				buildDot(bill,n==OWNER)
 			end
 		end
 
-		if frame%1==0 then
-			local dist=lhrp and (lhrp.Position-adorn.Position).Magnitude or 0
-			local fov=cam.FieldOfView
-			local scale=math.tan(math.rad(fov/2))*dist/BASE_STUD_DIST
-			scale=math.clamp(scale,0.5,3)
+		local fov=cam.FieldOfView
+		local scale=math.clamp(math.tan(math.rad(fov/2))*dist/BASE_DIST,0.5,3.5)
 
-			if expanded[n] then
-				bill.Size=UDim2.fromOffset(180*scale,58*scale)
-			else
-				bill.Size=UDim2.fromOffset(30*scale,30*scale)
-			end
+		if expanded[n] then
+			bill.Size=UDim2.fromOffset(180*scale,58*scale)
+		else
+			bill.Size=UDim2.fromOffset(30*scale,30*scale)
 		end
 	end
 end)
 
-getgenv()._nihon_boards=boards
-getgenv()._nihon_hook=hookPlayer
-
-for _,plr in p:GetPlayers() do
-	if plr~=lp then hookPlayer(plr) end
-end
-
-p.PlayerAdded:Connect(function(plr)
-	if plr~=lp then hookPlayer(plr) end
+task.spawn(function()
+	while true do
+		task.wait(3)
+		for n,_ in pairs(getgenv()._nihon_executors) do
+			local plr=p:FindFirstChild(n)
+			if plr and plr~=lp and not boards[n] then
+				hookPlayer(plr)
+			end
+		end
+	end
 end)
