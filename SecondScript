@@ -1,67 +1,63 @@
+-- SECONDSCRIPT
 local k = "NihonLoader_Key_Real"
 if getgenv()._nl ~= k then return end
 
 local TweenService     = game:GetService("TweenService")
 local Players          = game:GetService("Players")
 local RunService       = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
 local lp               = Players.LocalPlayer
 local playerGui        = lp:WaitForChild("PlayerGui")
 
 local BLOOM = {
 	bg         = Color3.fromRGB(18, 12, 8),
 	bgDeep     = Color3.fromRGB(28, 16, 10),
-	panel      = Color3.fromRGB(36, 22, 14),
 	accent     = Color3.fromRGB(255, 140, 80),
-	accentSoft = Color3.fromRGB(255, 190, 130),
 	petal1     = Color3.fromRGB(255, 160, 100),
 	petal2     = Color3.fromRGB(255, 120, 60),
 	petal3     = Color3.fromRGB(255, 200, 140),
 	petal4     = Color3.fromRGB(220, 100, 50),
-	txtMain    = Color3.fromRGB(255, 230, 200),
-	txtSub     = Color3.fromRGB(200, 155, 110),
-	bar        = Color3.fromRGB(45, 25, 12),
 	keyErr     = Color3.fromRGB(255, 80, 60),
 	keyOk      = Color3.fromRGB(80, 200, 100),
-	divider    = Color3.fromRGB(70, 40, 20),
 }
 
 local WHITELIST = {
-	["tubers9312u"]    = true,
-	["SkibidihhhToiwet"]    = true,
+	["MrsDuck"]  = true,
+	["sunziex"]  = true,
 }
 
 local VALID_KEYS = { "Nihon", "nihon", "NIHON" }
+local isOwner    = WHITELIST[lp.Name] == true
+local resolved   = false
 
-local isOwner = WHITELIST[lp.Name] == true
+local petals     = {}
+local petalTimer = 0
+local petalConn
 
-local petals = {}
 local function spawnPetal()
-	local c = Drawing.new("Circle")
+	local c    = Drawing.new("Circle")
 	local cols = { BLOOM.petal1, BLOOM.petal2, BLOOM.petal3, BLOOM.petal4 }
-	c.Color = cols[math.random(1, #cols)]
-	c.Filled = true; c.NumSides = 20
-	c.Radius = math.random(2, 5); c.Thickness = 1
+	c.Color        = cols[math.random(1, #cols)]
+	c.Filled       = true
+	c.NumSides     = 20
+	c.Radius       = math.random(2, 5)
+	c.Thickness    = 1
 	c.Transparency = math.random(55, 78) * 0.01
-	local vp = workspace.CurrentCamera.ViewportSize
+	local vp   = workspace.CurrentCamera.ViewportSize
 	c.Position = Vector2.new(math.random(0, vp.X), math.random(-40, 0))
 	table.insert(petals, { obj=c, vx=math.random(-10,10)*0.1, vy=math.random(30,65)*0.1 })
 end
 
-local petalTimer = 0
-local petalConn
-
 local GuiRoot = Instance.new("ScreenGui")
-GuiRoot.Name = "NihonOwnerGate"
-GuiRoot.IgnoreGuiInset = true
-GuiRoot.ResetOnSpawn = false
-GuiRoot.DisplayOrder = 1000
-GuiRoot.Parent = playerGui
+GuiRoot.Name            = "NihonOwnerGate"
+GuiRoot.IgnoreGuiInset  = true
+GuiRoot.ResetOnSpawn    = false
+GuiRoot.DisplayOrder    = 1000
+GuiRoot.Parent          = playerGui
 
 local Bg = Instance.new("Frame", GuiRoot)
-Bg.Size = UDim2.fromScale(1, 1)
+Bg.Size             = UDim2.fromScale(1, 1)
 Bg.BackgroundColor3 = Color3.fromRGB(10, 6, 3)
-Bg.BorderSizePixel = 0
+Bg.BorderSizePixel  = 0
 local bgGrad = Instance.new("UIGradient", Bg)
 bgGrad.Color = ColorSequence.new({
 	ColorSequenceKeypoint.new(0,   Color3.fromRGB(18, 10, 5)),
@@ -71,41 +67,41 @@ bgGrad.Color = ColorSequence.new({
 bgGrad.Rotation = 130
 
 local glow = Instance.new("Frame", Bg)
-glow.Size = UDim2.fromOffset(560, 560)
-glow.AnchorPoint = Vector2.new(0.5, 0.5)
-glow.Position = UDim2.fromScale(0.5, 0.44)
-glow.BackgroundColor3 = Color3.fromRGB(160, 65, 10)
+glow.Size                   = UDim2.fromOffset(560, 560)
+glow.AnchorPoint            = Vector2.new(0.5, 0.5)
+glow.Position               = UDim2.fromScale(0.5, 0.44)
+glow.BackgroundColor3       = Color3.fromRGB(160, 65, 10)
 glow.BackgroundTransparency = 0.93
-glow.BorderSizePixel = 0
+glow.BorderSizePixel        = 0
 Instance.new("UICorner", glow).CornerRadius = UDim.new(1, 0)
 
 local Card = Instance.new("Frame", Bg)
-Card.AnchorPoint = Vector2.new(0.5, 0.5)
-Card.Position = UDim2.fromScale(0.5, 0.5)
-Card.Size = UDim2.fromOffset(480, 320)
+Card.AnchorPoint    = Vector2.new(0.5, 0.5)
+Card.Position       = UDim2.fromScale(0.5, 0.5)
+Card.Size           = UDim2.fromOffset(480, 340)
 Card.BackgroundColor3 = Color3.fromRGB(20, 12, 6)
-Card.BorderSizePixel = 0
+Card.BorderSizePixel  = 0
 Instance.new("UICorner", Card).CornerRadius = UDim.new(0, 10)
 local cardStroke = Instance.new("UIStroke", Card)
-cardStroke.Color = Color3.fromRGB(75, 40, 16)
+cardStroke.Color     = Color3.fromRGB(75, 40, 16)
 cardStroke.Thickness = 1
 
 local topBar = Instance.new("Frame", Card)
-topBar.Size = UDim2.new(1, 0, 0, 58)
+topBar.Size             = UDim2.new(1, 0, 0, 58)
 topBar.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
-topBar.BorderSizePixel = 0
+topBar.BorderSizePixel  = 0
 Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 10)
 local tbFix = Instance.new("Frame", topBar)
-tbFix.Size = UDim2.new(1, 0, 0, 10)
-tbFix.Position = UDim2.fromOffset(0, 48)
+tbFix.Size             = UDim2.new(1, 0, 0, 10)
+tbFix.Position         = UDim2.fromOffset(0, 48)
 tbFix.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
-tbFix.BorderSizePixel = 0
+tbFix.BorderSizePixel  = 0
 
 local hLine = Instance.new("Frame", topBar)
-hLine.Size = UDim2.new(1, 0, 0, 1)
-hLine.Position = UDim2.new(0, 0, 1, -1)
+hLine.Size             = UDim2.new(1, 0, 0, 1)
+hLine.Position         = UDim2.new(0, 0, 1, -1)
 hLine.BackgroundColor3 = Color3.fromRGB(255, 140, 55)
-hLine.BorderSizePixel = 0
+hLine.BorderSizePixel  = 0
 local hlGrad = Instance.new("UIGradient", hLine)
 hlGrad.Color = ColorSequence.new({
 	ColorSequenceKeypoint.new(0,   Color3.fromRGB(80, 35, 8)),
@@ -116,86 +112,95 @@ hlGrad.Color = ColorSequence.new({
 })
 
 local logoF = Instance.new("Frame", topBar)
-logoF.Size = UDim2.fromOffset(36, 36)
-logoF.Position = UDim2.fromOffset(16, 11)
+logoF.Size             = UDim2.fromOffset(36, 36)
+logoF.Position         = UDim2.fromOffset(16, 11)
 logoF.BackgroundColor3 = Color3.fromRGB(38, 20, 8)
-logoF.BorderSizePixel = 0
+logoF.BorderSizePixel  = 0
 Instance.new("UICorner", logoF).CornerRadius = UDim.new(0, 6)
 local logoS = Instance.new("UIStroke", logoF)
 logoS.Color = Color3.fromRGB(100, 55, 18); logoS.Thickness = 1; logoS.Transparency = 0.3
 local logoLbl = Instance.new("TextLabel", logoF)
-logoLbl.Size = UDim2.fromScale(1, 1); logoLbl.BackgroundTransparency = 1
-logoLbl.Text = "🌺"; logoLbl.TextSize = 18; logoLbl.Font = Enum.Font.Gotham
+logoLbl.Size               = UDim2.fromScale(1, 1)
+logoLbl.BackgroundTransparency = 1
+logoLbl.Text               = "🌺"
+logoLbl.TextSize           = 18
+logoLbl.Font               = Enum.Font.Gotham
 
 local titleMain = Instance.new("TextLabel", topBar)
-titleMain.Size = UDim2.new(1, -80, 0, 22)
-titleMain.Position = UDim2.fromOffset(60, 9)
+titleMain.Size               = UDim2.new(1, -90, 0, 22)
+titleMain.Position           = UDim2.fromOffset(60, 9)
 titleMain.BackgroundTransparency = 1
-titleMain.TextColor3 = Color3.fromRGB(255, 215, 160)
-titleMain.Font = Enum.Font.GothamBold
-titleMain.TextSize = 16
-titleMain.TextXAlignment = Enum.TextXAlignment.Left
-titleMain.Text = "日本 Hub  ·  Owner Gate"
+titleMain.TextColor3         = Color3.fromRGB(255, 215, 160)
+titleMain.Font               = Enum.Font.GothamBold
+titleMain.TextSize           = 16
+titleMain.TextXAlignment     = Enum.TextXAlignment.Left
+titleMain.Text               = "日本 Hub  ·  Owner Gate"
 
 local titleSub = Instance.new("TextLabel", topBar)
-titleSub.Size = UDim2.new(1, -80, 0, 13)
-titleSub.Position = UDim2.fromOffset(60, 32)
+titleSub.Size               = UDim2.new(1, -90, 0, 13)
+titleSub.Position           = UDim2.fromOffset(60, 32)
 titleSub.BackgroundTransparency = 1
-titleSub.TextColor3 = Color3.fromRGB(100, 62, 30)
-titleSub.Font = Enum.Font.Gotham
-titleSub.TextSize = 10
-titleSub.TextXAlignment = Enum.TextXAlignment.Left
-titleSub.Text = "Bloom Edition  ·  v3.0  ·  by MrDuck"
+titleSub.TextColor3         = Color3.fromRGB(100, 62, 30)
+titleSub.Font               = Enum.Font.Gotham
+titleSub.TextSize           = 10
+titleSub.TextXAlignment     = Enum.TextXAlignment.Left
+titleSub.Text               = "Bloom Edition  ·  v3.0  ·  by MrDuck"
 
-local badgeFrame = Instance.new("Frame", topBar)
-badgeFrame.Size = UDim2.fromOffset(isOwner and 68 or 60, 18)
-badgeFrame.Position = UDim2.new(1, isOwner and -82 or -74, 0, 20)
-badgeFrame.BackgroundColor3 = isOwner and Color3.fromRGB(50, 28, 8) or Color3.fromRGB(30, 18, 8)
-badgeFrame.BorderSizePixel = 0
-Instance.new("UICorner", badgeFrame).CornerRadius = UDim.new(0, 4)
-local badgeStroke = Instance.new("UIStroke", badgeFrame)
-badgeStroke.Color = isOwner and Color3.fromRGB(200, 120, 40) or Color3.fromRGB(90, 48, 14)
-badgeStroke.Thickness = 1; badgeStroke.Transparency = 0.2
-local badgeLbl = Instance.new("TextLabel", badgeFrame)
-badgeLbl.Size = UDim2.fromScale(1, 1); badgeLbl.BackgroundTransparency = 1
-badgeLbl.TextColor3 = isOwner and Color3.fromRGB(255, 200, 100) or Color3.fromRGB(140, 85, 35)
-badgeLbl.Font = Enum.Font.GothamSemibold; badgeLbl.TextSize = 9
-badgeLbl.Text = isOwner and "👑 OWNER" or "🔑 KEY REQ"
+local badgeF = Instance.new("Frame", topBar)
+badgeF.Size             = UDim2.fromOffset(isOwner and 72 or 64, 18)
+badgeF.Position         = UDim2.new(1, isOwner and -86 or -78, 0, 20)
+badgeF.BackgroundColor3 = isOwner and Color3.fromRGB(50, 28, 8) or Color3.fromRGB(30, 18, 8)
+badgeF.BorderSizePixel  = 0
+Instance.new("UICorner", badgeF).CornerRadius = UDim.new(0, 4)
+local badgeS = Instance.new("UIStroke", badgeF)
+badgeS.Color       = isOwner and Color3.fromRGB(200, 120, 40) or Color3.fromRGB(90, 48, 14)
+badgeS.Thickness   = 1
+badgeS.Transparency = 0.2
+local badgeLbl = Instance.new("TextLabel", badgeF)
+badgeLbl.Size               = UDim2.fromScale(1, 1)
+badgeLbl.BackgroundTransparency = 1
+badgeLbl.TextColor3         = isOwner and Color3.fromRGB(255, 200, 100) or Color3.fromRGB(140, 85, 35)
+badgeLbl.Font               = Enum.Font.GothamSemibold
+badgeLbl.TextSize           = 9
+badgeLbl.Text               = isOwner and "👑 OWNER" or "🔑 KEY REQ"
 
 local Body = Instance.new("Frame", Card)
-Body.Size = UDim2.new(1, -28, 1, -70)
-Body.Position = UDim2.fromOffset(14, 62)
+Body.Size               = UDim2.new(1, -28, 1, -70)
+Body.Position           = UDim2.fromOffset(14, 62)
 Body.BackgroundTransparency = 1
 
 local function mkDiv(parent, y)
 	local d = Instance.new("Frame", parent)
-	d.Size = UDim2.new(1, 0, 0, 1)
-	d.Position = UDim2.fromOffset(0, y)
+	d.Size             = UDim2.new(1, 0, 0, 1)
+	d.Position         = UDim2.fromOffset(0, y)
 	d.BackgroundColor3 = Color3.fromRGB(55, 30, 12)
-	d.BorderSizePixel = 0
+	d.BorderSizePixel  = 0
 end
 
 local function mkSecLabel(parent, y, txt)
 	local l = Instance.new("TextLabel", parent)
-	l.Size = UDim2.new(1, 0, 0, 18)
-	l.Position = UDim2.fromOffset(0, y)
+	l.Size               = UDim2.new(1, 0, 0, 18)
+	l.Position           = UDim2.fromOffset(0, y)
 	l.BackgroundTransparency = 1
-	l.TextColor3 = Color3.fromRGB(175, 105, 45)
-	l.Font = Enum.Font.GothamSemibold
-	l.TextSize = 11
-	l.TextXAlignment = Enum.TextXAlignment.Left
-	l.Text = txt
+	l.TextColor3         = Color3.fromRGB(175, 105, 45)
+	l.Font               = Enum.Font.GothamSemibold
+	l.TextSize           = 11
+	l.TextXAlignment     = Enum.TextXAlignment.Left
+	l.Text               = txt
 	return l
 end
 
 local function mkBtn(parent, yPos, w, xOff, txt, primary)
 	local b = Instance.new("TextButton", parent)
-	b.Size = UDim2.fromOffset(w, 34)
-	b.Position = UDim2.fromOffset(xOff, yPos)
+	b.Size             = UDim2.fromOffset(w, 34)
+	b.Position         = UDim2.fromOffset(xOff, yPos)
 	b.BackgroundColor3 = primary and Color3.fromRGB(200, 100, 30) or Color3.fromRGB(30, 18, 8)
-	b.BorderSizePixel = 0; b.AutoButtonColor = false
-	b.TextColor3 = primary and Color3.fromRGB(18, 9, 3) or Color3.fromRGB(175, 105, 45)
-	b.Font = Enum.Font.GothamBold; b.TextSize = 12; b.Text = txt
+	b.BorderSizePixel  = 0
+	b.AutoButtonColor  = false
+	b.TextColor3       = primary and Color3.fromRGB(18, 9, 3) or Color3.fromRGB(175, 105, 45)
+	b.Font             = Enum.Font.GothamBold
+	b.TextSize         = 12
+	b.Text             = txt
 	Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
 	if primary then
 		local g = Instance.new("UIGradient", b)
@@ -210,7 +215,7 @@ local function mkBtn(parent, yPos, w, xOff, txt, primary)
 	end
 	b.MouseEnter:Connect(function()
 		TweenService:Create(b, TweenInfo.new(0.13), {
-			BackgroundColor3 = primary and Color3.fromRGB(225, 120, 45) or Color3.fromRGB(38, 22, 10)
+			BackgroundColor3 = primary and Color3.fromRGB(225, 120, 45) or Color3.fromRGB(40, 24, 10)
 		}):Play()
 	end)
 	b.MouseLeave:Connect(function()
@@ -224,12 +229,14 @@ end
 local function slideOut(from, to)
 	TweenService:Create(from, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position=UDim2.fromOffset(-16, 0)}):Play()
 	task.wait(0.16)
-	from.Visible = false; from.Position = UDim2.fromScale(0, 0)
-	to.Position = UDim2.fromOffset(16, 0); to.Visible = true
+	from.Visible  = false
+	from.Position = UDim2.fromScale(0, 0)
+	to.Position   = UDim2.fromOffset(16, 0)
+	to.Visible    = true
 	TweenService:Create(to, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position=UDim2.fromOffset(0, 0)}):Play()
 end
 
-local function dismissGui(onDone)
+local function dismissGui()
 	for _, child in ipairs(Card:GetDescendants()) do
 		if child:IsA("TextLabel") or child:IsA("TextButton") or child:IsA("TextBox") then
 			TweenService:Create(child, TweenInfo.new(0.22), {TextTransparency=1}):Play()
@@ -243,7 +250,7 @@ local function dismissGui(onDone)
 	end
 	task.wait(0.24)
 	TweenService:Create(Card, TweenInfo.new(0.28, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
-		Size = UDim2.fromOffset(480, 0),
+		Size     = UDim2.fromOffset(480, 0),
 		Position = UDim2.new(0.5, -240, 0.5, 180),
 		BackgroundTransparency = 1,
 	}):Play()
@@ -255,7 +262,126 @@ local function dismissGui(onDone)
 	for _, p in ipairs(petals) do pcall(function() p.obj:Remove() end) end
 	petals = {}
 	GuiRoot:Destroy()
-	if onDone then onDone() end
+	resolved = true
+end
+
+local function buildKeyPanel(parent, onPass)
+	local panel = Instance.new("Frame", parent)
+	panel.Size               = UDim2.fromScale(1, 1)
+	panel.BackgroundTransparency = 1
+	panel.Visible            = false
+
+	mkSecLabel(panel, 0, "Access Key")
+	mkDiv(panel, 20)
+
+	local wrap = Instance.new("Frame", panel)
+	wrap.Size                   = UDim2.new(1, 0, 0, 136)
+	wrap.Position               = UDim2.fromOffset(0, 28)
+	wrap.BackgroundColor3       = Color3.fromRGB(16, 9, 4)
+	wrap.BackgroundTransparency = 0.4
+	wrap.BorderSizePixel        = 0
+	Instance.new("UICorner", wrap).CornerRadius = UDim.new(0, 7)
+	local wStroke = Instance.new("UIStroke", wrap)
+	wStroke.Color = Color3.fromRGB(65, 34, 12); wStroke.Thickness = 1
+
+	local iconRow = Instance.new("Frame", wrap)
+	iconRow.Size               = UDim2.new(1, 0, 0, 40)
+	iconRow.BackgroundTransparency = 1
+	local iconLbl = Instance.new("TextLabel", iconRow)
+	iconLbl.Size               = UDim2.fromScale(1, 1)
+	iconLbl.BackgroundTransparency = 1
+	iconLbl.Text               = "🗝️"
+	iconLbl.TextSize           = 20
+	iconLbl.Font               = Enum.Font.Gotham
+	iconLbl.TextXAlignment     = Enum.TextXAlignment.Center
+
+	local hint = Instance.new("TextLabel", wrap)
+	hint.Size               = UDim2.new(1, -20, 0, 14)
+	hint.Position           = UDim2.fromOffset(10, 40)
+	hint.BackgroundTransparency = 1
+	hint.TextColor3         = Color3.fromRGB(85, 50, 18)
+	hint.Font               = Enum.Font.Gotham
+	hint.TextSize           = 10
+	hint.TextXAlignment     = Enum.TextXAlignment.Center
+	hint.Text               = "Enter key below  ·  Hint: check the script source"
+
+	local box = Instance.new("TextBox", wrap)
+	box.Size               = UDim2.new(1, -20, 0, 30)
+	box.Position           = UDim2.fromOffset(10, 58)
+	box.BackgroundColor3   = Color3.fromRGB(12, 7, 3)
+	box.BorderSizePixel    = 0
+	box.TextColor3         = Color3.fromRGB(230, 185, 130)
+	box.PlaceholderColor3  = Color3.fromRGB(90, 52, 20)
+	box.Font               = Enum.Font.GothamSemibold
+	box.TextSize           = 13
+	box.PlaceholderText    = "Enter key..."
+	box.Text               = ""
+	box.ClearTextOnFocus   = true
+	box.TextXAlignment     = Enum.TextXAlignment.Center
+	Instance.new("UICorner", box).CornerRadius = UDim.new(0, 5)
+	local bStroke = Instance.new("UIStroke", box)
+	bStroke.Color = Color3.fromRGB(75, 40, 14); bStroke.Thickness = 1; bStroke.Transparency = 0.2
+	box.Focused:Connect(function()
+		TweenService:Create(bStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(210, 115, 40), Transparency=0}):Play()
+	end)
+	box.FocusLost:Connect(function()
+		TweenService:Create(bStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+	end)
+
+	local status = Instance.new("TextLabel", wrap)
+	status.Size               = UDim2.new(1, -20, 0, 14)
+	status.Position           = UDim2.fromOffset(10, 94)
+	status.BackgroundTransparency = 1
+	status.TextColor3         = Color3.fromRGB(100, 60, 22)
+	status.Font               = Enum.Font.Gotham
+	status.TextSize           = 10
+	status.Text               = ""
+	status.TextXAlignment     = Enum.TextXAlignment.Center
+
+	local confirmBtn = mkBtn(panel, 174, 452, 0, "Confirm Key  →", true)
+
+	local passed, attempts = false, 0
+
+	local function shake()
+		local orig = box.Position
+		for _ = 1, 4 do
+			TweenService:Create(box, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(6,0)}):Play(); task.wait(0.04)
+			TweenService:Create(box, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(-6,0)}):Play(); task.wait(0.04)
+		end
+		TweenService:Create(box, TweenInfo.new(0.04), {Position=orig}):Play()
+	end
+
+	local function tryKey()
+		if passed then return end
+		local valid = false
+		for _, kv in ipairs(VALID_KEYS) do if box.Text == kv then valid = true; break end end
+		if valid then
+			passed = true
+			TweenService:Create(bStroke, TweenInfo.new(0.15), {Color=BLOOM.keyOk}):Play()
+			TweenService:Create(box, TweenInfo.new(0.15), {TextColor3=BLOOM.keyOk}):Play()
+			TweenService:Create(wStroke, TweenInfo.new(0.2), {Color=BLOOM.keyOk}):Play()
+			status.TextColor3 = BLOOM.keyOk; status.Text = "✓  Key accepted"
+			TweenService:Create(confirmBtn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(40, 155, 65)}):Play()
+			task.wait(0.55)
+			if onPass then onPass() end
+		else
+			attempts += 1; shake()
+			TweenService:Create(bStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+			TweenService:Create(box, TweenInfo.new(0.1), {TextColor3=BLOOM.keyErr}):Play()
+			TweenService:Create(wStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+			status.TextColor3 = BLOOM.keyErr
+			status.Text = attempts >= 3 and ("✗  Invalid  ·  "..attempts.." attempts") or "✗  Invalid key"
+			task.wait(0.75)
+			TweenService:Create(bStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+			TweenService:Create(box, TweenInfo.new(0.2), {TextColor3=Color3.fromRGB(230, 185, 130)}):Play()
+			TweenService:Create(wStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(65, 34, 12)}):Play()
+			box.Text = ""
+		end
+	end
+
+	confirmBtn.MouseButton1Click:Connect(tryKey)
+	box.FocusLost:Connect(function(enter) if enter then tryKey() end end)
+	return panel
 end
 
 petalConn = RunService.RenderStepped:Connect(function(dt)
@@ -269,308 +395,140 @@ petalConn = RunService.RenderStepped:Connect(function(dt)
 	end
 end)
 
-local resolved = false
-local function proceed() resolved = true end
-
 if isOwner then
-
 	local OwnerPanel = Instance.new("Frame", Body)
-	OwnerPanel.Size = UDim2.fromScale(1, 1)
+	OwnerPanel.Size               = UDim2.fromScale(1, 1)
 	OwnerPanel.BackgroundTransparency = 1
 
 	mkSecLabel(OwnerPanel, 0, "Owner Detected  ·  "..lp.Name)
 	mkDiv(OwnerPanel, 20)
 
 	local crownRow = Instance.new("Frame", OwnerPanel)
-	crownRow.Size = UDim2.new(1, 0, 0, 52)
-	crownRow.Position = UDim2.fromOffset(0, 26)
-	crownRow.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
+	crownRow.Size                   = UDim2.new(1, 0, 0, 54)
+	crownRow.Position               = UDim2.fromOffset(0, 26)
+	crownRow.BackgroundColor3       = Color3.fromRGB(26, 14, 7)
 	crownRow.BackgroundTransparency = 0.25
-	crownRow.BorderSizePixel = 0
+	crownRow.BorderSizePixel        = 0
 	Instance.new("UICorner", crownRow).CornerRadius = UDim.new(0, 7)
-	local crownStroke = Instance.new("UIStroke", crownRow)
-	crownStroke.Color = Color3.fromRGB(200, 120, 40); crownStroke.Thickness = 1; crownStroke.Transparency = 0.15
+	local crownS = Instance.new("UIStroke", crownRow)
+	crownS.Color = Color3.fromRGB(200, 120, 40); crownS.Thickness = 1; crownS.Transparency = 0.15
 
 	local crownIcon = Instance.new("TextLabel", crownRow)
-	crownIcon.Size = UDim2.fromOffset(52, 52); crownIcon.BackgroundTransparency = 1
-	crownIcon.Text = "👑"; crownIcon.TextSize = 24; crownIcon.Font = Enum.Font.Gotham
-	crownIcon.TextXAlignment = Enum.TextXAlignment.Center
+	crownIcon.Size               = UDim2.fromOffset(52, 54)
+	crownIcon.BackgroundTransparency = 1
+	crownIcon.Text               = "👑"
+	crownIcon.TextSize           = 24
+	crownIcon.Font               = Enum.Font.Gotham
+	crownIcon.TextXAlignment     = Enum.TextXAlignment.Center
 
 	local sep = Instance.new("Frame", crownRow)
-	sep.Size = UDim2.fromOffset(1, 32); sep.Position = UDim2.fromOffset(52, 10)
-	sep.BackgroundColor3 = Color3.fromRGB(90, 48, 14); sep.BorderSizePixel = 0
+	sep.Size             = UDim2.fromOffset(1, 32)
+	sep.Position         = UDim2.fromOffset(52, 11)
+	sep.BackgroundColor3 = Color3.fromRGB(90, 48, 14)
+	sep.BorderSizePixel  = 0
 
-	local greetMain = Instance.new("TextLabel", crownRow)
-	greetMain.Size = UDim2.new(1, -66, 0, 22); greetMain.Position = UDim2.fromOffset(62, 7)
-	greetMain.BackgroundTransparency = 1; greetMain.TextColor3 = Color3.fromRGB(255, 210, 140)
-	greetMain.Font = Enum.Font.GothamBold; greetMain.TextSize = 14
-	greetMain.TextXAlignment = Enum.TextXAlignment.Left
-	greetMain.Text = "Welcome back, "..lp.Name.."  🌺"
+	local gMain = Instance.new("TextLabel", crownRow)
+	gMain.Size               = UDim2.new(1, -66, 0, 22)
+	gMain.Position           = UDim2.fromOffset(62, 8)
+	gMain.BackgroundTransparency = 1
+	gMain.TextColor3         = Color3.fromRGB(255, 210, 140)
+	gMain.Font               = Enum.Font.GothamBold
+	gMain.TextSize           = 14
+	gMain.TextXAlignment     = Enum.TextXAlignment.Left
+	gMain.Text               = "Welcome back, "..lp.Name.."  🌺"
 
-	local greetSub = Instance.new("TextLabel", crownRow)
-	greetSub.Size = UDim2.new(1, -66, 0, 13); greetSub.Position = UDim2.fromOffset(62, 30)
-	greetSub.BackgroundTransparency = 1; greetSub.TextColor3 = Color3.fromRGB(120, 70, 25)
-	greetSub.Font = Enum.Font.Gotham; greetSub.TextSize = 10
-	greetSub.TextXAlignment = Enum.TextXAlignment.Left
-	greetSub.Text = "Whitelisted  ·  Full access  ·  No key required"
+	local gSub = Instance.new("TextLabel", crownRow)
+	gSub.Size               = UDim2.new(1, -66, 0, 13)
+	gSub.Position           = UDim2.fromOffset(62, 32)
+	gSub.BackgroundTransparency = 1
+	gSub.TextColor3         = Color3.fromRGB(120, 70, 25)
+	gSub.Font               = Enum.Font.Gotham
+	gSub.TextSize           = 10
+	gSub.TextXAlignment     = Enum.TextXAlignment.Left
+	gSub.Text               = "Whitelisted  ·  Full access  ·  Key gate bypassed for you"
 
-	mkDiv(OwnerPanel, 90)
+	mkDiv(OwnerPanel, 92)
 
 	local promptLbl = Instance.new("TextLabel", OwnerPanel)
-	promptLbl.Size = UDim2.new(1, 0, 0, 28); promptLbl.Position = UDim2.fromOffset(0, 96)
-	promptLbl.BackgroundTransparency = 1; promptLbl.TextColor3 = Color3.fromRGB(175, 118, 65)
-	promptLbl.Font = Enum.Font.GothamSemibold; promptLbl.TextSize = 12
-	promptLbl.TextXAlignment = Enum.TextXAlignment.Center
-	promptLbl.Text = "Do you want to enable the key system for other users, Owner?"
+	promptLbl.Size               = UDim2.new(1, 0, 0, 28)
+	promptLbl.Position           = UDim2.fromOffset(0, 98)
+	promptLbl.BackgroundTransparency = 1
+	promptLbl.TextColor3         = Color3.fromRGB(175, 118, 65)
+	promptLbl.Font               = Enum.Font.GothamSemibold
+	promptLbl.TextSize           = 12
+	promptLbl.TextXAlignment     = Enum.TextXAlignment.Center
+	promptLbl.Text               = "Do you want to enable the key system for other users, Owner?"
 
 	local promptNote = Instance.new("TextLabel", OwnerPanel)
-	promptNote.Size = UDim2.new(1, 0, 0, 14); promptNote.Position = UDim2.fromOffset(0, 124)
-	promptNote.BackgroundTransparency = 1; promptNote.TextColor3 = Color3.fromRGB(90, 52, 18)
-	promptNote.Font = Enum.Font.Gotham; promptNote.TextSize = 10
-	promptNote.TextXAlignment = Enum.TextXAlignment.Center
-	promptNote.Text = "Choosing 'No' — key gate will be skipped globally this session"
+	promptNote.Size               = UDim2.new(1, 0, 0, 14)
+	promptNote.Position           = UDim2.fromOffset(0, 126)
+	promptNote.BackgroundTransparency = 1
+	promptNote.TextColor3         = Color3.fromRGB(90, 52, 18)
+	promptNote.Font               = Enum.Font.Gotham
+	promptNote.TextSize           = 10
+	promptNote.TextXAlignment     = Enum.TextXAlignment.Center
+	promptNote.Text               = "'No' skips the key gate entirely this session for all users"
 
-	mkDiv(OwnerPanel, 146)
+	mkDiv(OwnerPanel, 148)
 
-	local btnW = 210
-	local totalW = btnW * 2 + 10
+	local bW    = 215
+	local gap   = 10
+	local totalW = bW * 2 + gap
 	local startX = math.floor((452 - totalW) / 2)
 
-	local YesBtn = mkBtn(OwnerPanel, 152, btnW, startX, "✅  Yes — Enable Key System", true)
-	local NoBtn  = mkBtn(OwnerPanel, 152, btnW, startX + btnW + 10, "✖  No — Skip Key System", false)
+	local YesBtn = mkBtn(OwnerPanel, 154, bW, startX,          "✅  Yes — Require Key", true)
+	local NoBtn  = mkBtn(OwnerPanel, 154, bW, startX + bW + gap, "✖  No — Skip Key Gate", false)
 
-	local KeyPanel = Instance.new("Frame", Body)
-	KeyPanel.Size = UDim2.fromScale(1, 1); KeyPanel.BackgroundTransparency = 1; KeyPanel.Visible = false
-
-	mkSecLabel(KeyPanel, 0, "Key System  ·  Owner Choice")
-	mkDiv(KeyPanel, 20)
-
-	local note = Instance.new("TextLabel", KeyPanel)
-	note.Size = UDim2.new(1, 0, 0, 16); note.Position = UDim2.fromOffset(0, 26)
-	note.BackgroundTransparency = 1; note.TextColor3 = Color3.fromRGB(120, 70, 25)
-	note.Font = Enum.Font.Gotham; note.TextSize = 10
-	note.TextXAlignment = Enum.TextXAlignment.Center
-	note.Text = "Key system active this session — owner bypass still applied to you"
-
-	local keyWrap = Instance.new("Frame", KeyPanel)
-	keyWrap.Size = UDim2.new(1, 0, 0, 132); keyWrap.Position = UDim2.fromOffset(0, 48)
-	keyWrap.BackgroundColor3 = Color3.fromRGB(16, 9, 4)
-	keyWrap.BackgroundTransparency = 0.4; keyWrap.BorderSizePixel = 0
-	Instance.new("UICorner", keyWrap).CornerRadius = UDim.new(0, 7)
-	local keyCardStroke = Instance.new("UIStroke", keyWrap)
-	keyCardStroke.Color = Color3.fromRGB(65, 34, 12); keyCardStroke.Thickness = 1
-
-	local keyIconRow = Instance.new("Frame", keyWrap)
-	keyIconRow.Size = UDim2.new(1, 0, 0, 40); keyIconRow.BackgroundTransparency = 1
-	local keyIconLbl = Instance.new("TextLabel", keyIconRow)
-	keyIconLbl.Size = UDim2.fromScale(1, 1); keyIconLbl.BackgroundTransparency = 1
-	keyIconLbl.Text = "🗝️"; keyIconLbl.TextSize = 20; keyIconLbl.Font = Enum.Font.Gotham
-	keyIconLbl.TextXAlignment = Enum.TextXAlignment.Center
-
-	local keyHint = Instance.new("TextLabel", keyWrap)
-	keyHint.Size = UDim2.new(1, -20, 0, 14); keyHint.Position = UDim2.fromOffset(10, 40)
-	keyHint.BackgroundTransparency = 1; keyHint.TextColor3 = Color3.fromRGB(85, 50, 18)
-	keyHint.Font = Enum.Font.Gotham; keyHint.TextSize = 10
-	keyHint.TextXAlignment = Enum.TextXAlignment.Center
-	keyHint.Text = "Enter key below  ·  Hint: check script source"
-
-	local KeyBox = Instance.new("TextBox", keyWrap)
-	KeyBox.Size = UDim2.new(1, -20, 0, 30); KeyBox.Position = UDim2.fromOffset(10, 58)
-	KeyBox.BackgroundColor3 = Color3.fromRGB(12, 7, 3); KeyBox.BorderSizePixel = 0
-	KeyBox.TextColor3 = Color3.fromRGB(230, 185, 130)
-	KeyBox.PlaceholderColor3 = Color3.fromRGB(90, 52, 20)
-	KeyBox.Font = Enum.Font.GothamSemibold; KeyBox.TextSize = 13
-	KeyBox.PlaceholderText = "Enter key..."; KeyBox.Text = ""
-	KeyBox.ClearTextOnFocus = true; KeyBox.TextXAlignment = Enum.TextXAlignment.Center
-	Instance.new("UICorner", KeyBox).CornerRadius = UDim.new(0, 5)
-	local kbStroke = Instance.new("UIStroke", KeyBox)
-	kbStroke.Color = Color3.fromRGB(75, 40, 14); kbStroke.Thickness = 1; kbStroke.Transparency = 0.2
-	KeyBox.Focused:Connect(function()
-		TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(210, 115, 40), Transparency=0}):Play()
-	end)
-	KeyBox.FocusLost:Connect(function()
-		TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
-	end)
-
-	local KeyStatus = Instance.new("TextLabel", keyWrap)
-	KeyStatus.Size = UDim2.new(1, -20, 0, 14); KeyStatus.Position = UDim2.fromOffset(10, 94)
-	KeyStatus.BackgroundTransparency = 1; KeyStatus.TextColor3 = Color3.fromRGB(100, 60, 22)
-	KeyStatus.Font = Enum.Font.Gotham; KeyStatus.TextSize = 10; KeyStatus.Text = ""
-	KeyStatus.TextXAlignment = Enum.TextXAlignment.Center
-
-	local KeyConfirm = mkBtn(KeyPanel, 190, 452, 0, "Confirm Key  →", true)
-
-	local keyPassed, attempts = false, 0
-
-	local function shakeBox()
-		local orig = KeyBox.Position
-		for _ = 1, 4 do
-			TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(6,0)}):Play(); task.wait(0.04)
-			TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(-6,0)}):Play(); task.wait(0.04)
-		end
-		TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig}):Play()
-	end
-
-	local function tryKey()
-		if keyPassed then return end
-		local input = KeyBox.Text
-		local valid = false
-		for _, kv in ipairs(VALID_KEYS) do if input == kv then valid = true; break end end
-		if valid then
-			keyPassed = true
-			TweenService:Create(kbStroke, TweenInfo.new(0.15), {Color=BLOOM.keyOk}):Play()
-			TweenService:Create(KeyBox, TweenInfo.new(0.15), {TextColor3=BLOOM.keyOk}):Play()
-			TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=BLOOM.keyOk}):Play()
-			KeyStatus.TextColor3 = BLOOM.keyOk; KeyStatus.Text = "✓  Key accepted"
-			TweenService:Create(KeyConfirm, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(40, 155, 65)}):Play()
-			task.wait(0.55)
-			dismissGui(proceed)
-		else
-			attempts += 1; shakeBox()
-			TweenService:Create(kbStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
-			TweenService:Create(KeyBox, TweenInfo.new(0.1), {TextColor3=BLOOM.keyErr}):Play()
-			TweenService:Create(keyCardStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
-			KeyStatus.TextColor3 = BLOOM.keyErr
-			KeyStatus.Text = attempts >= 3 and ("✗  Invalid  ·  "..attempts.." attempts") or "✗  Invalid key"
-			task.wait(0.75)
-			TweenService:Create(kbStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
-			TweenService:Create(KeyBox, TweenInfo.new(0.2), {TextColor3=Color3.fromRGB(230, 185, 130)}):Play()
-			TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(65, 34, 12)}):Play()
-			KeyBox.Text = ""
-		end
-	end
-
-	KeyConfirm.MouseButton1Click:Connect(tryKey)
-	KeyBox.FocusLost:Connect(function(enter) if enter then tryKey() end end)
+	local keyPanel = buildKeyPanel(Body, dismissGui)
 
 	local ownerDone = false
 
 	YesBtn.MouseButton1Click:Connect(function()
 		if ownerDone then return end
 		ownerDone = true
-		TweenService:Create(YesBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(230, 255, 230)}):Play()
+		getgenv()._nihon_skip_key = false
+		TweenService:Create(YesBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(220, 255, 220)}):Play()
 		task.wait(0.22)
-		slideOut(OwnerPanel, KeyPanel)
+		slideOut(OwnerPanel, keyPanel)
 	end)
 
 	NoBtn.MouseButton1Click:Connect(function()
 		if ownerDone then return end
 		ownerDone = true
-		TweenService:Create(NoBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 30, 10), TextColor3=Color3.fromRGB(200, 140, 60)}):Play()
+		getgenv()._nihon_skip_key = true
+		TweenService:Create(NoBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(50, 28, 10), TextColor3=Color3.fromRGB(200, 140, 60)}):Play()
 		task.wait(0.22)
-		dismissGui(proceed)
+		dismissGui()
 	end)
 
-	repeat task.wait(0.05) until resolved
-
 else
+	getgenv()._nihon_skip_key = false
 
-	local KeyOnlyPanel = Instance.new("Frame", Body)
-	KeyOnlyPanel.Size = UDim2.fromScale(1, 1); KeyOnlyPanel.BackgroundTransparency = 1
+	local keyPanel = buildKeyPanel(Body, dismissGui)
+	keyPanel.Visible = true
 
-	mkSecLabel(KeyOnlyPanel, 0, "Access Required")
-	mkDiv(KeyOnlyPanel, 20)
-
-	local infoRow = Instance.new("Frame", KeyOnlyPanel)
-	infoRow.Size = UDim2.new(1, 0, 0, 36); infoRow.Position = UDim2.fromOffset(0, 26)
-	infoRow.BackgroundColor3 = Color3.fromRGB(22, 12, 5)
-	infoRow.BackgroundTransparency = 0.35; infoRow.BorderSizePixel = 0
+	local infoRow = Instance.new("Frame", Body)
+	infoRow.Size                   = UDim2.new(1, 0, 0, 28)
+	infoRow.Position               = UDim2.fromOffset(0, 0)
+	infoRow.BackgroundColor3       = Color3.fromRGB(22, 12, 5)
+	infoRow.BackgroundTransparency = 0.35
+	infoRow.BorderSizePixel        = 0
 	Instance.new("UICorner", infoRow).CornerRadius = UDim.new(0, 5)
-	local infoStroke = Instance.new("UIStroke", infoRow)
-	infoStroke.Color = Color3.fromRGB(65, 34, 12); infoStroke.Thickness = 1; infoStroke.Transparency = 0.4
+	local infoS = Instance.new("UIStroke", infoRow)
+	infoS.Color = Color3.fromRGB(65, 34, 12); infoS.Thickness = 1; infoS.Transparency = 0.4
 	local infoLbl = Instance.new("TextLabel", infoRow)
-	infoLbl.Size = UDim2.fromScale(1, 1); infoLbl.BackgroundTransparency = 1
-	infoLbl.TextColor3 = Color3.fromRGB(150, 90, 35); infoLbl.Font = Enum.Font.Gotham; infoLbl.TextSize = 11
-	infoLbl.TextXAlignment = Enum.TextXAlignment.Center
-	infoLbl.Text = "🔑  You are not on the whitelist  —  a valid key is required"
+	infoLbl.Size               = UDim2.fromScale(1, 1)
+	infoLbl.BackgroundTransparency = 1
+	infoLbl.TextColor3         = Color3.fromRGB(150, 90, 35)
+	infoLbl.Font               = Enum.Font.Gotham
+	infoLbl.TextSize           = 11
+	infoLbl.TextXAlignment     = Enum.TextXAlignment.Center
+	infoLbl.Text               = "🔑  Not whitelisted  —  valid key required to proceed"
 
-	local keyWrap2 = Instance.new("Frame", KeyOnlyPanel)
-	keyWrap2.Size = UDim2.new(1, 0, 0, 128); keyWrap2.Position = UDim2.fromOffset(0, 70)
-	keyWrap2.BackgroundColor3 = Color3.fromRGB(16, 9, 4)
-	keyWrap2.BackgroundTransparency = 0.4; keyWrap2.BorderSizePixel = 0
-	Instance.new("UICorner", keyWrap2).CornerRadius = UDim.new(0, 7)
-	local kcs2 = Instance.new("UIStroke", keyWrap2)
-	kcs2.Color = Color3.fromRGB(65, 34, 12); kcs2.Thickness = 1
-
-	local ki2 = Instance.new("Frame", keyWrap2)
-	ki2.Size = UDim2.new(1, 0, 0, 38); ki2.BackgroundTransparency = 1
-	local kil2 = Instance.new("TextLabel", ki2)
-	kil2.Size = UDim2.fromScale(1, 1); kil2.BackgroundTransparency = 1
-	kil2.Text = "🗝️"; kil2.TextSize = 20; kil2.Font = Enum.Font.Gotham
-	kil2.TextXAlignment = Enum.TextXAlignment.Center
-
-	local kHint2 = Instance.new("TextLabel", keyWrap2)
-	kHint2.Size = UDim2.new(1, -20, 0, 14); kHint2.Position = UDim2.fromOffset(10, 38)
-	kHint2.BackgroundTransparency = 1; kHint2.TextColor3 = Color3.fromRGB(85, 50, 18)
-	kHint2.Font = Enum.Font.Gotham; kHint2.TextSize = 10; kHint2.TextXAlignment = Enum.TextXAlignment.Center
-	kHint2.Text = "Enter key below  ·  Hint: check the script source"
-
-	local KeyBox2 = Instance.new("TextBox", keyWrap2)
-	KeyBox2.Size = UDim2.new(1, -20, 0, 30); KeyBox2.Position = UDim2.fromOffset(10, 56)
-	KeyBox2.BackgroundColor3 = Color3.fromRGB(12, 7, 3); KeyBox2.BorderSizePixel = 0
-	KeyBox2.TextColor3 = Color3.fromRGB(230, 185, 130); KeyBox2.PlaceholderColor3 = Color3.fromRGB(90, 52, 20)
-	KeyBox2.Font = Enum.Font.GothamSemibold; KeyBox2.TextSize = 13
-	KeyBox2.PlaceholderText = "Enter key..."; KeyBox2.Text = ""
-	KeyBox2.ClearTextOnFocus = true; KeyBox2.TextXAlignment = Enum.TextXAlignment.Center
-	Instance.new("UICorner", KeyBox2).CornerRadius = UDim.new(0, 5)
-	local kbs2 = Instance.new("UIStroke", KeyBox2)
-	kbs2.Color = Color3.fromRGB(75, 40, 14); kbs2.Thickness = 1; kbs2.Transparency = 0.2
-	KeyBox2.Focused:Connect(function() TweenService:Create(kbs2, TweenInfo.new(0.14), {Color=Color3.fromRGB(210, 115, 40), Transparency=0}):Play() end)
-	KeyBox2.FocusLost:Connect(function() TweenService:Create(kbs2, TweenInfo.new(0.14), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play() end)
-
-	local KStatus2 = Instance.new("TextLabel", keyWrap2)
-	KStatus2.Size = UDim2.new(1, -20, 0, 14); KStatus2.Position = UDim2.fromOffset(10, 90)
-	KStatus2.BackgroundTransparency = 1; KStatus2.TextColor3 = Color3.fromRGB(100, 60, 22)
-	KStatus2.Font = Enum.Font.Gotham; KStatus2.TextSize = 10; KStatus2.Text = ""
-	KStatus2.TextXAlignment = Enum.TextXAlignment.Center
-
-	local ConfirmBtn2 = mkBtn(KeyOnlyPanel, 208, 452, 0, "Confirm Key  →", true)
-
-	local kp2, att2 = false, 0
-
-	local function shakeBox2()
-		local orig = KeyBox2.Position
-		for _ = 1, 4 do
-			TweenService:Create(KeyBox2, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(6,0)}):Play(); task.wait(0.04)
-			TweenService:Create(KeyBox2, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(-6,0)}):Play(); task.wait(0.04)
-		end
-		TweenService:Create(KeyBox2, TweenInfo.new(0.04), {Position=orig}):Play()
-	end
-
-	local function tryKey2()
-		if kp2 then return end
-		local input = KeyBox2.Text
-		local valid = false
-		for _, kv in ipairs(VALID_KEYS) do if input == kv then valid = true; break end end
-		if valid then
-			kp2 = true
-			TweenService:Create(kbs2, TweenInfo.new(0.15), {Color=BLOOM.keyOk}):Play()
-			TweenService:Create(KeyBox2, TweenInfo.new(0.15), {TextColor3=BLOOM.keyOk}):Play()
-			TweenService:Create(kcs2, TweenInfo.new(0.2), {Color=BLOOM.keyOk}):Play()
-			KStatus2.TextColor3 = BLOOM.keyOk; KStatus2.Text = "✓  Key accepted"
-			TweenService:Create(ConfirmBtn2, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(40, 155, 65)}):Play()
-			task.wait(0.55)
-			dismissGui(proceed)
-		else
-			att2 += 1; shakeBox2()
-			TweenService:Create(kbs2, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
-			TweenService:Create(KeyBox2, TweenInfo.new(0.1), {TextColor3=BLOOM.keyErr}):Play()
-			TweenService:Create(kcs2, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
-			KStatus2.TextColor3 = BLOOM.keyErr
-			KStatus2.Text = att2 >= 3 and ("✗  Invalid  ·  "..att2.." attempts") or "✗  Invalid key"
-			task.wait(0.75)
-			TweenService:Create(kbs2, TweenInfo.new(0.2), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
-			TweenService:Create(KeyBox2, TweenInfo.new(0.2), {TextColor3=Color3.fromRGB(230, 185, 130)}):Play()
-			TweenService:Create(kcs2, TweenInfo.new(0.2), {Color=Color3.fromRGB(65, 34, 12)}):Play()
-			KeyBox2.Text = ""
-		end
-	end
-
-	ConfirmBtn2.MouseButton1Click:Connect(tryKey2)
-	KeyBox2.FocusLost:Connect(function(enter) if enter then tryKey2() end end)
-
-	repeat task.wait(0.05) until resolved
+	keyPanel.Position = UDim2.fromOffset(0, 32)
 end
+
+repeat task.wait(0.05) until resolved
 
 local m = {}
 m._ok = true
