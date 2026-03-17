@@ -1,274 +1,268 @@
--- ╔══════════════════════════════════════════╗
--- ║     NihonGo Status Tags - FIXED          ║
--- ║     No more billboard scaling BS         ║
--- ╚══════════════════════════════════════════╝
-
 local k="NihonLoader_Key_Real"
 if getgenv()._nl~=k then return end
 
 local p=game:GetService("Players")
 local r=game:GetService("RunService")
 local t=game:GetService("TweenService")
-local uis=game:GetService("UserInputService")
+local cam=workspace.CurrentCamera
 
 local lp=p.LocalPlayer
 local OWNER="SkibidihhhToiwet"
-local SCRIPT_USERS={}
-SCRIPT_USERS[lp.Name]=true
-local boards={}
-local state={}
-local EXPAND=30
+local EXPAND_DIST=35
+local TAG_PX=UDim2.fromOffset(180,58)
+local DOT_PX=UDim2.fromOffset(30,30)
+local BASE_STUD_DIST=20
 
-local COLORS={
-	owner=Color3.fromRGB(255,215,100),
-	user=Color3.fromRGB(255,140,80),
-	bg=Color3.fromRGB(20,18,24),
-	text=Color3.fromRGB(255,255,255),
-	stroke=Color3.fromRGB(50,50,60),
+local C={
+	owner=Color3.fromRGB(255,200,80),
+	user=Color3.fromRGB(120,180,255),
+	bg=Color3.fromRGB(14,13,18),
+	bgrim=Color3.fromRGB(22,20,28),
+	text=Color3.fromRGB(235,235,240),
+	sub=Color3.fromRGB(140,135,155),
+	stroke_o=Color3.fromRGB(255,190,60),
+	stroke_u=Color3.fromRGB(90,150,240),
 }
 
-local function tw(o,p2,v,d)
-	if not o or not o.Parent then return end
-	local i=TweenInfo.new(d,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)
-	local tw=t:Create(o,i,{[p2]=v})
-	tw:Play()
-	return tw
+local boards={}
+local expanded={}
+
+local function clearKids(inst)
+	for _,v in inst:GetChildren() do v:Destroy() end
 end
 
-local function clear(b)
-	for _,v in pairs(b:GetChildren()) do
-		pcall(function()v:Destroy()end)
-	end
+local function corner(p2,r2)
+	local c=Instance.new("UICorner",p2)
+	c.CornerRadius=UDim.new(0,r2)
 end
 
--- EXPANDED UI - Proper fixed scaling
-local function ui_big(b,plr,isOwner)
-	clear(b)
-	
-	local accentColor=isOwner and COLORS.owner or COLORS.user
-	
-	-- Main card frame
-	local mainFrame=Instance.new("Frame",b)
-	mainFrame.Name="MainCard"
-	mainFrame.Size=UDim2.fromScale(1,1)
-	mainFrame.BackgroundColor3=COLORS.bg
-	mainFrame.BorderSizePixel=0
-	
-	local corner=Instance.new("UICorner",mainFrame)
-	corner.CornerRadius=UDim.new(0,10)
-	
-	local stroke=Instance.new("UIStroke",mainFrame)
-	stroke.Color=accentColor
-	stroke.Thickness=2
-	stroke.Transparency=0.2
-	
-	-- Top bar accent
-	local topBar=Instance.new("Frame",mainFrame)
-	topBar.Size=UDim2.new(1,0,0,4)
-	topBar.BackgroundColor3=accentColor
-	topBar.BorderSizePixel=0
-	
-	-- Icon
-	local icon=Instance.new("TextLabel",mainFrame)
-	icon.Size=UDim2.fromOffset(35,50)
-	icon.Position=UDim2.fromOffset(10,0)
-	icon.BackgroundTransparency=1
-	icon.Text=isOwner and "🌺" or "🌸"
-	icon.TextSize=20
-	icon.Font=Enum.Font.Gotham
-	icon.TextScaled=true
-	
-	-- Text container
-	local textBox=Instance.new("Frame",mainFrame)
-	textBox.Size=UDim2.new(1,-50,1,-4)
-	textBox.Position=UDim2.fromOffset(50,4)
-	textBox.BackgroundTransparency=1
-	
-	-- Username
-	local nameLabel=Instance.new("TextLabel",textBox)
-	nameLabel.Size=UDim2.fromScale(1,0.5)
-	nameLabel.BackgroundTransparency=1
-	nameLabel.Text=plr.Name
-	nameLabel.TextScaled=true
-	nameLabel.Font=Enum.Font.GothamBold
-	nameLabel.TextColor3=COLORS.text
-	nameLabel.TextXAlignment=Enum.TextXAlignment.Left
-	nameLabel.TextYAlignment=Enum.TextYAlignment.Bottom
-	nameLabel.TextTruncate=Enum.TextTruncate.AtEnd
-	
-	-- Status
-	local statusLabel=Instance.new("TextLabel",textBox)
-	statusLabel.Size=UDim2.fromScale(1,0.5)
-	statusLabel.Position=UDim2.fromOffset(0,22)
-	statusLabel.BackgroundTransparency=1
-	statusLabel.Text=isOwner and "👑 OWNER" or "🌱 USER"
-	statusLabel.TextScaled=true
-	statusLabel.Font=Enum.Font.GothamBold
-	statusLabel.TextColor3=accentColor
-	statusLabel.TextXAlignment=Enum.TextXAlignment.Left
-	statusLabel.TextYAlignment=Enum.TextYAlignment.Top
-	
-	state[plr.Name]=true
+local function stroke(p2,col,thick,trans)
+	local s=Instance.new("UIStroke",p2)
+	s.Color=col s.Thickness=thick s.Transparency=trans or 0
+	return s
 end
 
--- CIRCLE UI - Compact
-local function ui_small(b,isOwner)
-	clear(b)
-	
-	local accentColor=isOwner and COLORS.owner or COLORS.user
-	
-	local circle=Instance.new("Frame",b)
-	circle.Size=UDim2.fromScale(1,1)
-	circle.BackgroundColor3=COLORS.bg
-	circle.BorderSizePixel=0
-	
-	local corner=Instance.new("UICorner",circle)
-	corner.CornerRadius=UDim.new(1,0)
-	
-	local stroke=Instance.new("UIStroke",circle)
-	stroke.Color=accentColor
-	stroke.Thickness=2
-	stroke.Transparency=0.15
-	
-	-- Pulsing dot
-	local dot=Instance.new("Frame",circle)
-	dot.Name="Dot"
-	dot.Size=UDim2.fromOffset(6,6)
+local function buildExpanded(bill,plr,isOwner)
+	clearKids(bill)
+	local ac=isOwner and C.owner or C.user
+	local sc=isOwner and C.stroke_o or C.stroke_u
+
+	local root=Instance.new("Frame",bill)
+	root.Size=UDim2.fromScale(1,1)
+	root.BackgroundColor3=C.bg
+	root.BorderSizePixel=0
+	corner(root,12)
+	stroke(root,sc,1.5,0.1)
+
+	local grad=Instance.new("UIGradient",root)
+	grad.Color=ColorSequence.new{
+		ColorSequenceKeypoint.new(0,C.bgrim),
+		ColorSequenceKeypoint.new(1,C.bg)
+	}
+	grad.Rotation=135
+
+	local bar=Instance.new("Frame",root)
+	bar.Size=UDim2.new(1,0,0,3)
+	bar.BackgroundColor3=ac
+	bar.BorderSizePixel=0
+	local bc=Instance.new("UICorner",bar)
+	bc.CornerRadius=UDim.new(0,12)
+
+	local glow=Instance.new("Frame",root)
+	glow.Size=UDim2.new(0.4,0,0,1)
+	glow.Position=UDim2.new(0.3,0,0,2)
+	glow.BackgroundColor3=Color3.fromRGB(255,255,255)
+	glow.BackgroundTransparency=0.7
+	glow.BorderSizePixel=0
+	corner(glow,4)
+
+	local avatar=Instance.new("TextLabel",root)
+	avatar.Size=UDim2.fromOffset(40,52)
+	avatar.Position=UDim2.new(0,8,0,3)
+	avatar.BackgroundTransparency=1
+	avatar.Text=isOwner and "👑" or "✦"
+	avatar.TextSize=isOwner and 22 or 16
+	avatar.Font=Enum.Font.Gotham
+	avatar.TextColor3=ac
+	avatar.TextXAlignment=Enum.TextXAlignment.Center
+	avatar.TextYAlignment=Enum.TextYAlignment.Center
+
+	local right=Instance.new("Frame",root)
+	right.Size=UDim2.new(1,-54,1,-4)
+	right.Position=UDim2.new(0,50,0,3)
+	right.BackgroundTransparency=1
+
+	local name=Instance.new("TextLabel",right)
+	name.Size=UDim2.new(1,0,0,26)
+	name.Position=UDim2.new(0,0,0,6)
+	name.BackgroundTransparency=1
+	name.Text=plr.Name
+	name.Font=Enum.Font.GothamBold
+	name.TextSize=13
+	name.TextColor3=C.text
+	name.TextXAlignment=Enum.TextXAlignment.Left
+	name.TextTruncate=Enum.TextTruncate.AtEnd
+	name.ClipsDescendants=true
+
+	local badge=Instance.new("Frame",right)
+	badge.Size=UDim2.new(0,isOwner and 68 or 52,0,16)
+	badge.Position=UDim2.new(0,0,0,30)
+	badge.BackgroundColor3=ac
+	badge.BackgroundTransparency=0.82
+	badge.BorderSizePixel=0
+	corner(badge,6)
+	stroke(badge,ac,1,0.4)
+
+	local badgeTxt=Instance.new("TextLabel",badge)
+	badgeTxt.Size=UDim2.fromScale(1,1)
+	badgeTxt.BackgroundTransparency=1
+	badgeTxt.Text=isOwner and "OWNER" or "USER"
+	badgeTxt.Font=Enum.Font.GothamBold
+	badgeTxt.TextSize=9
+	badgeTxt.TextColor3=ac
+	badgeTxt.TextXAlignment=Enum.TextXAlignment.Center
+
+	expanded[plr.Name]=true
+end
+
+local function buildDot(bill,isOwner)
+	clearKids(bill)
+	local ac=isOwner and C.owner or C.user
+
+	local ring=Instance.new("Frame",bill)
+	ring.Size=UDim2.fromScale(1,1)
+	ring.BackgroundColor3=C.bg
+	ring.BackgroundTransparency=0.1
+	ring.BorderSizePixel=0
+	corner(ring,50)
+	stroke(ring,ac,1.5,0.2)
+
+	local dot=Instance.new("Frame",ring)
+	dot.Name="d"
+	dot.Size=UDim2.fromOffset(8,8)
 	dot.AnchorPoint=Vector2.new(0.5,0.5)
 	dot.Position=UDim2.fromScale(0.5,0.5)
-	dot.BackgroundColor3=accentColor
+	dot.BackgroundColor3=ac
 	dot.BorderSizePixel=0
-	
-	local dotCorner=Instance.new("UICorner",dot)
-	dotCorner.CornerRadius=UDim.new(1,0)
-	
+	corner(dot,50)
+
+	local alive=true
 	task.spawn(function()
-		while circle and circle.Parent do
-			if dot and dot.Parent then
-				tw(dot,"Size",UDim2.fromOffset(8,8),0.5)
-				task.wait(0.5)
-				if dot and dot.Parent then
-					tw(dot,"Size",UDim2.fromOffset(6,6),0.5)
-					task.wait(0.5)
-				end
-			end
+		while alive and ring.Parent do
+			local i=TweenInfo.new(0.6,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut)
+			t:Create(dot,i,{Size=UDim2.fromOffset(10,10)}):Play()
+			task.wait(0.6)
+			t:Create(dot,i,{Size=UDim2.fromOffset(6,6)}):Play()
+			task.wait(0.6)
 		end
 	end)
-	
-	state[b.Name]=false
+
+	ring.Destroying:Connect(function() alive=false end)
+	expanded[bill.Name]=false
 end
 
--- Create billboard with FIXED SIZE that doesn't scale
-local function createBillboard(plr,char,isOwner)
-	if plr==lp then return end
-	if not SCRIPT_USERS[plr.Name] then return end
-	
+local function makeBoard(plr,char,isOwner)
 	local hrp=char:FindFirstChild("HumanoidRootPart")
 	if not hrp then return end
-	
+
 	if boards[plr.Name] then
-		pcall(function()boards[plr.Name]:Destroy()end)
+		pcall(function() boards[plr.Name]:Destroy() end)
+		boards[plr.Name]=nil
 	end
-	
-	-- Create billboard with SCREEN SIZE (not stud-based)
-	-- This prevents zoom scaling
+
 	local bill=Instance.new("BillboardGui")
 	bill.Name=plr.Name
 	bill.Adornee=hrp
-	bill.MaxDistance=150
-	bill.StudsOffset=Vector3.new(0,3.5,0)
+	bill.MaxDistance=200
+	bill.StudsOffset=Vector3.new(0,3.2,0)
 	bill.ResetOnSpawn=false
-	bill.AlwaysOnTop=true
+	bill.AlwaysOnTop=false
 	bill.LightInfluence=0
+	bill.SizeOffset=Vector2.zero
+	bill.Size=TAG_PX
 	bill.Parent=hrp
-	
-	-- Set FIXED SIZE in pixels (not relative to camera)
-	bill.Size=UDim2.fromOffset(165,55)
-	
-	ui_big(bill,plr,isOwner)
+
+	buildExpanded(bill,plr,isOwner)
 	boards[plr.Name]=bill
-	print("✅ Tag created: "..plr.Name..(isOwner and " (OWNER)" or " (USER)"))
 end
 
--- Register all existing players as script users
-for _,v in pairs(p:GetPlayers()) do
-	if v~=lp then
-		SCRIPT_USERS[v.Name]=true
-		if v.Character then
-			local isOwner=v.Name==OWNER
-			createBillboard(v,v.Character,isOwner)
-		end
-		v.CharacterAdded:Connect(function(c)
-			SCRIPT_USERS[v.Name]=true
-			local isOwner=v.Name==OWNER
-			createBillboard(v,c,isOwner)
-		end)
+local function hookPlayer(plr)
+	local isOwner=plr.Name==OWNER
+	if plr.Character then
+		task.defer(makeBoard,plr,plr.Character,isOwner)
 	end
+	plr.CharacterAdded:Connect(function(c)
+		task.wait()
+		makeBoard(plr,c,isOwner)
+	end)
 end
 
--- New players
-p.PlayerAdded:Connect(function(v)
-	if v~=lp then
-		SCRIPT_USERS[v.Name]=true
-		v.CharacterAdded:Connect(function(c)
-			local isOwner=v.Name==OWNER
-			createBillboard(v,c,isOwner)
-		end)
+p.PlayerRemoving:Connect(function(plr)
+	if boards[plr.Name] then
+		boards[plr.Name]:Destroy()
+		boards[plr.Name]=nil
 	end
+	expanded[plr.Name]=nil
 end)
 
--- Player leaving
-p.PlayerRemoving:Connect(function(v)
-	if boards[v.Name] then
-		boards[v.Name]:Destroy()
-		boards[v.Name]=nil
-	end
-	SCRIPT_USERS[v.Name]=nil
-end)
-
--- Distance-based UI switching
-local lastUpdate=0
+local frame=0
 r.RenderStepped:Connect(function()
-	lastUpdate=lastUpdate+1
-	if lastUpdate<10 then return end
-	lastUpdate=0
-	
-	local ch=lp.Character
-	local hrp=ch and ch:FindFirstChild("HumanoidRootPart")
-	if not hrp then return end
-	
-	for n,b in pairs(boards) do
-		if b and b.Parent and b.Adornee then
-			local plr=p:FindFirstChild(n)
-			if plr and plr.Character then
-				local t_hrp=plr.Character:FindFirstChild("HumanoidRootPart")
-				if t_hrp then
-					local d=(hrp.Position-t_hrp.Position).Magnitude
-					local isOwner=plr.Name==OWNER
-					
-					-- Switch between expanded and circle
-					if d<EXPAND and not state[n] then
-						-- Switch to expanded
-						tw(b,"Size",UDim2.fromOffset(165,55),0.2)
-						task.wait(0.1)
-						ui_big(b,plr,isOwner)
-					elseif d>=EXPAND and state[n] then
-						-- Switch to circle
-						tw(b,"Size",UDim2.fromOffset(28,28),0.2)
-						task.wait(0.1)
-						ui_small(b,isOwner)
-					end
+	frame+=1
+
+	local lch=lp.Character
+	local lhrp=lch and lch:FindFirstChild("HumanoidRootPart")
+
+	for n,bill in pairs(boards) do
+		if not bill or not bill.Parent then
+			boards[n]=nil
+			continue
+		end
+
+		local adorn=bill.Adornee
+		if not adorn or not adorn.Parent then
+			bill:Destroy()
+			boards[n]=nil
+			continue
+		end
+
+		if frame%2==0 then
+			local dist=lhrp and (lhrp.Position-adorn.Position).Magnitude or 999
+			local wantExpand=dist<EXPAND_DIST
+
+			if wantExpand and not expanded[n] then
+				local plr=p:FindFirstChild(n)
+				if plr then
+					bill.Size=TAG_PX
+					buildExpanded(bill,plr,n==OWNER)
 				end
+			elseif not wantExpand and expanded[n] then
+				bill.Size=DOT_PX
+				buildDot(bill,n==OWNER)
+			end
+		end
+
+		if frame%1==0 then
+			local dist=lhrp and (lhrp.Position-adorn.Position).Magnitude or 0
+			local fov=cam.FieldOfView
+			local scale=math.tan(math.rad(fov/2))*dist/BASE_STUD_DIST
+			scale=math.clamp(scale,0.5,3)
+
+			if expanded[n] then
+				bill.Size=UDim2.fromOffset(180*scale,58*scale)
 			else
-				if boards[n] then
-					boards[n]:Destroy()
-					boards[n]=nil
-				end
+				bill.Size=UDim2.fromOffset(30*scale,30*scale)
 			end
 		end
 	end
 end)
 
-print("✅ NihonGo Status Tags - FIXED v1.0")
-print("✅ Zoom scaling fixed")
-print("✅ Only showing to script users")
+getgenv()._nihon_boards=boards
+getgenv()._nihon_hook=hookPlayer
+
+for _,plr in p:GetPlayers() do
+	if plr~=lp then hookPlayer(plr) end
+end
+
+p.PlayerAdded:Connect(function(plr)
+	if plr~=lp then hookPlayer(plr) end
+end)
