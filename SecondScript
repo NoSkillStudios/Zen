@@ -1,1 +1,226 @@
+-- ╔══════════════════════════════════════════╗
+-- ║       NihonGo Player Status             ║
+-- ║       Bloom Edition Companion            ║
+-- ╚══════════════════════════════════════════╝
 
+local k = "NihonLoader_Key_Real"
+if getgenv()._nl ~= k then
+	local g = Instance.new("ScreenGui")
+	g.Name = "warn"
+	g.Parent = game:GetService("CoreGui")
+	local f = Instance.new("Frame", g)
+	f.Size = UDim2.new(0, 420, 0, 140)
+	f.Position = UDim2.new(0.5, -210, 0.5, -70)
+	f.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	f.BorderSizePixel = 0
+	local c = Instance.new("UICorner", f)
+	c.CornerRadius = UDim.new(0, 10)
+	local t = Instance.new("TextLabel", f)
+	t.Size = UDim2.new(1, -20, 1, -20)
+	t.Position = UDim2.new(0, 10, 0, 10)
+	t.BackgroundTransparency = 1
+	t.TextColor3 = Color3.fromRGB(255, 80, 80)
+	t.TextScaled = true
+	t.TextWrapped = true
+	t.Font = Enum.Font.GothamBold
+	t.Text = "Warning: This script requires the official NihonGo loader."
+	return
+end
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+
+local lp = Players.LocalPlayer
+local OWNER_NAME = "SkibidihhhToiwet"
+
+-- ╔══════════════════════════════════════════╗
+-- ║          Bloom Color Palette             ║
+-- ╚══════════════════════════════════════════╝
+local BLOOM = {
+	bg         = Color3.fromRGB(18, 12, 8),
+	bgDeep     = Color3.fromRGB(28, 16, 10),
+	bgMid      = Color3.fromRGB(22, 14, 9),
+	panel      = Color3.fromRGB(36, 22, 14),
+	accent     = Color3.fromRGB(255, 140, 80),
+	accentSoft = Color3.fromRGB(255, 190, 130),
+	accentGlow = Color3.fromRGB(255, 210, 160),
+	petal1     = Color3.fromRGB(255, 160, 100),
+	petal2     = Color3.fromRGB(255, 120, 60),
+	petal3     = Color3.fromRGB(255, 200, 140),
+	petal4     = Color3.fromRGB(220, 100, 50),
+	txtMain    = Color3.fromRGB(255, 230, 200),
+	txtSub     = Color3.fromRGB(200, 155, 110),
+	owner      = Color3.fromRGB(255, 215, 100),  -- Gold for owner
+	user       = Color3.fromRGB(255, 140, 80),   -- Orange for user
+	divider    = Color3.fromRGB(70, 40, 20),
+}
+
+local statusBoards = {}
+
+local function destroyBoard(player)
+	if statusBoards[player] then
+		pcall(function()
+			statusBoards[player]:Destroy()
+		end)
+		statusBoards[player] = nil
+	end
+end
+
+local function createStatusBoard(player, character)
+	if not character then return end
+	
+	local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+	if not humanoidRootPart then return end
+	
+	-- Destroy old board if exists
+	destroyBoard(player)
+	
+	-- Determine status and color
+	local isOwner = player.Name == SkibidihhhToiwet
+	local statusText = isOwner and "👑 Owner" or "🌱 User"
+	local statusColor = isOwner and BLOOM.owner or BLOOM.user
+	local statusIcon = isOwner and "🌺" or "🌸"
+	
+	-- Create BillboardGui
+	local billboard = Instance.new("BillboardGui")
+	billboard.Name = "NihonStatusBoard"
+	billboard.Adornee = humanoidRootPart
+	billboard.MaxDistance = 100
+	billboard.Size = UDim2.fromOffset(140, 50)
+	billboard.StudsOffset = Vector3.new(0, 4.5, 0)
+	billboard.ResetOnSpawn = false
+	billboard.Parent = humanoidRootPart
+	
+	-- Main card background
+	local card = Instance.new("Frame", billboard)
+	card.Size = UDim2.fromScale(1, 1)
+	card.BackgroundColor3 = BLOOM.bgDeep
+	card.BackgroundTransparency = 0.15
+	card.BorderSizePixel = 0
+	
+	local cardCorner = Instance.new("UICorner", card)
+	cardCorner.CornerRadius = UDim.new(0, 8)
+	
+	-- Stroke with bloom color
+	local cardStroke = Instance.new("UIStroke", card)
+	cardStroke.Color = statusColor
+	cardStroke.Thickness = 1.5
+	cardStroke.Transparency = 0.1
+	
+	-- Top accent bar
+	local accentBar = Instance.new("Frame", card)
+	accentBar.Size = UDim2.new(1, 0, 0, 3)
+	accentBar.BackgroundColor3 = statusColor
+	accentBar.BorderSizePixel = 0
+	
+	local barCorner = Instance.new("UICorner", accentBar)
+	barCorner.CornerRadius = UDim.new(0, 8)
+	
+	-- Glow effect using another frame
+	local glowFrame = Instance.new("Frame", card)
+	glowFrame.Size = UDim2.new(0, 8, 1, -6)
+	glowFrame.Position = UDim2.new(0, -8, 0, 3)
+	glowFrame.BackgroundColor3 = statusColor
+	glowFrame.BackgroundTransparency = 0.7
+	glowFrame.BorderSizePixel = 0
+	
+	local glowCorner = Instance.new("UICorner", glowFrame)
+	glowCorner.CornerRadius = UDim.new(0, 4)
+	
+	-- Icon label
+	local iconLabel = Instance.new("TextLabel", card)
+	iconLabel.Size = UDim2.fromOffset(24, 50)
+	iconLabel.Position = UDim2.fromOffset(6, 0)
+	iconLabel.BackgroundTransparency = 1
+	iconLabel.Text = statusIcon
+	iconLabel.TextSize = 16
+	iconLabel.Font = Enum.Font.Gotham
+	iconLabel.TextColor3 = statusColor
+	
+	-- Divider line
+	local divider = Instance.new("Frame", card)
+	divider.Size = UDim2.fromOffset(1, 32)
+	divider.Position = UDim2.fromOffset(32, 9)
+	divider.BackgroundColor3 = BLOOM.divider
+	divider.BorderSizePixel = 0
+	
+	-- Status text container
+	local textFrame = Instance.new("Frame", card)
+	textFrame.Size = UDim2.new(1, -40, 1, 0)
+	textFrame.Position = UDim2.fromOffset(38, 0)
+	textFrame.BackgroundTransparency = 1
+	textFrame.BorderSizePixel = 0
+	
+	-- Status label
+	local statusLabel = Instance.new("TextLabel", textFrame)
+	statusLabel.Size = UDim2.fromScale(1, 1)
+	statusLabel.BackgroundTransparency = 1
+	statusLabel.TextColor3 = statusColor
+	statusLabel.Font = Enum.Font.GothamBold
+	statusLabel.TextSize = 11
+	statusLabel.TextXAlignment = Enum.TextXAlignment.Left
+	statusLabel.TextYAlignment = Enum.TextYAlignment.Center
+	statusLabel.Text = statusText
+	statusLabel.TextTruncate = Enum.TextTruncate.AtEnd
+	
+	statusBoards[player] = billboard
+end
+
+local function onCharacterAdded(player, character)
+	task.wait(0.5)
+	createStatusBoard(player, character)
+end
+
+local function onPlayerAdded(player)
+	-- Create board if character exists
+	if player.Character then
+		onCharacterAdded(player, player.Character)
+	end
+	
+	-- Connect to future character spawns
+	player.CharacterAdded:Connect(function(character)
+		onCharacterAdded(player, character)
+	end)
+end
+
+local function onPlayerRemoving(player)
+	destroyBoard(player)
+end
+
+-- Connect to existing players
+for _, player in ipairs(Players:GetPlayers()) do
+	if player ~= lp then
+		onPlayerAdded(player)
+	end
+end
+
+-- Create status board for local player too
+if lp.Character then
+	createStatusBoard(lp, lp.Character)
+end
+lp.CharacterAdded:Connect(function(character)
+	createStatusBoard(lp, character)
+end)
+
+-- Connect to new players
+Players.PlayerAdded:Connect(onPlayerAdded)
+Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+-- Cleanup on script shutdown
+local cleanup = function()
+	for player in pairs(statusBoards) do
+		destroyBoard(player)
+	end
+end
+
+-- Optional: Auto-cleanup on player leaving
+game:GetService("RunService").Heartbeat:Connect(function()
+	for player, board in pairs(statusBoards) do
+		if not player.Parent or not board.Parent then
+			destroyBoard(player)
+		end
+	end
+end)
+
+print("✅ NihonGo Player Status — Bloom Edition loaded successfully!")
