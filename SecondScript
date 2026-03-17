@@ -21,8 +21,8 @@ local BLOOM = {
 }
 
 local WHITELIST = {
-	["MrsDuck"]  = true,
-	["sunziex"]  = true,
+	["tubers9312u"]  = true,
+	["SkibidihhhToiwet"]  = true,
 }
 
 local VALID_KEYS = { "Nihon", "nihon", "NIHON" }
