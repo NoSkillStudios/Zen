@@ -1323,22 +1323,57 @@ E.LoopBrake = CarTab:CreateToggle({Name=L0.ui.LoopBrake, CurrentValue=false,
 		end
 	end})
 local noCrashActive = false
+local crashHitboxRef = nil
+local crashHitboxOriginParent = nil
+local originalNamecallCrash = nil
+
+local function hookCrashRemote(v)
+	local cr = ReplicatedStorage:FindFirstChild("crashragdoll")
+	if not cr then return end
+	local mt = getrawmetatable(cr)
+	setreadonly(mt, false)
+	if v then
+		originalNamecallCrash = mt.__namecall
+		mt.__namecall = newcclosure(function(self, ...)
+			if getnamecallmethod() == "FireServer" and self == cr then return end
+			return originalNamecallCrash(self, ...)
+		end)
+	else
+		if originalNamecallCrash then mt.__namecall = originalNamecallCrash end
+	end
+	setreadonly(mt, true)
+end
+
 workspace.DescendantAdded:Connect(function(inst)
 	if noCrashActive and inst.Name == "CRASHhitbox" then
 		local p = inst.Parent
 		if p and p.Name == "Body" and p.Parent and p.Parent.Name == "car" then
-			inst:Destroy()
+			crashHitboxRef = inst
+			crashHitboxOriginParent = p
+			inst.Parent = ReplicatedStorage
 		end
 	end
 end)
+
 CarTab:CreateToggle({Name="No Car Crash", CurrentValue=false,
 	Callback=function(v)
 		noCrashActive = v
+		hookCrashRemote(v)
 		if v then
 			local car = Workspace:FindFirstChild("car")
 			local body = car and car:FindFirstChild("Body")
 			local hitbox = body and body:FindFirstChild("CRASHhitbox")
-			if hitbox then hitbox:Destroy() end
+			if hitbox then
+				crashHitboxRef = hitbox
+				crashHitboxOriginParent = body
+				hitbox.Parent = ReplicatedStorage
+			end
+		else
+			if crashHitboxRef and crashHitboxRef.Parent then
+				crashHitboxRef.Parent = crashHitboxOriginParent
+			end
+			crashHitboxRef = nil
+			crashHitboxOriginParent = nil
 		end
 	end})
 local CombatTab = Window:CreateTab(L0.tabs.Combat, 4483362458)
