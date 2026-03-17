@@ -1,164 +1,319 @@
+-- ╔══════════════════════════════════════════╗
+-- ║     NihonGo Premium Status Tags          ║
+-- ║     Bloom Edition • v4.0 LUXE            ║
+-- ╚══════════════════════════════════════════╝
+
 local k="NihonLoader_Key_Real"
 if getgenv()._nl~=k then return end
 
 local p=game:GetService("Players")
 local r=game:GetService("RunService")
 local t=game:GetService("TweenService")
-
 local lp=p.LocalPlayer
 local OWNER="SkibidihhhToiwet"
-
 local users={}
 users[lp.Name]=true
-
 local boards={}
 local state={}
-
 local EXPAND=35
 
+local COLORS={
+	owner_main=Color3.fromRGB(255,215,100),
+	owner_dark=Color3.fromRGB(180,140,60),
+	user_main=Color3.fromRGB(255,140,80),
+	user_dark=Color3.fromRGB(180,100,50),
+	bg_dark=Color3.fromRGB(12,12,15),
+	bg_light=Color3.fromRGB(25,25,30),
+	stroke=Color3.fromRGB(50,50,60),
+	text=Color3.fromRGB(240,240,245),
+}
+
 local function tw(o,p2,v,d)
-local i=TweenInfo.new(d,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)
-local tw=t:Create(o,i,{[p2]=v})
-tw:Play()
-return tw
+	local i=TweenInfo.new(d,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)
+	local tw=t:Create(o,i,{[p2]=v})
+	tw:Play()
+	return tw
+end
+
+local function createGradient(parent,rot)
+	local grad=Instance.new("UIGradient",parent)
+	grad.Rotation=rot or 45
+	return grad
 end
 
 local function clear(b)
-for _,v in pairs(b:GetChildren()) do
-pcall(function()v:Destroy()end)
-end
+	for _,v in pairs(b:GetChildren()) do
+		pcall(function()v:Destroy()end)
+	end
 end
 
+-- ╔════════════════════════════════════════════════════════════╗
+-- ║              EXPANDED CARD (CLOSE RANGE)                  ║
+-- ╚════════════════════════════════════════════════════════════╝
 local function ui_big(b,plr,isOwner)
-clear(b)
-
-b.Size=UDim2.fromOffset(150,50)
-
-local c=Instance.new("Frame",b)
-c.Size=UDim2.fromScale(1,1)
-c.BackgroundColor3=Color3.fromRGB(20,20,20)
-c.BackgroundTransparency=0.2
-c.BorderSizePixel=0
-
-local cr=Instance.new("UICorner",c)
-cr.CornerRadius=UDim.new(0,8)
-
-local s=Instance.new("UIStroke",c)
-s.Thickness=1.5
-s.Color=isOwner and Color3.fromRGB(255,200,100) or Color3.fromRGB(255,120,120)
-
-local name=Instance.new("TextLabel",c)
-name.Size=UDim2.fromScale(1,0.6)
-name.BackgroundTransparency=1
-name.Text=plr.Name
-name.TextScaled=true
-name.Font=Enum.Font.GothamBold
-name.TextColor3=Color3.new(1,1,1)
-
-local tag=Instance.new("TextLabel",c)
-tag.Position=UDim2.fromScale(0,0.55)
-tag.Size=UDim2.fromScale(1,0.45)
-tag.BackgroundTransparency=1
-tag.Text=isOwner and "👑 OWNER" or "🌸 USER"
-tag.TextScaled=true
-tag.Font=Enum.Font.Gotham
-tag.TextColor3=s.Color
-
-state[plr.Name]=true
+	clear(b)
+	b.Size=UDim2.fromOffset(180,60)
+	
+	local accentColor=isOwner and COLORS.owner_main or COLORS.user_main
+	local accentDark=isOwner and COLORS.owner_dark or COLORS.user_dark
+	
+	-- Outer glow effect
+	local glowFrame=Instance.new("Frame",b)
+	glowFrame.Name="Glow"
+	glowFrame.Size=UDim2.fromScale(1,1)
+	glowFrame.BackgroundColor3=accentColor
+	glowFrame.BackgroundTransparency=0.85
+	glowFrame.BorderSizePixel=0
+	local glowCorner=Instance.new("UICorner",glowFrame)
+	glowCorner.CornerRadius=UDim.new(0,12)
+	
+	-- Main card container
+	local card=Instance.new("Frame",b)
+	card.Name="Card"
+	card.Size=UDim2.fromScale(1,1)
+	card.BackgroundColor3=COLORS.bg_dark
+	card.BackgroundTransparency=0.1
+	card.BorderSizePixel=0
+	local cardCorner=Instance.new("UICorner",card)
+	cardCorner.CornerRadius=UDim.new(0,12)
+	
+	-- Background gradient
+	local cardGrad=createGradient(card,135)
+	cardGrad.Color=ColorSequence.new({
+		ColorSequenceKeypoint.new(0,Color3.fromRGB(20,18,25)),
+		ColorSequenceKeypoint.new(1,Color3.fromRGB(15,14,20)),
+	})
+	
+	-- Premium stroke
+	local stroke=Instance.new("UIStroke",card)
+	stroke.Color=accentColor
+	stroke.Thickness=2
+	stroke.Transparency=0.2
+	
+	-- Top accent bar with gradient
+	local topBar=Instance.new("Frame",card)
+	topBar.Name="TopBar"
+	topBar.Size=UDim2.new(1,0,0,3)
+	topBar.BackgroundColor3=accentColor
+	topBar.BorderSizePixel=0
+	local barGrad=createGradient(topBar,0)
+	barGrad.Color=ColorSequence.new({
+		ColorSequenceKeypoint.new(0,accentDark),
+		ColorSequenceKeypoint.new(0.5,accentColor),
+		ColorSequenceKeypoint.new(1,accentDark),
+	})
+	
+	-- Left accent stripe (thin glowing bar)
+	local leftStripe=Instance.new("Frame",card)
+	leftStripe.Name="LeftStripe"
+	leftStripe.Size=UDim2.new(0,3,1,-6)
+	leftStripe.Position=UDim2.new(0,5,0,3)
+	leftStripe.BackgroundColor3=accentColor
+	leftStripe.BorderSizePixel=0
+	local stripeCorner=Instance.new("UICorner",leftStripe)
+	stripeCorner.CornerRadius=UDim.new(0,2)
+	local stripeGrad=createGradient(leftStripe,90)
+	stripeGrad.Color=ColorSequence.new({
+		ColorSequenceKeypoint.new(0,accentColor),
+		ColorSequenceKeypoint.new(0.5,accentColor),
+		ColorSequenceKeypoint.new(1,Color3.fromRGB(100,60,20)),
+	})
+	
+	-- Icon container
+	local iconBox=Instance.new("Frame",card)
+	iconBox.Name="IconBox"
+	iconBox.Size=UDim2.fromOffset(40,60)
+	iconBox.Position=UDim2.fromOffset(8,0)
+	iconBox.BackgroundTransparency=1
+	local iconLabel=Instance.new("TextLabel",iconBox)
+	iconLabel.Size=UDim2.fromScale(1,1)
+	iconLabel.BackgroundTransparency=1
+	iconLabel.Text=isOwner and "🌺" or "🌸"
+	iconLabel.TextSize=24
+	iconLabel.Font=Enum.Font.Gotham
+	iconLabel.TextColor3=accentColor
+	
+	-- Content container
+	local contentBox=Instance.new("Frame",card)
+	contentBox.Name="Content"
+	contentBox.Size=UDim2.new(1,-56,1,-6)
+	contentBox.Position=UDim2.fromOffset(48,3)
+	contentBox.BackgroundTransparency=1
+	contentBox.BorderSizePixel=0
+	
+	-- Username label
+	local nameLabel=Instance.new("TextLabel",contentBox)
+	nameLabel.Name="Name"
+	nameLabel.Size=UDim2.fromScale(1,0.45)
+	nameLabel.BackgroundTransparency=1
+	nameLabel.Text=plr.Name
+	nameLabel.TextScaled=true
+	nameLabel.Font=Enum.Font.GothamBold
+	nameLabel.TextColor3=COLORS.text
+	nameLabel.TextXAlignment=Enum.TextXAlignment.Left
+	nameLabel.TextYAlignment=Enum.TextYAlignment.Bottom
+	nameLabel.TextTruncate=Enum.TextTruncate.AtEnd
+	
+	-- Status badge
+	local statusLabel=Instance.new("TextLabel",contentBox)
+	statusLabel.Name="Status"
+	statusLabel.Size=UDim2.fromScale(1,0.55)
+	statusLabel.Position=UDim2.fromOffset(0,24)
+	statusLabel.BackgroundTransparency=1
+	statusLabel.Text=isOwner and "👑 OWNER" or "🌱 USER"
+	statusLabel.TextScaled=true
+	statusLabel.Font=Enum.Font.GothamBold
+	statusLabel.TextColor3=accentColor
+	statusLabel.TextXAlignment=Enum.TextXAlignment.Left
+	statusLabel.TextYAlignment=Enum.TextYAlignment.Top
+	
+	state[plr.Name]=true
 end
 
+-- ╔════════════════════════════════════════════════════════════╗
+-- ║            COMPACT CIRCLE (FAR RANGE)                     ║
+-- ╚════════════════════════════════════════════════════════════╝
 local function ui_small(b,isOwner)
-clear(b)
-
-b.Size=UDim2.fromOffset(26,26)
-
-local c=Instance.new("Frame",b)
-c.Size=UDim2.fromScale(1,1)
-c.BackgroundColor3=Color3.fromRGB(20,20,20)
-c.BackgroundTransparency=0.2
-c.BorderSizePixel=0
-
-local cr=Instance.new("UICorner",c)
-cr.CornerRadius=UDim.new(1,0)
-
-local s=Instance.new("UIStroke",c)
-s.Thickness=1.5
-s.Color=isOwner and Color3.fromRGB(255,200,100) or Color3.fromRGB(255,120,120)
-
-state[b.Name]=false
+	clear(b)
+	b.Size=UDim2.fromOffset(32,32)
+	
+	local accentColor=isOwner and COLORS.owner_main or COLORS.user_main
+	
+	-- Outer glow
+	local glowFrame=Instance.new("Frame",b)
+	glowFrame.Name="Glow"
+	glowFrame.Size=UDim2.fromScale(1,1)
+	glowFrame.BackgroundColor3=accentColor
+	glowFrame.BackgroundTransparency=0.8
+	glowFrame.BorderSizePixel=0
+	local glowCorner=Instance.new("UICorner",glowFrame)
+	glowCorner.CornerRadius=UDim.new(1,0)
+	
+	-- Main circle
+	local circle=Instance.new("Frame",b)
+	circle.Name="Circle"
+	circle.Size=UDim2.fromScale(1,1)
+	circle.BackgroundColor3=COLORS.bg_dark
+	circle.BackgroundTransparency=0.15
+	circle.BorderSizePixel=0
+	local circleCorner=Instance.new("UICorner",circle)
+	circleCorner.CornerRadius=UDim.new(1,0)
+	
+	-- Circle stroke
+	local stroke=Instance.new("UIStroke",circle)
+	stroke.Color=accentColor
+	stroke.Thickness=2
+	stroke.Transparency=0.15
+	
+	-- Inner pulsing dot
+	local dot=Instance.new("Frame",circle)
+	dot.Name="Dot"
+	dot.Size=UDim2.fromOffset(8,8)
+	dot.AnchorPoint=Vector2.new(0.5,0.5)
+	dot.Position=UDim2.fromScale(0.5,0.5)
+	dot.BackgroundColor3=accentColor
+	dot.BorderSizePixel=0
+	local dotCorner=Instance.new("UICorner",dot)
+	dotCorner.CornerRadius=UDim.new(1,0)
+	
+	-- Pulse animation
+	task.spawn(function()
+		while circle and circle.Parent do
+			tw(dot,"Size",UDim2.fromOffset(11,11),0.6)
+			task.wait(0.6)
+			tw(dot,"Size",UDim2.fromOffset(8,8),0.6)
+			task.wait(0.6)
+		end
+	end)
+	
+	state[b.Name]=false
 end
 
 local function create(plr,char)
-if plr==lp then return end
-if not users[plr.Name] then return end
-
-local hrp=char:FindFirstChild("HumanoidRootPart")
-if not hrp then return end
-
-if boards[plr.Name] then
-boards[plr.Name]:Destroy()
+	if plr==lp then return end
+	if not users[plr.Name] then return end
+	local hrp=char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+	if boards[plr.Name] then
+		boards[plr.Name]:Destroy()
+	end
+	local isOwner=plr.Name==OWNER
+	local b=Instance.new("BillboardGui")
+	b.Name=plr.Name
+	b.Adornee=hrp
+	b.Size=UDim2.fromOffset(180,60)
+	b.StudsOffset=Vector3.new(0,3.5,0)
+	b.AlwaysOnTop=true
+	b.MaxDistance=150
+	b.LightInfluence=0
+	b.ResetOnSpawn=false
+	b.Parent=hrp
+	ui_big(b,plr,isOwner)
+	boards[plr.Name]=b
+	print("✅ Created tag: "..plr.Name..(isOwner and " (OWNER)" or " (USER)"))
 end
 
-local isOwner=plr.Name==OWNER
-
-local b=Instance.new("BillboardGui")
-b.Name=plr.Name
-b.Adornee=hrp
-b.Size=UDim2.fromOffset(150,50)
-b.StudsOffset=Vector3.new(0,3,0)
-b.AlwaysOnTop=true
-b.MaxDistance=120
-b.LightInfluence=0
-b.Parent=hrp
-
-ui_big(b,plr,isOwner)
-
-boards[plr.Name]=b
-end
-
+-- Connect to all players
 for _,v in pairs(p:GetPlayers()) do
-if v~=lp then
-if v.Character then create(v,v.Character) end
-v.CharacterAdded:Connect(function(c)
-create(v,c)
-end)
-end
+	if v~=lp then
+		users[v.Name]=true
+		if v.Character then create(v,v.Character) end
+		v.CharacterAdded:Connect(function(c)
+			create(v,c)
+		end)
+	end
 end
 
 p.PlayerAdded:Connect(function(v)
-if v~=lp then
-v.CharacterAdded:Connect(function(c)
-create(v,c)
-end)
-end
+	if v~=lp then
+		users[v.Name]=true
+		if v.Character then create(v,v.Character) end
+		v.CharacterAdded:Connect(function(c)
+			create(v,c)
+		end)
+	end
 end)
 
 p.PlayerRemoving:Connect(function(v)
-if boards[v.Name] then
-boards[v.Name]:Destroy()
-boards[v.Name]=nil
-end
+	if boards[v.Name] then
+		boards[v.Name]:Destroy()
+		boards[v.Name]=nil
+	end
+	users[v.Name]=nil
 end)
 
+-- Main distance update loop
 r.RenderStepped:Connect(function()
-local ch=lp.Character
-local hrp=ch and ch:FindFirstChild("HumanoidRootPart")
-if not hrp then return end
-
-for n,b in pairs(boards) do
-local plr=p:FindFirstChild(n)
-if plr and plr.Character then
-local t_hrp=plr.Character:FindFirstChild("HumanoidRootPart")
-if t_hrp then
-local d=(hrp.Position-t_hrp.Position).Magnitude
-local isOwner=plr.Name==OWNER
-
-if d<EXPAND and not state[n] then
-ui_big(b,plr,isOwner)
-elseif d>=EXPAND and state[n] then
-ui_small(b,isOwner)
-end
-end
-end
-end
+	local ch=lp.Character
+	local hrp=ch and ch:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+	for n,b in pairs(boards) do
+		if b and b.Parent then
+			local plr=p:FindFirstChild(n)
+			if plr and plr.Character then
+				local t_hrp=plr.Character:FindFirstChild("HumanoidRootPart")
+				if t_hrp then
+					local d=(hrp.Position-t_hrp.Position).Magnitude
+					local isOwner=plr.Name==OWNER
+					if d<EXPAND and not state[n] then
+						tw(b,"Size",UDim2.fromOffset(180,60),0.25)
+						task.wait(0.05)
+						ui_big(b,plr,isOwner)
+					elseif d>=EXPAND and state[n] then
+						tw(b,"Size",UDim2.fromOffset(32,32),0.25)
+						task.wait(0.05)
+						ui_small(b,isOwner)
+					end
+				end
+			else
+				if boards[n] then
+					boards[n]:Destroy()
+					boards[n]=nil
+				end
+			end
+		end
+	end
 end)
+
+print("✅ NihonGo Premium Status Tags v4.0 — LOADED")
+print("🌺 Luxury Bloom Edition with Premium Design")
