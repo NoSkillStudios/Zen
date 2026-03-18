@@ -1,1 +1,3376 @@
---[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local F={"\070\052\066\075\069\080\052\047\088\117\087\068\052\088\106\115\053\119\061\061","\078\079\050\088\081\103\086\047\068\083\104\120\051\080\105\088\078\111\076\067\056\109\088\103\073\122\114\054\114\086\055\070\122\121\043\090\116\112\055\118\086\079\068\122\074\083\104\050\048\043\088\053\104\079\108\049\098\118\105\070\057\065\105\120\051\117\084\055\047\103\087\067\075\103\057\111\050\115\071\050\083\050\090\085\107\119\078\056\107\071\078\082\086\087\061\061","\043\120\113\056\109\120\119\061","\081\117\070\068\043\112\069\066\069\085\061\061";"\116\047\073\107\116\055\061\061";"\116\122\109\083\121\108\099\070\047\121\050\106\105\114\105\116\113\056\116\050\108\101\056\066\109\052\043\117\047\082\048\052\121\070\084\080\047\108\079\090\103\104\090\112\070\073\100\047\075\112\052\097\112\086\099\071\079\090\102\105","\116\121\113\049\105\087\061\061";"\052\120\073\107\043\120\052\075\083\112\070\066\069\120\052\118\069\120\052\080\083\055\061\061";"\081\111\080\075\114\052\073\053\105\072\074\119\113\068\066\070";"\109\120\090\056\116\117\113\068\043\084\066\115\116\119\061\061","\069\047\050\121\055\078\070\071\113\112\107\072\114\088\068\049";"\113\052\052\120\043\112\050\114\105\121\073\065\053\114\087\121\105\052\055\061";"\109\051\112\061";"\116\084\077\098\109\121\083\061","\105\047\090\115\105\047\073\068","\108\079\087\066\116\097\110\106\108\087\061\061","\081\112\083\047\108\112\119\061";"\109\120\052\115","\055\047\043\119\070\053\056\047\065\073\074\115\113\120\073\105","\084\103\081\073\104\113\099\098\043\057\078\089\071\090\071\103\075\075\049\076\106\079\083\047\083\102\081\073\103\074\122\053\089\115\078\054\081\080\090\100\078\054\108\108\066\083\057\105\047\079\106\078\105\079\079\051\075\106\047\082\075\122\043\104\073\049\048\101\107\084\078\057\098\086\083\073\054\072\120\103\118\117\109\081\117\076\108\055";"\116\078\074\075\109\121\083\061";"\043\047\052\068\109\088\052\068\105\078\070\056\105\084\077\066","\074\077\110\089\111\087\061\061";"\109\088\073\068\067\085\061\061","\069\049\074\073\114\066\073\113\114\118\052\084\105\072\080\089\067\085\061\061","\114\118\052\120\088\088\119\068\105\078\066\108\109\068\050\074\109\087\061\061","\053\114\107\075\105\068\043\068\053\084\056\086\065\072\113\111\116\087\061\061";"\101\047\086\082\066\088\082\074\090\079\055\099\082\083\109\067\100\069\081\075\087\082\086\053\119\065\089\118\104\082\098\116\084\079\070\081\080\098\085\120\118\050\051\085\080\099\081\114\119\087\086\061";"\116\121\070\065\065\118\048\076\065\111\080\077\122\073\083\068\081\111\043\061","\050\090\104\113\072\089\101\068\088\083\055\121\071\065\081\072\050\048\117\114\086\056\118\075\088\050\088\102\085\118\118\087\053\118\108\050\089\073\047\086\047\065\106\073\050\050\071\071\104\106\086\054\076\099\074\081","\099\084\106\065","\117\109\101\112","\078\049\090\107\116\078\070\056\069\120\073\079\109\120\114\061","\109\051\083\061","\043\121\070\075\067\088\050\072";"\069\080\105\111\052\049\080\121\065\052\074\053\109\084\114\121\113\085\061\061";"\067\080\056\088\114\121\048\101\122\072\080\121\055\047\113\049\088\051\065\061","\065\072\048\102\088\118\085\111\081\073\087\049\081\121\113\072";"\078\049\090\086\116\088\089\061";"\069\120\090\115\069\088\049\079\116\078\083\061";"\113\121\070\108\053\066\106\103\088\066\069\067\108\112\116\103\114\073\083\061","\069\120\090\111\069\117\074\106\109\084\043\061","\043\084\052\107\109\121\116\066";"\043\084\073\115\116\120\090\107";"\069\084\074\050\055\053\048\121";"\081\118\116\051\065\117\052\118\116\072\066\121\122\072\048\114\043\087\061\061","\116\047\049\056\069\120\113\110";"\069\112\052\067\055\047\050\068\055\047\049\089\052\052\116\102";"\067\049\069\080\043\072\048\072\122\053\074\075\109\118\066\083\053\068\099\061","\105\072\066\068\116\055\061\061","\111\073\084\112\120\119\061\061","\114\112\056\101\065\068\049\056\113\066\056\066\116\052\069\057\052\085\061\061","\108\087\061\061";"\105\047\056\056\043\087\061\061","\078\049\090\072\105\119\061\061","\054\098\102\105\075\119\061\061","\097\070\077\118\122\087\061\061";"","\049\071\090\057\053\102\051\083\048\071\099\122\118\071\053\047\113\116\086\117\118\074\048\111\056\115\065\061";"\069\088\050\119\105\088\113\071";"\081\118\090\089","\113\049\116\076\070\066\073\083\109\051\052\088\109\085\061\061","\116\047\052\068\116\047\052\115\069\087\061\061","\077\072\101\053\111\117\067\122\053\100\101\110\107\108\084\073\118\090\043\067\116\051\085\050\116\116\118\115\100\080\054\068\114\071\047\074\109\089\051\111\088\048\081\082\048\108\103\071\103\110\067\088\115\069\099\061";"\113\072\056\077\069\047\106\051\069\072\116\116\067\117\073\088\067\047\089\061","\065\066\052\051\113\049\070\121\122\112\050\083\053\066\106\086\122\087\061\061","\069\120\073\079\109\120\114\061","\078\049\090\106\109\084\070\066\122\085\061\061"}for a,T in ipairs({{27762-27761,692256-692188},{-682871+682872;-497630+497643},{-611401-(-611415);1029082-1029014}})do while T[-778385-(-778386)]<T[-17032-(-17034)]do F[T[181111+-181110]],F[T[-637329-(-637331)]],T[-224463-(-224464)],T[-165643-(-165645)]=F[T[39319-39317]],F[T[-743090-(-743091)]],T[1046447-1046446]+(-956910-(-956911)),T[45689-45687]-(-300310-(-300311))end end local function a(a)return F[a-(357464+-332643)]end do local a={w=530192-530144;v=941494+-941459,X=458608-458586,V=-680356+680400;["\053"]=399651-399632;q=-320920-(-320933),K=780453-780403,T=-624785-(-624823);["\057"]=-502189+502247;W=-163126-(-163158),N=-770854+770877;u=948416+-948409;l=504355+-504341,p=-81186+81190;["\047"]=-562160+562214,I=224115+-224110,a=734712-734710,["\056"]=600679-600646;j=-770321+770362;i=-75422+75446,b=-869115-(-869162),M=918357+-918308,o=-780695-(-780746),P=-622735-(-622771);L=-63846-(-63888),g=855455-855440,S=-688124-(-688132),J=1034175+-1034166,["\051"]=821628-821625,C=-63121-(-63147);["\048"]=-557433+557434,["\049"]=-370757-(-370810);U=-866780-(-866780);Z=881122+-881061;f=-948607-(-948618);e=-248569-(-248579),k=505884+-505839;H=245187+-245148,n=-431945+431985,["\050"]=-48131+48188,d=-129511-(-129573),["\054"]=-29100+29163;["\052"]=-1012811+1012832,O=-509516-(-509550);x=-483489-(-483495);r=559967-559947;Q=911872+-911854,c=510409-510349;R=318468-318409;Y=-620207-(-620263),F=-257464+257481;y=-15291-(-15346),h=785725-785694,E=65081+-65052,z=630013+-629983;["\043"]=-741898-(-741926),m=1013392+-1013365;t=-334023+334048;["\055"]=756099-756083;A=-1022376-(-1022388),D=840217-840165;G=-1029632+1029675,B=-295834-(-295871);s=219314+-219268}local T=string.sub local V=table.concat local C=type local o=table.insert local u=string.char local P=math.floor local j=F local U=string.len for F=-401164-(-401165),#j,-34708+34709 do local i=j[F]if C(i)=="\115\116\114\105\110\103"then local C=U(i)local m={}local d=930824-930823 local n=-808580-(-808580)local q=-346905-(-346905)while d<=C do local F=T(i,d,d)local V=a[F]if V then n=n+V*(-630836-(-630900))^((-860446-(-860449))-q)q=q+(-842375-(-842376))if q==-437725-(-437729)then q=-991708-(-991708)local F=P(n/(-731860-(-797396)))local a=P((n%(896556+-831020))/(-20881-(-21137)))local T=n%(197287-197031)o(m,u(F,a,T))n=76845+-76845 end elseif F=="\061"then o(m,u(P(n/(-309071+374607))))if d>=C or T(i,d+(685256+-685255),d+(466355-466354))~="\061"then o(m,u(P((n%(-60328-(-125864)))/(602905+-602649))))end break end d=d+(-640402+640403)end j[F]=V(m)end end end return(function(F,V,C,o,u,P,j,e,W,y,n,c,T,m,Q,q,i,d,U,K,Y)i,e,Q,m,K,q,U,Y,y,W,d,c,n,T={},function(F,a)local V=n(a)local C=function()return T(F,{},a,V)end return C end,function(F)i[F]=i[F]-(349233+-349232)if i[F]==529548+-529548 then i[F],U[F]=nil,nil end end,function()d=d+(83538-83537)i[d]=584235+-584234 return d end,function(F,a)local V=n(a)local C=function(C,o,u,P,j,U,i)return T(F,{C;o,u;P;j;U,i},a,V)end return C end,function(F)local a,T=365986+-365985,F[465561+-465560]while T do i[T],a=i[T]-(-419731+419732),a+(-168127-(-168128))if i[T]==99255-99255 then i[T],U[T]=nil,nil end T=F[a]end end,{},function(F,a)local V=n(a)local C=function(C,o,u)return T(F,{C,o,u},a,V)end return C end,function(F,a)local V=n(a)local C=function(C)return T(F,{C},a,V)end return C end,function(F,a)local V=n(a)local C=function(C,o)return T(F,{C;o},a,V)end return C end,-463788+463788,function(F,a)local V=n(a)local C=function(...)return T(F,{...},a,V)end return C end,function(F)for a=267650+-267649,#F,757367-757366 do i[F[a]]=(143530+-143529)+i[F[a]]end if C then local T=C(true)local V=u(T)V[a(412146-387312)],V[a(-64143-(-89032))],V[a(138251+-113378)]=F,q,function()return-201417+2021095 end return T else return o({},{[a(-371843+396732)]=q,[a(220849+-196015)]=F,[a(-553528+578401)]=function()return-243653+2063331 end})end end,function(T,C,o,u)local r,k,s,G,N,I,Z,n,l,q,x,c,w,b,v,d,S,B,t,O,f,A,J,M,p,z,i,L,h,D,H,R,X,j while T do if T<8617839-404511 then if T<4118633-(-193035)then if T<934306+1866190 then if T<115371+1536341 then if T<-113568-(-595092)then if T<-582512+941133 then if T<514658+-244717 then c=-199389-(-199391)d=U[o[-12715-(-12716)]]q=195599-195598 n=d(q,c)d=682736+-682735 i=n==d j=i T=i and-625375+16169414 or 9760446-(-768859)else T=-671614+7855528 G=U[c]j=G end else j=a(300152+-275278)b=a(225549+-200712)A=Y(16902572-470507,{})T=F[j]q=a(-816869+841745)i=U[o[-222652-(-222656)]]n=F[q]p=F[b]b={p(A)}p=501716-501714 G={V(b)}c=G[p]q=n(c)n=a(-122735-(-147585))d=i(q,n)i={d()}j=T(V(i))i=j d=U[o[258794-258789]]T=d and-21734+3423560 or-461732+4081844 j=d end else if T<443994+815209 then if T<729243-(-472089)then T=U[o[108381+-108380]]n=T i=C[935755-935754]d=C[-909997+909999]T=n[d]T=T and 55602+5105302 or-355186+13975548 else S=#N O=-781697-(-781698)f=q(O,S)O=G(N,f)f=nil T=-651777+3601008 D=626481-626480 S=U[t]r=O-D L=p(r)S[O]=L O=nil end else T=14578466-120948 end end else if T<2131753-177499 then if T<525357+1370874 then if T<1795620-(-12144)then T=F[a(-1012536+1037367)]j={}else M=M+l b=M<=A N=not t b=N and b N=M>=A N=t and N b=N or b N=291786+9943110 T=b and N b=554761+2346604 T=T or b end else j=a(-698807+723651)q=a(-499415+524253)d=a(-29116-(-53955))T=F[j]i=F[d]n=U[o[493603-493602]]q=i[q]d={q(i,n)}j=T(V(d))T={j()}j={V(T)}T=F[a(-348256-(-373139))]end else if T<-710107+3140420 then if T<2187247-(-117951)then s=U[d]Z=s T=s and-674438+13186423 or-751436+10181132 else I=971699-971698 T=11645467-(-911594)J=h[I]w=J end else w=U[d]T=w and 288565+16149513 or 809496+8115322 j=w end end end else if T<1019293+2419916 then if T<3747112-791462 then if T<-158827+3094782 then if T<887083+2033998 then p=nil T=-522871+12456464 G=nil q=nil else n=a(284692-259859)d=F[n]n=a(772057-747180)i=d[n]n=U[o[845810+-845809]]T=F[a(-231130+256012)]d={i(n)}j={V(d)}end else O=#N S=-525987+525987 f=O==S T=f and 11914272-(-734086)or 525172+726995 end else if T<3367950-36058 then if T<944147+2320853 then L=not S Z=Z+x j=Z<=s j=L and j L=Z>=s L=S and L j=L or j L=9095692-866198 T=j and L j=-687293+2654009 T=T or j else M=a(-702365-(-727188))l=925485689548-(-677602)A=d(M,l)b=n[A]p=G[b]T=p and 10553855-(-611506)or 7954613-(-107726)end else n=U[o[532050+-532044]]T=301449+3318663 d=n==i j=d end end else if T<171616+3833776 then if T<55086+3821026 then if T<221994+3496759 then i=nil T=8705812-(-564815)U[o[-81722+81727]]=j else n=-256828+257034 d=U[o[893107+-893104]]i=d*n d=-873023-(-873280)T=-928690+12399492 j=i%d U[o[178880-178877]]=j end else N=-559053+34616805574340 t=a(-202762+227589)l=d(t,N)M=n[l]A=p[M]b=not A T=b and-981138+11470365 or-459410+4993875 end else if T<-444821+4522657 then T=-344657+15167536 l=a(258910+-234053)t=858399+17681772562186 M=d(l,t)A=n[M]b=p[A]A=b()else j=a(317689-292834)i=a(-169179+194021)T=F[j]j=T(i)T=F[a(-548480+573339)]j={}end end end end else if T<728428+4763234 then if T<5577048-493822 then if T<5510855-1042052 then if T<3661203-(-726701)then if T<4528574-201518 then T=true T=11186389-580150 else d=m()T=true i=C q=m()n=a(859542-834673)U[d]=T j=F[n]n=a(895871-870990)T=j[n]n=m()U[n]=T c=m()T=W(806008+3281910,{})U[q]=T p=a(582029-557192)T=false U[c]=T b=e(377003+4992533,{c})G=F[p]p=G(b)T=p and-173892-(-472579)or 92953+7090961 j=p end else J=U[d]T=J and 1372418-(-984959)or 13402350-845289 w=J end else if T<4869254-(-35855)then if T<-743893+5433779 then l=a(619832+-594947)t=675487+21431814740060 M=d(l,t)A=n[M]b=p[A]T=b and 196874+3872605 or 14460488-(-362391)else l=a(651412-626546)t=19201465789336-985259 M=d(l,t)A=n[M]b=G[A]p=not b T=p and-164638+13999856 or-657752+3953281 end else T=-1038358+12445615 end end else if T<-404512+5729717 then if T<5403061-168579 then if T<408975+4760411 then T=-111846+12045439 else i=U[o[305516+-305515]]j=#i i=545919-545919 T=j==i T=T and-873839+10620235 or 2518754-(-413295)end else j=3893364-(-119186)n=8759730-(-146012)d=a(364791-339963)i=d^n T=j-i j=a(13227+11626)i=T T=j/i j={T}T=F[a(231330-206498)]end else if T<6168697-804428 then T=j and 189851+9703098 or 5277576-(-486674)else T=true U[o[225267-225266]]=T j={}T=F[a(31749+-6889)]end end end else if T<7484763-(-187958)then if T<-86775+6968996 then if T<10486+5822362 then if T<5022422-(-651368)then N=12604860469611-(-296322)t=a(1000992+-976130)A=a(-310607+335462)b=F[A]l=d(t,N)j={}T=F[a(-516055+540930)]M=n[l]A=b(M)else j={d}T=F[a(-532991+557861)]end else j={}T=F[a(166328-141457)]end else if T<84097+7359951 then if T<-175524+7341672 then T={}n=U[o[925961+-925952]]d=599026-599025 i=T q=n n=-945278+945279 c=n n=-144329+144329 G=c<n n=d-c T=-191735+8779778 else p=a(-340655-(-365513))G=j j=F[p]p=a(609026-584148)T=j[p]p=m()b=a(-325664-(-350497))U[p]=T j=F[b]b=a(246997-222148)T=j[b]t=a(-228614-(-253447))b=T M=T l=F[t]T=l and 727267+8063382 or-787629+8905626 A=l end else L=Q(L)T=2182016-(-1027937)H=Q(H)r=Q(r)h=nil v=Q(v)z=Q(z)D=Q(D)end end else if T<590278+7502069 then if T<689778+7343638 then if T<7959307-23074 then T=696288-(-555879)O=#N S=-262289+262289 f=O==S else b=a(839872-815017)l=a(-687803-(-712667))t=13194564721138-98802 p=F[b]M=d(l,t)j={}A=n[M]b=p(A)T=F[a(-330377-(-355249))]end else l=24546436114041-(-230957)M=a(433309-408455)A=d(M,l)b=n[A]p=c(b)b=not p T=b and-828914+6485088 or 347345+3565427 end else if T<7725385-(-421164)then j=A T=M T=A and-427774+16468263 or 49603+15237480 else q=not d T=5709489-350177 j=q end end end end end else if T<12136551-76206 then if T<-247115+10517492 then if T<581334+8491300 then if T<313085+8569381 then if T<969375+7716242 then if T<241677+8086828 then L=m()U[L]=Z r=a(-883010-(-907868))j=F[r]r=a(208416+-183538)T=j[r]R=960356+-950356 D=-881382+881482 H=-325803-(-325804)r=355334+-355333 j=T(r,D)r=m()D=-314136+314136 U[r]=j T=U[p]z=-812651-(-812906)j=T(D,z)D=m()z=413582+-413581 I=a(-918487+943363)U[D]=j T=U[p]k=334491+-334491 v=U[r]j=T(z,v)z=m()h=-750911+750913 U[z]=j j=U[p]v=j(H,h)j=-552838+552839 T=v==j v=m()U[v]=T J=F[I]j=a(-564586+589436)h=a(-918711-(-943598))X=U[p]B={X(k,R)}T=a(-740518-(-765359))T=f[T]I=J(V(B))J=a(-88220-(-113107))w=I..J H=h..w T=T(f,j,H)H=m()w=y(-55978+282286,{p,L,M;n;d;O,v,H;r;z,D,A})U[H]=T h=a(-53512+78349)j=F[h]h={j(w)}T={V(h)}h=T T=U[v]T=T and-1024369+3647850 or 5198794-802686 else n=n+c p=not G d=n<=q d=p and d p=n>=q p=G and p d=p or d p=-181119+12593855 T=d and p d=771771+15204427 T=T or d end else N=a(-228642-(-253475))t=F[N]N=a(-1005300+1030126)T=9067627-949630 l=t[N]A=l end else if T<-445348+9372861 then if T<-826614+9723115 then j=w T=J T=400774+8524044 else U[d]=j T=101473+7537569 end else T=true T=T and 15969107-(-151701)or 9612787-(-993452)end end else if T<9284574-(-401269)then if T<133047+9288907 then if T<9456322-235712 then B=47287+-47285 X=h[B]B=U[H]I=X==B w=I T=9068173-176301 else T=U[o[645330-645323]]T=T and 78299+15549114 or 7808235-735917 end else U[d]=Z T=U[d]T=T and 5992670-927455 or 4258980-(-63831)end else if T<10856232-622356 then if T<901126+8915138 then d=U[o[528709+-528707]]n=-149392-(-149549)i=d*n d=16748943282345-143922 j=i+d i=30866+35184372057966 T=j%i U[o[-574700+574702]]=T T=-395819+4201118 d=102011-102010 i=U[o[-117769-(-117772)]]j=i~=d else T=nil j={T}T=F[a(528195-503309)]end else x=a(-454703-(-479572))b=M s=F[x]x=a(-1019372+1044256)Z=s[x]s=Z(i,b)Z=U[o[-381609+381615]]x=Z()O=s+x f=O+G T=840638-(-1043540)O=248304+-248048 N=f%O x=-397339-(-397340)G=N O=n[d]s=G+x Z=q[s]f=O..Z b=nil n[d]=f end end end else if T<11917329-536558 then if T<10509662-(-125077)then if T<10005883-(-577515)then if T<-192814+10714388 then A=a(-850909-(-875764))b=F[A]t=a(-1008147+1032977)N=4813965674560-655231 T=F[a(54694-29848)]j={}l=d(t,N)M=n[l]A=b(M)else d=U[o[-100184-(-100186)]]T=15359737-(-184302)n=U[o[-657093+657096]]i=d==n j=i end else T=Y(-135395+11907332,{q})s={T()}j={V(s)}T=F[a(-354637-(-379482))]end else if T<11398528-66857 then if T<11123192-(-8002)then L=a(929041+-904194)x=a(204020-179144)T=F[x]S=F[L]x=T(S)T=a(-190128-(-214996))F[T]=x T=86794+1322403 else l=31620928296679-(-336541)M=a(632690-607868)A=d(M,l)b=n[A]p=G[b]b=p()T=8635245-572906 end else i=a(-122625-(-147472))j=a(826126-801258)T=F[j]j=F[i]i=a(246380+-221533)F[i]=T i=a(-453701+478569)T=-498433+12202892 F[i]=j i=U[o[-809366-(-809367)]]d=i()end end else if T<944422+10822394 then if T<11906667-364389 then if T<126685+11280586 then O=Q(O)G=nil n=Q(n)l=nil c=Q(c)b=nil b=a(678358+-653525)d=Q(d)T=14228831-837081 d=nil n=nil G=a(-728571+753429)q=Q(q)M=Q(M)N=nil c=F[G]A=Q(A)t=nil f=nil G=a(-190666+215514)q=c[G]p=Q(p)p=a(444861-420003)c=m()U[c]=q G=F[p]p=a(-323477-(-348355))q=G[p]p=F[b]l={}b=a(397557-372680)G=p[b]M=m()A=a(-111784-(-136653))t=m()b=F[A]N={}O=-597494+597750 A=a(-696744-(-721632))p=b[A]S=O b=-763068-(-763068)O=-912852+912853 f=583750+-583749 A=m()U[A]=b b=-94775+94777 U[M]=b b={}U[t]=l l=-114933+114933 L=O O=332399-332399 r=L<O O=f-L else n=-710702-(-710703)d=U[o[-789496+789499]]i=d~=n T=i and 16645246-104959 or 3202925-(-602374)end else T=true T=T and 12373175-1005279 or 6909579-362250 end else if T<310210+11552578 then T=701765+11002694 else T=F[a(-169109+193989)]j={d}end end end end else if T<-123645+14684073 then if T<12632759-(-794325)then if T<13247122-677867 then if T<169130+12353417 then if T<973527+11508918 then T=U[o[-543299-(-543300)]]b=-361776-(-361776)d=n A=-998235+998490 p=T(b,A)T=-9431+8597474 i[d]=p d=nil else T=9862607-432911 s=l==t Z=s end else U[d]=w k=-880727+880728 B=U[z]X=B+k I=h[X]J=l+I I=850958+-850702 T=J%I X=U[D]I=t+X l=T X=-414946-(-415202)J=I%X t=J T=8529819-890777 end else if T<-284158+13385577 then if T<13183872-407057 then h=a(-97508-(-122375))f={}D={}I=nil O=m()S=e(5825693-592300,{O;A,M;c})U[O]=f f=m()U[f]=S S={}G=nil L=m()p=nil r=a(-861591-(-886447))U[L]=S b=nil v=a(-916969+941803)c=Q(c)S=F[r]H=U[L]z={[v]=H,[h]=I}r=S(D,z)n=r S=K(750217+-264310,{L;O;t,A,M,f})q=nil t=Q(t)l=nil G=a(731779-706954)d=S p=164670+7935844158257 f=Q(f)A=Q(A)M=Q(M)c=d(G,p)A=738101+23950518593627 N=nil q=n[c]O=Q(O)b=a(-763190-(-788055))G=a(-575961-(-600790))c=F[G]G=c()p=d(b,A)L=Q(L)c=n[p]A=a(716455+-691619)M=25815364701222-908593 p=q G[c]=p c=Y(14879226-252908,{})b=d(A,M)p=n[b]G=c(p)p=not G T=p and-901767+8932207 or-718546+5576807 else S=a(460980-436112)T=F[S]S=a(-759178-(-784025))F[S]=T T=1067077-(-342120)end else D=not r O=O+L f=O<=S f=D and f D=O>=S D=r and D f=D or f D=14899930-382252 T=f and D f=8236942-312937 T=T or f end end else if T<923898+12978491 then if T<14734497-1008557 then if T<13672221-58058 then T=U[p]x=-662732-(-662733)S=1015738-1015732 s=T(x,S)S=a(-195283-(-220151))T=a(761248-736380)F[T]=s x=F[S]S=-378939-(-378941)T=x>S T=T and 11006366-130637 or 526303+12489931 else T={}c=35184371745217-(-343615)b=a(-345569+370438)U[o[421910+-421908]]=T j=U[o[-857059+857062]]q=j j=d%c p=122109+-121854 T=616290+1267888 U[o[335148-335144]]=j G=d%p p=656917+-656915 c=G+p U[o[-415862+415867]]=c M=452566+-452565 l=M p=F[b]M=-777602+777602 b=a(-185786+210638)G=p[b]t=l<M p=G(i)G=a(-639662+664486)n[d]=G G=-209717-(-209895)b=-91102-(-91103)M=b-l A=p end else t=890198+18118988647327 j={}b=a(-870653-(-895508))p=F[b]l=a(949670+-924830)T=F[a(814955-790094)]M=d(l,t)A=n[M]b=p(A)end else if T<13687043-(-815044)then T=true T=T and 13908542-300304 or-366220+2090626 else f=O D=f T=14343999-952249 N[f]=D f=nil end end end else if T<-127237+16129053 then if T<904612+14631792 then if T<15203049-372288 then if T<-592125+15394674 then j=a(255985+-231148)i=m()n=W(702975+1213244,{i})U[i]=C[569909-569908]T=F[j]q={T(n)}j=q[854692+-854691]n=j d=q[527917-527915]q=not n T=q and 4982915-(-376397)or-603320+8791714 j=q else q=nil n=nil j={}p=nil c=nil G=nil d=nil T=F[a(146857-122014)]end else M=a(568826-544000)T=15786420-(-254069)A=F[M]j=A end else if T<16155771-489723 then if T<-4219+15617107 then T=j and 471337-57593 or 8562279-(-708348)else n=765029+-765029 i=a(210545-185690)T=F[i]d=U[o[402565+-402557]]i=T(d,n)T=7948103-875785 end else T=U[o[-387360+387370]]d=U[o[-696357+696368]]i[T]=d T=U[o[-170249-(-170261)]]d={T(i)}j={V(d)}T=F[a(789142+-764279)]end end else if T<-497193+16934357 then if T<15577661-(-753967)then if T<16042019-(-64556)then A=m()U[A]=j T=U[p]M=657752+-657749 l=-37376+37441 j=T(M,l)N=a(-897012+921849)M=m()f=e(5830409-590934,{})T=-1046592+1046592 U[M]=j j=F[N]N={j(f)}l=T T=-644753+644753 t=T T={V(N)}j=383169+-383167 N=T T=N[j]x=a(-1002454+1027330)j=a(-783120+807994)f=T T=F[j]O=U[n]s=F[x]x=s(f)s=a(-246195+271045)Z=O(x,s)O={Z()}j=T(V(O))T=3104424-(-105529)O=m()U[O]=j j=-926103-(-926104)Z=U[M]s=Z Z=934780-934779 x=Z Z=-967099+967099 S=x<Z Z=j-x else T=298284+14159234 end else d=a(620569+-595690)j=-389728+15156792 n=-926991+7249111 i=d^n T=j-i j=a(97332-72481)i=T T=j/i j={T}T=F[a(-667021+691856)]end else if T<17019497-548238 then B=944266+-944265 X=h[B]J=T B=false I=X==B T=I and 10199796-1044562 or 9745366-853494 w=I else d=U[o[-779368-(-779371)]]n=-661434+661466 i=d%n l=-644114-(-644127)q=U[o[-785338+785342]]p=U[o[-557473-(-557475)]]f=U[o[326025-326022]]N=f-i f=786538+-786506 A=-512731-(-512733)t=N/f M=l-t l=396724+-396468 b=A^M G=p/b b=372124-372123 c=q(G)q=4295497615-530319 n=c%q c=-402322+402324 q=c^i d=n/q q=U[o[158890-158886]]p=d%b b=4294662619-(-304677)G=p*b c=q(G)q=U[o[269325-269321]]G=q(d)n=c+G c=997035-931499 p=717325-651789 q=n%c G=n-q A=285863-285607 T=-955783+3887832 c=G/p p=362172-361916 G=q%p n=nil b=q-G p=b/A A=695259-695003 b=c%A i=nil M=c-b A=M/l q=nil d=nil c=nil M={G,p;b,A}p=nil b=nil A=nil U[o[851315+-851314]]=M G=nil end end end end end end end T=#u return V(j)end return(c(1043974+3317871,{}))(V(j))end)(getfenv and getfenv()or _ENV,unpack or table[a(274327+-249501)],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+local k = "NihonLoader_Key_Real"
+if getgenv()._nl ~= k then
+	local g = Instance.new("ScreenGui")
+	g.Name = "warn"
+	g.Parent = game:GetService("CoreGui")
+	local f = Instance.new("Frame", g)
+	f.Size = UDim2.new(0, 420, 0, 140)
+	f.Position = UDim2.new(0.5, -210, 0.5, -70)
+	f.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	f.BorderSizePixel = 0
+	Instance.new("UICorner", f).CornerRadius = UDim.new(0, 10)
+	local t = Instance.new("TextLabel", f)
+	t.Size = UDim2.new(1, -20, 1, -20)
+	t.Position = UDim2.new(0, 10, 0, 10)
+	t.BackgroundTransparency = 1
+	t.TextColor3 = Color3.fromRGB(255, 80, 80)
+	t.TextScaled = true
+	t.TextWrapped = true
+	t.Font = Enum.Font.GothamBold
+	t.Text = "Warning: NihonGo will not run without the official loader. Do not attempt to bypass this system again. Continued attempts may result in a ban."
+	return
+end
+
+local TweenService      = game:GetService("TweenService")
+local RunService        = game:GetService("RunService")
+local Players           = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace         = game:GetService("Workspace")
+local UserInputService  = game:GetService("UserInputService")
+
+local function playSound(id)
+	local s = Instance.new("Sound")
+	s.SoundId = id; s.Volume = 0.6; s.RollOffMaxDistance = 0
+	s.Parent = workspace; s:Play()
+	game:GetService("Debris"):AddItem(s, 3)
+end
+
+local lp        = Players.LocalPlayer
+local playerGui = lp:WaitForChild("PlayerGui")
+
+local BLOOM = {
+	bg         = Color3.fromRGB(18, 12, 8),
+	bgDeep     = Color3.fromRGB(28, 16, 10),
+	bgMid      = Color3.fromRGB(22, 14, 9),
+	panel      = Color3.fromRGB(36, 22, 14),
+	accent     = Color3.fromRGB(255, 140, 80),
+	accentSoft = Color3.fromRGB(255, 190, 130),
+	accentGlow = Color3.fromRGB(255, 210, 160),
+	petal1     = Color3.fromRGB(255, 160, 100),
+	petal2     = Color3.fromRGB(255, 120, 60),
+	petal3     = Color3.fromRGB(255, 200, 140),
+	petal4     = Color3.fromRGB(220, 100, 50),
+	txtMain    = Color3.fromRGB(255, 230, 200),
+	txtSub     = Color3.fromRGB(200, 155, 110),
+	txtFaint   = Color3.fromRGB(120, 80, 50),
+	bar        = Color3.fromRGB(45, 25, 12),
+	barFill1   = Color3.fromRGB(200, 90, 30),
+	barFill2   = Color3.fromRGB(255, 200, 120),
+	espZombie  = Color3.fromRGB(255, 100, 50),
+	espPlayer  = Color3.fromRGB(255, 180, 80),
+	espObject  = Color3.fromRGB(200, 230, 80),
+	rangeBloom = Color3.fromRGB(255, 140, 60),
+	keyErr     = Color3.fromRGB(255, 80, 60),
+	keyOk      = Color3.fromRGB(80, 200, 100),
+	divider    = Color3.fromRGB(70, 40, 20),
+	cardBg     = Color3.fromRGB(30, 18, 10),
+}
+
+local WHITELIST = {
+	["tubers9312u"]  = true,
+	["SkibidihhhToiwet"]  = true,
+}
+
+local VALID_KEYS = { "Nihon", "nihon", "NIHON" }
+
+local isOwner = WHITELIST[lp.Name] == true
+
+local LANGS = {
+	EN = {
+		steps = {
+			{ icon="🌺", line="Initializing core systems"   },
+			{ icon="🌸", line="Loading Bloom Protocol"      },
+			{ icon="🍀", line="Arming combat modules"       },
+			{ icon="🌿", line="Configuring ESP visuals"     },
+			{ icon="✅", line="Nihon Hub ready — Welcome!"  },
+		},
+		notify  = "Systems initialized. Have fun!",
+		tabs    = { Player="🌱 Player", Misc="🍃 Misc", Car="🚗 Car", Combat="🌾 Combat", Visuals="🌺 Visuals", Settings="⚙️ Settings", Info="📋 Info" },
+		sec     = { Survival="Survival", Actions="Actions", CarTroll="Car Troll", Zombies="Zombies", HitboxMod="Hitbox Mod", ESP="ESP", InfoSec="Hub Info", Changelog="Changelog", Language="Language", Movement="Movement", Utility="Utility" },
+		ui      = {
+			WalkSpeed="WalkSpeed", JumpPower="JumpPower", InfJump="Infinite Jump",
+			InfStamina="Inf Stamina", InfHunger="Inf Hunger", NoFall="NoFall Damage", SelfKill="Self Kill",
+			CarDrag="Car Drag", LoopBrake="Loop Brake", SitDriver="Sit in Driver Seat", AutoHonk="Auto Honk",
+			KillAura="Kill Aura", KAKeybind="Kill Aura Keybind", KARange="Kill Aura Range", VisRange="Show Visual Range",
+			BigHitbox="Big Hitboxes", HitboxSize="Hitbox Size",
+			ZombieESP="Zombies ESP", PlayerESP="Player ESP", ObjectESP="Objects ESP",
+			LangDrop="Language / 言語 / Dil",
+			Fly="Fly", FlySpeed="Fly Speed", Noclip="Noclip", Ghost="Ghost Mode",
+			AntiAFK="Anti-AFK", FreeCam="Freecam", InfStam2="Infinite Stamina",
+			FlingPlayer="Fling Players", FlingRange="Fling Range",
+			Gravity="Gravity", GravitySlider="Gravity Scale",
+		},
+		labels  = { "🌺 Zombie ESP — amber tag + live HP bar above head", "🌼 Player ESP — gold tag + live HP bar above head", "🌿 Visual Range — bloom sphere welded to your character" },
+		espNote = { zOn="Zombie ESP enabled.", zOff="Zombie ESP disabled.", pOn="Player ESP enabled.", pOff="Player ESP disabled." },
+	},
+	JP = {
+		steps = {
+			{ icon="🌺", line="起動中 - Kidō-chū"                  },
+			{ icon="🌸", line="ブルームプロトコル - Burūmu"         },
+			{ icon="🍀", line="武器システム - Buki Shisutemu"       },
+			{ icon="🌿", line="ESP読み込み - ESP Yomikomi"         },
+			{ icon="✅", line="完了 - Kanryō — いらっしゃいませ!"   },
+		},
+		notify  = "システム初期化完了。楽しんで！- Tanoshinde!",
+		tabs    = { Player="🌱 プレイヤー", Misc="🍃 その他", Car="🚗 車", Combat="🌾 戦闘", Visuals="🌺 ビジュアル", Settings="⚙️ 設定", Info="📋 情報" },
+		sec     = { Survival="サバイバル", Actions="アクション", CarTroll="車トロール", Zombies="ゾンビ", HitboxMod="ヒットボックス", ESP="ESP", InfoSec="ハブ情報", Changelog="更新履歴", Language="言語", Movement="移動", Utility="ユーティリティ" },
+		ui      = {
+			WalkSpeed="歩行速度", JumpPower="ジャンプ力", InfJump="無限ジャンプ",
+			InfStamina="無限スタミナ", InfHunger="無限の空腹", NoFall="落下ダメージ無効", SelfKill="自殺",
+			CarDrag="車を引く", LoopBrake="ループブレーキ", SitDriver="運転席に座る", AutoHonk="自動クラクション",
+			KillAura="キルオーラ", KAKeybind="キルオーラキー", KARange="キルオーラ範囲", VisRange="範囲表示",
+			BigHitbox="巨大ヒットボックス", HitboxSize="ヒットボックスサイズ",
+			ZombieESP="ゾンビESP", PlayerESP="プレイヤーESP", ObjectESP="オブジェクトESP",
+			LangDrop="言語選択",
+			Fly="飛行", FlySpeed="飛行速度", Noclip="ノークリップ", Ghost="ゴーストモード",
+			AntiAFK="AFK対策", FreeCam="フリーカム", InfStam2="無限スタミナ",
+			FlingPlayer="プレイヤーを飛ばす", FlingRange="飛ばす範囲",
+			Gravity="重力", GravitySlider="重力スケール",
+		},
+		labels  = { "🌺 ゾンビESP — アンバータグ + HPバー", "🌼 プレイヤーESP — ゴールドタグ + HPバー", "🌿 範囲表示 — ブルームスフィア" },
+		espNote = { zOn="ゾンビESP 有効。", zOff="ゾンビESP 無効。", pOn="プレイヤーESP 有効。", pOff="プレイヤーESP 無効。" },
+	},
+	TR = {
+		steps = {
+			{ icon="🌺", line="Çekirdek sistemler başlatılıyor" },
+			{ icon="🌸", line="Bloom Protokolü yükleniyor"      },
+			{ icon="🍀", line="Savaş modülleri hazırlanıyor"    },
+			{ icon="🌿", line="ESP görselleri yapılandırılıyor" },
+			{ icon="✅", line="Nihon Hub hazır — Hoş geldin!"   },
+		},
+		notify  = "Sistemler başlatıldı. İyi eğlenceler!",
+		tabs    = { Player="🌱 Oyuncu", Misc="🍃 Diğer", Car="🚗 Araç", Combat="🌾 Savaş", Visuals="🌺 Görseller", Settings="⚙️ Ayarlar", Info="📋 Bilgi" },
+		sec     = { Survival="Hayatta Kalma", Actions="Eylemler", CarTroll="Araç Troll", Zombies="Zombiler", HitboxMod="Hitbox Modu", ESP="ESP", InfoSec="Hub Bilgisi", Changelog="Değişiklikler", Language="Dil Seçimi", Movement="Hareket", Utility="Araçlar" },
+		ui      = {
+			WalkSpeed="Yürüyüş Hızı", JumpPower="Zıplama Gücü", InfJump="Sınırsız Zıplama",
+			InfStamina="Sınırsız Stamina", InfHunger="Sınırsız Tokluk", NoFall="Düşme Hasarı Yok", SelfKill="Kendini Öldür",
+			CarDrag="Araç Sürükle", LoopBrake="Fren (Döngü)", SitDriver="Sürücü Koltuğuna Otur", AutoHonk="Otomatik Korna",
+			KillAura="Kill Aura", KAKeybind="Kill Aura Tuşu", KARange="Kill Aura Menzili", VisRange="Menzil Göster",
+			BigHitbox="Büyük Hitbox", HitboxSize="Hitbox Boyutu",
+			ZombieESP="Zombi ESP", PlayerESP="Oyuncu ESP", ObjectESP="Nesne ESP",
+			LangDrop="Dil Seçimi",
+			Fly="Uçuş", FlySpeed="Uçuş Hızı", Noclip="Noclip", Ghost="Hayalet Modu",
+			AntiAFK="Anti-AFK", FreeCam="Serbest Kamera", InfStam2="Sonsuz Stamina",
+			FlingPlayer="Oyuncu Fırlat", FlingRange="Fırlatma Menzili",
+			Gravity="Yerçekimi", GravitySlider="Yerçekimi Ölçeği",
+		},
+		labels  = { "🌺 Zombi ESP — amber isim + canlı HP çubuğu", "🌼 Oyuncu ESP — altın isim + canlı HP çubuğu", "🌿 Menzil Göster — karakterine bağlı bloom küre" },
+		espNote = { zOn="Zombi ESP aktif.", zOff="Zombi ESP kapatıldı.", pOn="Oyuncu ESP aktif.", pOff="Oyuncu ESP kapatıldı." },
+	},
+}
+
+local petals = {}
+local function spawnPetal()
+	local c = Drawing.new("Circle")
+	local cols = { BLOOM.petal1, BLOOM.petal2, BLOOM.petal3, BLOOM.petal4 }
+	c.Color = cols[math.random(1, #cols)]
+	c.Filled = true; c.NumSides = 20
+	c.Radius = math.random(2, 5); c.Thickness = 1
+	c.Transparency = math.random(55, 78) * 0.01
+	local vp = workspace.CurrentCamera.ViewportSize
+	c.Position = Vector2.new(math.random(0, vp.X), math.random(-40, 0))
+	table.insert(petals, { obj=c, vx=math.random(-10,10)*0.1, vy=math.random(30,65)*0.1 })
+end
+
+local LoadGui = Instance.new("ScreenGui")
+LoadGui.Name = "NihonLoader"
+LoadGui.IgnoreGuiInset = true
+LoadGui.ResetOnSpawn = false
+LoadGui.DisplayOrder = 999
+LoadGui.Parent = playerGui
+
+local Bg = Instance.new("Frame", LoadGui)
+Bg.Size = UDim2.fromScale(1,1)
+Bg.BackgroundColor3 = Color3.fromRGB(10, 6, 3)
+Bg.BorderSizePixel = 0
+local bgGrad = Instance.new("UIGradient", Bg)
+bgGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0,   Color3.fromRGB(18, 10, 5)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(11, 7, 3)),
+	ColorSequenceKeypoint.new(1,   Color3.fromRGB(8,  5, 2)),
+})
+bgGrad.Rotation = 130
+
+local ambientGlow = Instance.new("Frame", Bg)
+ambientGlow.Size = UDim2.fromOffset(520, 520)
+ambientGlow.AnchorPoint = Vector2.new(0.5,0.5)
+ambientGlow.Position = UDim2.fromScale(0.5, 0.44)
+ambientGlow.BackgroundColor3 = Color3.fromRGB(160, 65, 10)
+ambientGlow.BackgroundTransparency = 0.94
+ambientGlow.BorderSizePixel = 0
+Instance.new("UICorner", ambientGlow).CornerRadius = UDim.new(1,0)
+
+local Card = Instance.new("Frame", Bg)
+Card.AnchorPoint = Vector2.new(0.5,0.5)
+Card.Position = UDim2.fromScale(0.5,0.5)
+Card.Size = UDim2.fromOffset(460, 360)
+Card.BackgroundColor3 = Color3.fromRGB(20, 12, 6)
+Card.BorderSizePixel = 0
+Instance.new("UICorner", Card).CornerRadius = UDim.new(0, 10)
+local cardStroke = Instance.new("UIStroke", Card)
+cardStroke.Color = Color3.fromRGB(75, 40, 16)
+cardStroke.Thickness = 1
+
+local topBar = Instance.new("Frame", Card)
+topBar.Size = UDim2.new(1, 0, 0, 58)
+topBar.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
+topBar.BorderSizePixel = 0
+Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 10)
+local tbFix = Instance.new("Frame", topBar)
+tbFix.Size = UDim2.new(1, 0, 0, 10)
+tbFix.Position = UDim2.fromOffset(0, 48)
+tbFix.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
+tbFix.BorderSizePixel = 0
+
+local headerLine = Instance.new("Frame", topBar)
+headerLine.Size = UDim2.new(1, 0, 0, 1)
+headerLine.Position = UDim2.new(0, 0, 1, -1)
+headerLine.BackgroundColor3 = Color3.fromRGB(255, 140, 55)
+headerLine.BorderSizePixel = 0
+local hlGrad = Instance.new("UIGradient", headerLine)
+hlGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0,   Color3.fromRGB(80, 35, 8)),
+	ColorSequenceKeypoint.new(0.3, Color3.fromRGB(220, 110, 40)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 195, 100)),
+	ColorSequenceKeypoint.new(0.7, Color3.fromRGB(220, 110, 40)),
+	ColorSequenceKeypoint.new(1,   Color3.fromRGB(80, 35, 8)),
+})
+
+local logoFrame = Instance.new("Frame", topBar)
+logoFrame.Size = UDim2.fromOffset(36, 36)
+logoFrame.Position = UDim2.fromOffset(16, 11)
+logoFrame.BackgroundColor3 = Color3.fromRGB(38, 20, 8)
+logoFrame.BorderSizePixel = 0
+Instance.new("UICorner", logoFrame).CornerRadius = UDim.new(0, 6)
+local logoStroke = Instance.new("UIStroke", logoFrame)
+logoStroke.Color = Color3.fromRGB(100, 55, 18)
+logoStroke.Thickness = 1; logoStroke.Transparency = 0.3
+local logoLbl = Instance.new("TextLabel", logoFrame)
+logoLbl.Size = UDim2.fromScale(1,1); logoLbl.BackgroundTransparency = 1
+logoLbl.Text = "🌺"; logoLbl.TextSize = 18; logoLbl.Font = Enum.Font.Gotham
+
+local titleMain = Instance.new("TextLabel", topBar)
+titleMain.Size = UDim2.new(1, -130, 0, 22)
+titleMain.Position = UDim2.fromOffset(60, 9)
+titleMain.BackgroundTransparency = 1
+titleMain.TextColor3 = Color3.fromRGB(255, 215, 160)
+titleMain.Font = Enum.Font.GothamBold; titleMain.TextSize = 16
+titleMain.TextXAlignment = Enum.TextXAlignment.Left
+titleMain.Text = "日本 Hub"
+
+local titleSub = Instance.new("TextLabel", topBar)
+titleSub.Size = UDim2.new(1, -130, 0, 13)
+titleSub.Position = UDim2.fromOffset(60, 32)
+titleSub.BackgroundTransparency = 1
+titleSub.TextColor3 = Color3.fromRGB(100, 62, 30)
+titleSub.Font = Enum.Font.Gotham; titleSub.TextSize = 10
+titleSub.TextXAlignment = Enum.TextXAlignment.Left
+titleSub.Text = "Bloom Edition  ·  v3.0  ·  by MrDuck"
+
+local badgeFrame = Instance.new("Frame", topBar)
+badgeFrame.Size = UDim2.fromOffset(isOwner and 68 or 60, 18)
+badgeFrame.Position = UDim2.new(1, isOwner and -82 or -74, 0, 20)
+badgeFrame.BackgroundColor3 = isOwner and Color3.fromRGB(50, 28, 8) or Color3.fromRGB(30, 18, 8)
+badgeFrame.BorderSizePixel = 0
+Instance.new("UICorner", badgeFrame).CornerRadius = UDim.new(0, 4)
+local badgeStroke = Instance.new("UIStroke", badgeFrame)
+badgeStroke.Color = isOwner and Color3.fromRGB(200, 120, 40) or Color3.fromRGB(90, 48, 14)
+badgeStroke.Thickness = 1; badgeStroke.Transparency = 0.2
+local badgeLbl = Instance.new("TextLabel", badgeFrame)
+badgeLbl.Size = UDim2.fromScale(1,1); badgeLbl.BackgroundTransparency = 1
+badgeLbl.TextColor3 = isOwner and Color3.fromRGB(255, 200, 100) or Color3.fromRGB(140, 85, 35)
+badgeLbl.Font = Enum.Font.GothamSemibold; badgeLbl.TextSize = 9
+badgeLbl.Text = isOwner and "👑 OWNER" or "🔑 KEY REQ"
+
+local stepIndicator = Instance.new("Frame", topBar)
+stepIndicator.Size = UDim2.fromOffset(70, 18)
+stepIndicator.Position = UDim2.new(1, -84, 0, 20)
+stepIndicator.BackgroundColor3 = Color3.fromRGB(38, 20, 8)
+stepIndicator.BorderSizePixel = 0
+stepIndicator.Visible = not isOwner
+Instance.new("UICorner", stepIndicator).CornerRadius = UDim.new(0, 4)
+local siStroke = Instance.new("UIStroke", stepIndicator)
+siStroke.Color = Color3.fromRGB(90, 48, 14); siStroke.Thickness = 1; siStroke.Transparency = 0.4
+local siLbl = Instance.new("TextLabel", stepIndicator)
+siLbl.Size = UDim2.fromScale(1,1); siLbl.BackgroundTransparency = 1
+siLbl.TextColor3 = Color3.fromRGB(140, 85, 35)
+siLbl.Font = Enum.Font.GothamSemibold; siLbl.TextSize = 9
+siLbl.Text = "Step 1 of 4"
+
+local Body = Instance.new("Frame", Card)
+Body.Size = UDim2.new(1, -28, 1, -70)
+Body.Position = UDim2.fromOffset(14, 62)
+Body.BackgroundTransparency = 1
+
+local function mkDiv(parent, y)
+	local d = Instance.new("Frame", parent)
+	d.Size = UDim2.new(1, 0, 0, 1)
+	d.Position = UDim2.fromOffset(0, y)
+	d.BackgroundColor3 = Color3.fromRGB(55, 30, 12)
+	d.BorderSizePixel = 0
+end
+
+local function mkBtn(parent, yPos, txt, w, xOff)
+	local b = Instance.new("TextButton", parent)
+	b.Size = w and UDim2.fromOffset(w, 34) or UDim2.new(1, 0, 0, 30)
+	b.Position = (w and xOff) and UDim2.fromOffset(xOff, yPos) or UDim2.fromOffset(0, yPos)
+	b.BackgroundColor3 = Color3.fromRGB(200, 100, 30)
+	b.BorderSizePixel = 0; b.AutoButtonColor = false
+	b.TextColor3 = Color3.fromRGB(18, 9, 3)
+	b.Font = Enum.Font.GothamBold; b.TextSize = 12; b.Text = txt
+	Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
+	local g = Instance.new("UIGradient", b)
+	g.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 140, 55)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(195, 85, 20)),
+	})
+b.MouseEnter:Connect(function()
+		TweenService:Create(b, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(230, 130, 50)}):Play()
+		local hs = Instance.new("Sound")
+		hs.SoundId = "rbxassetid://92876108656319"; hs.Volume = 0.4
+		hs.Parent = workspace; hs:Play()
+		game:GetService("Debris"):AddItem(hs, 2)
+	end)
+	b.MouseLeave:Connect(function()
+		TweenService:Create(b, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(200, 100, 30)}):Play()
+	end)
+	return b
+end
+
+local function mkSecLabel(parent, y, txt)
+	local l = Instance.new("TextLabel", parent)
+	l.Size = UDim2.new(1, 0, 0, 18)
+	l.Position = UDim2.fromOffset(0, y)
+	l.BackgroundTransparency = 1
+	l.TextColor3 = Color3.fromRGB(175, 105, 45)
+	l.Font = Enum.Font.GothamSemibold; l.TextSize = 11
+	l.TextXAlignment = Enum.TextXAlignment.Left
+	l.Text = txt
+	return l
+end
+
+local function slideOut(from, to)
+	TweenService:Create(from, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position=UDim2.fromOffset(-16, 0)}):Play()
+	task.wait(0.16)
+	from.Visible = false; from.Position = UDim2.fromScale(0,0)
+	to.Position = UDim2.fromOffset(16, 0); to.Visible = true
+	TweenService:Create(to, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position=UDim2.fromOffset(0,0)}):Play()
+end
+
+local petalTimer = 0
+local petalConn = RunService.RenderStepped:Connect(function(dt)
+	petalTimer += dt
+	if petalTimer > 0.12 and #petals < 22 then petalTimer = 0; spawnPetal() end
+	local vp = workspace.CurrentCamera.ViewportSize
+	for i = #petals, 1, -1 do
+		local p = petals[i]
+		p.obj.Position += Vector2.new(p.vx, p.vy) * dt * 16
+		if p.obj.Position.Y > vp.Y + 20 then p.obj:Remove(); table.remove(petals, i) end
+	end
+end)
+
+local FeatPanel = Instance.new("Frame", Body)
+FeatPanel.Size = UDim2.fromScale(1,1); FeatPanel.BackgroundTransparency = 1
+
+mkSecLabel(FeatPanel, 0, "Features")
+mkDiv(FeatPanel, 20)
+
+local FeatScroll = Instance.new("ScrollingFrame", FeatPanel)
+FeatScroll.Size = UDim2.new(1, 0, 0, 192)
+FeatScroll.Position = UDim2.fromOffset(0, 26)
+FeatScroll.BackgroundTransparency = 1; FeatScroll.BorderSizePixel = 0
+FeatScroll.ScrollBarThickness = 2
+FeatScroll.ScrollBarImageColor3 = Color3.fromRGB(140, 75, 25)
+FeatScroll.ScrollBarImageTransparency = 0.3
+FeatScroll.CanvasSize = UDim2.fromOffset(0,0)
+local fsPad = Instance.new("UIPadding", FeatScroll)
+fsPad.PaddingTop = UDim.new(0,4); fsPad.PaddingBottom = UDim.new(0,4)
+local fsList = Instance.new("UIListLayout", FeatScroll)
+fsList.Padding = UDim.new(0,2); fsList.SortOrder = Enum.SortOrder.LayoutOrder
+
+local featLines = {
+	{ icon="🌱", text="Player  —  WalkSpeed · JumpPower · Fly · Noclip · Ghost · Freecam · Gravity" },
+	{ icon="🍃", text="Misc  —  Infinite Stamina · Infinite Hunger · NoFall Damage · Anti-AFK"       },
+	{ icon="🚗", text="Car  —  Auto Honk · Car Drag · Loop Brake · Sit in Driver Seat"               },
+	{ icon="🌾", text="Combat  —  Kill Aura · Fling Players · Big Hitboxes"                          },
+	{ icon="🌺", text="ESP  —  Zombie  ·  Player  ·  Object (live HP bars + highlights)"             },
+	{ icon="📋", text="Info  —  Session data · Executor detect · IP reveal · Changelogs"             },
+	{ icon="🌐", text="Loader  —  Language select: English · 日本語 · Türkçe"                        },
+}
+for i, f in ipairs(featLines) do
+	local row = Instance.new("Frame", FeatScroll)
+	row.Size = UDim2.new(1, 0, 0, 24); row.LayoutOrder = i
+	row.BackgroundColor3 = Color3.fromRGB(28, 15, 7)
+	row.BackgroundTransparency = i % 2 == 0 and 0.55 or 0.78
+	row.BorderSizePixel = 0
+	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 4)
+	local iconLbl = Instance.new("TextLabel", row)
+	iconLbl.Size = UDim2.fromOffset(22, 24); iconLbl.BackgroundTransparency = 1
+	iconLbl.Text = f.icon; iconLbl.TextSize = 11; iconLbl.Font = Enum.Font.Gotham
+	local txtLbl = Instance.new("TextLabel", row)
+	txtLbl.Size = UDim2.new(1, -26, 1, 0); txtLbl.Position = UDim2.fromOffset(22, 0)
+	txtLbl.BackgroundTransparency = 1; txtLbl.TextColor3 = Color3.fromRGB(175, 118, 65)
+	txtLbl.Font = Enum.Font.Gotham; txtLbl.TextSize = 10
+	txtLbl.TextXAlignment = Enum.TextXAlignment.Left
+	txtLbl.Text = f.text; txtLbl.TextTruncate = Enum.TextTruncate.AtEnd
+end
+fsList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	FeatScroll.CanvasSize = UDim2.fromOffset(0, fsList.AbsoluteContentSize.Y + 8)
+end)
+
+mkDiv(FeatPanel, 224)
+local ReadBtn = mkBtn(FeatPanel, 230, "Continue  →")
+
+local LangPanel = Instance.new("Frame", Body)
+LangPanel.Size = UDim2.fromScale(1,1); LangPanel.BackgroundTransparency = 1; LangPanel.Visible = false
+
+mkSecLabel(LangPanel, 0, "Language")
+mkDiv(LangPanel, 20)
+
+local langDefs = {
+	{ code="EN", label="English", native="English",  flag="🇬🇧" },
+	{ code="JP", label="日本語",   native="Nihongo",  flag="🇯🇵" },
+	{ code="TR", label="Türkçe",  native="Turkish",  flag="🇹🇷" },
+}
+local langBtns = {}
+for i, def in ipairs(langDefs) do
+	local btn = Instance.new("TextButton", LangPanel)
+	btn.Size = UDim2.new(1, 0, 0, 50)
+	btn.Position = UDim2.fromOffset(0, 26 + (i-1)*56)
+	btn.BackgroundColor3 = Color3.fromRGB(24, 13, 6)
+	btn.BorderSizePixel = 0; btn.AutoButtonColor = false; btn.Text = ""
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 7)
+	local bs = Instance.new("UIStroke", btn)
+	bs.Color = Color3.fromRGB(65, 34, 12); bs.Thickness = 1; bs.Transparency = 0.3
+	local flagLbl = Instance.new("TextLabel", btn)
+	flagLbl.Size = UDim2.fromOffset(44, 50); flagLbl.BackgroundTransparency = 1
+	flagLbl.Text = def.flag; flagLbl.TextSize = 20; flagLbl.Font = Enum.Font.Gotham
+	local sep = Instance.new("Frame", btn)
+	sep.Size = UDim2.fromOffset(1, 28); sep.Position = UDim2.fromOffset(44, 11)
+	sep.BackgroundColor3 = Color3.fromRGB(65, 34, 12); sep.BorderSizePixel = 0
+	local nameMain = Instance.new("TextLabel", btn)
+	nameMain.Size = UDim2.new(1, -76, 0, 22); nameMain.Position = UDim2.fromOffset(54, 7)
+	nameMain.BackgroundTransparency = 1; nameMain.TextColor3 = Color3.fromRGB(230, 185, 130)
+	nameMain.Font = Enum.Font.GothamBold; nameMain.TextSize = 14
+	nameMain.TextXAlignment = Enum.TextXAlignment.Left; nameMain.Text = def.label
+	local nameSub = Instance.new("TextLabel", btn)
+	nameSub.Size = UDim2.new(1, -76, 0, 13); nameSub.Position = UDim2.fromOffset(54, 30)
+	nameSub.BackgroundTransparency = 1; nameSub.TextColor3 = Color3.fromRGB(100, 60, 24)
+	nameSub.Font = Enum.Font.Gotham; nameSub.TextSize = 10
+	nameSub.TextXAlignment = Enum.TextXAlignment.Left; nameSub.Text = def.native
+	local arr = Instance.new("TextLabel", btn)
+	arr.Size = UDim2.fromOffset(16, 50); arr.Position = UDim2.new(1, -20, 0, 0)
+	arr.BackgroundTransparency = 1; arr.TextColor3 = Color3.fromRGB(80, 44, 14)
+	arr.Font = Enum.Font.GothamBold; arr.TextSize = 15; arr.Text = "›"
+	btn.MouseEnter:Connect(function()
+	TweenService:Create(btn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(34, 18, 8)}):Play()
+	TweenService:Create(bs, TweenInfo.new(0.13), {Color=Color3.fromRGB(200, 100, 30), Transparency=0}):Play()
+	TweenService:Create(arr, TweenInfo.new(0.13), {TextColor3=Color3.fromRGB(200, 120, 50)}):Play()
+	local hs = Instance.new("Sound")
+	hs.SoundId = "rbxassetid://92876108656319"; hs.Volume = 0.4
+	hs.Parent = workspace; hs:Play()
+	game:GetService("Debris"):AddItem(hs, 2)
+end)
+	btn.MouseLeave:Connect(function()
+		TweenService:Create(btn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(24, 13, 6)}):Play()
+		TweenService:Create(bs, TweenInfo.new(0.13), {Color=Color3.fromRGB(65, 34, 12), Transparency=0.3}):Play()
+		TweenService:Create(arr, TweenInfo.new(0.13), {TextColor3=Color3.fromRGB(80, 44, 14)}):Play()
+	end)
+	langBtns[def.code] = btn
+end
+
+local OwnerPanel = Instance.new("Frame", Body)
+OwnerPanel.Size = UDim2.fromScale(1,1); OwnerPanel.BackgroundTransparency = 1; OwnerPanel.Visible = false
+
+mkSecLabel(OwnerPanel, 0, "Owner Detected  ·  "..lp.Name)
+mkDiv(OwnerPanel, 20)
+
+local crownRow = Instance.new("Frame", OwnerPanel)
+crownRow.Size = UDim2.new(1, 0, 0, 52); crownRow.Position = UDim2.fromOffset(0, 26)
+crownRow.BackgroundColor3 = Color3.fromRGB(26, 14, 7); crownRow.BackgroundTransparency = 0.25
+crownRow.BorderSizePixel = 0
+Instance.new("UICorner", crownRow).CornerRadius = UDim.new(0, 7)
+local crownStroke = Instance.new("UIStroke", crownRow)
+crownStroke.Color = Color3.fromRGB(200, 120, 40); crownStroke.Thickness = 1; crownStroke.Transparency = 0.15
+local crownIcon = Instance.new("TextLabel", crownRow)
+crownIcon.Size = UDim2.fromOffset(52, 52); crownIcon.BackgroundTransparency = 1
+crownIcon.Text = "👑"; crownIcon.TextSize = 24; crownIcon.Font = Enum.Font.Gotham
+crownIcon.TextXAlignment = Enum.TextXAlignment.Center
+local cSep = Instance.new("Frame", crownRow)
+cSep.Size = UDim2.fromOffset(1, 32); cSep.Position = UDim2.fromOffset(52, 10)
+cSep.BackgroundColor3 = Color3.fromRGB(90, 48, 14); cSep.BorderSizePixel = 0
+local greetMain = Instance.new("TextLabel", crownRow)
+greetMain.Size = UDim2.new(1, -66, 0, 22); greetMain.Position = UDim2.fromOffset(62, 7)
+greetMain.BackgroundTransparency = 1; greetMain.TextColor3 = Color3.fromRGB(255, 210, 140)
+greetMain.Font = Enum.Font.GothamBold; greetMain.TextSize = 14
+greetMain.TextXAlignment = Enum.TextXAlignment.Left
+greetMain.Text = "Welcome back, "..lp.Name.."  🌺"
+local greetSub = Instance.new("TextLabel", crownRow)
+greetSub.Size = UDim2.new(1, -66, 0, 13); greetSub.Position = UDim2.fromOffset(62, 30)
+greetSub.BackgroundTransparency = 1; greetSub.TextColor3 = Color3.fromRGB(120, 70, 25)
+greetSub.Font = Enum.Font.Gotham; greetSub.TextSize = 10
+greetSub.TextXAlignment = Enum.TextXAlignment.Left
+greetSub.Text = "Whitelisted  ·  Full access  ·  No key required"
+
+mkDiv(OwnerPanel, 90)
+
+local promptLbl = Instance.new("TextLabel", OwnerPanel)
+promptLbl.Size = UDim2.new(1, 0, 0, 28); promptLbl.Position = UDim2.fromOffset(0, 96)
+promptLbl.BackgroundTransparency = 1; promptLbl.TextColor3 = Color3.fromRGB(175, 118, 65)
+promptLbl.Font = Enum.Font.GothamSemibold; promptLbl.TextSize = 12
+promptLbl.TextXAlignment = Enum.TextXAlignment.Center
+promptLbl.Text = "Do you want to enable the key system for other users, Owner?"
+
+local promptNote = Instance.new("TextLabel", OwnerPanel)
+promptNote.Size = UDim2.new(1, 0, 0, 14); promptNote.Position = UDim2.fromOffset(0, 124)
+promptNote.BackgroundTransparency = 1; promptNote.TextColor3 = Color3.fromRGB(90, 52, 18)
+promptNote.Font = Enum.Font.Gotham; promptNote.TextSize = 10
+promptNote.TextXAlignment = Enum.TextXAlignment.Center
+promptNote.Text = "Choosing 'No' — key gate will be skipped globally this session"
+
+mkDiv(OwnerPanel, 146)
+
+local oBtnW = 210
+local oBtnTotalW = oBtnW * 2 + 10
+local oBtnStartX = math.floor((432 - oBtnTotalW) / 2)
+local YesBtn = Instance.new("TextButton", OwnerPanel)
+YesBtn.Size = UDim2.fromOffset(oBtnW, 34); YesBtn.Position = UDim2.fromOffset(oBtnStartX, 152)
+YesBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 30); YesBtn.BorderSizePixel = 0; YesBtn.AutoButtonColor = false
+YesBtn.TextColor3 = Color3.fromRGB(18, 9, 3); YesBtn.Font = Enum.Font.GothamBold; YesBtn.TextSize = 12
+YesBtn.Text = "✅  Yes — Enable Key System"
+Instance.new("UICorner", YesBtn).CornerRadius = UDim.new(0, 6)
+local ybGrad = Instance.new("UIGradient", YesBtn)
+ybGrad.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 140, 55)), ColorSequenceKeypoint.new(1, Color3.fromRGB(195, 85, 20)) })
+ybGrad.Rotation = 90
+YesBtn.MouseEnter:Connect(function() TweenService:Create(YesBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(225, 120, 45)}):Play() end)
+YesBtn.MouseLeave:Connect(function() TweenService:Create(YesBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(200, 100, 30)}):Play() end)
+
+local NoBtn = Instance.new("TextButton", OwnerPanel)
+NoBtn.Size = UDim2.fromOffset(oBtnW, 34); NoBtn.Position = UDim2.fromOffset(oBtnStartX + oBtnW + 10, 152)
+NoBtn.BackgroundColor3 = Color3.fromRGB(30, 18, 8); NoBtn.BorderSizePixel = 0; NoBtn.AutoButtonColor = false
+NoBtn.TextColor3 = Color3.fromRGB(175, 105, 45); NoBtn.Font = Enum.Font.GothamBold; NoBtn.TextSize = 12
+NoBtn.Text = "✖  No — Skip Key System"
+Instance.new("UICorner", NoBtn).CornerRadius = UDim.new(0, 6)
+local nbStroke = Instance.new("UIStroke", NoBtn)
+nbStroke.Color = Color3.fromRGB(70, 40, 16); nbStroke.Thickness = 1; nbStroke.Transparency = 0.3
+NoBtn.MouseEnter:Connect(function() TweenService:Create(NoBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(38, 22, 10)}):Play() end)
+NoBtn.MouseLeave:Connect(function() TweenService:Create(NoBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(30, 18, 8)}):Play() end)
+
+local KeyPanel = Instance.new("Frame", Body)
+KeyPanel.Size = UDim2.fromScale(1,1); KeyPanel.BackgroundTransparency = 1; KeyPanel.Visible = false
+
+mkSecLabel(KeyPanel, 0, "Access Key")
+mkDiv(KeyPanel, 20)
+
+local keyPanelNote = Instance.new("TextLabel", KeyPanel)
+keyPanelNote.Size = UDim2.new(1, 0, 0, 14); keyPanelNote.Position = UDim2.fromOffset(0, 26)
+keyPanelNote.BackgroundTransparency = 1; keyPanelNote.TextColor3 = Color3.fromRGB(120, 70, 25)
+keyPanelNote.Font = Enum.Font.Gotham; keyPanelNote.TextSize = 10
+keyPanelNote.TextXAlignment = Enum.TextXAlignment.Center
+keyPanelNote.Text = ""
+keyPanelNote.Visible = false
+
+local keyWrap = Instance.new("Frame", KeyPanel)
+keyWrap.Size = UDim2.new(1, 0, 0, 140); keyWrap.Position = UDim2.fromOffset(0, 28)
+keyWrap.BackgroundColor3 = Color3.fromRGB(16, 9, 4); keyWrap.BackgroundTransparency = 0.4; keyWrap.BorderSizePixel = 0
+Instance.new("UICorner", keyWrap).CornerRadius = UDim.new(0, 7)
+local keyCardStroke = Instance.new("UIStroke", keyWrap)
+keyCardStroke.Color = Color3.fromRGB(65, 34, 12); keyCardStroke.Thickness = 1
+
+local keyIconRow = Instance.new("Frame", keyWrap)
+keyIconRow.Size = UDim2.new(1, 0, 0, 44); keyIconRow.BackgroundTransparency = 1
+local keyIcon = Instance.new("TextLabel", keyIconRow)
+keyIcon.Size = UDim2.fromScale(1,1); keyIcon.BackgroundTransparency = 1
+keyIcon.Text = "🗝️"; keyIcon.TextSize = 22; keyIcon.Font = Enum.Font.Gotham
+keyIcon.TextXAlignment = Enum.TextXAlignment.Center
+
+local keyHint = Instance.new("TextLabel", keyWrap)
+keyHint.Size = UDim2.new(1, -20, 0, 14); keyHint.Position = UDim2.fromOffset(10, 44)
+keyHint.BackgroundTransparency = 1; keyHint.TextColor3 = Color3.fromRGB(85, 50, 18)
+keyHint.Font = Enum.Font.Gotham; keyHint.TextSize = 10
+keyHint.TextXAlignment = Enum.TextXAlignment.Center
+keyHint.Text = "Enter your key below  ·  Hint: check the script source"
+
+local KeyBox = Instance.new("TextBox", keyWrap)
+KeyBox.Size = UDim2.new(1, -20, 0, 30); KeyBox.Position = UDim2.fromOffset(10, 64)
+KeyBox.BackgroundColor3 = Color3.fromRGB(12, 7, 3); KeyBox.BorderSizePixel = 0
+KeyBox.TextColor3 = Color3.fromRGB(230, 185, 130); KeyBox.PlaceholderColor3 = Color3.fromRGB(90, 52, 20)
+KeyBox.Font = Enum.Font.GothamSemibold; KeyBox.TextSize = 13
+KeyBox.PlaceholderText = "Enter key..."; KeyBox.Text = ""
+KeyBox.ClearTextOnFocus = true; KeyBox.TextXAlignment = Enum.TextXAlignment.Center
+Instance.new("UICorner", KeyBox).CornerRadius = UDim.new(0, 5)
+local kbStroke = Instance.new("UIStroke", KeyBox)
+kbStroke.Color = Color3.fromRGB(75, 40, 14); kbStroke.Thickness = 1; kbStroke.Transparency = 0.2
+KeyBox.Focused:Connect(function()
+	TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(210, 115, 40), Transparency=0}):Play()
+end)
+KeyBox.FocusLost:Connect(function()
+	TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+end)
+
+local KeyStatus = Instance.new("TextLabel", keyWrap)
+KeyStatus.Size = UDim2.new(1, -20, 0, 14); KeyStatus.Position = UDim2.fromOffset(10, 100)
+KeyStatus.BackgroundTransparency = 1; KeyStatus.TextColor3 = Color3.fromRGB(100, 60, 22)
+KeyStatus.Font = Enum.Font.Gotham; KeyStatus.TextSize = 10; KeyStatus.Text = ""
+KeyStatus.TextXAlignment = Enum.TextXAlignment.Center
+
+local KeyBtn = mkBtn(KeyPanel, 178, "Confirm Key  →")
+
+local LoadPanel = Instance.new("Frame", Body)
+LoadPanel.Size = UDim2.fromScale(1,1); LoadPanel.BackgroundTransparency = 1; LoadPanel.Visible = false
+
+local loadStatusLbl = mkSecLabel(LoadPanel, 0, "Initializing")
+mkDiv(LoadPanel, 20)
+
+local BarBg = Instance.new("Frame", LoadPanel)
+BarBg.Size = UDim2.new(1, 0, 0, 3); BarBg.Position = UDim2.fromOffset(0, 28)
+BarBg.BackgroundColor3 = Color3.fromRGB(40, 22, 8); BarBg.BorderSizePixel = 0
+Instance.new("UICorner", BarBg).CornerRadius = UDim.new(1,0)
+local BarFill = Instance.new("Frame", BarBg)
+BarFill.Size = UDim2.new(0, 0, 1, 0); BarFill.BackgroundColor3 = BLOOM.accent; BarFill.BorderSizePixel = 0
+Instance.new("UICorner", BarFill).CornerRadius = UDim.new(1,0)
+local barGrad = Instance.new("UIGradient", BarFill)
+barGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(185, 80, 22)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 200, 100)),
+})
+
+local barPct = Instance.new("TextLabel", LoadPanel)
+barPct.Size = UDim2.new(1, 0, 0, 13); barPct.Position = UDim2.fromOffset(0, 34)
+barPct.BackgroundTransparency = 1; barPct.TextColor3 = Color3.fromRGB(90, 52, 18)
+barPct.Font = Enum.Font.Gotham; barPct.TextSize = 9
+barPct.TextXAlignment = Enum.TextXAlignment.Right; barPct.Text = "0%"
+
+local StepsFrame = Instance.new("Frame", LoadPanel)
+StepsFrame.Size = UDim2.new(1, 0, 0, 180); StepsFrame.Position = UDim2.fromOffset(0, 52)
+StepsFrame.BackgroundTransparency = 1
+
+local stepLabels = {}
+for i = 1, 5 do
+	local row = Instance.new("Frame", StepsFrame)
+	row.Size = UDim2.new(1, 0, 0, 30); row.Position = UDim2.fromOffset(0, (i-1)*34)
+	row.BackgroundColor3 = Color3.fromRGB(22, 12, 5)
+	row.BackgroundTransparency = i % 2 == 0 and 0.65 or 0.8
+	row.BorderSizePixel = 0
+	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 5)
+	local numLbl = Instance.new("TextLabel", row)
+	numLbl.Size = UDim2.fromOffset(24, 30); numLbl.BackgroundTransparency = 1
+	numLbl.TextColor3 = Color3.fromRGB(75, 42, 14)
+	numLbl.Font = Enum.Font.GothamBold; numLbl.TextSize = 10
+	numLbl.Text = string.format("%02d", i)
+	local dot = Instance.new("Frame", row)
+	dot.Size = UDim2.fromOffset(4, 4); dot.Position = UDim2.fromOffset(24, 13)
+	dot.BackgroundColor3 = Color3.fromRGB(65, 36, 12); dot.BorderSizePixel = 0
+	Instance.new("UICorner", dot).CornerRadius = UDim.new(1,0)
+	local lbl = Instance.new("TextLabel", row)
+	lbl.Size = UDim2.new(1, -36, 1, 0); lbl.Position = UDim2.fromOffset(32, 0)
+	lbl.BackgroundTransparency = 1; lbl.TextColor3 = Color3.fromRGB(90, 52, 18)
+	lbl.Font = Enum.Font.Gotham; lbl.TextSize = 11
+	lbl.TextXAlignment = Enum.TextXAlignment.Left; lbl.Text = ""
+	table.insert(stepLabels, { lbl=lbl, dot=dot, row=row, num=numLbl })
+end
+
+local featDismissed = false
+ReadBtn.MouseButton1Click:Connect(function()
+	if featDismissed then return end
+	featDismissed = true
+	playSound("rbxassetid://139009780109934")
+	TweenService:Create(ReadBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(230, 255, 230)}):Play()
+	task.wait(0.2)
+	if not isOwner then siLbl.Text = "Step 2 of 4" end
+	slideOut(FeatPanel, LangPanel)
+end)
+repeat task.wait(0.05) until featDismissed
+
+local chosenLang = nil
+for code, btn in pairs(langBtns) do
+btn.MouseButton1Click:Connect(function()
+		if chosenLang then return end
+		playSound("rbxassetid://139009780109934")
+		chosenLang = code
+		task.wait(0.08)
+		if isOwner then
+			slideOut(LangPanel, OwnerPanel)
+		else
+			siLbl.Text = "Step 3 of 4"
+			slideOut(LangPanel, KeyPanel)
+		end
+	end)
+end
+repeat task.wait(0.05) until chosenLang ~= nil
+
+local keyRequired = true
+if isOwner then
+	local ownerDone = false
+	YesBtn.MouseButton1Click:Connect(function()
+		if ownerDone then return end
+		ownerDone = true
+		playSound("rbxassetid://139009780109934")
+		keyRequired = true
+		keyPanelNote.Text = "Key system active this session — owner bypass still applied to you"
+		keyPanelNote.Visible = true
+		TweenService:Create(YesBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(230, 255, 230)}):Play()
+		task.wait(0.22)
+		slideOut(OwnerPanel, KeyPanel)
+	end)
+	NoBtn.MouseButton1Click:Connect(function()
+		if ownerDone then return end
+		ownerDone = true
+		playSound("rbxassetid://139009780109934")
+		keyRequired = false
+		TweenService:Create(NoBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 30, 10), TextColor3=Color3.fromRGB(200, 140, 60)}):Play()
+		task.wait(0.22)
+		slideOut(OwnerPanel, LoadPanel)
+	end)
+	repeat task.wait(0.05) until ownerDone
+end
+
+local keyPassed = false
+
+if keyRequired then
+	if isOwner then
+		keyPassed = true
+		task.wait(0.05)
+		slideOut(KeyPanel, LoadPanel)
+	else
+		local attempts = 0
+		local function shakeBox()
+			local orig = KeyBox.Position
+			for _ = 1, 4 do
+				TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(6,0)}):Play(); task.wait(0.04)
+				TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(-6,0)}):Play(); task.wait(0.04)
+			end
+			TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig}):Play()
+		end
+		local function tryKey()
+			if keyPassed then return end
+			playSound("rbxassetid://139009780109934")
+			local input = KeyBox.Text
+			local valid = false
+			for _, kv in ipairs(VALID_KEYS) do if input == kv then valid = true; break end end
+			if valid then
+				keyPassed = true
+				TweenService:Create(kbStroke, TweenInfo.new(0.15), {Color=BLOOM.keyOk}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.15), {TextColor3=BLOOM.keyOk}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=BLOOM.keyOk}):Play()
+				KeyStatus.TextColor3 = BLOOM.keyOk; KeyStatus.Text = "✓  Key accepted"
+				TweenService:Create(KeyBtn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(40, 155, 65)}):Play()
+				task.wait(0.5)
+				siLbl.Text = "Step 4 of 4"
+				slideOut(KeyPanel, LoadPanel)
+			else
+				attempts += 1; shakeBox()
+				TweenService:Create(kbStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.1), {TextColor3=BLOOM.keyErr}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+				KeyStatus.TextColor3 = BLOOM.keyErr
+				KeyStatus.Text = attempts >= 3 and ("✗  Invalid  ·  "..attempts.." attempts") or "✗  Invalid key"
+				task.wait(0.75)
+				TweenService:Create(kbStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.2), {TextColor3=Color3.fromRGB(230, 185, 130)}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(65, 34, 12)}):Play()
+				KeyBox.Text = ""
+			end
+		end
+		KeyBtn.MouseButton1Click:Connect(tryKey)
+		KeyBox.FocusLost:Connect(function(enter) if enter then tryKey() end end)
+		repeat task.wait(0.05) until keyPassed
+	end
+end
+
+local steps = LANGS[chosenLang].steps
+for i, s in ipairs(stepLabels) do s.lbl.Text = steps[i].icon.."  "..steps[i].line end
+
+local function animateLoad()
+	for i, step in ipairs(steps) do
+		loadStatusLbl.Text = step.line
+		barPct.Text = math.floor((i / #steps) * 100).."%"
+		for j, s in ipairs(stepLabels) do
+			if j < i then
+				TweenService:Create(s.lbl, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(130, 80, 30)}):Play()
+				TweenService:Create(s.dot, TweenInfo.new(0.18), {BackgroundColor3=Color3.fromRGB(130, 75, 25)}):Play()
+				TweenService:Create(s.num, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(110, 65, 22)}):Play()
+			elseif j == i then
+				TweenService:Create(s.lbl, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(255, 210, 150)}):Play()
+				TweenService:Create(s.dot, TweenInfo.new(0.18), {BackgroundColor3=Color3.fromRGB(220, 130, 50)}):Play()
+				TweenService:Create(s.num, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(200, 120, 45)}):Play()
+				TweenService:Create(s.row, TweenInfo.new(0.18), {BackgroundTransparency=0.45}):Play()
+			end
+		end
+		TweenService:Create(BarFill, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size=UDim2.new(i/#steps, 0, 1, 0)}):Play()
+		task.wait(0.62)
+	end
+	barPct.Text = "100%"; task.wait(0.28)
+	for _, child in ipairs(Card:GetDescendants()) do
+		if child:IsA("TextLabel") or child:IsA("TextButton") or child:IsA("TextBox") then
+			TweenService:Create(child, TweenInfo.new(0.28), {TextTransparency=1}):Play()
+		end
+		if child:IsA("Frame") or child:IsA("ScrollingFrame") then
+			pcall(function() TweenService:Create(child, TweenInfo.new(0.28), {BackgroundTransparency=1}):Play() end)
+		end
+		if child:IsA("UIStroke") then
+			TweenService:Create(child, TweenInfo.new(0.28), {Transparency=1}):Play()
+		end
+	end
+	task.wait(0.22)
+	TweenService:Create(Card, TweenInfo.new(0.32, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+		Size=UDim2.fromOffset(460, 0),
+		Position=UDim2.new(0.5, -230, 0.5, 180),
+		BackgroundTransparency=1,
+	}):Play()
+	task.wait(0.35)
+	TweenService:Create(Bg, TweenInfo.new(0.38, Enum.EasingStyle.Quad), {BackgroundTransparency=1}):Play()
+	TweenService:Create(ambientGlow, TweenInfo.new(0.38), {BackgroundTransparency=1}):Play()
+	task.wait(0.4)
+	petalConn:Disconnect()
+	for _, p in ipairs(petals) do pcall(function() p.obj:Remove() end) end
+	petals = {}; LoadGui:Destroy()
+end
+animateLoad()
+
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 Nihon Hub | 日本", Content=LANGS[chosenLang].notify, Duration=3, Image=4483362458})
+
+local Window = Rayfield:CreateWindow({
+	Name="🌺 Nihon Hub | 日本", LoadingTitle="Bloom Zen", LoadingSubtitle="by MrDuck",
+	Theme="AmberGlow",
+	ConfigurationSaving={Enabled=true, FolderName="NihonHub", FileName="Config"},
+	KeySystem=false,
+})
+
+local infStamina, infHunger     = false, false
+local killAuraEnabled           = false
+local killAuraRange             = 20
+local showVisualRange           = false
+local carDragLoop, brakeLoop    = false, false
+local hitboxesEnabled           = false
+local hitboxSize                = 2
+local zombieEspEnabled          = false
+local playerEspEnabled          = false
+local objectEspEnabled          = false
+local activeLang                = chosenLang
+
+local flyEnabled                = false
+local flySpeed                  = 50
+local noclipEnabled             = false
+local ghostEnabled              = false
+local antiAFKEnabled            = false
+local freecamEnabled            = false
+local gravityEnabled            = false
+local gravityScale              = 1
+local flingEnabled              = false
+local flingRange                = 15
+
+local flyConn, noclipConn, afkConn, freecamConn = nil, nil, nil, nil
+local freecamPart = nil
+
+local E, SL, IL = {}, {}, {}
+
+local function grabLabel(text)
+	for _, v in ipairs(playerGui:GetDescendants()) do
+		if v:IsA("TextLabel") and v.Text == text then return v end
+	end
+end
+
+local function applyLanguage(code)
+	activeLang = code
+	local L = LANGS[code]
+	for key, obj in pairs(E) do
+		if obj and L.ui[key] then pcall(function() obj.Title = L.ui[key] end) end
+	end
+	for key, lbl in pairs(SL) do
+		if lbl and lbl.Parent and L.sec[key] then lbl.Text = L.sec[key] end
+	end
+	for i, lbl in ipairs(IL) do
+		if lbl and lbl.Parent and L.labels[i] then lbl.Text = L.labels[i] end
+	end
+	playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌐 Language / 言語 / Dil", Content=L.notify, Duration=2.5, Image=4483362458})
+end
+
+local rangePart = nil
+local function destroyRangePart()
+	if rangePart then pcall(function() rangePart:Destroy() end); rangePart = nil end
+end
+local function getRangePart()
+	if rangePart and rangePart.Parent then return rangePart end
+	local char = lp.Character; local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return nil end
+	destroyRangePart()
+	local p = Instance.new("Part")
+	p.Name = "NihonRangeSphere"; p.Shape = Enum.PartType.Ball; p.Material = Enum.Material.Neon
+	p.Color = BLOOM.rangeBloom
+	p.Size = Vector3.new(killAuraRange*2, killAuraRange*2, killAuraRange*2)
+	p.Transparency = 0.82; p.CanCollide = false; p.Anchored = false; p.CastShadow = false
+	p.CFrame = hrp.CFrame; p.Parent = Workspace
+	local w = Instance.new("WeldConstraint"); w.Part0 = hrp; w.Part1 = p; w.Parent = p
+	rangePart = p; return p
+end
+
+local function stopFly()
+	if flyConn then flyConn:Disconnect(); flyConn = nil end
+	local char = lp.Character; if not char then return end
+	local hrp = char:FindFirstChild("HumanoidRootPart")
+	local hum = char:FindFirstChild("Humanoid")
+	if hrp then hrp.Velocity = Vector3.zero end
+	if hum then hum.PlatformStand = false end
+end
+
+local function startFly()
+	stopFly()
+	local char = lp.Character; if not char then return end
+	local hrp = char:FindFirstChild("HumanoidRootPart")
+	local hum = char:FindFirstChild("Humanoid")
+	if not hrp or not hum then return end
+	hum.PlatformStand = true
+	local cam = workspace.CurrentCamera
+	flyConn = RunService.RenderStepped:Connect(function()
+		if not flyEnabled then stopFly(); return end
+		local dir = Vector3.zero
+		if UserInputService:IsKeyDown(Enum.KeyCode.W) then dir += cam.CFrame.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir -= cam.CFrame.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir -= cam.CFrame.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir += cam.CFrame.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.Space) then dir += Vector3.new(0,1,0) end
+		if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then dir -= Vector3.new(0,1,0) end
+		hrp.Velocity = dir.Magnitude > 0 and dir.Unit * flySpeed or Vector3.zero
+		hrp.CFrame = CFrame.new(hrp.Position, hrp.Position + cam.CFrame.LookVector)
+	end)
+end
+
+local function stopNoclip()
+	if noclipConn then noclipConn:Disconnect(); noclipConn = nil end
+	local char = lp.Character; if not char then return end
+	for _, p in ipairs(char:GetDescendants()) do
+		if p:IsA("BasePart") then p.CanCollide = true end
+	end
+end
+
+local function startNoclip()
+	stopNoclip()
+	noclipConn = RunService.Stepped:Connect(function()
+		if not noclipEnabled then stopNoclip(); return end
+		local char = lp.Character; if not char then return end
+		for _, p in ipairs(char:GetDescendants()) do
+			if p:IsA("BasePart") then p.CanCollide = false end
+		end
+	end)
+end
+
+local function setGhost(v)
+	local char = lp.Character; if not char then return end
+	for _, p in ipairs(char:GetDescendants()) do
+		if p:IsA("BasePart") then
+			p.CanCollide = not v
+			p.Transparency = v and 0.6 or 0
+		end
+	end
+	local hum = char:FindFirstChild("Humanoid")
+	if hum then hum.PlatformStand = false end
+end
+
+local function stopFreecam()
+	if freecamConn then freecamConn:Disconnect(); freecamConn = nil end
+	if freecamPart then freecamPart:Destroy(); freecamPart = nil end
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	workspace.CurrentCamera.CameraSubject = lp.Character and lp.Character:FindFirstChild("Humanoid")
+end
+
+local function startFreecam()
+	stopFreecam()
+	local cam = workspace.CurrentCamera
+	cam.CameraType = Enum.CameraType.Scriptable
+	local cf = cam.CFrame
+	freecamConn = RunService.RenderStepped:Connect(function(dt)
+		if not freecamEnabled then stopFreecam(); return end
+		local d = Vector3.zero; local spd = 40 * dt
+		if UserInputService:IsKeyDown(Enum.KeyCode.W) then d += cf.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.S) then d -= cf.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.A) then d -= cf.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.D) then d += cf.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.E) then d += Vector3.new(0,1,0) end
+		if UserInputService:IsKeyDown(Enum.KeyCode.Q) then d -= Vector3.new(0,1,0) end
+		if d.Magnitude > 0 then cf = CFrame.new(cf.Position + d.Unit * spd) * (cf - cf.Position) end
+		local delta = UserInputService:GetMouseDelta()
+		cf = cf * CFrame.Angles(0, -delta.X * 0.003, 0) * CFrame.Angles(-delta.Y * 0.003, 0, 0)
+		cam.CFrame = cf
+	end)
+end
+
+lp.CharacterAdded:Connect(function(char)
+	task.wait(1)
+	destroyRangePart()
+	if showVisualRange then getRangePart() end
+	if ghostEnabled then task.wait(0.5); setGhost(true) end
+end)
+
+local zombieESPBoards, playerESPBoards, objectESPBoards = {}, {}, {}
+
+local function makeESPBoard(model, label, accent)
+	local head = model:FindFirstChild("Head") or model:FindFirstChild("HumanoidRootPart")
+	if not head then return nil end
+	local old = head:FindFirstChild("NihonESP"); if old then old:Destroy() end
+	local oldHL = model:FindFirstChild("NihonHL"); if oldHL then oldHL:Destroy() end
+	local hl = Instance.new("Highlight")
+	hl.Name = "NihonHL"; hl.FillTransparency = 1
+	hl.OutlineColor = accent; hl.OutlineTransparency = 0
+	hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop; hl.Parent = model
+	local bb = Instance.new("BillboardGui")
+	bb.Name = "NihonESP"; bb.Adornee = head; bb.AlwaysOnTop = true
+	bb.Size = UDim2.fromOffset(120,44); bb.StudsOffset = Vector3.new(0,2.8,0)
+	bb.ResetOnSpawn = false; bb.Parent = head
+	local card = Instance.new("Frame", bb)
+	card.Size = UDim2.fromScale(1,1); card.BackgroundColor3 = BLOOM.bgDeep
+	card.BackgroundTransparency = 0.28; card.BorderSizePixel = 0
+	Instance.new("UICorner", card).CornerRadius = UDim.new(0,6)
+	local sk = Instance.new("UIStroke", card); sk.Color = accent; sk.Thickness = 1.2; sk.Transparency = 0.05
+	local nl = Instance.new("TextLabel", card)
+	nl.Size = UDim2.new(1,-8,0,18); nl.Position = UDim2.fromOffset(4,2); nl.BackgroundTransparency = 1
+	nl.TextColor3 = accent; nl.Font = Enum.Font.GothamBold; nl.TextSize = 11
+	nl.TextXAlignment = Enum.TextXAlignment.Center; nl.TextTruncate = Enum.TextTruncate.AtEnd; nl.Text = label
+	local bb2 = Instance.new("Frame", card)
+	bb2.Name = "BarBg"; bb2.Size = UDim2.new(1,-10,0,5); bb2.Position = UDim2.new(0,5,0,23)
+	bb2.BackgroundColor3 = BLOOM.bar; bb2.BorderSizePixel = 0
+	Instance.new("UICorner", bb2).CornerRadius = UDim.new(1,0)
+	local bf = Instance.new("Frame", bb2)
+	bf.Name = "Fill"; bf.Size = UDim2.fromScale(1,1); bf.BackgroundColor3 = accent; bf.BorderSizePixel = 0
+	Instance.new("UICorner", bf).CornerRadius = UDim.new(1,0)
+	local hpLbl = Instance.new("TextLabel", card)
+	hpLbl.Name = "HP"; hpLbl.Size = UDim2.new(1,-8,0,11); hpLbl.Position = UDim2.new(0,4,0,30)
+	hpLbl.BackgroundTransparency = 1; hpLbl.TextColor3 = BLOOM.txtMain
+	hpLbl.Font = Enum.Font.Gotham; hpLbl.TextSize = 9
+	hpLbl.TextXAlignment = Enum.TextXAlignment.Center; hpLbl.Text = "HP: ?"
+	return bb
+end
+
+local function makeObjectESP(model)
+	local adornee = model.PrimaryPart
+	if not adornee then
+		for _, v in ipairs(model:GetDescendants()) do if v:IsA("BasePart") then adornee = v; break end end
+	end
+	if not adornee then return nil end
+	local oldHL = model:FindFirstChild("NihonObjHL"); if oldHL then oldHL:Destroy() end
+	local oldBB = adornee:FindFirstChild("NihonObjESP"); if oldBB then oldBB:Destroy() end
+	local hl = Instance.new("Highlight")
+	hl.Name = "NihonObjHL"; hl.FillTransparency = 1
+	hl.OutlineColor = BLOOM.espObject; hl.OutlineTransparency = 0
+	hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop; hl.Parent = model
+	local bb = Instance.new("BillboardGui")
+	bb.Name = "NihonObjESP"; bb.Adornee = adornee; bb.AlwaysOnTop = true
+	bb.Size = UDim2.fromOffset(110,22); bb.StudsOffset = Vector3.new(0,3,0)
+	bb.ResetOnSpawn = false; bb.Parent = adornee
+	local card = Instance.new("Frame", bb)
+	card.Size = UDim2.fromScale(1,1); card.BackgroundColor3 = BLOOM.bgDeep
+	card.BackgroundTransparency = 0.28; card.BorderSizePixel = 0
+	Instance.new("UICorner", card).CornerRadius = UDim.new(0,5)
+	local sk = Instance.new("UIStroke", card)
+	sk.Color = BLOOM.espObject; sk.Thickness = 1; sk.Transparency = 0.1
+	local nameLbl = Instance.new("TextLabel", card)
+	nameLbl.Size = UDim2.fromScale(1,1); nameLbl.BackgroundTransparency = 1
+	nameLbl.TextColor3 = BLOOM.espObject; nameLbl.Font = Enum.Font.GothamBold
+	nameLbl.TextSize = 10; nameLbl.TextXAlignment = Enum.TextXAlignment.Center
+	nameLbl.TextTruncate = Enum.TextTruncate.AtEnd; nameLbl.Text = "🍂 "..model.Name
+	return bb
+end
+
+local function removeBoard(tbl, key)
+	if tbl[key] then pcall(function() tbl[key]:Destroy() end); tbl[key] = nil end
+	if key and typeof(key) ~= "string" then
+		pcall(function()
+			local h = key:FindFirstChild("NihonHL"); if h then h:Destroy() end
+			local h2 = key:FindFirstChild("NihonObjHL"); if h2 then h2:Destroy() end
+		end)
+	end
+end
+
+local function updateBoard(board, hum)
+	if not board or not board.Parent then return end
+	local card = board:FindFirstChildWhichIsA("Frame"); if not card then return end
+	local bb2 = card:FindFirstChild("BarBg"); local fill = bb2 and bb2:FindFirstChild("Fill")
+	local hl = card:FindFirstChild("HP"); if not fill or not hl then return end
+	local r = math.clamp(hum.Health / math.max(hum.MaxHealth,1), 0, 1)
+	fill.Size = UDim2.fromScale(r,1)
+	hl.Text = "HP: "..math.floor(hum.Health).." / "..math.floor(hum.MaxHealth)
+	fill.BackgroundColor3 = Color3.new(math.clamp(2*(1-r),0,1), math.clamp(2*r,0,1), 0.05)
+end
+
+local function refreshZombieESP()
+	for m in pairs(zombieESPBoards) do
+		local h = m:FindFirstChild("Humanoid")
+		if not m.Parent or not h or h.Health <= 0 then
+			pcall(function() local hl = m:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+			removeBoard(zombieESPBoards, m)
+		end
+	end
+	if not zombieEspEnabled then return end
+	for _, npc in ipairs(Workspace:GetChildren()) do
+		if npc:IsA("Model") and string.find(string.lower(npc.Name), "zombie") then
+			local h = npc:FindFirstChild("Humanoid")
+			if h and h.Health > 0 and not zombieESPBoards[npc] then
+				local b = makeESPBoard(npc, "🌺 "..npc.Name, BLOOM.espZombie)
+				if b then
+					zombieESPBoards[npc] = b
+					h.Died:Connect(function()
+						task.wait(0.1)
+						pcall(function() local hl = npc:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+						removeBoard(zombieESPBoards, npc)
+					end)
+				end
+			end
+		end
+	end
+end
+local function clearZombieESP()
+	for m in pairs(zombieESPBoards) do
+		pcall(function() local hl = m:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+		removeBoard(zombieESPBoards, m)
+	end
+end
+
+local function refreshPlayerESP()
+	for p in pairs(playerESPBoards) do
+		if not p.Parent or p == lp then
+			if p.Character then pcall(function() local hl = p.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+			removeBoard(playerESPBoards, p)
+		end
+	end
+	if not playerEspEnabled then return end
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p ~= lp and p.Character and not playerESPBoards[p] then
+			local b = makeESPBoard(p.Character, "🌼 "..p.Name, BLOOM.espPlayer)
+			if b then playerESPBoards[p] = b end
+		end
+	end
+end
+local function clearPlayerESP()
+	for p in pairs(playerESPBoards) do
+		if p.Character then pcall(function() local hl = p.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+		removeBoard(playerESPBoards, p)
+	end
+end
+
+local function refreshObjectESP()
+	for obj in pairs(objectESPBoards) do
+		if not obj.Parent then
+			pcall(function() local hl = obj:FindFirstChild("NihonObjHL"); if hl then hl:Destroy() end end)
+			removeBoard(objectESPBoards, obj)
+		end
+	end
+	if not objectEspEnabled then return end
+	for _, child in ipairs(Workspace:GetChildren()) do
+		if not objectESPBoards[child] then
+			if child:IsA("Model") or child:IsA("BasePart") then
+				local found = false
+				for _, v in ipairs(child:GetDescendants()) do
+					if v:IsA("Script") and string.lower(v.Name) == "hitdetection" then found = true; break end
+				end
+				if found then
+					local b = makeObjectESP(child)
+					if b then objectESPBoards[child] = b end
+				end
+			end
+		end
+	end
+end
+local function clearObjectESP()
+	for obj in pairs(objectESPBoards) do
+		pcall(function() local hl = obj:FindFirstChild("NihonObjHL"); if hl then hl:Destroy() end end)
+		removeBoard(objectESPBoards, obj)
+	end
+end
+
+local function onCharAdded(plr, char)
+	task.wait(0.5)
+	if playerEspEnabled and plr ~= lp then
+		if plr.Character then pcall(function() local hl = plr.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+		removeBoard(playerESPBoards, plr)
+		local b = makeESPBoard(char, "🌼 "..plr.Name, BLOOM.espPlayer)
+		if b then playerESPBoards[plr] = b end
+	end
+end
+Players.PlayerAdded:Connect(function(plr) plr.CharacterAdded:Connect(function(c) onCharAdded(plr,c) end) end)
+for _, plr in ipairs(Players:GetPlayers()) do
+	if plr ~= lp then plr.CharacterAdded:Connect(function(c) onCharAdded(plr,c) end) end
+end
+Players.PlayerRemoving:Connect(function(plr) removeBoard(playerESPBoards, plr) end)
+
+local L0 = LANGS[chosenLang]
+
+local PlayerTab = Window:CreateTab(L0.tabs.Player, 4483362458)
+PlayerTab:CreateSection(L0.sec.Movement)
+SL.Movement = grabLabel(L0.sec.Movement)
+E.WalkSpeed = PlayerTab:CreateSlider({Name=L0.ui.WalkSpeed, Range={16,300}, Increment=1, Suffix=" Speed", CurrentValue=16,
+	Callback=function(v) local c = lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.WalkSpeed = v end end})
+E.JumpPower = PlayerTab:CreateSlider({Name=L0.ui.JumpPower, Range={50,500}, Increment=1, Suffix=" Power", CurrentValue=50,
+	Callback=function(v) local c = lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.JumpPower = v end end})
+local infJump = false
+E.InfJump = PlayerTab:CreateToggle({Name=L0.ui.InfJump, CurrentValue=false, Callback=function(v) infJump = v end})
+UserInputService.JumpRequest:Connect(function()
+	if infJump and lp.Character then lp.Character:FindFirstChild("Humanoid"):ChangeState("Jumping") end
+end)
+E.Fly = PlayerTab:CreateToggle({Name=L0.ui.Fly, CurrentValue=false,
+	Callback=function(v)
+		flyEnabled = v
+		if v then startFly() else stopFly()
+			local char = lp.Character; local hum = char and char:FindFirstChild("Humanoid")
+			if hum then hum.PlatformStand = false end
+		end
+	end})
+E.FlySpeed = PlayerTab:CreateSlider({Name=L0.ui.FlySpeed, Range={10,300}, Increment=5, Suffix=" Speed", CurrentValue=50,
+	Callback=function(v) flySpeed = v end})
+E.Noclip = PlayerTab:CreateToggle({Name=L0.ui.Noclip, CurrentValue=false,
+	Callback=function(v) noclipEnabled = v; if v then startNoclip() else stopNoclip() end end})
+E.Ghost = PlayerTab:CreateToggle({Name=L0.ui.Ghost, CurrentValue=false,
+	Callback=function(v) ghostEnabled = v; setGhost(v) end})
+E.FreeCam = PlayerTab:CreateToggle({Name=L0.ui.FreeCam, CurrentValue=false,
+	Callback=function(v)
+		freecamEnabled = v
+		if v then
+			startFreecam()
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🎥 Freecam", Content="WASD + Q/E to move. Mouse to look.", Duration=3, Image=4483362458})
+		else stopFreecam() end
+	end})
+E.Gravity = PlayerTab:CreateToggle({Name=L0.ui.Gravity, CurrentValue=false,
+	Callback=function(v) gravityEnabled = v; workspace.Gravity = v and (196.2 * gravityScale) or 196.2 end})
+E.GravitySlider = PlayerTab:CreateSlider({Name=L0.ui.GravitySlider, Range={1,200}, Increment=1, Suffix="%", CurrentValue=100,
+	Callback=function(v) gravityScale = v / 100; if gravityEnabled then workspace.Gravity = 196.2 * gravityScale end end})
+PlayerTab:CreateSection(L0.sec.Utility)
+SL.Utility = grabLabel(L0.sec.Utility)
+E.AntiAFK = PlayerTab:CreateToggle({Name=L0.ui.AntiAFK, CurrentValue=false,
+	Callback=function(v)
+		antiAFKEnabled = v
+		if v then
+			afkConn = RunService.Heartbeat:Connect(function()
+				if not antiAFKEnabled then afkConn:Disconnect(); afkConn = nil; return end
+			end)
+			local vrs = game:GetService("VirtualInputManager")
+			task.spawn(function()
+				while antiAFKEnabled do
+					pcall(function() vrs:SendKeyEvent(true, "LeftShift", false, game) end)
+					task.wait(60)
+					pcall(function() vrs:SendKeyEvent(false, "LeftShift", false, game) end)
+				end
+			end)
+		else if afkConn then afkConn:Disconnect(); afkConn = nil end end
+	end})
+E.FlingPlayer = PlayerTab:CreateToggle({Name=L0.ui.FlingPlayer, CurrentValue=false, Callback=function(v) flingEnabled = v end})
+E.FlingRange  = PlayerTab:CreateSlider({Name=L0.ui.FlingRange, Range={5,60}, Increment=1, Suffix=" Studs", CurrentValue=15,
+	Callback=function(v) flingRange = v end})
+
+local MiscTab = Window:CreateTab(L0.tabs.Misc, 4483362458)
+MiscTab:CreateSection(L0.sec.Survival)
+SL.Survival = grabLabel(L0.sec.Survival)
+E.InfStamina = MiscTab:CreateToggle({Name=L0.ui.InfStamina, CurrentValue=false, Callback=function(v) infStamina = v end})
+E.InfHunger  = MiscTab:CreateToggle({Name=L0.ui.InfHunger,  CurrentValue=false, Callback=function(v) infHunger = v  end})
+
+local oneFoodActive = false
+local oneFoodOriginals = {}
+local oneFoodConns = {}
+
+local function hookFeedModel(model)
+	local feed = model:FindFirstChild("feed")
+	if not feed or not feed:IsA("NumberValue") then return end
+	if oneFoodConns[model] then return end
+	if not oneFoodOriginals[model] then
+		oneFoodOriginals[model] = feed.Value
+	end
+	feed.Value = 100
+	oneFoodConns[model] = RunService.Heartbeat:Connect(function()
+		if not oneFoodActive then return end
+		if feed and feed.Parent then feed.Value = 100 end
+	end)
+end
+
+local function unhookFeedModel(model)
+	if oneFoodConns[model] then
+		oneFoodConns[model]:Disconnect()
+		oneFoodConns[model] = nil
+	end
+	local feed = model:FindFirstChild("feed")
+	if feed and feed:IsA("NumberValue") and oneFoodOriginals[model] ~= nil then
+		feed.Value = oneFoodOriginals[model]
+	end
+	oneFoodOriginals[model] = nil
+end
+
+local oneFoodDescConn = nil
+
+MiscTab:CreateToggle({Name="One Food Fill Hunger", CurrentValue=false,
+	Callback=function(v)
+		oneFoodActive = v
+		if v then
+			for _, model in ipairs(Workspace:GetDescendants()) do
+				if model:IsA("Model") then
+					hookFeedModel(model)
+				end
+			end
+			oneFoodDescConn = Workspace.DescendantAdded:Connect(function(inst)
+				if not oneFoodActive then return end
+				if inst:IsA("Model") then
+					hookFeedModel(inst)
+				end
+				if inst:IsA("NumberValue") and inst.Name == "feed" and inst.Parent:IsA("Model") then
+					hookFeedModel(inst.Parent)
+				end
+			end)
+		else
+			if oneFoodDescConn then oneFoodDescConn:Disconnect(); oneFoodDescConn = nil end
+			for model in pairs(oneFoodConns) do
+				unhookFeedModel(model)
+			end
+		end
+	end})
+
+local falldamage = ReplicatedStorage:FindFirstChild("falldamage")
+local originalNamecall = nil
+E.NoFall = MiscTab:CreateToggle({Name=L0.ui.NoFall, CurrentValue=false,
+	Callback=function(v)
+		if not falldamage then return end
+		local mt = getrawmetatable(falldamage); setreadonly(mt, false)
+		if v then
+			originalNamecall = mt.__namecall
+			mt.__namecall = newcclosure(function(self, ...)
+				if getnamecallmethod() == "FireServer" and self == falldamage then return end
+				return originalNamecall(self, ...)
+			end)
+		else if originalNamecall then mt.__namecall = originalNamecall end end
+		setreadonly(mt, true)
+	end})
+MiscTab:CreateSection(L0.sec.Actions)
+SL.Actions = grabLabel(L0.sec.Actions)
+E.SelfKill = MiscTab:CreateButton({Name=L0.ui.SelfKill,
+	Callback=function() ReplicatedStorage:WaitForChild("resetch"):FireServer() end})
+
+local autoRunActive = false
+local autoRunConn = nil
+
+local function getRunValue()
+	local pg = lp:FindFirstChild("PlayerGui")
+	local main = pg and pg:FindFirstChild("main")
+	return main and main:FindFirstChild("run")
+end
+
+MiscTab:CreateToggle({Name="Auto Run", CurrentValue=false,
+	Callback=function(v)
+		autoRunActive = v
+		if v then
+			autoRunConn = RunService.Heartbeat:Connect(function()
+				if not autoRunActive then
+					autoRunConn:Disconnect(); autoRunConn = nil; return
+				end
+				local run = getRunValue()
+				if run and run:IsA("BoolValue") then run.Value = true end
+			end)
+		else
+			if autoRunConn then autoRunConn:Disconnect(); autoRunConn = nil end
+			local run = getRunValue()
+			if run and run:IsA("BoolValue") then run.Value = false end
+		end
+	end})
+
+local CarTab = Window:CreateTab(L0.tabs.Car, 4483362458)
+CarTab:CreateSection(L0.sec.CarTroll)
+SL.CarTroll = grabLabel(L0.sec.CarTroll)
+CarTab:CreateSection("🚗 Car")
+CarTab:CreateButton({Name="🔧 Complete Car", Description="Puts only needed parts.",
+	Callback=function()
+		local RS = game:GetService("ReplicatedStorage")
+		local ws = workspace
+		local po = RS:WaitForChild("placeobject")
+		local gap = 0.18
+		local parts = {
+			{ws:WaitForChild("roof"):WaitForChild("backhood"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("reardoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("FRdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("FRdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("Rfender"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Rfender"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("Lfender"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Lfender"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("frontbumper"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("bumper"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("frontframe"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("frontframe"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("hood"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("hood"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("grill"):WaitForChild("mainconnector"),ws:WaitForChild("grill"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("rightlight"):WaitForChild("mainconnector"),ws:WaitForChild("FrontRightLight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("leftlight"):WaitForChild("mainconnector"),ws:WaitForChild("FrontLeftLight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("FRseat"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Msit"):WaitForChild("Seat"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("FLdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("FLdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("rearseat"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("rearseat"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("RRdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("RRdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("RLdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("RLdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("LRlight"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("rearlight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("RLlight"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("redlight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("engine"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("engine"):WaitForChild("connect"):WaitForChild("connector")},
+		}
+		playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🔧 Complete Car", Content="Installing "..#parts.." parts...", Duration=4, Image=4483362458})
+		task.spawn(function()
+			for _, pair in ipairs(parts) do
+				pcall(function() po:InvokeServer(pair[1], pair[2], true) end)
+				task.wait(gap)
+			end
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="✅ Complete Car", Content="All parts installed!", Duration=3, Image=4483362458})
+		end)
+	end})
+E.AutoHonk = CarTab:CreateToggle({Name=L0.ui.AutoHonk, CurrentValue=false,
+	Callback=function(v)
+		local horn = Workspace:WaitForChild("car"):WaitForChild("Body"):WaitForChild("horn"):WaitForChild("horn")
+		ReplicatedStorage:WaitForChild("holdT"):FireServer(horn, v)
+	end})
+E.CarDrag = CarTab:CreateToggle({Name=L0.ui.CarDrag, CurrentValue=false,
+	Callback=function(v) carDragLoop = v
+		if not v and Workspace:FindFirstChild("car") then
+			ReplicatedStorage.dragcar:FireServer(Vector3.new(0.472,-0.550,0.688), Workspace.car.Body.rear.paint, Vector3.new(-2187.3,60.09,-782.8))
+		end
+	end})
+E.SitDriver = CarTab:CreateButton({Name=L0.ui.SitDriver,
+	Callback=function() ReplicatedStorage:WaitForChild("site"):InvokeServer(Workspace:WaitForChild("Msit"):WaitForChild("Seat")) end})
+E.LoopBrake = CarTab:CreateToggle({Name=L0.ui.LoopBrake, CurrentValue=false,
+	Callback=function(v)
+		brakeLoop = v
+		if not v then
+			ReplicatedStorage:WaitForChild("toggle"):FireServer(Workspace:WaitForChild("car 69150"):WaitForChild("Misc"):WaitForChild("pbrake"):WaitForChild("h"))
+		end
+	end})
+
+local noCrashActive = false
+local crashHitboxRef = nil
+local crashHitboxOriginParent = nil
+local originalNamecallCrash = nil
+
+local function hookCrashRemote(v)
+	local cr = ReplicatedStorage:FindFirstChild("crashragdoll")
+	if not cr then return end
+	local mt = getrawmetatable(cr)
+	setreadonly(mt, false)
+	if v then
+		originalNamecallCrash = mt.__namecall
+		mt.__namecall = newcclosure(function(self, ...)
+			if getnamecallmethod() == "FireServer" and self == cr then return end
+			return originalNamecallCrash(self, ...)
+		end)
+	else
+		if originalNamecallCrash then mt.__namecall = originalNamecallCrash end
+	end
+	setreadonly(mt, true)
+end
+
+workspace.DescendantAdded:Connect(function(inst)
+	if noCrashActive and inst.Name == "CRASHhitbox" then
+		local p = inst.Parent
+		if p and p.Name == "Body" and p.Parent and p.Parent.Name == "car" then
+			crashHitboxRef = inst
+			crashHitboxOriginParent = p
+			inst.Parent = ReplicatedStorage
+		end
+	end
+end)
+
+CarTab:CreateToggle({Name="No Car Crash", CurrentValue=false,
+	Callback=function(v)
+		noCrashActive = v
+		hookCrashRemote(v)
+		if v then
+			local car = Workspace:FindFirstChild("car")
+			local body = car and car:FindFirstChild("Body")
+			local hitbox = body and body:FindFirstChild("CRASHhitbox")
+			if hitbox then
+				crashHitboxRef = hitbox
+				crashHitboxOriginParent = body
+				hitbox.Parent = ReplicatedStorage
+			end
+		else
+			if crashHitboxRef and crashHitboxRef.Parent then
+				crashHitboxRef.Parent = crashHitboxOriginParent
+			end
+			crashHitboxRef = nil
+			crashHitboxOriginParent = nil
+		end
+	end})
+
+local CombatTab = Window:CreateTab(L0.tabs.Combat, 4483362458)
+CombatTab:CreateSection(L0.sec.Zombies)
+SL.Zombies = grabLabel(L0.sec.Zombies)
+local KAToggle
+KAToggle = CombatTab:CreateToggle({Name=L0.ui.KillAura, CurrentValue=false, Callback=function(v) killAuraEnabled = v end})
+E.KillAura = KAToggle
+E.KAKeybind = CombatTab:CreateKeybind({Name=L0.ui.KAKeybind, CurrentKeybind="QuotedDouble", HoldToInteract=false,
+	Callback=function() killAuraEnabled = not killAuraEnabled; KAToggle:Set(killAuraEnabled) end})
+E.KARange = CombatTab:CreateSlider({Name=L0.ui.KARange, Range={5,100}, Increment=1, Suffix=" Studs", CurrentValue=20,
+	Callback=function(v) killAuraRange = v
+		if rangePart and rangePart.Parent then rangePart.Size = Vector3.new(v*2,v*2,v*2) end
+	end})
+E.VisRange = CombatTab:CreateToggle({Name=L0.ui.VisRange, CurrentValue=false,
+	Callback=function(v) showVisualRange = v; if v then getRangePart() else destroyRangePart() end end})
+CombatTab:CreateSection(L0.sec.HitboxMod)
+SL.HitboxMod = grabLabel(L0.sec.HitboxMod)
+E.BigHitbox  = CombatTab:CreateToggle({Name=L0.ui.BigHitbox, CurrentValue=false, Callback=function(v) hitboxesEnabled = v end})
+E.HitboxSize = CombatTab:CreateSlider({Name=L0.ui.HitboxSize, Range={2,50}, Increment=1, Suffix=" Size", CurrentValue=2,
+	Callback=function(v) hitboxSize = v end})
+
+local VisualsTab = Window:CreateTab(L0.tabs.Visuals, 4483362458)
+VisualsTab:CreateSection(L0.sec.ESP)
+SL.ESP = grabLabel(L0.sec.ESP)
+E.ZombieESP = VisualsTab:CreateToggle({Name=L0.ui.ZombieESP, CurrentValue=false,
+	Callback=function(v)
+		zombieEspEnabled = v
+		local n = LANGS[activeLang].espNote
+		if v then refreshZombieESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 ESP", Content=n.zOn, Duration=2, Image=4483362458})
+		else clearZombieESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 ESP", Content=n.zOff, Duration=2, Image=4483362458}) end
+	end})
+E.PlayerESP = VisualsTab:CreateToggle({Name=L0.ui.PlayerESP, CurrentValue=false,
+	Callback=function(v)
+		playerEspEnabled = v
+		local n = LANGS[activeLang].espNote
+		if v then refreshPlayerESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌼 ESP", Content=n.pOn, Duration=2, Image=4483362458})
+		else clearPlayerESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌼 ESP", Content=n.pOff, Duration=2, Image=4483362458}) end
+	end})
+E.ObjectESP = VisualsTab:CreateToggle({Name=L0.ui.ObjectESP, CurrentValue=false,
+	Callback=function(v)
+		objectEspEnabled = v
+		if v then
+			refreshObjectESP()
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🍂 ESP", Content="Object ESP enabled — gold-green outlines on hitdetection objects.", Duration=2, Image=4483362458})
+		else clearObjectESP() end
+	end})
+VisualsTab:CreateSection(L0.sec.InfoSec)
+SL.Info = grabLabel(L0.sec.InfoSec)
+for i, line in ipairs(L0.labels) do
+	VisualsTab:CreateLabel(line); IL[i] = grabLabel(line)
+end
+
+local InfoTab = Window:CreateTab(L0.tabs.Info, 4483362458)
+InfoTab:CreateSection("🌺 About Nihon Hub")
+InfoTab:CreateLabel("🌸  Nihon Hub — Bloom Edition  v3.0")
+InfoTab:CreateLabel("✨  Meow!!")
+InfoTab:CreateLabel("👑  Creator: MrsDuck  (sunziex on Discord)")
+InfoTab:CreateLabel("💬  Discord: No discord yet!")
+InfoTab:CreateLabel("🎮  Game: A desrt")
+InfoTab:CreateLabel("🔑  Key: Nihon")
+InfoTab:CreateSection("🖥️ Your Session")
+local execName = "Unknown"
+pcall(function()
+	if identifyexecutor then execName = identifyexecutor()
+	elseif syn then execName = "Synapse X"
+	elseif KRNL_LOADED then execName = "KRNL"
+	elseif pebc then execName = "ProtoSmasher"
+	elseif getexecutorname then execName = getexecutorname() end
+end)
+InfoTab:CreateLabel("⚡  Your Executor: "..execName)
+InfoTab:CreateLabel("👤  Username: "..lp.Name)
+InfoTab:CreateLabel("🆔  User ID: "..lp.UserId)
+InfoTab:CreateLabel("🌍  Account Age: "..lp.AccountAge.." days")
+local ipVisible = false
+local ipLabelRef
+InfoTab:CreateLabel("🔒  Your IP: [ click button to reveal ]")
+ipLabelRef = grabLabel("🔒  Your IP: [ click button to reveal ]")
+InfoTab:CreateButton({Name="👁️  Show / Hide IP",
+	Callback=function()
+		ipVisible = not ipVisible
+		if ipVisible then
+			local ok, result = pcall(function() return game:HttpGet("https://api.ipify.org") end)
+			local ip = ok and result or "Unable to fetch"
+			if ipLabelRef and ipLabelRef.Parent then ipLabelRef.Text = "🌐  Your IP: "..ip end
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🔒 IP", Content="IP revealed in Info tab.", Duration=2, Image=4483362458})
+		else
+			if ipLabelRef and ipLabelRef.Parent then ipLabelRef.Text = "🔒  Your IP: [ click button to reveal ]" end
+		end
+	end})
+InfoTab:CreateLabel("🌸  Are you kawaii?: Yes!!")
+InfoTab:CreateLabel("💖  Meow!!")
+InfoTab:CreateLabel("🍵  Meow!!")
+InfoTab:CreateLabel("🎋  Meow!!")
+InfoTab:CreateSection("📋 Changelog")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌺  v3.0  —  Bloom Edition")
+InfoTab:CreateLabel("  ✅  Full Bloom theme + loader overhaul")
+InfoTab:CreateLabel("  ✅  Custom key gate (no Rayfield key)")
+InfoTab:CreateLabel("  ✅  Fly system (cam-relative, smooth)")
+InfoTab:CreateLabel("  ✅  Noclip + Ghost Mode added")
+InfoTab:CreateLabel("  ✅  Freecam with mouse look")
+InfoTab:CreateLabel("  ✅  Gravity control slider")
+InfoTab:CreateLabel("  ✅  Fling Players toggle + range")
+InfoTab:CreateLabel("  ✅  Anti-AFK system")
+InfoTab:CreateLabel("  ✅  Object ESP with gold-green outlines")
+InfoTab:CreateLabel("  ✅  Info tab with session data + IP reveal")
+InfoTab:CreateLabel("  ✅  Tab icons across all tabs")
+InfoTab:CreateLabel("  ✅  3-language system: EN / JP / TR")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌸  v2.0  —  Sakura Edition")
+InfoTab:CreateLabel("  ✅  Rayfield integration")
+InfoTab:CreateLabel("  ✅  ESP system (Zombie + Player)")
+InfoTab:CreateLabel("  ✅  Kill Aura + visual range sphere")
+InfoTab:CreateLabel("  ✅  Big Hitbox system")
+InfoTab:CreateLabel("  ✅  Car troll features")
+InfoTab:CreateLabel("  ✅  Multilanguage loader")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌱  v1.0  —  Initial Release")
+InfoTab:CreateLabel("  ✅  Basic WalkSpeed / JumpPower")
+InfoTab:CreateLabel("  ✅  Inf Stamina / Hunger")
+InfoTab:CreateLabel("  ✅  NoFall Damage hook")
+InfoTab:CreateLabel("  ✅  Self Kill remote")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateSection("🔮 Credits")
+InfoTab:CreateLabel("🌺  Script by MrsDuck")
+InfoTab:CreateLabel("💌  Creator identity: MrsDuck  •  sunziex")
+InfoTab:CreateLabel("🌸  UI Library: Rayfield by Sirius")
+InfoTab:CreateLabel("🍀  Meowdy!!")
+InfoTab:CreateLabel("🎋  Thank you for using Nihon Hub!")
+
+local SettingsTab = Window:CreateTab(L0.tabs.Settings, 4483362458)
+SettingsTab:CreateSection(L0.sec.Language)
+SL.Language = grabLabel(L0.sec.Language)
+E.LangDrop = SettingsTab:CreateDropdown({
+	Name          = L0.ui.LangDrop,
+	Options       = {"English", "日本語", "Türkçe"},
+	CurrentOption = activeLang == "EN" and "English" or activeLang == "JP" and "日本語" or "Türkçe",
+	Callback      = function(opt)
+		local map = { English="EN", ["日本語"]="JP", ["Türkçe"]="TR" }
+		local code = map[opt]; if code then applyLanguage(code) end
+	end
+})
+
+local espTimer = 0
+RunService.RenderStepped:Connect(function(dt)
+	local char = lp.Character; local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if brakeLoop then
+		pcall(function()
+			ReplicatedStorage:WaitForChild("toggle"):FireServer(
+				Workspace:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("pbrake"):WaitForChild("h")
+			)
+		end)
+	end
+	if carDragLoop then
+		pcall(function()
+			local car = Workspace:FindFirstChild("car")
+			if car then ReplicatedStorage.dragcar:FireServer(Vector3.new(0.472,-0.550,0.688), car.Body.rear.paint, Vector3.new(-2187.3,60.09,-782.8)) end
+		end)
+	end
+	if flingEnabled and hrp then
+		for _, p in ipairs(Players:GetPlayers()) do
+			if p ~= lp and p.Character then
+				local tHrp = p.Character:FindFirstChild("HumanoidRootPart")
+				if tHrp and (hrp.Position - tHrp.Position).Magnitude <= flingRange then
+					tHrp.Velocity = Vector3.new(math.random(-300,300), math.random(200,500), math.random(-300,300))
+				end
+			end
+		end
+	end
+	for _, npc in ipairs(Workspace:GetChildren()) do
+		if npc:IsA("Model") and string.find(string.lower(npc.Name), "zombie") then
+			local hum = npc:FindFirstChild("Humanoid"); local tHrp = npc:FindFirstChild("HumanoidRootPart")
+			if tHrp and hum then
+				if hitboxesEnabled then
+					tHrp.Size = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
+					tHrp.Transparency = 0.7; tHrp.CanCollide = false
+				else
+					tHrp.Size = Vector3.new(2,2,1); tHrp.Transparency = 1
+				end
+				if killAuraEnabled and hrp and hum.Health > 0 then
+					if (hrp.Position - tHrp.Position).Magnitude <= killAuraRange then hum.Health = 0 end
+				end
+			end
+		end
+	end
+	local pg = lp:FindFirstChild("PlayerGui")
+	if pg then
+		local main = pg:FindFirstChild("main")
+		if main then
+			if infStamina and main:FindFirstChild("stamina") then main.stamina.Value = 999999; main.stamina.MaxValue = 999999 end
+			if infHunger  and main:FindFirstChild("hunger")  then main.hunger.Value  = 999999; main.hunger.MaxValue  = 999999 end
+		end
+	end
+	espTimer += dt
+	if espTimer >= 0.5 then espTimer = 0; refreshZombieESP(); refreshPlayerESP(); refreshObjectESP() end
+	if zombieEspEnabled then
+		for m, b in pairs(zombieESPBoards) do local h = m:FindFirstChild("Humanoid"); if h then updateBoard(b,h) end end
+	end
+	if playerEspEnabled then
+		for p, b in pairs(playerESPBoards) do
+			if p.Character then local h = p.Character:FindFirstChild("Humanoid"); if h then updateBoard(b,h) end end
+		end
+	end
+end)
+
+
+local k = "NihonLoader_Key_Real"
+if getgenv()._nl ~= k then
+	local g = Instance.new("ScreenGui")
+	g.Name = "warn"
+	g.Parent = game:GetService("CoreGui")
+	local f = Instance.new("Frame", g)
+	f.Size = UDim2.new(0, 420, 0, 140)
+	f.Position = UDim2.new(0.5, -210, 0.5, -70)
+	f.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	f.BorderSizePixel = 0
+	Instance.new("UICorner", f).CornerRadius = UDim.new(0, 10)
+	local t = Instance.new("TextLabel", f)
+	t.Size = UDim2.new(1, -20, 1, -20)
+	t.Position = UDim2.new(0, 10, 0, 10)
+	t.BackgroundTransparency = 1
+	t.TextColor3 = Color3.fromRGB(255, 80, 80)
+	t.TextScaled = true
+	t.TextWrapped = true
+	t.Font = Enum.Font.GothamBold
+	t.Text = "Warning: NihonGo will not run without the official loader. Do not attempt to bypass this system again. Continued attempts may result in a ban."
+	return
+end
+
+local TweenService      = game:GetService("TweenService")
+local RunService        = game:GetService("RunService")
+local Players           = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace         = game:GetService("Workspace")
+local UserInputService  = game:GetService("UserInputService")
+
+local function playSound(id)
+	local s = Instance.new("Sound")
+	s.SoundId = id; s.Volume = 0.6; s.RollOffMaxDistance = 0
+	s.Parent = workspace; s:Play()
+	game:GetService("Debris"):AddItem(s, 3)
+end
+
+local lp        = Players.LocalPlayer
+local playerGui = lp:WaitForChild("PlayerGui")
+
+local BLOOM = {
+	bg         = Color3.fromRGB(18, 12, 8),
+	bgDeep     = Color3.fromRGB(28, 16, 10),
+	bgMid      = Color3.fromRGB(22, 14, 9),
+	panel      = Color3.fromRGB(36, 22, 14),
+	accent     = Color3.fromRGB(255, 140, 80),
+	accentSoft = Color3.fromRGB(255, 190, 130),
+	accentGlow = Color3.fromRGB(255, 210, 160),
+	petal1     = Color3.fromRGB(255, 160, 100),
+	petal2     = Color3.fromRGB(255, 120, 60),
+	petal3     = Color3.fromRGB(255, 200, 140),
+	petal4     = Color3.fromRGB(220, 100, 50),
+	txtMain    = Color3.fromRGB(255, 230, 200),
+	txtSub     = Color3.fromRGB(200, 155, 110),
+	txtFaint   = Color3.fromRGB(120, 80, 50),
+	bar        = Color3.fromRGB(45, 25, 12),
+	barFill1   = Color3.fromRGB(200, 90, 30),
+	barFill2   = Color3.fromRGB(255, 200, 120),
+	espZombie  = Color3.fromRGB(255, 100, 50),
+	espPlayer  = Color3.fromRGB(255, 180, 80),
+	espObject  = Color3.fromRGB(200, 230, 80),
+	rangeBloom = Color3.fromRGB(255, 140, 60),
+	keyErr     = Color3.fromRGB(255, 80, 60),
+	keyOk      = Color3.fromRGB(80, 200, 100),
+	divider    = Color3.fromRGB(70, 40, 20),
+	cardBg     = Color3.fromRGB(30, 18, 10),
+}
+
+local WHITELIST = {
+	["tubers9312u"]  = true,
+	["SkibidihhhToiwet"]  = true,
+}
+
+local VALID_KEYS = { "Nihon", "nihon", "NIHON" }
+
+local isOwner = WHITELIST[lp.Name] == true
+
+local LANGS = {
+	EN = {
+		steps = {
+			{ icon="🌺", line="Initializing core systems"   },
+			{ icon="🌸", line="Loading Bloom Protocol"      },
+			{ icon="🍀", line="Arming combat modules"       },
+			{ icon="🌿", line="Configuring ESP visuals"     },
+			{ icon="✅", line="Nihon Hub ready — Welcome!"  },
+		},
+		notify  = "Systems initialized. Have fun!",
+		tabs    = { Player="🌱 Player", Misc="🍃 Misc", Car="🚗 Car", Combat="🌾 Combat", Visuals="🌺 Visuals", Settings="⚙️ Settings", Info="📋 Info" },
+		sec     = { Survival="Survival", Actions="Actions", CarTroll="Car Troll", Zombies="Zombies", HitboxMod="Hitbox Mod", ESP="ESP", InfoSec="Hub Info", Changelog="Changelog", Language="Language", Movement="Movement", Utility="Utility" },
+		ui      = {
+			WalkSpeed="WalkSpeed", JumpPower="JumpPower", InfJump="Infinite Jump",
+			InfStamina="Inf Stamina", InfHunger="Inf Hunger", NoFall="NoFall Damage", SelfKill="Self Kill",
+			CarDrag="Car Drag", LoopBrake="Loop Brake", SitDriver="Sit in Driver Seat", AutoHonk="Auto Honk",
+			KillAura="Kill Aura", KAKeybind="Kill Aura Keybind", KARange="Kill Aura Range", VisRange="Show Visual Range",
+			BigHitbox="Big Hitboxes", HitboxSize="Hitbox Size",
+			ZombieESP="Zombies ESP", PlayerESP="Player ESP", ObjectESP="Objects ESP",
+			LangDrop="Language / 言語 / Dil",
+			Fly="Fly", FlySpeed="Fly Speed", Noclip="Noclip", Ghost="Ghost Mode",
+			AntiAFK="Anti-AFK", FreeCam="Freecam", InfStam2="Infinite Stamina",
+			FlingPlayer="Fling Players", FlingRange="Fling Range",
+			Gravity="Gravity", GravitySlider="Gravity Scale",
+		},
+		labels  = { "🌺 Zombie ESP — amber tag + live HP bar above head", "🌼 Player ESP — gold tag + live HP bar above head", "🌿 Visual Range — bloom sphere welded to your character" },
+		espNote = { zOn="Zombie ESP enabled.", zOff="Zombie ESP disabled.", pOn="Player ESP enabled.", pOff="Player ESP disabled." },
+	},
+	JP = {
+		steps = {
+			{ icon="🌺", line="起動中 - Kidō-chū"                  },
+			{ icon="🌸", line="ブルームプロトコル - Burūmu"         },
+			{ icon="🍀", line="武器システム - Buki Shisutemu"       },
+			{ icon="🌿", line="ESP読み込み - ESP Yomikomi"         },
+			{ icon="✅", line="完了 - Kanryō — いらっしゃいませ!"   },
+		},
+		notify  = "システム初期化完了。楽しんで！- Tanoshinde!",
+		tabs    = { Player="🌱 プレイヤー", Misc="🍃 その他", Car="🚗 車", Combat="🌾 戦闘", Visuals="🌺 ビジュアル", Settings="⚙️ 設定", Info="📋 情報" },
+		sec     = { Survival="サバイバル", Actions="アクション", CarTroll="車トロール", Zombies="ゾンビ", HitboxMod="ヒットボックス", ESP="ESP", InfoSec="ハブ情報", Changelog="更新履歴", Language="言語", Movement="移動", Utility="ユーティリティ" },
+		ui      = {
+			WalkSpeed="歩行速度", JumpPower="ジャンプ力", InfJump="無限ジャンプ",
+			InfStamina="無限スタミナ", InfHunger="無限の空腹", NoFall="落下ダメージ無効", SelfKill="自殺",
+			CarDrag="車を引く", LoopBrake="ループブレーキ", SitDriver="運転席に座る", AutoHonk="自動クラクション",
+			KillAura="キルオーラ", KAKeybind="キルオーラキー", KARange="キルオーラ範囲", VisRange="範囲表示",
+			BigHitbox="巨大ヒットボックス", HitboxSize="ヒットボックスサイズ",
+			ZombieESP="ゾンビESP", PlayerESP="プレイヤーESP", ObjectESP="オブジェクトESP",
+			LangDrop="言語選択",
+			Fly="飛行", FlySpeed="飛行速度", Noclip="ノークリップ", Ghost="ゴーストモード",
+			AntiAFK="AFK対策", FreeCam="フリーカム", InfStam2="無限スタミナ",
+			FlingPlayer="プレイヤーを飛ばす", FlingRange="飛ばす範囲",
+			Gravity="重力", GravitySlider="重力スケール",
+		},
+		labels  = { "🌺 ゾンビESP — アンバータグ + HPバー", "🌼 プレイヤーESP — ゴールドタグ + HPバー", "🌿 範囲表示 — ブルームスフィア" },
+		espNote = { zOn="ゾンビESP 有効。", zOff="ゾンビESP 無効。", pOn="プレイヤーESP 有効。", pOff="プレイヤーESP 無効。" },
+	},
+	TR = {
+		steps = {
+			{ icon="🌺", line="Çekirdek sistemler başlatılıyor" },
+			{ icon="🌸", line="Bloom Protokolü yükleniyor"      },
+			{ icon="🍀", line="Savaş modülleri hazırlanıyor"    },
+			{ icon="🌿", line="ESP görselleri yapılandırılıyor" },
+			{ icon="✅", line="Nihon Hub hazır — Hoş geldin!"   },
+		},
+		notify  = "Sistemler başlatıldı. İyi eğlenceler!",
+		tabs    = { Player="🌱 Oyuncu", Misc="🍃 Diğer", Car="🚗 Araç", Combat="🌾 Savaş", Visuals="🌺 Görseller", Settings="⚙️ Ayarlar", Info="📋 Bilgi" },
+		sec     = { Survival="Hayatta Kalma", Actions="Eylemler", CarTroll="Araç Troll", Zombies="Zombiler", HitboxMod="Hitbox Modu", ESP="ESP", InfoSec="Hub Bilgisi", Changelog="Değişiklikler", Language="Dil Seçimi", Movement="Hareket", Utility="Araçlar" },
+		ui      = {
+			WalkSpeed="Yürüyüş Hızı", JumpPower="Zıplama Gücü", InfJump="Sınırsız Zıplama",
+			InfStamina="Sınırsız Stamina", InfHunger="Sınırsız Tokluk", NoFall="Düşme Hasarı Yok", SelfKill="Kendini Öldür",
+			CarDrag="Araç Sürükle", LoopBrake="Fren (Döngü)", SitDriver="Sürücü Koltuğuna Otur", AutoHonk="Otomatik Korna",
+			KillAura="Kill Aura", KAKeybind="Kill Aura Tuşu", KARange="Kill Aura Menzili", VisRange="Menzil Göster",
+			BigHitbox="Büyük Hitbox", HitboxSize="Hitbox Boyutu",
+			ZombieESP="Zombi ESP", PlayerESP="Oyuncu ESP", ObjectESP="Nesne ESP",
+			LangDrop="Dil Seçimi",
+			Fly="Uçuş", FlySpeed="Uçuş Hızı", Noclip="Noclip", Ghost="Hayalet Modu",
+			AntiAFK="Anti-AFK", FreeCam="Serbest Kamera", InfStam2="Sonsuz Stamina",
+			FlingPlayer="Oyuncu Fırlat", FlingRange="Fırlatma Menzili",
+			Gravity="Yerçekimi", GravitySlider="Yerçekimi Ölçeği",
+		},
+		labels  = { "🌺 Zombi ESP — amber isim + canlı HP çubuğu", "🌼 Oyuncu ESP — altın isim + canlı HP çubuğu", "🌿 Menzil Göster — karakterine bağlı bloom küre" },
+		espNote = { zOn="Zombi ESP aktif.", zOff="Zombi ESP kapatıldı.", pOn="Oyuncu ESP aktif.", pOff="Oyuncu ESP kapatıldı." },
+	},
+}
+
+local petals = {}
+local function spawnPetal()
+	local c = Drawing.new("Circle")
+	local cols = { BLOOM.petal1, BLOOM.petal2, BLOOM.petal3, BLOOM.petal4 }
+	c.Color = cols[math.random(1, #cols)]
+	c.Filled = true; c.NumSides = 20
+	c.Radius = math.random(2, 5); c.Thickness = 1
+	c.Transparency = math.random(55, 78) * 0.01
+	local vp = workspace.CurrentCamera.ViewportSize
+	c.Position = Vector2.new(math.random(0, vp.X), math.random(-40, 0))
+	table.insert(petals, { obj=c, vx=math.random(-10,10)*0.1, vy=math.random(30,65)*0.1 })
+end
+
+local LoadGui = Instance.new("ScreenGui")
+LoadGui.Name = "NihonLoader"
+LoadGui.IgnoreGuiInset = true
+LoadGui.ResetOnSpawn = false
+LoadGui.DisplayOrder = 999
+LoadGui.Parent = playerGui
+
+local Bg = Instance.new("Frame", LoadGui)
+Bg.Size = UDim2.fromScale(1,1)
+Bg.BackgroundColor3 = Color3.fromRGB(10, 6, 3)
+Bg.BorderSizePixel = 0
+local bgGrad = Instance.new("UIGradient", Bg)
+bgGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0,   Color3.fromRGB(18, 10, 5)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(11, 7, 3)),
+	ColorSequenceKeypoint.new(1,   Color3.fromRGB(8,  5, 2)),
+})
+bgGrad.Rotation = 130
+
+local ambientGlow = Instance.new("Frame", Bg)
+ambientGlow.Size = UDim2.fromOffset(520, 520)
+ambientGlow.AnchorPoint = Vector2.new(0.5,0.5)
+ambientGlow.Position = UDim2.fromScale(0.5, 0.44)
+ambientGlow.BackgroundColor3 = Color3.fromRGB(160, 65, 10)
+ambientGlow.BackgroundTransparency = 0.94
+ambientGlow.BorderSizePixel = 0
+Instance.new("UICorner", ambientGlow).CornerRadius = UDim.new(1,0)
+
+local Card = Instance.new("Frame", Bg)
+Card.AnchorPoint = Vector2.new(0.5,0.5)
+Card.Position = UDim2.fromScale(0.5,0.5)
+Card.Size = UDim2.fromOffset(460, 360)
+Card.BackgroundColor3 = Color3.fromRGB(20, 12, 6)
+Card.BorderSizePixel = 0
+Instance.new("UICorner", Card).CornerRadius = UDim.new(0, 10)
+local cardStroke = Instance.new("UIStroke", Card)
+cardStroke.Color = Color3.fromRGB(75, 40, 16)
+cardStroke.Thickness = 1
+
+local topBar = Instance.new("Frame", Card)
+topBar.Size = UDim2.new(1, 0, 0, 58)
+topBar.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
+topBar.BorderSizePixel = 0
+Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 10)
+local tbFix = Instance.new("Frame", topBar)
+tbFix.Size = UDim2.new(1, 0, 0, 10)
+tbFix.Position = UDim2.fromOffset(0, 48)
+tbFix.BackgroundColor3 = Color3.fromRGB(26, 14, 7)
+tbFix.BorderSizePixel = 0
+
+local headerLine = Instance.new("Frame", topBar)
+headerLine.Size = UDim2.new(1, 0, 0, 1)
+headerLine.Position = UDim2.new(0, 0, 1, -1)
+headerLine.BackgroundColor3 = Color3.fromRGB(255, 140, 55)
+headerLine.BorderSizePixel = 0
+local hlGrad = Instance.new("UIGradient", headerLine)
+hlGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0,   Color3.fromRGB(80, 35, 8)),
+	ColorSequenceKeypoint.new(0.3, Color3.fromRGB(220, 110, 40)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 195, 100)),
+	ColorSequenceKeypoint.new(0.7, Color3.fromRGB(220, 110, 40)),
+	ColorSequenceKeypoint.new(1,   Color3.fromRGB(80, 35, 8)),
+})
+
+local logoFrame = Instance.new("Frame", topBar)
+logoFrame.Size = UDim2.fromOffset(36, 36)
+logoFrame.Position = UDim2.fromOffset(16, 11)
+logoFrame.BackgroundColor3 = Color3.fromRGB(38, 20, 8)
+logoFrame.BorderSizePixel = 0
+Instance.new("UICorner", logoFrame).CornerRadius = UDim.new(0, 6)
+local logoStroke = Instance.new("UIStroke", logoFrame)
+logoStroke.Color = Color3.fromRGB(100, 55, 18)
+logoStroke.Thickness = 1; logoStroke.Transparency = 0.3
+local logoLbl = Instance.new("TextLabel", logoFrame)
+logoLbl.Size = UDim2.fromScale(1,1); logoLbl.BackgroundTransparency = 1
+logoLbl.Text = "🌺"; logoLbl.TextSize = 18; logoLbl.Font = Enum.Font.Gotham
+
+local titleMain = Instance.new("TextLabel", topBar)
+titleMain.Size = UDim2.new(1, -130, 0, 22)
+titleMain.Position = UDim2.fromOffset(60, 9)
+titleMain.BackgroundTransparency = 1
+titleMain.TextColor3 = Color3.fromRGB(255, 215, 160)
+titleMain.Font = Enum.Font.GothamBold; titleMain.TextSize = 16
+titleMain.TextXAlignment = Enum.TextXAlignment.Left
+titleMain.Text = "日本 Hub"
+
+local titleSub = Instance.new("TextLabel", topBar)
+titleSub.Size = UDim2.new(1, -130, 0, 13)
+titleSub.Position = UDim2.fromOffset(60, 32)
+titleSub.BackgroundTransparency = 1
+titleSub.TextColor3 = Color3.fromRGB(100, 62, 30)
+titleSub.Font = Enum.Font.Gotham; titleSub.TextSize = 10
+titleSub.TextXAlignment = Enum.TextXAlignment.Left
+titleSub.Text = "Bloom Edition  ·  v3.0  ·  by MrDuck"
+
+local badgeFrame = Instance.new("Frame", topBar)
+badgeFrame.Size = UDim2.fromOffset(isOwner and 68 or 60, 18)
+badgeFrame.Position = UDim2.new(1, isOwner and -82 or -74, 0, 20)
+badgeFrame.BackgroundColor3 = isOwner and Color3.fromRGB(50, 28, 8) or Color3.fromRGB(30, 18, 8)
+badgeFrame.BorderSizePixel = 0
+Instance.new("UICorner", badgeFrame).CornerRadius = UDim.new(0, 4)
+local badgeStroke = Instance.new("UIStroke", badgeFrame)
+badgeStroke.Color = isOwner and Color3.fromRGB(200, 120, 40) or Color3.fromRGB(90, 48, 14)
+badgeStroke.Thickness = 1; badgeStroke.Transparency = 0.2
+local badgeLbl = Instance.new("TextLabel", badgeFrame)
+badgeLbl.Size = UDim2.fromScale(1,1); badgeLbl.BackgroundTransparency = 1
+badgeLbl.TextColor3 = isOwner and Color3.fromRGB(255, 200, 100) or Color3.fromRGB(140, 85, 35)
+badgeLbl.Font = Enum.Font.GothamSemibold; badgeLbl.TextSize = 9
+badgeLbl.Text = isOwner and "👑 OWNER" or "🔑 KEY REQ"
+
+local stepIndicator = Instance.new("Frame", topBar)
+stepIndicator.Size = UDim2.fromOffset(70, 18)
+stepIndicator.Position = UDim2.new(1, -84, 0, 20)
+stepIndicator.BackgroundColor3 = Color3.fromRGB(38, 20, 8)
+stepIndicator.BorderSizePixel = 0
+stepIndicator.Visible = not isOwner
+Instance.new("UICorner", stepIndicator).CornerRadius = UDim.new(0, 4)
+local siStroke = Instance.new("UIStroke", stepIndicator)
+siStroke.Color = Color3.fromRGB(90, 48, 14); siStroke.Thickness = 1; siStroke.Transparency = 0.4
+local siLbl = Instance.new("TextLabel", stepIndicator)
+siLbl.Size = UDim2.fromScale(1,1); siLbl.BackgroundTransparency = 1
+siLbl.TextColor3 = Color3.fromRGB(140, 85, 35)
+siLbl.Font = Enum.Font.GothamSemibold; siLbl.TextSize = 9
+siLbl.Text = "Step 1 of 4"
+
+local Body = Instance.new("Frame", Card)
+Body.Size = UDim2.new(1, -28, 1, -70)
+Body.Position = UDim2.fromOffset(14, 62)
+Body.BackgroundTransparency = 1
+
+local function mkDiv(parent, y)
+	local d = Instance.new("Frame", parent)
+	d.Size = UDim2.new(1, 0, 0, 1)
+	d.Position = UDim2.fromOffset(0, y)
+	d.BackgroundColor3 = Color3.fromRGB(55, 30, 12)
+	d.BorderSizePixel = 0
+end
+
+local function mkBtn(parent, yPos, txt, w, xOff)
+	local b = Instance.new("TextButton", parent)
+	b.Size = w and UDim2.fromOffset(w, 34) or UDim2.new(1, 0, 0, 30)
+	b.Position = (w and xOff) and UDim2.fromOffset(xOff, yPos) or UDim2.fromOffset(0, yPos)
+	b.BackgroundColor3 = Color3.fromRGB(200, 100, 30)
+	b.BorderSizePixel = 0; b.AutoButtonColor = false
+	b.TextColor3 = Color3.fromRGB(18, 9, 3)
+	b.Font = Enum.Font.GothamBold; b.TextSize = 12; b.Text = txt
+	Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
+	local g = Instance.new("UIGradient", b)
+	g.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 140, 55)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(195, 85, 20)),
+	})
+b.MouseEnter:Connect(function()
+		TweenService:Create(b, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(230, 130, 50)}):Play()
+		local hs = Instance.new("Sound")
+		hs.SoundId = "rbxassetid://92876108656319"; hs.Volume = 0.4
+		hs.Parent = workspace; hs:Play()
+		game:GetService("Debris"):AddItem(hs, 2)
+	end)
+	b.MouseLeave:Connect(function()
+		TweenService:Create(b, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(200, 100, 30)}):Play()
+	end)
+	return b
+end
+
+local function mkSecLabel(parent, y, txt)
+	local l = Instance.new("TextLabel", parent)
+	l.Size = UDim2.new(1, 0, 0, 18)
+	l.Position = UDim2.fromOffset(0, y)
+	l.BackgroundTransparency = 1
+	l.TextColor3 = Color3.fromRGB(175, 105, 45)
+	l.Font = Enum.Font.GothamSemibold; l.TextSize = 11
+	l.TextXAlignment = Enum.TextXAlignment.Left
+	l.Text = txt
+	return l
+end
+
+local function slideOut(from, to)
+	TweenService:Create(from, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position=UDim2.fromOffset(-16, 0)}):Play()
+	task.wait(0.16)
+	from.Visible = false; from.Position = UDim2.fromScale(0,0)
+	to.Position = UDim2.fromOffset(16, 0); to.Visible = true
+	TweenService:Create(to, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position=UDim2.fromOffset(0,0)}):Play()
+end
+
+local petalTimer = 0
+local petalConn = RunService.RenderStepped:Connect(function(dt)
+	petalTimer += dt
+	if petalTimer > 0.12 and #petals < 22 then petalTimer = 0; spawnPetal() end
+	local vp = workspace.CurrentCamera.ViewportSize
+	for i = #petals, 1, -1 do
+		local p = petals[i]
+		p.obj.Position += Vector2.new(p.vx, p.vy) * dt * 16
+		if p.obj.Position.Y > vp.Y + 20 then p.obj:Remove(); table.remove(petals, i) end
+	end
+end)
+
+local FeatPanel = Instance.new("Frame", Body)
+FeatPanel.Size = UDim2.fromScale(1,1); FeatPanel.BackgroundTransparency = 1
+
+mkSecLabel(FeatPanel, 0, "Features")
+mkDiv(FeatPanel, 20)
+
+local FeatScroll = Instance.new("ScrollingFrame", FeatPanel)
+FeatScroll.Size = UDim2.new(1, 0, 0, 192)
+FeatScroll.Position = UDim2.fromOffset(0, 26)
+FeatScroll.BackgroundTransparency = 1; FeatScroll.BorderSizePixel = 0
+FeatScroll.ScrollBarThickness = 2
+FeatScroll.ScrollBarImageColor3 = Color3.fromRGB(140, 75, 25)
+FeatScroll.ScrollBarImageTransparency = 0.3
+FeatScroll.CanvasSize = UDim2.fromOffset(0,0)
+local fsPad = Instance.new("UIPadding", FeatScroll)
+fsPad.PaddingTop = UDim.new(0,4); fsPad.PaddingBottom = UDim.new(0,4)
+local fsList = Instance.new("UIListLayout", FeatScroll)
+fsList.Padding = UDim.new(0,2); fsList.SortOrder = Enum.SortOrder.LayoutOrder
+
+local featLines = {
+	{ icon="🌱", text="Player  —  WalkSpeed · JumpPower · Fly · Noclip · Ghost · Freecam · Gravity" },
+	{ icon="🍃", text="Misc  —  Infinite Stamina · Infinite Hunger · NoFall Damage · Anti-AFK"       },
+	{ icon="🚗", text="Car  —  Auto Honk · Car Drag · Loop Brake · Sit in Driver Seat"               },
+	{ icon="🌾", text="Combat  —  Kill Aura · Fling Players · Big Hitboxes"                          },
+	{ icon="🌺", text="ESP  —  Zombie  ·  Player  ·  Object (live HP bars + highlights)"             },
+	{ icon="📋", text="Info  —  Session data · Executor detect · IP reveal · Changelogs"             },
+	{ icon="🌐", text="Loader  —  Language select: English · 日本語 · Türkçe"                        },
+}
+for i, f in ipairs(featLines) do
+	local row = Instance.new("Frame", FeatScroll)
+	row.Size = UDim2.new(1, 0, 0, 24); row.LayoutOrder = i
+	row.BackgroundColor3 = Color3.fromRGB(28, 15, 7)
+	row.BackgroundTransparency = i % 2 == 0 and 0.55 or 0.78
+	row.BorderSizePixel = 0
+	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 4)
+	local iconLbl = Instance.new("TextLabel", row)
+	iconLbl.Size = UDim2.fromOffset(22, 24); iconLbl.BackgroundTransparency = 1
+	iconLbl.Text = f.icon; iconLbl.TextSize = 11; iconLbl.Font = Enum.Font.Gotham
+	local txtLbl = Instance.new("TextLabel", row)
+	txtLbl.Size = UDim2.new(1, -26, 1, 0); txtLbl.Position = UDim2.fromOffset(22, 0)
+	txtLbl.BackgroundTransparency = 1; txtLbl.TextColor3 = Color3.fromRGB(175, 118, 65)
+	txtLbl.Font = Enum.Font.Gotham; txtLbl.TextSize = 10
+	txtLbl.TextXAlignment = Enum.TextXAlignment.Left
+	txtLbl.Text = f.text; txtLbl.TextTruncate = Enum.TextTruncate.AtEnd
+end
+fsList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	FeatScroll.CanvasSize = UDim2.fromOffset(0, fsList.AbsoluteContentSize.Y + 8)
+end)
+
+mkDiv(FeatPanel, 224)
+local ReadBtn = mkBtn(FeatPanel, 230, "Continue  →")
+
+local LangPanel = Instance.new("Frame", Body)
+LangPanel.Size = UDim2.fromScale(1,1); LangPanel.BackgroundTransparency = 1; LangPanel.Visible = false
+
+mkSecLabel(LangPanel, 0, "Language")
+mkDiv(LangPanel, 20)
+
+local langDefs = {
+	{ code="EN", label="English", native="English",  flag="🇬🇧" },
+	{ code="JP", label="日本語",   native="Nihongo",  flag="🇯🇵" },
+	{ code="TR", label="Türkçe",  native="Turkish",  flag="🇹🇷" },
+}
+local langBtns = {}
+for i, def in ipairs(langDefs) do
+	local btn = Instance.new("TextButton", LangPanel)
+	btn.Size = UDim2.new(1, 0, 0, 50)
+	btn.Position = UDim2.fromOffset(0, 26 + (i-1)*56)
+	btn.BackgroundColor3 = Color3.fromRGB(24, 13, 6)
+	btn.BorderSizePixel = 0; btn.AutoButtonColor = false; btn.Text = ""
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 7)
+	local bs = Instance.new("UIStroke", btn)
+	bs.Color = Color3.fromRGB(65, 34, 12); bs.Thickness = 1; bs.Transparency = 0.3
+	local flagLbl = Instance.new("TextLabel", btn)
+	flagLbl.Size = UDim2.fromOffset(44, 50); flagLbl.BackgroundTransparency = 1
+	flagLbl.Text = def.flag; flagLbl.TextSize = 20; flagLbl.Font = Enum.Font.Gotham
+	local sep = Instance.new("Frame", btn)
+	sep.Size = UDim2.fromOffset(1, 28); sep.Position = UDim2.fromOffset(44, 11)
+	sep.BackgroundColor3 = Color3.fromRGB(65, 34, 12); sep.BorderSizePixel = 0
+	local nameMain = Instance.new("TextLabel", btn)
+	nameMain.Size = UDim2.new(1, -76, 0, 22); nameMain.Position = UDim2.fromOffset(54, 7)
+	nameMain.BackgroundTransparency = 1; nameMain.TextColor3 = Color3.fromRGB(230, 185, 130)
+	nameMain.Font = Enum.Font.GothamBold; nameMain.TextSize = 14
+	nameMain.TextXAlignment = Enum.TextXAlignment.Left; nameMain.Text = def.label
+	local nameSub = Instance.new("TextLabel", btn)
+	nameSub.Size = UDim2.new(1, -76, 0, 13); nameSub.Position = UDim2.fromOffset(54, 30)
+	nameSub.BackgroundTransparency = 1; nameSub.TextColor3 = Color3.fromRGB(100, 60, 24)
+	nameSub.Font = Enum.Font.Gotham; nameSub.TextSize = 10
+	nameSub.TextXAlignment = Enum.TextXAlignment.Left; nameSub.Text = def.native
+	local arr = Instance.new("TextLabel", btn)
+	arr.Size = UDim2.fromOffset(16, 50); arr.Position = UDim2.new(1, -20, 0, 0)
+	arr.BackgroundTransparency = 1; arr.TextColor3 = Color3.fromRGB(80, 44, 14)
+	arr.Font = Enum.Font.GothamBold; arr.TextSize = 15; arr.Text = "›"
+	btn.MouseEnter:Connect(function()
+	TweenService:Create(btn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(34, 18, 8)}):Play()
+	TweenService:Create(bs, TweenInfo.new(0.13), {Color=Color3.fromRGB(200, 100, 30), Transparency=0}):Play()
+	TweenService:Create(arr, TweenInfo.new(0.13), {TextColor3=Color3.fromRGB(200, 120, 50)}):Play()
+	local hs = Instance.new("Sound")
+	hs.SoundId = "rbxassetid://92876108656319"; hs.Volume = 0.4
+	hs.Parent = workspace; hs:Play()
+	game:GetService("Debris"):AddItem(hs, 2)
+end)
+	btn.MouseLeave:Connect(function()
+		TweenService:Create(btn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(24, 13, 6)}):Play()
+		TweenService:Create(bs, TweenInfo.new(0.13), {Color=Color3.fromRGB(65, 34, 12), Transparency=0.3}):Play()
+		TweenService:Create(arr, TweenInfo.new(0.13), {TextColor3=Color3.fromRGB(80, 44, 14)}):Play()
+	end)
+	langBtns[def.code] = btn
+end
+
+local OwnerPanel = Instance.new("Frame", Body)
+OwnerPanel.Size = UDim2.fromScale(1,1); OwnerPanel.BackgroundTransparency = 1; OwnerPanel.Visible = false
+
+mkSecLabel(OwnerPanel, 0, "Owner Detected  ·  "..lp.Name)
+mkDiv(OwnerPanel, 20)
+
+local crownRow = Instance.new("Frame", OwnerPanel)
+crownRow.Size = UDim2.new(1, 0, 0, 52); crownRow.Position = UDim2.fromOffset(0, 26)
+crownRow.BackgroundColor3 = Color3.fromRGB(26, 14, 7); crownRow.BackgroundTransparency = 0.25
+crownRow.BorderSizePixel = 0
+Instance.new("UICorner", crownRow).CornerRadius = UDim.new(0, 7)
+local crownStroke = Instance.new("UIStroke", crownRow)
+crownStroke.Color = Color3.fromRGB(200, 120, 40); crownStroke.Thickness = 1; crownStroke.Transparency = 0.15
+local crownIcon = Instance.new("TextLabel", crownRow)
+crownIcon.Size = UDim2.fromOffset(52, 52); crownIcon.BackgroundTransparency = 1
+crownIcon.Text = "👑"; crownIcon.TextSize = 24; crownIcon.Font = Enum.Font.Gotham
+crownIcon.TextXAlignment = Enum.TextXAlignment.Center
+local cSep = Instance.new("Frame", crownRow)
+cSep.Size = UDim2.fromOffset(1, 32); cSep.Position = UDim2.fromOffset(52, 10)
+cSep.BackgroundColor3 = Color3.fromRGB(90, 48, 14); cSep.BorderSizePixel = 0
+local greetMain = Instance.new("TextLabel", crownRow)
+greetMain.Size = UDim2.new(1, -66, 0, 22); greetMain.Position = UDim2.fromOffset(62, 7)
+greetMain.BackgroundTransparency = 1; greetMain.TextColor3 = Color3.fromRGB(255, 210, 140)
+greetMain.Font = Enum.Font.GothamBold; greetMain.TextSize = 14
+greetMain.TextXAlignment = Enum.TextXAlignment.Left
+greetMain.Text = "Welcome back, "..lp.Name.."  🌺"
+local greetSub = Instance.new("TextLabel", crownRow)
+greetSub.Size = UDim2.new(1, -66, 0, 13); greetSub.Position = UDim2.fromOffset(62, 30)
+greetSub.BackgroundTransparency = 1; greetSub.TextColor3 = Color3.fromRGB(120, 70, 25)
+greetSub.Font = Enum.Font.Gotham; greetSub.TextSize = 10
+greetSub.TextXAlignment = Enum.TextXAlignment.Left
+greetSub.Text = "Whitelisted  ·  Full access  ·  No key required"
+
+mkDiv(OwnerPanel, 90)
+
+local promptLbl = Instance.new("TextLabel", OwnerPanel)
+promptLbl.Size = UDim2.new(1, 0, 0, 28); promptLbl.Position = UDim2.fromOffset(0, 96)
+promptLbl.BackgroundTransparency = 1; promptLbl.TextColor3 = Color3.fromRGB(175, 118, 65)
+promptLbl.Font = Enum.Font.GothamSemibold; promptLbl.TextSize = 12
+promptLbl.TextXAlignment = Enum.TextXAlignment.Center
+promptLbl.Text = "Do you want to enable the key system for other users, Owner?"
+
+local promptNote = Instance.new("TextLabel", OwnerPanel)
+promptNote.Size = UDim2.new(1, 0, 0, 14); promptNote.Position = UDim2.fromOffset(0, 124)
+promptNote.BackgroundTransparency = 1; promptNote.TextColor3 = Color3.fromRGB(90, 52, 18)
+promptNote.Font = Enum.Font.Gotham; promptNote.TextSize = 10
+promptNote.TextXAlignment = Enum.TextXAlignment.Center
+promptNote.Text = "Choosing 'No' — key gate will be skipped globally this session"
+
+mkDiv(OwnerPanel, 146)
+
+local oBtnW = 210
+local oBtnTotalW = oBtnW * 2 + 10
+local oBtnStartX = math.floor((432 - oBtnTotalW) / 2)
+local YesBtn = Instance.new("TextButton", OwnerPanel)
+YesBtn.Size = UDim2.fromOffset(oBtnW, 34); YesBtn.Position = UDim2.fromOffset(oBtnStartX, 152)
+YesBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 30); YesBtn.BorderSizePixel = 0; YesBtn.AutoButtonColor = false
+YesBtn.TextColor3 = Color3.fromRGB(18, 9, 3); YesBtn.Font = Enum.Font.GothamBold; YesBtn.TextSize = 12
+YesBtn.Text = "✅  Yes — Enable Key System"
+Instance.new("UICorner", YesBtn).CornerRadius = UDim.new(0, 6)
+local ybGrad = Instance.new("UIGradient", YesBtn)
+ybGrad.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 140, 55)), ColorSequenceKeypoint.new(1, Color3.fromRGB(195, 85, 20)) })
+ybGrad.Rotation = 90
+YesBtn.MouseEnter:Connect(function() TweenService:Create(YesBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(225, 120, 45)}):Play() end)
+YesBtn.MouseLeave:Connect(function() TweenService:Create(YesBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(200, 100, 30)}):Play() end)
+
+local NoBtn = Instance.new("TextButton", OwnerPanel)
+NoBtn.Size = UDim2.fromOffset(oBtnW, 34); NoBtn.Position = UDim2.fromOffset(oBtnStartX + oBtnW + 10, 152)
+NoBtn.BackgroundColor3 = Color3.fromRGB(30, 18, 8); NoBtn.BorderSizePixel = 0; NoBtn.AutoButtonColor = false
+NoBtn.TextColor3 = Color3.fromRGB(175, 105, 45); NoBtn.Font = Enum.Font.GothamBold; NoBtn.TextSize = 12
+NoBtn.Text = "✖  No — Skip Key System"
+Instance.new("UICorner", NoBtn).CornerRadius = UDim.new(0, 6)
+local nbStroke = Instance.new("UIStroke", NoBtn)
+nbStroke.Color = Color3.fromRGB(70, 40, 16); nbStroke.Thickness = 1; nbStroke.Transparency = 0.3
+NoBtn.MouseEnter:Connect(function() TweenService:Create(NoBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(38, 22, 10)}):Play() end)
+NoBtn.MouseLeave:Connect(function() TweenService:Create(NoBtn, TweenInfo.new(0.13), {BackgroundColor3=Color3.fromRGB(30, 18, 8)}):Play() end)
+
+local KeyPanel = Instance.new("Frame", Body)
+KeyPanel.Size = UDim2.fromScale(1,1); KeyPanel.BackgroundTransparency = 1; KeyPanel.Visible = false
+
+mkSecLabel(KeyPanel, 0, "Access Key")
+mkDiv(KeyPanel, 20)
+
+local keyPanelNote = Instance.new("TextLabel", KeyPanel)
+keyPanelNote.Size = UDim2.new(1, 0, 0, 14); keyPanelNote.Position = UDim2.fromOffset(0, 26)
+keyPanelNote.BackgroundTransparency = 1; keyPanelNote.TextColor3 = Color3.fromRGB(120, 70, 25)
+keyPanelNote.Font = Enum.Font.Gotham; keyPanelNote.TextSize = 10
+keyPanelNote.TextXAlignment = Enum.TextXAlignment.Center
+keyPanelNote.Text = ""
+keyPanelNote.Visible = false
+
+local keyWrap = Instance.new("Frame", KeyPanel)
+keyWrap.Size = UDim2.new(1, 0, 0, 140); keyWrap.Position = UDim2.fromOffset(0, 28)
+keyWrap.BackgroundColor3 = Color3.fromRGB(16, 9, 4); keyWrap.BackgroundTransparency = 0.4; keyWrap.BorderSizePixel = 0
+Instance.new("UICorner", keyWrap).CornerRadius = UDim.new(0, 7)
+local keyCardStroke = Instance.new("UIStroke", keyWrap)
+keyCardStroke.Color = Color3.fromRGB(65, 34, 12); keyCardStroke.Thickness = 1
+
+local keyIconRow = Instance.new("Frame", keyWrap)
+keyIconRow.Size = UDim2.new(1, 0, 0, 44); keyIconRow.BackgroundTransparency = 1
+local keyIcon = Instance.new("TextLabel", keyIconRow)
+keyIcon.Size = UDim2.fromScale(1,1); keyIcon.BackgroundTransparency = 1
+keyIcon.Text = "🗝️"; keyIcon.TextSize = 22; keyIcon.Font = Enum.Font.Gotham
+keyIcon.TextXAlignment = Enum.TextXAlignment.Center
+
+local keyHint = Instance.new("TextLabel", keyWrap)
+keyHint.Size = UDim2.new(1, -20, 0, 14); keyHint.Position = UDim2.fromOffset(10, 44)
+keyHint.BackgroundTransparency = 1; keyHint.TextColor3 = Color3.fromRGB(85, 50, 18)
+keyHint.Font = Enum.Font.Gotham; keyHint.TextSize = 10
+keyHint.TextXAlignment = Enum.TextXAlignment.Center
+keyHint.Text = "Enter your key below  ·  Hint: check the script source"
+
+local KeyBox = Instance.new("TextBox", keyWrap)
+KeyBox.Size = UDim2.new(1, -20, 0, 30); KeyBox.Position = UDim2.fromOffset(10, 64)
+KeyBox.BackgroundColor3 = Color3.fromRGB(12, 7, 3); KeyBox.BorderSizePixel = 0
+KeyBox.TextColor3 = Color3.fromRGB(230, 185, 130); KeyBox.PlaceholderColor3 = Color3.fromRGB(90, 52, 20)
+KeyBox.Font = Enum.Font.GothamSemibold; KeyBox.TextSize = 13
+KeyBox.PlaceholderText = "Enter key..."; KeyBox.Text = ""
+KeyBox.ClearTextOnFocus = true; KeyBox.TextXAlignment = Enum.TextXAlignment.Center
+Instance.new("UICorner", KeyBox).CornerRadius = UDim.new(0, 5)
+local kbStroke = Instance.new("UIStroke", KeyBox)
+kbStroke.Color = Color3.fromRGB(75, 40, 14); kbStroke.Thickness = 1; kbStroke.Transparency = 0.2
+KeyBox.Focused:Connect(function()
+	TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(210, 115, 40), Transparency=0}):Play()
+end)
+KeyBox.FocusLost:Connect(function()
+	TweenService:Create(kbStroke, TweenInfo.new(0.14), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+end)
+
+local KeyStatus = Instance.new("TextLabel", keyWrap)
+KeyStatus.Size = UDim2.new(1, -20, 0, 14); KeyStatus.Position = UDim2.fromOffset(10, 100)
+KeyStatus.BackgroundTransparency = 1; KeyStatus.TextColor3 = Color3.fromRGB(100, 60, 22)
+KeyStatus.Font = Enum.Font.Gotham; KeyStatus.TextSize = 10; KeyStatus.Text = ""
+KeyStatus.TextXAlignment = Enum.TextXAlignment.Center
+
+local KeyBtn = mkBtn(KeyPanel, 178, "Confirm Key  →")
+
+local LoadPanel = Instance.new("Frame", Body)
+LoadPanel.Size = UDim2.fromScale(1,1); LoadPanel.BackgroundTransparency = 1; LoadPanel.Visible = false
+
+local loadStatusLbl = mkSecLabel(LoadPanel, 0, "Initializing")
+mkDiv(LoadPanel, 20)
+
+local BarBg = Instance.new("Frame", LoadPanel)
+BarBg.Size = UDim2.new(1, 0, 0, 3); BarBg.Position = UDim2.fromOffset(0, 28)
+BarBg.BackgroundColor3 = Color3.fromRGB(40, 22, 8); BarBg.BorderSizePixel = 0
+Instance.new("UICorner", BarBg).CornerRadius = UDim.new(1,0)
+local BarFill = Instance.new("Frame", BarBg)
+BarFill.Size = UDim2.new(0, 0, 1, 0); BarFill.BackgroundColor3 = BLOOM.accent; BarFill.BorderSizePixel = 0
+Instance.new("UICorner", BarFill).CornerRadius = UDim.new(1,0)
+local barGrad = Instance.new("UIGradient", BarFill)
+barGrad.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(185, 80, 22)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 200, 100)),
+})
+
+local barPct = Instance.new("TextLabel", LoadPanel)
+barPct.Size = UDim2.new(1, 0, 0, 13); barPct.Position = UDim2.fromOffset(0, 34)
+barPct.BackgroundTransparency = 1; barPct.TextColor3 = Color3.fromRGB(90, 52, 18)
+barPct.Font = Enum.Font.Gotham; barPct.TextSize = 9
+barPct.TextXAlignment = Enum.TextXAlignment.Right; barPct.Text = "0%"
+
+local StepsFrame = Instance.new("Frame", LoadPanel)
+StepsFrame.Size = UDim2.new(1, 0, 0, 180); StepsFrame.Position = UDim2.fromOffset(0, 52)
+StepsFrame.BackgroundTransparency = 1
+
+local stepLabels = {}
+for i = 1, 5 do
+	local row = Instance.new("Frame", StepsFrame)
+	row.Size = UDim2.new(1, 0, 0, 30); row.Position = UDim2.fromOffset(0, (i-1)*34)
+	row.BackgroundColor3 = Color3.fromRGB(22, 12, 5)
+	row.BackgroundTransparency = i % 2 == 0 and 0.65 or 0.8
+	row.BorderSizePixel = 0
+	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 5)
+	local numLbl = Instance.new("TextLabel", row)
+	numLbl.Size = UDim2.fromOffset(24, 30); numLbl.BackgroundTransparency = 1
+	numLbl.TextColor3 = Color3.fromRGB(75, 42, 14)
+	numLbl.Font = Enum.Font.GothamBold; numLbl.TextSize = 10
+	numLbl.Text = string.format("%02d", i)
+	local dot = Instance.new("Frame", row)
+	dot.Size = UDim2.fromOffset(4, 4); dot.Position = UDim2.fromOffset(24, 13)
+	dot.BackgroundColor3 = Color3.fromRGB(65, 36, 12); dot.BorderSizePixel = 0
+	Instance.new("UICorner", dot).CornerRadius = UDim.new(1,0)
+	local lbl = Instance.new("TextLabel", row)
+	lbl.Size = UDim2.new(1, -36, 1, 0); lbl.Position = UDim2.fromOffset(32, 0)
+	lbl.BackgroundTransparency = 1; lbl.TextColor3 = Color3.fromRGB(90, 52, 18)
+	lbl.Font = Enum.Font.Gotham; lbl.TextSize = 11
+	lbl.TextXAlignment = Enum.TextXAlignment.Left; lbl.Text = ""
+	table.insert(stepLabels, { lbl=lbl, dot=dot, row=row, num=numLbl })
+end
+
+local featDismissed = false
+ReadBtn.MouseButton1Click:Connect(function()
+	if featDismissed then return end
+	featDismissed = true
+	playSound("rbxassetid://139009780109934")
+	TweenService:Create(ReadBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(230, 255, 230)}):Play()
+	task.wait(0.2)
+	if not isOwner then siLbl.Text = "Step 2 of 4" end
+	slideOut(FeatPanel, LangPanel)
+end)
+repeat task.wait(0.05) until featDismissed
+
+local chosenLang = nil
+for code, btn in pairs(langBtns) do
+btn.MouseButton1Click:Connect(function()
+		if chosenLang then return end
+		playSound("rbxassetid://139009780109934")
+		chosenLang = code
+		task.wait(0.08)
+		if isOwner then
+			slideOut(LangPanel, OwnerPanel)
+		else
+			siLbl.Text = "Step 3 of 4"
+			slideOut(LangPanel, KeyPanel)
+		end
+	end)
+end
+repeat task.wait(0.05) until chosenLang ~= nil
+
+local keyRequired = true
+if isOwner then
+	local ownerDone = false
+	YesBtn.MouseButton1Click:Connect(function()
+		if ownerDone then return end
+		ownerDone = true
+		playSound("rbxassetid://139009780109934")
+		keyRequired = true
+		keyPanelNote.Text = "Key system active this session — owner bypass still applied to you"
+		keyPanelNote.Visible = true
+		TweenService:Create(YesBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 160, 65), TextColor3=Color3.fromRGB(230, 255, 230)}):Play()
+		task.wait(0.22)
+		slideOut(OwnerPanel, KeyPanel)
+	end)
+NoBtn.MouseButton1Click:Connect(function()
+		if ownerDone then return end
+		ownerDone = true
+		playSound("rbxassetid://139009780109934")
+		keyRequired = false
+		TweenService:Create(NoBtn, TweenInfo.new(0.12), {BackgroundColor3=Color3.fromRGB(55, 30, 10), TextColor3=Color3.fromRGB(200, 140, 60)}):Play()
+		task.wait(0.22)
+		slideOut(OwnerPanel, LoadPanel)
+	end)
+	repeat task.wait(0.05) until ownerDone
+end
+
+local keyPassed = false
+
+if keyRequired then
+	if isOwner then
+		keyPassed = true
+		task.wait(0.05)
+		slideOut(KeyPanel, LoadPanel)
+	else
+		local attempts = 0
+		local function shakeBox()
+			local orig = KeyBox.Position
+			for _ = 1, 4 do
+				TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(6,0)}):Play(); task.wait(0.04)
+				TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig+UDim2.fromOffset(-6,0)}):Play(); task.wait(0.04)
+			end
+			TweenService:Create(KeyBox, TweenInfo.new(0.04), {Position=orig}):Play()
+		end
+		local function tryKey()
+			if keyPassed then return end
+			playSound("rbxassetid://139009780109934")
+			local input = KeyBox.Text
+			local valid = false
+			for _, kv in ipairs(VALID_KEYS) do if input == kv then valid = true; break end end
+			if valid then
+				keyPassed = true
+				TweenService:Create(kbStroke, TweenInfo.new(0.15), {Color=BLOOM.keyOk}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.15), {TextColor3=BLOOM.keyOk}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=BLOOM.keyOk}):Play()
+				KeyStatus.TextColor3 = BLOOM.keyOk; KeyStatus.Text = "✓  Key accepted"
+				TweenService:Create(KeyBtn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(40, 155, 65)}):Play()
+				task.wait(0.5)
+				siLbl.Text = "Step 4 of 4"
+				slideOut(KeyPanel, LoadPanel)
+			else
+				attempts += 1; shakeBox()
+				TweenService:Create(kbStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.1), {TextColor3=BLOOM.keyErr}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.1), {Color=BLOOM.keyErr}):Play()
+				KeyStatus.TextColor3 = BLOOM.keyErr
+				KeyStatus.Text = attempts >= 3 and ("✗  Invalid  ·  "..attempts.." attempts") or "✗  Invalid key"
+				task.wait(0.75)
+				TweenService:Create(kbStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(75, 40, 14), Transparency=0.2}):Play()
+				TweenService:Create(KeyBox, TweenInfo.new(0.2), {TextColor3=Color3.fromRGB(230, 185, 130)}):Play()
+				TweenService:Create(keyCardStroke, TweenInfo.new(0.2), {Color=Color3.fromRGB(65, 34, 12)}):Play()
+				KeyBox.Text = ""
+			end
+		end
+		KeyBtn.MouseButton1Click:Connect(tryKey)
+		KeyBox.FocusLost:Connect(function(enter) if enter then tryKey() end end)
+		repeat task.wait(0.05) until keyPassed
+	end
+end
+
+local steps = LANGS[chosenLang].steps
+for i, s in ipairs(stepLabels) do s.lbl.Text = steps[i].icon.."  "..steps[i].line end
+
+local function animateLoad()
+	for i, step in ipairs(steps) do
+		loadStatusLbl.Text = step.line
+		barPct.Text = math.floor((i / #steps) * 100).."%"
+		for j, s in ipairs(stepLabels) do
+			if j < i then
+				TweenService:Create(s.lbl, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(130, 80, 30)}):Play()
+				TweenService:Create(s.dot, TweenInfo.new(0.18), {BackgroundColor3=Color3.fromRGB(130, 75, 25)}):Play()
+				TweenService:Create(s.num, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(110, 65, 22)}):Play()
+			elseif j == i then
+				TweenService:Create(s.lbl, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(255, 210, 150)}):Play()
+				TweenService:Create(s.dot, TweenInfo.new(0.18), {BackgroundColor3=Color3.fromRGB(220, 130, 50)}):Play()
+				TweenService:Create(s.num, TweenInfo.new(0.18), {TextColor3=Color3.fromRGB(200, 120, 45)}):Play()
+				TweenService:Create(s.row, TweenInfo.new(0.18), {BackgroundTransparency=0.45}):Play()
+			end
+		end
+		TweenService:Create(BarFill, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size=UDim2.new(i/#steps, 0, 1, 0)}):Play()
+		task.wait(0.62)
+	end
+	barPct.Text = "100%"; task.wait(0.28)
+	for _, child in ipairs(Card:GetDescendants()) do
+		if child:IsA("TextLabel") or child:IsA("TextButton") or child:IsA("TextBox") then
+			TweenService:Create(child, TweenInfo.new(0.28), {TextTransparency=1}):Play()
+		end
+		if child:IsA("Frame") or child:IsA("ScrollingFrame") then
+			pcall(function() TweenService:Create(child, TweenInfo.new(0.28), {BackgroundTransparency=1}):Play() end)
+		end
+		if child:IsA("UIStroke") then
+			TweenService:Create(child, TweenInfo.new(0.28), {Transparency=1}):Play()
+		end
+	end
+	task.wait(0.22)
+	TweenService:Create(Card, TweenInfo.new(0.32, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+		Size=UDim2.fromOffset(460, 0),
+		Position=UDim2.new(0.5, -230, 0.5, 180),
+		BackgroundTransparency=1,
+	}):Play()
+	task.wait(0.35)
+	TweenService:Create(Bg, TweenInfo.new(0.38, Enum.EasingStyle.Quad), {BackgroundTransparency=1}):Play()
+	TweenService:Create(ambientGlow, TweenInfo.new(0.38), {BackgroundTransparency=1}):Play()
+	task.wait(0.4)
+	petalConn:Disconnect()
+	for _, p in ipairs(petals) do pcall(function() p.obj:Remove() end) end
+	petals = {}; LoadGui:Destroy()
+end
+animateLoad()
+
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 Nihon Hub | 日本", Content=LANGS[chosenLang].notify, Duration=3, Image=4483362458})
+
+local Window = Rayfield:CreateWindow({
+	Name="🌺 Nihon Hub | 日本", LoadingTitle="Bloom Zen", LoadingSubtitle="by MrDuck",
+	Theme="AmberGlow",
+	ConfigurationSaving={Enabled=true, FolderName="NihonHub", FileName="Config"},
+	KeySystem=false,
+})
+
+local infStamina, infHunger     = false, false
+local killAuraEnabled           = false
+local killAuraRange             = 20
+local showVisualRange           = false
+local carDragLoop, brakeLoop    = false, false
+local hitboxesEnabled           = false
+local hitboxSize                = 2
+local zombieEspEnabled          = false
+local playerEspEnabled          = false
+local objectEspEnabled          = false
+local activeLang                = chosenLang
+
+local flyEnabled                = false
+local flySpeed                  = 50
+local noclipEnabled             = false
+local ghostEnabled              = false
+local antiAFKEnabled            = false
+local freecamEnabled            = false
+local gravityEnabled            = false
+local gravityScale              = 1
+local flingEnabled              = false
+local flingRange                = 15
+
+local flyConn, noclipConn, afkConn, freecamConn = nil, nil, nil, nil
+local freecamPart = nil
+
+local E, SL, IL = {}, {}, {}
+
+local function grabLabel(text)
+	for _, v in ipairs(playerGui:GetDescendants()) do
+		if v:IsA("TextLabel") and v.Text == text then return v end
+	end
+end
+
+local function applyLanguage(code)
+	activeLang = code
+	local L = LANGS[code]
+	for key, obj in pairs(E) do
+		if obj and L.ui[key] then pcall(function() obj.Title = L.ui[key] end) end
+	end
+	for key, lbl in pairs(SL) do
+		if lbl and lbl.Parent and L.sec[key] then lbl.Text = L.sec[key] end
+	end
+	for i, lbl in ipairs(IL) do
+		if lbl and lbl.Parent and L.labels[i] then lbl.Text = L.labels[i] end
+	end
+	playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌐 Language / 言語 / Dil", Content=L.notify, Duration=2.5, Image=4483362458})
+end
+
+local rangePart = nil
+local function destroyRangePart()
+	if rangePart then pcall(function() rangePart:Destroy() end); rangePart = nil end
+end
+local function getRangePart()
+	if rangePart and rangePart.Parent then return rangePart end
+	local char = lp.Character; local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return nil end
+	destroyRangePart()
+	local p = Instance.new("Part")
+	p.Name = "NihonRangeSphere"; p.Shape = Enum.PartType.Ball; p.Material = Enum.Material.Neon
+	p.Color = BLOOM.rangeBloom
+	p.Size = Vector3.new(killAuraRange*2, killAuraRange*2, killAuraRange*2)
+	p.Transparency = 0.82; p.CanCollide = false; p.Anchored = false; p.CastShadow = false
+	p.CFrame = hrp.CFrame; p.Parent = Workspace
+	local w = Instance.new("WeldConstraint"); w.Part0 = hrp; w.Part1 = p; w.Parent = p
+	rangePart = p; return p
+end
+
+local function stopFly()
+	if flyConn then flyConn:Disconnect(); flyConn = nil end
+	local char = lp.Character; if not char then return end
+	local hrp = char:FindFirstChild("HumanoidRootPart")
+	local hum = char:FindFirstChild("Humanoid")
+	if hrp then hrp.Velocity = Vector3.zero end
+	if hum then hum.PlatformStand = false end
+end
+
+local function startFly()
+	stopFly()
+	local char = lp.Character; if not char then return end
+	local hrp = char:FindFirstChild("HumanoidRootPart")
+	local hum = char:FindFirstChild("Humanoid")
+	if not hrp or not hum then return end
+	hum.PlatformStand = true
+	local cam = workspace.CurrentCamera
+	flyConn = RunService.RenderStepped:Connect(function()
+		if not flyEnabled then stopFly(); return end
+		local dir = Vector3.zero
+		if UserInputService:IsKeyDown(Enum.KeyCode.W) then dir += cam.CFrame.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir -= cam.CFrame.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir -= cam.CFrame.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir += cam.CFrame.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.Space) then dir += Vector3.new(0,1,0) end
+		if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then dir -= Vector3.new(0,1,0) end
+		hrp.Velocity = dir.Magnitude > 0 and dir.Unit * flySpeed or Vector3.zero
+		hrp.CFrame = CFrame.new(hrp.Position, hrp.Position + cam.CFrame.LookVector)
+	end)
+end
+
+local function stopNoclip()
+	if noclipConn then noclipConn:Disconnect(); noclipConn = nil end
+	local char = lp.Character; if not char then return end
+	for _, p in ipairs(char:GetDescendants()) do
+		if p:IsA("BasePart") then p.CanCollide = true end
+	end
+end
+
+local function startNoclip()
+	stopNoclip()
+	noclipConn = RunService.Stepped:Connect(function()
+		if not noclipEnabled then stopNoclip(); return end
+		local char = lp.Character; if not char then return end
+		for _, p in ipairs(char:GetDescendants()) do
+			if p:IsA("BasePart") then p.CanCollide = false end
+		end
+	end)
+end
+
+local function setGhost(v)
+	local char = lp.Character; if not char then return end
+	for _, p in ipairs(char:GetDescendants()) do
+		if p:IsA("BasePart") then
+			p.CanCollide = not v
+			p.Transparency = v and 0.6 or 0
+		end
+	end
+	local hum = char:FindFirstChild("Humanoid")
+	if hum then hum.PlatformStand = false end
+end
+
+local function stopFreecam()
+	if freecamConn then freecamConn:Disconnect(); freecamConn = nil end
+	if freecamPart then freecamPart:Destroy(); freecamPart = nil end
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	workspace.CurrentCamera.CameraSubject = lp.Character and lp.Character:FindFirstChild("Humanoid")
+end
+
+local function startFreecam()
+	stopFreecam()
+	local cam = workspace.CurrentCamera
+	cam.CameraType = Enum.CameraType.Scriptable
+	local cf = cam.CFrame
+	freecamConn = RunService.RenderStepped:Connect(function(dt)
+		if not freecamEnabled then stopFreecam(); return end
+		local d = Vector3.zero; local spd = 40 * dt
+		if UserInputService:IsKeyDown(Enum.KeyCode.W) then d += cf.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.S) then d -= cf.LookVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.A) then d -= cf.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.D) then d += cf.RightVector end
+		if UserInputService:IsKeyDown(Enum.KeyCode.E) then d += Vector3.new(0,1,0) end
+		if UserInputService:IsKeyDown(Enum.KeyCode.Q) then d -= Vector3.new(0,1,0) end
+		if d.Magnitude > 0 then cf = CFrame.new(cf.Position + d.Unit * spd) * (cf - cf.Position) end
+		local delta = UserInputService:GetMouseDelta()
+		cf = cf * CFrame.Angles(0, -delta.X * 0.003, 0) * CFrame.Angles(-delta.Y * 0.003, 0, 0)
+		cam.CFrame = cf
+	end)
+end
+
+lp.CharacterAdded:Connect(function(char)
+	task.wait(1)
+	destroyRangePart()
+	if showVisualRange then getRangePart() end
+	if ghostEnabled then task.wait(0.5); setGhost(true) end
+end)
+
+local zombieESPBoards, playerESPBoards, objectESPBoards = {}, {}, {}
+
+local function makeESPBoard(model, label, accent)
+	local head = model:FindFirstChild("Head") or model:FindFirstChild("HumanoidRootPart")
+	if not head then return nil end
+	local old = head:FindFirstChild("NihonESP"); if old then old:Destroy() end
+	local oldHL = model:FindFirstChild("NihonHL"); if oldHL then oldHL:Destroy() end
+	local hl = Instance.new("Highlight")
+	hl.Name = "NihonHL"; hl.FillTransparency = 1
+	hl.OutlineColor = accent; hl.OutlineTransparency = 0
+	hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop; hl.Parent = model
+	local bb = Instance.new("BillboardGui")
+	bb.Name = "NihonESP"; bb.Adornee = head; bb.AlwaysOnTop = true
+	bb.Size = UDim2.fromOffset(120,44); bb.StudsOffset = Vector3.new(0,2.8,0)
+	bb.ResetOnSpawn = false; bb.Parent = head
+	local card = Instance.new("Frame", bb)
+	card.Size = UDim2.fromScale(1,1); card.BackgroundColor3 = BLOOM.bgDeep
+	card.BackgroundTransparency = 0.28; card.BorderSizePixel = 0
+	Instance.new("UICorner", card).CornerRadius = UDim.new(0,6)
+	local sk = Instance.new("UIStroke", card); sk.Color = accent; sk.Thickness = 1.2; sk.Transparency = 0.05
+	local nl = Instance.new("TextLabel", card)
+	nl.Size = UDim2.new(1,-8,0,18); nl.Position = UDim2.fromOffset(4,2); nl.BackgroundTransparency = 1
+	nl.TextColor3 = accent; nl.Font = Enum.Font.GothamBold; nl.TextSize = 11
+	nl.TextXAlignment = Enum.TextXAlignment.Center; nl.TextTruncate = Enum.TextTruncate.AtEnd; nl.Text = label
+	local bb2 = Instance.new("Frame", card)
+	bb2.Name = "BarBg"; bb2.Size = UDim2.new(1,-10,0,5); bb2.Position = UDim2.new(0,5,0,23)
+	bb2.BackgroundColor3 = BLOOM.bar; bb2.BorderSizePixel = 0
+	Instance.new("UICorner", bb2).CornerRadius = UDim.new(1,0)
+	local bf = Instance.new("Frame", bb2)
+	bf.Name = "Fill"; bf.Size = UDim2.fromScale(1,1); bf.BackgroundColor3 = accent; bf.BorderSizePixel = 0
+	Instance.new("UICorner", bf).CornerRadius = UDim.new(1,0)
+	local hpLbl = Instance.new("TextLabel", card)
+	hpLbl.Name = "HP"; hpLbl.Size = UDim2.new(1,-8,0,11); hpLbl.Position = UDim2.new(0,4,0,30)
+	hpLbl.BackgroundTransparency = 1; hpLbl.TextColor3 = BLOOM.txtMain
+	hpLbl.Font = Enum.Font.Gotham; hpLbl.TextSize = 9
+	hpLbl.TextXAlignment = Enum.TextXAlignment.Center; hpLbl.Text = "HP: ?"
+	return bb
+end
+
+local function makeObjectESP(model)
+	local adornee = model.PrimaryPart
+	if not adornee then
+		for _, v in ipairs(model:GetDescendants()) do if v:IsA("BasePart") then adornee = v; break end end
+	end
+	if not adornee then return nil end
+	local oldHL = model:FindFirstChild("NihonObjHL"); if oldHL then oldHL:Destroy() end
+	local oldBB = adornee:FindFirstChild("NihonObjESP"); if oldBB then oldBB:Destroy() end
+	local hl = Instance.new("Highlight")
+	hl.Name = "NihonObjHL"; hl.FillTransparency = 1
+	hl.OutlineColor = BLOOM.espObject; hl.OutlineTransparency = 0
+	hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop; hl.Parent = model
+	local bb = Instance.new("BillboardGui")
+	bb.Name = "NihonObjESP"; bb.Adornee = adornee; bb.AlwaysOnTop = true
+	bb.Size = UDim2.fromOffset(110,22); bb.StudsOffset = Vector3.new(0,3,0)
+	bb.ResetOnSpawn = false; bb.Parent = adornee
+	local card = Instance.new("Frame", bb)
+	card.Size = UDim2.fromScale(1,1); card.BackgroundColor3 = BLOOM.bgDeep
+	card.BackgroundTransparency = 0.28; card.BorderSizePixel = 0
+	Instance.new("UICorner", card).CornerRadius = UDim.new(0,5)
+	local sk = Instance.new("UIStroke", card)
+	sk.Color = BLOOM.espObject; sk.Thickness = 1; sk.Transparency = 0.1
+	local nameLbl = Instance.new("TextLabel", card)
+	nameLbl.Size = UDim2.fromScale(1,1); nameLbl.BackgroundTransparency = 1
+	nameLbl.TextColor3 = BLOOM.espObject; nameLbl.Font = Enum.Font.GothamBold
+	nameLbl.TextSize = 10; nameLbl.TextXAlignment = Enum.TextXAlignment.Center
+	nameLbl.TextTruncate = Enum.TextTruncate.AtEnd; nameLbl.Text = "🍂 "..model.Name
+	return bb
+end
+
+local function removeBoard(tbl, key)
+	if tbl[key] then pcall(function() tbl[key]:Destroy() end); tbl[key] = nil end
+	if key and typeof(key) ~= "string" then
+		pcall(function()
+			local h = key:FindFirstChild("NihonHL"); if h then h:Destroy() end
+			local h2 = key:FindFirstChild("NihonObjHL"); if h2 then h2:Destroy() end
+		end)
+	end
+end
+
+local function updateBoard(board, hum)
+	if not board or not board.Parent then return end
+	local card = board:FindFirstChildWhichIsA("Frame"); if not card then return end
+	local bb2 = card:FindFirstChild("BarBg"); local fill = bb2 and bb2:FindFirstChild("Fill")
+	local hl = card:FindFirstChild("HP"); if not fill or not hl then return end
+	local r = math.clamp(hum.Health / math.max(hum.MaxHealth,1), 0, 1)
+	fill.Size = UDim2.fromScale(r,1)
+	hl.Text = "HP: "..math.floor(hum.Health).." / "..math.floor(hum.MaxHealth)
+	fill.BackgroundColor3 = Color3.new(math.clamp(2*(1-r),0,1), math.clamp(2*r,0,1), 0.05)
+end
+
+local function refreshZombieESP()
+	for m in pairs(zombieESPBoards) do
+		local h = m:FindFirstChild("Humanoid")
+		if not m.Parent or not h or h.Health <= 0 then
+			pcall(function() local hl = m:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+			removeBoard(zombieESPBoards, m)
+		end
+	end
+	if not zombieEspEnabled then return end
+	for _, npc in ipairs(Workspace:GetChildren()) do
+		if npc:IsA("Model") and string.find(string.lower(npc.Name), "zombie") then
+			local h = npc:FindFirstChild("Humanoid")
+			if h and h.Health > 0 and not zombieESPBoards[npc] then
+				local b = makeESPBoard(npc, "🌺 "..npc.Name, BLOOM.espZombie)
+				if b then
+					zombieESPBoards[npc] = b
+					h.Died:Connect(function()
+						task.wait(0.1)
+						pcall(function() local hl = npc:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+						removeBoard(zombieESPBoards, npc)
+					end)
+				end
+			end
+		end
+	end
+end
+local function clearZombieESP()
+	for m in pairs(zombieESPBoards) do
+		pcall(function() local hl = m:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end)
+		removeBoard(zombieESPBoards, m)
+	end
+end
+
+local function refreshPlayerESP()
+	for p in pairs(playerESPBoards) do
+		if not p.Parent or p == lp then
+			if p.Character then pcall(function() local hl = p.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+			removeBoard(playerESPBoards, p)
+		end
+	end
+	if not playerEspEnabled then return end
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p ~= lp and p.Character and not playerESPBoards[p] then
+			local b = makeESPBoard(p.Character, "🌼 "..p.Name, BLOOM.espPlayer)
+			if b then playerESPBoards[p] = b end
+		end
+	end
+end
+local function clearPlayerESP()
+	for p in pairs(playerESPBoards) do
+		if p.Character then pcall(function() local hl = p.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+		removeBoard(playerESPBoards, p)
+	end
+end
+
+local function refreshObjectESP()
+	for obj in pairs(objectESPBoards) do
+		if not obj.Parent then
+			pcall(function() local hl = obj:FindFirstChild("NihonObjHL"); if hl then hl:Destroy() end end)
+			removeBoard(objectESPBoards, obj)
+		end
+	end
+	if not objectEspEnabled then return end
+	for _, child in ipairs(Workspace:GetChildren()) do
+		if not objectESPBoards[child] then
+			if child:IsA("Model") or child:IsA("BasePart") then
+				local found = false
+				for _, v in ipairs(child:GetDescendants()) do
+					if v:IsA("Script") and string.lower(v.Name) == "hitdetection" then found = true; break end
+				end
+				if found then
+					local b = makeObjectESP(child)
+					if b then objectESPBoards[child] = b end
+				end
+			end
+		end
+	end
+end
+local function clearObjectESP()
+	for obj in pairs(objectESPBoards) do
+		pcall(function() local hl = obj:FindFirstChild("NihonObjHL"); if hl then hl:Destroy() end end)
+		removeBoard(objectESPBoards, obj)
+	end
+end
+
+local function onCharAdded(plr, char)
+	task.wait(0.5)
+	if playerEspEnabled and plr ~= lp then
+		if plr.Character then pcall(function() local hl = plr.Character:FindFirstChild("NihonHL"); if hl then hl:Destroy() end end) end
+		removeBoard(playerESPBoards, plr)
+		local b = makeESPBoard(char, "🌼 "..plr.Name, BLOOM.espPlayer)
+		if b then playerESPBoards[plr] = b end
+	end
+end
+Players.PlayerAdded:Connect(function(plr) plr.CharacterAdded:Connect(function(c) onCharAdded(plr,c) end) end)
+for _, plr in ipairs(Players:GetPlayers()) do
+	if plr ~= lp then plr.CharacterAdded:Connect(function(c) onCharAdded(plr,c) end) end
+end
+Players.PlayerRemoving:Connect(function(plr) removeBoard(playerESPBoards, plr) end)
+
+local L0 = LANGS[chosenLang]
+
+local PlayerTab = Window:CreateTab(L0.tabs.Player, 4483362458)
+PlayerTab:CreateSection(L0.sec.Movement)
+SL.Movement = grabLabel(L0.sec.Movement)
+E.WalkSpeed = PlayerTab:CreateSlider({Name=L0.ui.WalkSpeed, Range={16,300}, Increment=1, Suffix=" Speed", CurrentValue=16,
+	Callback=function(v) local c = lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.WalkSpeed = v end end})
+E.JumpPower = PlayerTab:CreateSlider({Name=L0.ui.JumpPower, Range={50,500}, Increment=1, Suffix=" Power", CurrentValue=50,
+	Callback=function(v) local c = lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.JumpPower = v end end})
+local infJump = false
+E.InfJump = PlayerTab:CreateToggle({Name=L0.ui.InfJump, CurrentValue=false, Callback=function(v) infJump = v end})
+UserInputService.JumpRequest:Connect(function()
+	if infJump and lp.Character then lp.Character:FindFirstChild("Humanoid"):ChangeState("Jumping") end
+end)
+E.Fly = PlayerTab:CreateToggle({Name=L0.ui.Fly, CurrentValue=false,
+	Callback=function(v)
+		flyEnabled = v
+		if v then startFly() else stopFly()
+			local char = lp.Character; local hum = char and char:FindFirstChild("Humanoid")
+			if hum then hum.PlatformStand = false end
+		end
+	end})
+E.FlySpeed = PlayerTab:CreateSlider({Name=L0.ui.FlySpeed, Range={10,300}, Increment=5, Suffix=" Speed", CurrentValue=50,
+	Callback=function(v) flySpeed = v end})
+E.Noclip = PlayerTab:CreateToggle({Name=L0.ui.Noclip, CurrentValue=false,
+	Callback=function(v) noclipEnabled = v; if v then startNoclip() else stopNoclip() end end})
+E.Ghost = PlayerTab:CreateToggle({Name=L0.ui.Ghost, CurrentValue=false,
+	Callback=function(v) ghostEnabled = v; setGhost(v) end})
+E.FreeCam = PlayerTab:CreateToggle({Name=L0.ui.FreeCam, CurrentValue=false,
+	Callback=function(v)
+		freecamEnabled = v
+		if v then
+			startFreecam()
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🎥 Freecam", Content="WASD + Q/E to move. Mouse to look.", Duration=3, Image=4483362458})
+		else stopFreecam() end
+	end})
+E.Gravity = PlayerTab:CreateToggle({Name=L0.ui.Gravity, CurrentValue=false,
+	Callback=function(v) gravityEnabled = v; workspace.Gravity = v and (196.2 * gravityScale) or 196.2 end})
+E.GravitySlider = PlayerTab:CreateSlider({Name=L0.ui.GravitySlider, Range={1,200}, Increment=1, Suffix="%", CurrentValue=100,
+	Callback=function(v) gravityScale = v / 100; if gravityEnabled then workspace.Gravity = 196.2 * gravityScale end end})
+PlayerTab:CreateSection(L0.sec.Utility)
+SL.Utility = grabLabel(L0.sec.Utility)
+E.AntiAFK = PlayerTab:CreateToggle({Name=L0.ui.AntiAFK, CurrentValue=false,
+	Callback=function(v)
+		antiAFKEnabled = v
+		if v then
+			afkConn = RunService.Heartbeat:Connect(function()
+				if not antiAFKEnabled then afkConn:Disconnect(); afkConn = nil; return end
+			end)
+			local vrs = game:GetService("VirtualInputManager")
+			task.spawn(function()
+				while antiAFKEnabled do
+					pcall(function() vrs:SendKeyEvent(true, "LeftShift", false, game) end)
+					task.wait(60)
+					pcall(function() vrs:SendKeyEvent(false, "LeftShift", false, game) end)
+				end
+			end)
+		else if afkConn then afkConn:Disconnect(); afkConn = nil end end
+	end})
+E.FlingPlayer = PlayerTab:CreateToggle({Name=L0.ui.FlingPlayer, CurrentValue=false, Callback=function(v) flingEnabled = v end})
+E.FlingRange  = PlayerTab:CreateSlider({Name=L0.ui.FlingRange, Range={5,60}, Increment=1, Suffix=" Studs", CurrentValue=15,
+	Callback=function(v) flingRange = v end})
+
+local MiscTab = Window:CreateTab(L0.tabs.Misc, 4483362458)
+MiscTab:CreateSection(L0.sec.Survival)
+SL.Survival = grabLabel(L0.sec.Survival)
+E.InfStamina = MiscTab:CreateToggle({Name=L0.ui.InfStamina, CurrentValue=false, Callback=function(v) infStamina = v end})
+E.InfHunger  = MiscTab:CreateToggle({Name=L0.ui.InfHunger,  CurrentValue=false, Callback=function(v) infHunger = v  end})
+
+local oneFoodActive = false
+local oneFoodOriginals = {}
+local oneFoodConns = {}
+
+local function hookFeedModel(model)
+	local feed = model:FindFirstChild("feed")
+	if not feed or not feed:IsA("NumberValue") then return end
+	if oneFoodConns[model] then return end
+	if not oneFoodOriginals[model] then
+		oneFoodOriginals[model] = feed.Value
+	end
+	feed.Value = 100
+	oneFoodConns[model] = RunService.Heartbeat:Connect(function()
+		if not oneFoodActive then return end
+		if feed and feed.Parent then feed.Value = 100 end
+	end)
+end
+
+local function unhookFeedModel(model)
+	if oneFoodConns[model] then
+		oneFoodConns[model]:Disconnect()
+		oneFoodConns[model] = nil
+	end
+	local feed = model:FindFirstChild("feed")
+	if feed and feed:IsA("NumberValue") and oneFoodOriginals[model] ~= nil then
+		feed.Value = oneFoodOriginals[model]
+	end
+	oneFoodOriginals[model] = nil
+end
+
+local oneFoodDescConn = nil
+
+MiscTab:CreateToggle({Name="One Food Fill Hunger", CurrentValue=false,
+	Callback=function(v)
+		oneFoodActive = v
+		if v then
+			for _, model in ipairs(Workspace:GetDescendants()) do
+				if model:IsA("Model") then
+					hookFeedModel(model)
+				end
+			end
+			oneFoodDescConn = Workspace.DescendantAdded:Connect(function(inst)
+				if not oneFoodActive then return end
+				if inst:IsA("Model") then
+					hookFeedModel(inst)
+				end
+				if inst:IsA("NumberValue") and inst.Name == "feed" and inst.Parent:IsA("Model") then
+					hookFeedModel(inst.Parent)
+				end
+			end)
+		else
+			if oneFoodDescConn then oneFoodDescConn:Disconnect(); oneFoodDescConn = nil end
+			for model in pairs(oneFoodConns) do
+				unhookFeedModel(model)
+			end
+		end
+	end})
+
+local falldamage = ReplicatedStorage:FindFirstChild("falldamage")
+local originalNamecall = nil
+E.NoFall = MiscTab:CreateToggle({Name=L0.ui.NoFall, CurrentValue=false,
+	Callback=function(v)
+		if not falldamage then return end
+		local mt = getrawmetatable(falldamage); setreadonly(mt, false)
+		if v then
+			originalNamecall = mt.__namecall
+			mt.__namecall = newcclosure(function(self, ...)
+				if getnamecallmethod() == "FireServer" and self == falldamage then return end
+				return originalNamecall(self, ...)
+			end)
+		else if originalNamecall then mt.__namecall = originalNamecall end end
+		setreadonly(mt, true)
+	end})
+MiscTab:CreateSection(L0.sec.Actions)
+SL.Actions = grabLabel(L0.sec.Actions)
+E.SelfKill = MiscTab:CreateButton({Name=L0.ui.SelfKill,
+	Callback=function() ReplicatedStorage:WaitForChild("resetch"):FireServer() end})
+
+local autoRunActive = false
+local autoRunConn = nil
+
+local function getRunValue()
+	local pg = lp:FindFirstChild("PlayerGui")
+	local main = pg and pg:FindFirstChild("main")
+	return main and main:FindFirstChild("run")
+end
+
+MiscTab:CreateToggle({Name="Auto Run", CurrentValue=false,
+	Callback=function(v)
+		autoRunActive = v
+		if v then
+			autoRunConn = RunService.Heartbeat:Connect(function()
+				if not autoRunActive then
+					autoRunConn:Disconnect(); autoRunConn = nil; return
+				end
+				local run = getRunValue()
+				if run and run:IsA("BoolValue") then run.Value = true end
+			end)
+		else
+			if autoRunConn then autoRunConn:Disconnect(); autoRunConn = nil end
+			local run = getRunValue()
+			if run and run:IsA("BoolValue") then run.Value = false end
+		end
+	end})
+
+local CarTab = Window:CreateTab(L0.tabs.Car, 4483362458)
+CarTab:CreateSection(L0.sec.CarTroll)
+SL.CarTroll = grabLabel(L0.sec.CarTroll)
+CarTab:CreateSection("🚗 Car")
+CarTab:CreateButton({Name="🔧 Complete Car", Description="Puts only needed parts.",
+	Callback=function()
+		local RS = game:GetService("ReplicatedStorage")
+		local ws = workspace
+		local po = RS:WaitForChild("placeobject")
+		local gap = 0.18
+		local parts = {
+			{ws:WaitForChild("roof"):WaitForChild("backhood"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("reardoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("FRdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("FRdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("Rfender"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Rfender"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("Lfender"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Lfender"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("frontbumper"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("bumper"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("frontframe"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("frontframe"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("hood"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("hood"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("grill"):WaitForChild("mainconnector"),ws:WaitForChild("grill"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("rightlight"):WaitForChild("mainconnector"),ws:WaitForChild("FrontRightLight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("frontframe"):WaitForChild("leftlight"):WaitForChild("mainconnector"),ws:WaitForChild("FrontLeftLight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("FRseat"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("Msit"):WaitForChild("Seat"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("FLdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("FLdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("rearseat"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("rearseat"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("RRdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("RRdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("openable"):WaitForChild("RLdoor"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("RLdoor"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("LRlight"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("rearlight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("RLlight"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("redlight"):WaitForChild("connect"):WaitForChild("connector")},
+			{ws:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("details"):WaitForChild("others"):WaitForChild("engine"):WaitForChild("connect"):WaitForChild("mainconnector"),ws:WaitForChild("engine"):WaitForChild("connect"):WaitForChild("connector")},
+		}
+		playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🔧 Complete Car", Content="Installing "..#parts.." parts...", Duration=4, Image=4483362458})
+		task.spawn(function()
+			for _, pair in ipairs(parts) do
+				pcall(function() po:InvokeServer(pair[1], pair[2], true) end)
+				task.wait(gap)
+			end
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="✅ Complete Car", Content="All parts installed!", Duration=3, Image=4483362458})
+		end)
+	end})
+E.AutoHonk = CarTab:CreateToggle({Name=L0.ui.AutoHonk, CurrentValue=false,
+	Callback=function(v)
+		local horn = Workspace:WaitForChild("car"):WaitForChild("Body"):WaitForChild("horn"):WaitForChild("horn")
+		ReplicatedStorage:WaitForChild("holdT"):FireServer(horn, v)
+	end})
+E.CarDrag = CarTab:CreateToggle({Name=L0.ui.CarDrag, CurrentValue=false,
+	Callback=function(v) carDragLoop = v
+		if not v and Workspace:FindFirstChild("car") then
+			ReplicatedStorage.dragcar:FireServer(Vector3.new(0.472,-0.550,0.688), Workspace.car.Body.rear.paint, Vector3.new(-2187.3,60.09,-782.8))
+		end
+	end})
+E.SitDriver = CarTab:CreateButton({Name=L0.ui.SitDriver,
+	Callback=function() ReplicatedStorage:WaitForChild("site"):InvokeServer(Workspace:WaitForChild("Msit"):WaitForChild("Seat")) end})
+E.LoopBrake = CarTab:CreateToggle({Name=L0.ui.LoopBrake, CurrentValue=false,
+	Callback=function(v)
+		brakeLoop = v
+		if not v then
+			ReplicatedStorage:WaitForChild("toggle"):FireServer(Workspace:WaitForChild("car 69150"):WaitForChild("Misc"):WaitForChild("pbrake"):WaitForChild("h"))
+		end
+	end})
+
+local noCrashActive = false
+local crashHitboxRef = nil
+local crashHitboxOriginParent = nil
+local originalNamecallCrash = nil
+
+local function hookCrashRemote(v)
+	local cr = ReplicatedStorage:FindFirstChild("crashragdoll")
+	if not cr then return end
+	local mt = getrawmetatable(cr)
+	setreadonly(mt, false)
+	if v then
+		originalNamecallCrash = mt.__namecall
+		mt.__namecall = newcclosure(function(self, ...)
+			if getnamecallmethod() == "FireServer" and self == cr then return end
+			return originalNamecallCrash(self, ...)
+		end)
+	else
+		if originalNamecallCrash then mt.__namecall = originalNamecallCrash end
+	end
+	setreadonly(mt, true)
+end
+
+workspace.DescendantAdded:Connect(function(inst)
+	if noCrashActive and inst.Name == "CRASHhitbox" then
+		local p = inst.Parent
+		if p and p.Name == "Body" and p.Parent and p.Parent.Name == "car" then
+			crashHitboxRef = inst
+			crashHitboxOriginParent = p
+			inst.Parent = ReplicatedStorage
+		end
+	end
+end)
+
+CarTab:CreateToggle({Name="No Car Crash", CurrentValue=false,
+	Callback=function(v)
+		noCrashActive = v
+		hookCrashRemote(v)
+		if v then
+			local car = Workspace:FindFirstChild("car")
+			local body = car and car:FindFirstChild("Body")
+			local hitbox = body and body:FindFirstChild("CRASHhitbox")
+			if hitbox then
+				crashHitboxRef = hitbox
+				crashHitboxOriginParent = body
+				hitbox.Parent = ReplicatedStorage
+			end
+		else
+			if crashHitboxRef and crashHitboxRef.Parent then
+				crashHitboxRef.Parent = crashHitboxOriginParent
+			end
+			crashHitboxRef = nil
+			crashHitboxOriginParent = nil
+		end
+	end})
+
+local CombatTab = Window:CreateTab(L0.tabs.Combat, 4483362458)
+CombatTab:CreateSection(L0.sec.Zombies)
+SL.Zombies = grabLabel(L0.sec.Zombies)
+local KAToggle
+KAToggle = CombatTab:CreateToggle({Name=L0.ui.KillAura, CurrentValue=false, Callback=function(v) killAuraEnabled = v end})
+E.KillAura = KAToggle
+E.KAKeybind = CombatTab:CreateKeybind({Name=L0.ui.KAKeybind, CurrentKeybind="QuotedDouble", HoldToInteract=false,
+	Callback=function() killAuraEnabled = not killAuraEnabled; KAToggle:Set(killAuraEnabled) end})
+E.KARange = CombatTab:CreateSlider({Name=L0.ui.KARange, Range={5,100}, Increment=1, Suffix=" Studs", CurrentValue=20,
+	Callback=function(v) killAuraRange = v
+		if rangePart and rangePart.Parent then rangePart.Size = Vector3.new(v*2,v*2,v*2) end
+	end})
+E.VisRange = CombatTab:CreateToggle({Name=L0.ui.VisRange, CurrentValue=false,
+	Callback=function(v) showVisualRange = v; if v then getRangePart() else destroyRangePart() end end})
+CombatTab:CreateSection(L0.sec.HitboxMod)
+SL.HitboxMod = grabLabel(L0.sec.HitboxMod)
+E.BigHitbox  = CombatTab:CreateToggle({Name=L0.ui.BigHitbox, CurrentValue=false, Callback=function(v) hitboxesEnabled = v end})
+E.HitboxSize = CombatTab:CreateSlider({Name=L0.ui.HitboxSize, Range={2,50}, Increment=1, Suffix=" Size", CurrentValue=2,
+	Callback=function(v) hitboxSize = v end})
+
+local VisualsTab = Window:CreateTab(L0.tabs.Visuals, 4483362458)
+VisualsTab:CreateSection(L0.sec.ESP)
+SL.ESP = grabLabel(L0.sec.ESP)
+E.ZombieESP = VisualsTab:CreateToggle({Name=L0.ui.ZombieESP, CurrentValue=false,
+	Callback=function(v)
+		zombieEspEnabled = v
+		local n = LANGS[activeLang].espNote
+		if v then refreshZombieESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 ESP", Content=n.zOn, Duration=2, Image=4483362458})
+		else clearZombieESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌺 ESP", Content=n.zOff, Duration=2, Image=4483362458}) end
+	end})
+E.PlayerESP = VisualsTab:CreateToggle({Name=L0.ui.PlayerESP, CurrentValue=false,
+	Callback=function(v)
+		playerEspEnabled = v
+		local n = LANGS[activeLang].espNote
+		if v then refreshPlayerESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌼 ESP", Content=n.pOn, Duration=2, Image=4483362458})
+		else clearPlayerESP(); playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🌼 ESP", Content=n.pOff, Duration=2, Image=4483362458}) end
+	end})
+E.ObjectESP = VisualsTab:CreateToggle({Name=L0.ui.ObjectESP, CurrentValue=false,
+	Callback=function(v)
+		objectEspEnabled = v
+		if v then
+			refreshObjectESP()
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🍂 ESP", Content="Object ESP enabled — gold-green outlines on hitdetection objects.", Duration=2, Image=4483362458})
+		else clearObjectESP() end
+	end})
+VisualsTab:CreateSection(L0.sec.InfoSec)
+SL.Info = grabLabel(L0.sec.InfoSec)
+for i, line in ipairs(L0.labels) do
+	VisualsTab:CreateLabel(line); IL[i] = grabLabel(line)
+end
+
+local InfoTab = Window:CreateTab(L0.tabs.Info, 4483362458)
+InfoTab:CreateSection("🌺 About Nihon Hub")
+InfoTab:CreateLabel("🌸  Nihon Hub — Bloom Edition  v3.0")
+InfoTab:CreateLabel("✨  Meow!!")
+InfoTab:CreateLabel("👑  Creator: MrsDuck  (sunziex on Discord)")
+InfoTab:CreateLabel("💬  Discord: No discord yet!")
+InfoTab:CreateLabel("🎮  Game: A desrt")
+InfoTab:CreateLabel("🔑  Key: Nihon")
+InfoTab:CreateSection("🖥️ Your Session")
+local execName = "Unknown"
+pcall(function()
+	if identifyexecutor then execName = identifyexecutor()
+	elseif syn then execName = "Synapse X"
+	elseif KRNL_LOADED then execName = "KRNL"
+	elseif pebc then execName = "ProtoSmasher"
+	elseif getexecutorname then execName = getexecutorname() end
+end)
+InfoTab:CreateLabel("⚡  Your Executor: "..execName)
+InfoTab:CreateLabel("👤  Username: "..lp.Name)
+InfoTab:CreateLabel("🆔  User ID: "..lp.UserId)
+InfoTab:CreateLabel("🌍  Account Age: "..lp.AccountAge.." days")
+local ipVisible = false
+local ipLabelRef
+InfoTab:CreateLabel("🔒  Your IP: [ click button to reveal ]")
+ipLabelRef = grabLabel("🔒  Your IP: [ click button to reveal ]")
+InfoTab:CreateButton({Name="👁️  Show / Hide IP",
+	Callback=function()
+		ipVisible = not ipVisible
+		if ipVisible then
+			local ok, result = pcall(function() return game:HttpGet("https://api.ipify.org") end)
+			local ip = ok and result or "Unable to fetch"
+			if ipLabelRef and ipLabelRef.Parent then ipLabelRef.Text = "🌐  Your IP: "..ip end
+			playSound("rbxassetid://102658972915929") Rayfield:Notify({Title="🔒 IP", Content="IP revealed in Info tab.", Duration=2, Image=4483362458})
+		else
+			if ipLabelRef and ipLabelRef.Parent then ipLabelRef.Text = "🔒  Your IP: [ click button to reveal ]" end
+		end
+	end})
+InfoTab:CreateLabel("🌸  Are you kawaii?: Yes!!")
+InfoTab:CreateLabel("💖  Meow!!")
+InfoTab:CreateLabel("🍵  Meow!!")
+InfoTab:CreateLabel("🎋  Meow!!")
+InfoTab:CreateSection("📋 Changelog")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌺  v3.0  —  Bloom Edition")
+InfoTab:CreateLabel("  ✅  Full Bloom theme + loader overhaul")
+InfoTab:CreateLabel("  ✅  Custom key gate (no Rayfield key)")
+InfoTab:CreateLabel("  ✅  Fly system (cam-relative, smooth)")
+InfoTab:CreateLabel("  ✅  Noclip + Ghost Mode added")
+InfoTab:CreateLabel("  ✅  Freecam with mouse look")
+InfoTab:CreateLabel("  ✅  Gravity control slider")
+InfoTab:CreateLabel("  ✅  Fling Players toggle + range")
+InfoTab:CreateLabel("  ✅  Anti-AFK system")
+InfoTab:CreateLabel("  ✅  Object ESP with gold-green outlines")
+InfoTab:CreateLabel("  ✅  Info tab with session data + IP reveal")
+InfoTab:CreateLabel("  ✅  Tab icons across all tabs")
+InfoTab:CreateLabel("  ✅  3-language system: EN / JP / TR")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌸  v2.0  —  Sakura Edition")
+InfoTab:CreateLabel("  ✅  Rayfield integration")
+InfoTab:CreateLabel("  ✅  ESP system (Zombie + Player)")
+InfoTab:CreateLabel("  ✅  Kill Aura + visual range sphere")
+InfoTab:CreateLabel("  ✅  Big Hitbox system")
+InfoTab:CreateLabel("  ✅  Car troll features")
+InfoTab:CreateLabel("  ✅  Multilanguage loader")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateLabel("🌱  v1.0  —  Initial Release")
+InfoTab:CreateLabel("  ✅  Basic WalkSpeed / JumpPower")
+InfoTab:CreateLabel("  ✅  Inf Stamina / Hunger")
+InfoTab:CreateLabel("  ✅  NoFall Damage hook")
+InfoTab:CreateLabel("  ✅  Self Kill remote")
+InfoTab:CreateLabel("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+InfoTab:CreateSection("🔮 Credits")
+InfoTab:CreateLabel("🌺  Script by MrsDuck")
+InfoTab:CreateLabel("💌  Creator identity: MrsDuck  •  sunziex")
+InfoTab:CreateLabel("🌸  UI Library: Rayfield by Sirius")
+InfoTab:CreateLabel("🍀  Meowdy!!")
+InfoTab:CreateLabel("🎋  Thank you for using Nihon Hub!")
+
+local SettingsTab = Window:CreateTab(L0.tabs.Settings, 4483362458)
+SettingsTab:CreateSection(L0.sec.Language)
+SL.Language = grabLabel(L0.sec.Language)
+E.LangDrop = SettingsTab:CreateDropdown({
+	Name          = L0.ui.LangDrop,
+	Options       = {"English", "日本語", "Türkçe"},
+	CurrentOption = activeLang == "EN" and "English" or activeLang == "JP" and "日本語" or "Türkçe",
+	Callback      = function(opt)
+		local map = { English="EN", ["日本語"]="JP", ["Türkçe"]="TR" }
+		local code = map[opt]; if code then applyLanguage(code) end
+	end
+})
+
+local espTimer = 0
+RunService.RenderStepped:Connect(function(dt)
+	local char = lp.Character; local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if brakeLoop then
+		pcall(function()
+			ReplicatedStorage:WaitForChild("toggle"):FireServer(
+				Workspace:WaitForChild("car"):WaitForChild("Misc"):WaitForChild("pbrake"):WaitForChild("h")
+			)
+		end)
+	end
+	if carDragLoop then
+		pcall(function()
+			local car = Workspace:FindFirstChild("car")
+			if car then ReplicatedStorage.dragcar:FireServer(Vector3.new(0.472,-0.550,0.688), car.Body.rear.paint, Vector3.new(-2187.3,60.09,-782.8)) end
+		end)
+	end
+	if flingEnabled and hrp then
+		for _, p in ipairs(Players:GetPlayers()) do
+			if p ~= lp and p.Character then
+				local tHrp = p.Character:FindFirstChild("HumanoidRootPart")
+				if tHrp and (hrp.Position - tHrp.Position).Magnitude <= flingRange then
+					tHrp.Velocity = Vector3.new(math.random(-300,300), math.random(200,500), math.random(-300,300))
+				end
+			end
+		end
+	end
+	for _, npc in ipairs(Workspace:GetChildren()) do
+		if npc:IsA("Model") and string.find(string.lower(npc.Name), "zombie") then
+			local hum = npc:FindFirstChild("Humanoid"); local tHrp = npc:FindFirstChild("HumanoidRootPart")
+			if tHrp and hum then
+				if hitboxesEnabled then
+					tHrp.Size = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
+					tHrp.Transparency = 0.7; tHrp.CanCollide = false
+				else
+					tHrp.Size = Vector3.new(2,2,1); tHrp.Transparency = 1
+				end
+				if killAuraEnabled and hrp and hum.Health > 0 then
+					if (hrp.Position - tHrp.Position).Magnitude <= killAuraRange then hum.Health = 0 end
+				end
+			end
+		end
+	end
+	local pg = lp:FindFirstChild("PlayerGui")
+	if pg then
+		local main = pg:FindFirstChild("main")
+		if main then
+			if infStamina and main:FindFirstChild("stamina") then main.stamina.Value = 999999; main.stamina.MaxValue = 999999 end
+			if infHunger  and main:FindFirstChild("hunger")  then main.hunger.Value  = 999999; main.hunger.MaxValue  = 999999 end
+		end
+	end
+	espTimer += dt
+	if espTimer >= 0.5 then espTimer = 0; refreshZombieESP(); refreshPlayerESP(); refreshObjectESP() end
+	if zombieEspEnabled then
+		for m, b in pairs(zombieESPBoards) do local h = m:FindFirstChild("Humanoid"); if h then updateBoard(b,h) end end
+	end
+	if playerEspEnabled then
+		for p, b in pairs(playerESPBoards) do
+			if p.Character then local h = p.Character:FindFirstChild("Humanoid"); if h then updateBoard(b,h) end end
+		end
+	end
+end)
