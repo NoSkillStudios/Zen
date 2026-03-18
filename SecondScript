@@ -2,8 +2,10 @@ local k = "NihonLoader_Key_Real"
 if getgenv()._nl ~= k then return end
 
 local ALLOWED = {
-	[7398552394]     = false,
-	[125224440903394] = false,
+	[7398552394]     = true,
+	[125224440903394] = true,
+	[1184129293] = true,
+    
 }
 
 if not ALLOWED[game.PlaceId] then
