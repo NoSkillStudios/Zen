@@ -1,20 +1,18 @@
 local k = "NihonLoader_Key_Real"
-getgenv()._nl = k
+if getgenv()._nl ~= k then return end
 
-local function ld(u)
-	local s, r = pcall(function()
-		return loadstring(game:HttpGet(u))()
-	end)
-	if not s or not r then return nil end
-	return r
+local ALLOWED = {
+	[7398552394]     = true,
+	[125224440903394] = true,
+	[3286380229] = true,
+}
+
+if not ALLOWED[game.PlaceId] then
+	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
+	return
 end
 
-local b = ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript")
-if not b then error("Loader error: SecondScript failed to load.") return end
-if not b._ok then error("Loader error: SecondScript validation failed.") return end
-if b.init then b.init() end
-
-local a = ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen")
-if not a then error("Loader error: NihonZen failed to load.") return end
-if not a._ok then error("Loader error: NihonZen validation failed.") return end
-if a.init then a.init() end
+local m = {}
+m._ok = true
+function m.init() end
+return m
