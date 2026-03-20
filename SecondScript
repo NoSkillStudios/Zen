@@ -3,7 +3,4 @@ if getgenv()._nl ~= k then
 	return {_ok=false}
 end
 
-return {
-	_ok=true,
-	init=function() end
-}
+return {_ok=true, init=function() end}
