@@ -1,43 +1,33 @@
-
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
-task.wait() -- ensure env propagates before loading scripts
 
 local GAMES = {
 	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
 	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["90568084448279"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
-local placeId = tostring(game.PlaceId)
-local scriptUrl = GAMES[placeId]
-
-if not scriptUrl then
+local pid = tostring(game.PlaceId)
+if not GAMES[pid] then
 	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
 	return
 end
 
-local function ld(u)
-	local s, r = pcall(function()
-		return loadstring(game:HttpGet(u))()
+local function load_script(url)
+	local ok, result = pcall(function()
+		return loadstring(game:HttpGet(url))()
 	end)
-	if not s or not r then return nil end
-	return r
+	return (ok and result and result._ok) and result or nil
 end
 
-local a = ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=2")
-local b = ld(scriptUrl.."?v=2")
+local v = tostring(math.random(1000000, 9999999))
+local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v)
+local main = load_script(GAMES[pid] .. "?v=" .. v)
 
-if not a or not b then
-	error("Loader error: scripts failed to load.")
+if not sec or not main then
+	error("Loader error: script validation failed.")
 	return
 end
 
-if not a._ok or not b._ok then
-	error("Loader error: validation failed.")
-	return
-end
-
-if a.init then a.init() end
-if b.init then b.init() end
+if sec.init then sec.init() end
+if main.init then main.init() end
