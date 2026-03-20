@@ -1,5 +1,6 @@
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
+task.wait() -- ensure env propagates before loading scripts
 
 local GAMES = {
 	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
