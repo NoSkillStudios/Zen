@@ -2,9 +2,9 @@ local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 
 local GAMES = {
-	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen.lua",
+	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen.lua",
+	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap.lua",
 }
 
 local pid = tostring(game.PlaceId)
@@ -14,14 +14,20 @@ if not GAMES[pid] then
 end
 
 local function load_script(url)
-	local ok, result = pcall(function()
-		return loadstring(game:HttpGet(url))()
-	end)
-	return (ok and result and result._ok) and result or nil
+	local ok, data = pcall(game.HttpGet, game, url)
+	if not ok or not data or data == "" then return nil end
+	
+	local ok2, result = pcall(loadstring, data)
+	if not ok2 or not result then return nil end
+	
+	local ok3, module = pcall(result)
+	if not ok3 or not module or not module._ok then return nil end
+	
+	return module
 end
 
 local v = tostring(math.random(1000000, 9999999))
-local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v)
+local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript.lua?v=" .. v)
 local main = load_script(GAMES[pid] .. "?v=" .. v)
 
 if not sec or not main then
@@ -29,5 +35,5 @@ if not sec or not main then
 	return
 end
 
-if sec.init then sec.init() end
-if main.init then main.init() end
+if sec.init then pcall(sec.init) end
+if main.init then pcall(main.init) end
