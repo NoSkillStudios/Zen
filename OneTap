@@ -632,62 +632,113 @@ local Window=Rayfield:CreateWindow({
 	KeySystem = false,
 })
 
+-- ════════════════════════════════════════════
+--   TEAM CHECK
+-- ════════════════════════════════════════════
 local teamCheckMode = "FFA"
 local function isEnemy(player)
 	if teamCheckMode=="FFA" or teamCheckMode=="Everyone" then return true end
 	return player.Team ~= lp.Team
 end
 
-local hitboxEnabled  = false
-local hitboxSize     = 21
-local hitboxTrans    = 6
-local hitbox_orig    = {}
-local noCollision    = false
-local defaultBodyParts = {"UpperTorso","LowerTorso","Torso","Head","HumanoidRootPart"}
+-- ════════════════════════════════════════════
+--   HITBOX CORE (AdvanceTech logic)
+-- ════════════════════════════════════════════
+local hitboxEnabled = false
+local noCollision   = false
+local hitboxSize    = 21
+local hitboxTrans   = 6
+local hitbox_orig   = {}
 
-local function findExactPart(char, partName)
-	local low=partName:lower()
-	for _,p in ipairs(char:GetChildren()) do
-		if p:IsA("BasePart") and p.Name:lower()==low then return p end
-	end
-end
-local function savedPart(player,part)
-	if not hitbox_orig[player] then hitbox_orig[player]={} end
-	if not hitbox_orig[player][part.Name] then
-		hitbox_orig[player][part.Name]={CanCollide=part.CanCollide,Transparency=part.Transparency,Size=part.Size}
-	end
-end
-local function restoredPart(player)
-	if not hitbox_orig[player] then return end
-	if not player.Character then hitbox_orig[player]=nil; return end
-	for partName,props in pairs(hitbox_orig[player]) do
-		local part=player.Character:FindFirstChild(partName)
-		if part and part:IsA("BasePart") then
-			part.CanCollide=props.CanCollide; part.Transparency=props.Transparency; part.Size=props.Size
-		end
-	end
-	hitbox_orig[player]=nil
-end
-local function extendHitbox(player)
-	if not player.Character then return end
-	for _,partName in ipairs(defaultBodyParts) do
-		local part=findExactPart(player.Character,partName)
-		if part then
-			savedPart(player,part)
-			part.CanCollide=not noCollision
-			part.Transparency=hitboxTrans/10
-			part.Size=Vector3.new(hitboxSize,hitboxSize,hitboxSize)
-		end
-	end
-end
-local function updateHitboxes()
-	for _,player in ipairs(Players:GetPlayers()) do
-		if player~=lp and player.Character then
-			if isEnemy(player) then extendHitbox(player) else restoredPart(player) end
-		end
+local HB_PARTS = {"UpperTorso","LowerTorso","Torso","Head","HumanoidRootPart"}
+
+local function hb_findPart(char, name)
+	local low = name:lower()
+	for _, p in ipairs(char:GetChildren()) do
+		if p:IsA("BasePart") and p.Name:lower() == low then return p end
 	end
 end
 
+local function hb_save(plr, part)
+	if not hitbox_orig[plr] then hitbox_orig[plr] = {} end
+	if not hitbox_orig[plr][part.Name] then
+		hitbox_orig[plr][part.Name] = {
+			CanCollide   = part.CanCollide,
+			Transparency = part.Transparency,
+			Size         = part.Size,
+		}
+	end
+end
+
+local function hb_restore(plr)
+	if not hitbox_orig[plr] then return end
+	if plr.Character then
+		for name, props in pairs(hitbox_orig[plr]) do
+			local p = plr.Character:FindFirstChild(name)
+			if p and p:IsA("BasePart") then
+				p.CanCollide   = props.CanCollide
+				p.Transparency = props.Transparency
+				p.Size         = props.Size
+			end
+		end
+	end
+	hitbox_orig[plr] = nil
+end
+
+local function hb_extend(plr)
+	if not plr.Character then return end
+	for _, name in ipairs(HB_PARTS) do
+		local p = hb_findPart(plr.Character, name)
+		if p then
+			hb_save(plr, p)
+			p.CanCollide   = not noCollision
+			p.Transparency = hitboxTrans / 10
+			p.Size         = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
+		end
+	end
+end
+
+local function hb_updateAll()
+	for _, plr in ipairs(Players:GetPlayers()) do
+		if plr ~= lp and plr.Character then
+			if isEnemy(plr) then hb_extend(plr) else hb_restore(plr) end
+		end
+	end
+end
+
+local hitboxLoopThread
+local function hb_startLoop()
+	if hitboxLoopThread then return end
+	hitboxLoopThread = task.spawn(function()
+		while hitboxEnabled do
+			hb_updateAll()
+			for plr in pairs(hitbox_orig) do
+				if not plr.Parent or not plr.Character then hb_restore(plr) end
+			end
+			task.wait(0.05)
+		end
+		hitboxLoopThread = nil
+	end)
+end
+
+local function hb_hookPlayer(plr)
+	plr.CharacterAdded:Connect(function()
+		task.wait(0.6)
+		if not hitboxEnabled or not isEnemy(plr) then return end
+		hitbox_orig[plr] = nil
+		hb_extend(plr)
+	end)
+end
+
+Players.PlayerRemoving:Connect(function(plr) hb_restore(plr) end)
+Players.PlayerAdded:Connect(hb_hookPlayer)
+for _, plr in ipairs(Players:GetPlayers()) do
+	if plr ~= lp then hb_hookPlayer(plr) end
+end
+
+-- ════════════════════════════════════════════
+--   ESP SYSTEM
+-- ════════════════════════════════════════════
 local espEnabled      = false
 local espOutline      = false
 local espBox          = false
@@ -812,9 +863,7 @@ local function updateESPFor(plr)
 				nl.Visible=espNames; nl.TextColor3=col
 				if espDist and hrpL and hrpT then
 					nl.Text="🌼 "..plr.Name.."  ["..math.floor((hrpL.Position-hrpT.Position).Magnitude).."m]"
-				else
-					nl.Text="🌼 "..plr.Name
-				end
+				else nl.Text="🌼 "..plr.Name end
 			end
 			if fill and hpLbl and hum then
 				barBg.Visible=espHP; hpLbl.Visible=espHP
@@ -852,13 +901,10 @@ local function updateESPFor(plr)
 end
 local function refreshESP()
 	if not espEnabled then
-		for plr in pairs(espBoards) do destroyESPFor(plr) end
-		return
+		for plr in pairs(espBoards) do destroyESPFor(plr) end; return
 	end
 	for _,plr in ipairs(Players:GetPlayers()) do
-		if plr~=lp and plr.Character and not espBoards[plr] and isEnemy(plr) then
-			buildESPFor(plr)
-		end
+		if plr~=lp and plr.Character and not espBoards[plr] and isEnemy(plr) then buildESPFor(plr) end
 	end
 	for plr in pairs(espBoards) do
 		if not plr.Parent or not plr.Character or not isEnemy(plr) then destroyESPFor(plr) end
@@ -872,6 +918,9 @@ local function rebuildESP()
 	end
 end
 
+-- ════════════════════════════════════════════
+--   PLAYER MECHANICS
+-- ════════════════════════════════════════════
 local flyEnabled=false; local flySpeed=50
 local noclipEnabled=false; local ghostEnabled=false
 local freecamEnabled=false; local gravityEnabled=false; local gravityScale=1
@@ -948,37 +997,38 @@ local function startFreecam()
 	end)
 end
 
+-- ════════════════════════════════════════════
+--   AIMLOCK
+-- ════════════════════════════════════════════
 local aimlockEnabled  = false
 local aimlockSmooth   = 0.18
 local aimlockFOV      = 120
 local aimlockBone     = "Head"
 local aimlockHoldOnly = false
 local aimlockDrawFOV  = true
-local aimlockKey      = Enum.KeyCode.Q
 
 local fovCircle = Drawing.new("Circle")
 fovCircle.Visible=false; fovCircle.Filled=false
 fovCircle.Color=Color3.fromRGB(255,180,80); fovCircle.Thickness=1.4
 fovCircle.NumSides=64; fovCircle.Transparency=0.35
+fovCircle.Radius=aimlockFOV
 
 local function getAimlockTarget()
-	local bestDist=aimlockFOV
-	local bestPart=nil
 	local vp=cam.ViewportSize
 	local center=Vector2.new(vp.X/2,vp.Y/2)
+	local bestDist=aimlockFOV; local bestPart=nil
 	for _,plr in ipairs(Players:GetPlayers()) do
 		if plr~=lp and plr.Character and isEnemy(plr) then
 			local hum=plr.Character:FindFirstChildOfClass("Humanoid")
 			if hum and hum.Health>0 then
 				local bone=plr.Character:FindFirstChild(aimlockBone)
+					or plr.Character:FindFirstChild("Head")
 					or plr.Character:FindFirstChild("HumanoidRootPart")
 				if bone then
 					local sp,onScreen=cam:WorldToViewportPoint(bone.Position)
 					if onScreen and sp.Z>0 then
 						local dist=(Vector2.new(sp.X,sp.Y)-center).Magnitude
-						if dist<bestDist then
-							bestDist=dist; bestPart=bone
-						end
+						if dist<bestDist then bestDist=dist; bestPart=bone end
 					end
 				end
 			end
@@ -987,23 +1037,23 @@ local function getAimlockTarget()
 	return bestPart
 end
 
+-- ════════════════════════════════════════════
+--   CHARACTER HOOKS (ESP + Hitbox on respawn/join)
+-- ════════════════════════════════════════════
 local function onCharAdded(plr)
 	plr.CharacterAdded:Connect(function()
-		task.wait(0.5)
+		task.wait(0.6)
 		if not isEnemy(plr) then return end
 		destroyESPFor(plr)
 		hitbox_orig[plr]=nil
 		if espEnabled then buildESPFor(plr) end
-		if hitboxEnabled then extendHitbox(plr) end
+		if hitboxEnabled then hb_extend(plr) end
 	end)
 end
 
-Players.PlayerRemoving:Connect(function(plr)
-	destroyESPFor(plr); restoredPart(plr)
-end)
-Players.PlayerAdded:Connect(function(plr) onCharAdded(plr) end)
+Players.PlayerAdded:Connect(function(plr) hb_hookPlayer(plr); onCharAdded(plr) end)
 for _,plr in ipairs(Players:GetPlayers()) do
-	if plr~=lp then onCharAdded(plr) end
+	if plr~=lp then hb_hookPlayer(plr); onCharAdded(plr) end
 end
 lp.CharacterAdded:Connect(function()
 	task.wait(1)
@@ -1012,6 +1062,9 @@ lp.CharacterAdded:Connect(function()
 	if noclipEnabled then startNoclip() end
 end)
 
+-- ════════════════════════════════════════════
+--   TABS
+-- ════════════════════════════════════════════
 local CombatTab=Window:CreateTab("🌾 Combat",4483362458)
 
 CombatTab:CreateSection("Team Check")
@@ -1019,7 +1072,7 @@ CombatTab:CreateDropdown({
 	Name="Team Check",Options={"FFA","Team-Based","Everyone"},CurrentOption="FFA",
 	Callback=function(v)
 		teamCheckMode=v
-		if hitboxEnabled then updateHitboxes() end
+		if hitboxEnabled then hb_updateAll() end
 		rebuildESP()
 		Rayfield:Notify({Title="👥 Team Check",Content="Mode: "..v,Duration=2,Image=4483362458})
 	end
@@ -1031,28 +1084,18 @@ CombatTab:CreateToggle({
 	Callback=function(v)
 		hitboxEnabled=v
 		if v then
-			coroutine.wrap(function()
-				while hitboxEnabled do
-					updateHitboxes()
-					for plr in pairs(hitbox_orig) do
-						if not plr.Parent or not plr.Character then
-							restoredPart(plr)
-						end
-					end
-					task.wait(0.05)
-				end
-			end)()
+			hb_startLoop()
 		else
-			for _,plr in ipairs(Players:GetPlayers()) do restoredPart(plr) end
+			for _,plr in ipairs(Players:GetPlayers()) do hb_restore(plr) end
 		end
 	end
 })
 CombatTab:CreateSlider({Name="Hitbox Size",Range={1,50},Increment=1,Suffix=" Size",CurrentValue=21,
-	Callback=function(v) hitboxSize=v; if hitboxEnabled then updateHitboxes() end end})
+	Callback=function(v) hitboxSize=v; if hitboxEnabled then hb_updateAll() end end})
 CombatTab:CreateSlider({Name="Hitbox Transparency",Range={0,10},Increment=1,Suffix="",CurrentValue=6,
-	Callback=function(v) hitboxTrans=v; if hitboxEnabled then updateHitboxes() end end})
+	Callback=function(v) hitboxTrans=v; if hitboxEnabled then hb_updateAll() end end})
 CombatTab:CreateToggle({Name="No Collision",CurrentValue=false,
-	Callback=function(v) noCollision=v; if hitboxEnabled then updateHitboxes() end end})
+	Callback=function(v) noCollision=v; if hitboxEnabled then hb_updateAll() end end})
 
 CombatTab:CreateSection("AimLock")
 CombatTab:CreateToggle({
@@ -1064,26 +1107,23 @@ CombatTab:CreateToggle({
 	end
 })
 CombatTab:CreateKeybind({
-	Name="AimLock Key",CurrentKeybind="Q",HoldToInteract=false,
+	Name="AimLock Toggle Key",CurrentKeybind="Q",HoldToInteract=false,
 	Callback=function()
 		aimlockEnabled=not aimlockEnabled
 		fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
 	end
 })
 CombatTab:CreateToggle({
-	Name="Hold Key (Hold to Lock)",CurrentValue=false,
+	Name="Hold to Lock (RMB)",CurrentValue=false,
 	Callback=function(v) aimlockHoldOnly=v end
 })
 CombatTab:CreateSlider({
-	Name="AimLock Smoothness",Range={1,100},Increment=1,Suffix="%",CurrentValue=18,
+	Name="Smoothness",Range={1,100},Increment=1,Suffix="%",CurrentValue=18,
 	Callback=function(v) aimlockSmooth=v/100 end
 })
 CombatTab:CreateSlider({
 	Name="FOV Radius",Range={10,500},Increment=5,Suffix=" px",CurrentValue=120,
-	Callback=function(v)
-		aimlockFOV=v
-		fovCircle.Radius=v
-	end
+	Callback=function(v) aimlockFOV=v; fovCircle.Radius=v end
 })
 CombatTab:CreateDropdown({
 	Name="Target Bone",
@@ -1093,10 +1133,7 @@ CombatTab:CreateDropdown({
 })
 CombatTab:CreateToggle({
 	Name="Draw FOV Circle",CurrentValue=true,
-	Callback=function(v)
-		aimlockDrawFOV=v
-		fovCircle.Visible=v and aimlockEnabled
-	end
+	Callback=function(v) aimlockDrawFOV=v; fovCircle.Visible=v and aimlockEnabled end
 })
 CombatTab:CreateColorPicker({
 	Name="FOV Color",Color=Color3.fromRGB(255,180,80),
@@ -1120,7 +1157,6 @@ VisualsTab:CreateToggle({
 		Rayfield:Notify({Title="🌼 ESP",Content=v and "ESP enabled." or "ESP disabled.",Duration=2,Image=4483362458})
 	end
 })
-
 VisualsTab:CreateSection("ESP Types")
 VisualsTab:CreateToggle({Name="Outline ESP",CurrentValue=false,Callback=function(v) espOutline=v; rebuildESP() end})
 VisualsTab:CreateToggle({Name="Box ESP",CurrentValue=false,Callback=function(v) espBox=v; rebuildESP() end})
@@ -1201,7 +1237,6 @@ VisualsTab:CreateToggle({Name="Full Bright",CurrentValue=false,
 	end})
 
 local PlayerTab=Window:CreateTab("🌱 Player",4483362458)
-
 PlayerTab:CreateSection("Movement")
 PlayerTab:CreateSlider({Name="WalkSpeed",Range={16,300},Increment=1,Suffix=" Speed",CurrentValue=16,
 	Callback=function(v) local c=lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.WalkSpeed=v end end})
@@ -1217,11 +1252,7 @@ PlayerTab:CreateToggle({Name="Fly",CurrentValue=false,
 	Callback=function(v)
 		flyEnabled=v
 		if v then startFly()
-		else
-			stopFly()
-			local hum=lp.Character and lp.Character:FindFirstChild("Humanoid")
-			if hum then hum.PlatformStand=false end
-		end
+		else stopFly(); local hum=lp.Character and lp.Character:FindFirstChild("Humanoid"); if hum then hum.PlatformStand=false end end
 	end})
 PlayerTab:CreateSlider({Name="Fly Speed",Range={10,300},Increment=5,Suffix=" Speed",CurrentValue=50,
 	Callback=function(v) flySpeed=v end})
@@ -1232,33 +1263,23 @@ PlayerTab:CreateToggle({Name="Ghost Mode",CurrentValue=false,
 PlayerTab:CreateToggle({Name="Freecam",CurrentValue=false,
 	Callback=function(v)
 		freecamEnabled=v
-		if v then
-			startFreecam()
-			Rayfield:Notify({Title="🎥 Freecam",Content="WASD+Q/E move, mouse look.",Duration=3,Image=4483362458})
+		if v then startFreecam(); Rayfield:Notify({Title="🎥 Freecam",Content="WASD+Q/E move, mouse look.",Duration=3,Image=4483362458})
 		else stopFreecam() end
 	end})
-
 PlayerTab:CreateSection("Gravity")
 PlayerTab:CreateToggle({Name="Custom Gravity",CurrentValue=false,
 	Callback=function(v) gravityEnabled=v; Workspace.Gravity=v and (196.2*gravityScale) or 196.2 end})
 PlayerTab:CreateSlider({Name="Gravity Scale",Range={1,200},Increment=1,Suffix="%",CurrentValue=100,
 	Callback=function(v) gravityScale=v/100; if gravityEnabled then Workspace.Gravity=196.2*gravityScale end end})
-
 PlayerTab:CreateSection("Utility")
 PlayerTab:CreateToggle({Name="Anti-AFK",CurrentValue=false,
 	Callback=function(v)
 		if not v then return end
 		task.spawn(function()
 			while v do
-				pcall(function()
-					local vrs=game:GetService("VirtualInputManager")
-					vrs:SendKeyEvent(true,"LeftShift",false,game)
-				end)
+				pcall(function() local vrs=game:GetService("VirtualInputManager"); vrs:SendKeyEvent(true,"LeftShift",false,game) end)
 				task.wait(60)
-				pcall(function()
-					local vrs=game:GetService("VirtualInputManager")
-					vrs:SendKeyEvent(false,"LeftShift",false,game)
-				end)
+				pcall(function() local vrs=game:GetService("VirtualInputManager"); vrs:SendKeyEvent(false,"LeftShift",false,game) end)
 			end
 		end)
 	end})
@@ -1269,6 +1290,9 @@ FunTab:CreateToggle({Name="Fling Players",CurrentValue=false,Callback=function(v
 FunTab:CreateSlider({Name="Fling Range",Range={5,60},Increment=1,Suffix=" Studs",CurrentValue=15,
 	Callback=function(v) flingRange=v end})
 
+-- ════════════════════════════════════════════
+--   MAIN LOOP
+-- ════════════════════════════════════════════
 local espTimer=0
 RunService.RenderStepped:Connect(function(dt)
 	local char=lp.Character
@@ -1276,25 +1300,22 @@ RunService.RenderStepped:Connect(function(dt)
 	local vp=cam.ViewportSize
 	local center=Vector2.new(vp.X/2,vp.Y/2)
 
-	if aimlockDrawFOV and aimlockEnabled then
+	if aimlockEnabled and aimlockDrawFOV then
 		fovCircle.Position=center
-		fovCircle.Radius=aimlockFOV
 		fovCircle.Visible=true
 	else
 		fovCircle.Visible=false
 	end
 
-	local shouldLock = aimlockEnabled and (
-		not aimlockHoldOnly or UserInputService:IsKeyDown(aimlockKey)
+	local shouldLock=aimlockEnabled and (
+		not aimlockHoldOnly or UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
 	)
 	if shouldLock then
 		local target=getAimlockTarget()
 		if target then
-			local targetPos=target.Position
-			local currentCF=cam.CFrame
-			local direction=(targetPos-currentCF.Position).Unit
-			local targetCF=CFrame.new(currentCF.Position,currentCF.Position+direction)
-			cam.CFrame=currentCF:Lerp(targetCF,math.clamp(aimlockSmooth,0.01,1))
+			local dir=(target.Position-cam.CFrame.Position).Unit
+			local targetCF=CFrame.new(cam.CFrame.Position,cam.CFrame.Position+dir)
+			cam.CFrame=cam.CFrame:Lerp(targetCF,math.clamp(aimlockSmooth,0.01,1))
 		end
 	end
 
