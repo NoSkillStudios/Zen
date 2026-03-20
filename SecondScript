@@ -1,3 +1,4 @@
+
 local k = "NihonLoader_Key_Real"
 if getgenv()._nl ~= k then
 	warn("NihonHub: SecondScript loaded outside official loader.")
@@ -22,3 +23,4 @@ local m = {}
 m._ok = true
 function m.init() end
 return m
+;
