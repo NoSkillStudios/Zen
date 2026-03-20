@@ -1,6 +1,3 @@
-Didnt work..can you obfuscate it without it breaking the numbers?
-
-
 
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
