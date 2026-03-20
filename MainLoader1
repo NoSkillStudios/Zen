@@ -11,30 +11,20 @@ local Scripts = {
 local Url = Scripts[PlaceId]
 
 if Url then
-	local Success, Error = pcall(function()
+	local Success = pcall(function()
 		loadstring(game:HttpGet(Url))()
 	end)
 	
 	if not Success then
-		local Fallback, FallbackError = pcall(function()
+		pcall(function()
 			loadstring(readfile("httpget") or "")()
 		end)
-		
-		if not Fallback then
-			pcall(function()
-				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title = "Loader";
-					Text = "Unsupported Game (PlaceId: " .. PlaceId .. ")";
-					Duration = 10;
-				})
-			end)
-		end
 	end
 else
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Loader";
-			Text = "Unsupported Game (PlaceId: " .. PlaceId .. ")";
+			Text = "Game not supported (PlaceId: " .. tostring(PlaceId) .. ")";
 			Duration = 10;
 		})
 	end)
