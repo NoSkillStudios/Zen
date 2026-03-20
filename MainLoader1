@@ -2,9 +2,9 @@ local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 
 local GAMES = {
-	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen.lua",
-	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen.lua",
-	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap.lua",
+	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
 local pid = tostring(game.PlaceId)
@@ -15,25 +15,48 @@ end
 
 local function load_script(url)
 	local ok, data = pcall(game.HttpGet, game, url)
-	if not ok or not data or data == "" then return nil end
+	if not ok or not data or #data == 0 then
+		return nil
+	end
 	
-	local ok2, result = pcall(loadstring, data)
-	if not ok2 or not result then return nil end
+	local ok2, fn = pcall(loadstring, data)
+	if not ok2 or not fn then
+		return nil
+	end
 	
-	local ok3, module = pcall(result)
-	if not ok3 or not module or not module._ok then return nil end
+	local ok3, module = pcall(fn)
+	if not ok3 or not module then
+		return nil
+	end
+	
+	if module._ok ~= true then
+		return nil
+	end
 	
 	return module
 end
 
-local v = tostring(math.random(1000000, 9999999))
-local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript.lua?v=" .. v)
-local main = load_script(GAMES[pid] .. "?v=" .. v)
+local v = tostring(math.random(10000000, 99999999))
+local secUrl = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v
+local gameUrl = GAMES[pid] .. "?v=" .. v
 
-if not sec or not main then
-	error("Loader error: script validation failed.")
+local sec = load_script(secUrl)
+local main = load_script(gameUrl)
+
+if not sec then
+	error("Loader error: SecondScript failed to load.")
 	return
 end
 
-if sec.init then pcall(sec.init) end
-if main.init then pcall(main.init) end
+if not main then
+	error("Loader error: Game script failed to load.")
+	return
+end
+
+if sec.init and type(sec.init) == "function" then
+	pcall(sec.init)
+end
+
+if main.init and type(main.init) == "function" then
+	pcall(main.init)
+end
