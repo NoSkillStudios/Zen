@@ -1,45 +1,27 @@
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 
-local GAMES = {
-	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+local PlaceId = game.PlaceId
+local Scripts = {
+	[7398552394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	[125224440903394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	[90568084448279] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
-local pid = tostring(game.PlaceId)
-if not GAMES[pid] then
-	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
-	return
-end
+local Url = Scripts[PlaceId]
 
-local function load_script(url)
-	local ok, data = pcall(game.HttpGet, game, url)
-	if not ok or not data or #data == 0 then return nil end
+if Url then
+	local Success, Error = pcall(function()
+		loadstring(game:HttpGet(Url))()
+	end)
 	
-	local ok2, fn = pcall(loadstring, data)
-	if not ok2 or not fn then return nil end
-	
-	local ok3, result = pcall(fn)
-	if not ok3 then return nil end
-	
-	return result
+	if not Success then
+		pcall(function()
+			loadstring(game:HttpGet("https://pastefy.app/FALLBACK123/raw"))()
+		end)
+	end
+else
+	pcall(function()
+		loadstring(game:HttpGet("https://pastefy.app/FALLBACK123/raw"))()
+	end)
 end
-
-local v = tostring(math.random(10000000, 99999999))
-local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v)
-local main = load_script(GAMES[pid] .. "?v=" .. v)
-
-if not sec or (type(sec) == "table" and sec._ok ~= true) then
-	error("Loader error: SecondScript failed.")
-	return
-end
-
-if not main then
-	error("Loader error: Game script failed to load.")
-	return
-end
-
-if type(sec) == "table" and sec.init then pcall(sec.init) end
-if type(main) == "function" then pcall(main) end
-if type(main) == "table" and main.init then pcall(main.init) end
