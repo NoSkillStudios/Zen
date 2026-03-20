@@ -634,18 +634,12 @@ local Window=Rayfield:CreateWindow({
 	KeySystem = false,
 })
 
--- ════════════════════════════════════════════
---   TEAM CHECK
--- ════════════════════════════════════════════
 local teamCheckMode = "FFA"
 local function isEnemy(player)
 	if teamCheckMode=="FFA" or teamCheckMode=="Everyone" then return true end
 	return player.Team ~= lp.Team
 end
 
--- ════════════════════════════════════════════
---   HITBOX CORE
--- ════════════════════════════════════════════
 local hitboxEnabled = false
 local noCollision   = false
 local hitboxSize    = 21
@@ -662,11 +656,7 @@ end
 local function hb_save(plr, part)
 	if not hitbox_orig[plr] then hitbox_orig[plr]={} end
 	if hitbox_orig[plr][part.Name] then return end
-	hitbox_orig[plr][part.Name]={
-		CanCollide=part.CanCollide,
-		Transparency=part.Transparency,
-		Size=part.Size,
-	}
+	hitbox_orig[plr][part.Name]={CanCollide=part.CanCollide,Transparency=part.Transparency,Size=part.Size}
 end
 local function hb_restore(plr)
 	local orig=hitbox_orig[plr]; if not orig then return end
@@ -674,9 +664,7 @@ local function hb_restore(plr)
 		for name,props in pairs(orig) do
 			local p=plr.Character:FindFirstChild(name)
 			if p and p:IsA("BasePart") then
-				p.CanCollide=props.CanCollide
-				p.Transparency=props.Transparency
-				p.Size=props.Size
+				p.CanCollide=props.CanCollide; p.Transparency=props.Transparency; p.Size=props.Size
 			end
 		end
 	end
@@ -720,22 +708,11 @@ local function hb_startLoop()
 	end)
 end
 
--- ════════════════════════════════════════════
---   ESP SYSTEM
--- ════════════════════════════════════════════
-local espEnabled      = false
-local espOutline      = false
-local espBox          = false
-local espBones        = false
-local espTracers      = false
-local espNames        = true
-local espHP           = true
-local espDist         = false
-local espTeamColor    = false
-local espColor        = Color3.fromRGB(255,180,80)
-local espTransparency = 0
-local espAlwaysOnTop  = true
-local espBoards       = {}
+local espEnabled=false; local espOutline=false; local espBox=false
+local espBones=false; local espTracers=false; local espNames=true
+local espHP=true; local espDist=false; local espTeamColor=false
+local espColor=Color3.fromRGB(255,180,80); local espTransparency=0
+local espAlwaysOnTop=true; local espBoards={}
 
 local function destroyESPFor(plr)
 	local data=espBoards[plr]; if not data then return end
@@ -758,11 +735,9 @@ local function buildESPFor(plr)
 	local char=plr.Character; if not char then return end
 	local head=char:FindFirstChild("Head") or char:FindFirstChild("HumanoidRootPart")
 	if not head then return end
-	local data={char=char}
-	local col=getPlayerColor(plr)
+	local data={char=char}; local col=getPlayerColor(plr)
 	if espOutline or espBox then
-		local hl=Instance.new("Highlight")
-		hl.Name="NihonESP"
+		local hl=Instance.new("Highlight"); hl.Name="NihonESP"
 		hl.FillTransparency=espBox and (0.75+espTransparency*0.25) or 1
 		if espBox then hl.FillColor=col end
 		hl.OutlineColor=col; hl.OutlineTransparency=espTransparency
@@ -771,55 +746,32 @@ local function buildESPFor(plr)
 	end
 	if espBones then
 		data.bones={}
-		local joints={
-			{"Head","UpperTorso"},{"UpperTorso","LowerTorso"},
-			{"LowerTorso","LeftUpperLeg"},{"LowerTorso","RightUpperLeg"},
-			{"LeftUpperLeg","LeftLowerLeg"},{"RightUpperLeg","RightLowerLeg"},
-			{"LeftLowerLeg","LeftFoot"},{"RightLowerLeg","RightFoot"},
-			{"UpperTorso","LeftUpperArm"},{"UpperTorso","RightUpperArm"},
-			{"LeftUpperArm","LeftLowerArm"},{"RightUpperArm","RightLowerArm"},
-			{"LeftLowerArm","LeftHand"},{"RightLowerArm","RightHand"},
-		}
+		local joints={{"Head","UpperTorso"},{"UpperTorso","LowerTorso"},{"LowerTorso","LeftUpperLeg"},{"LowerTorso","RightUpperLeg"},{"LeftUpperLeg","LeftLowerLeg"},{"RightUpperLeg","RightLowerLeg"},{"LeftLowerLeg","LeftFoot"},{"RightLowerLeg","RightFoot"},{"UpperTorso","LeftUpperArm"},{"UpperTorso","RightUpperArm"},{"LeftUpperArm","LeftLowerArm"},{"RightUpperArm","RightLowerArm"},{"LeftLowerArm","LeftHand"},{"RightLowerArm","RightHand"}}
 		for _,pair in ipairs(joints) do
-			local line=Drawing.new("Line")
-			line.Color=col; line.Thickness=1.5; line.Transparency=espTransparency; line.Visible=false
+			local line=Drawing.new("Line"); line.Color=col; line.Thickness=1.5; line.Transparency=espTransparency; line.Visible=false
 			table.insert(data.bones,{line=line,a=pair[1],b=pair[2]})
 		end
 	end
 	if espTracers then
-		local line=Drawing.new("Line")
-		line.Color=col; line.Thickness=1.2; line.Transparency=espTransparency; line.Visible=false
+		local line=Drawing.new("Line"); line.Color=col; line.Thickness=1.2; line.Transparency=espTransparency; line.Visible=false
 		data.tracer=line
 	end
 	if espNames or espHP or espDist then
-		local bb=Instance.new("BillboardGui")
-		bb.Name="NihonESPTag"; bb.Adornee=head; bb.AlwaysOnTop=espAlwaysOnTop
-		bb.Size=UDim2.fromOffset(120,44); bb.StudsOffset=Vector3.new(0,2.8,0)
-		bb.ResetOnSpawn=false; bb.Parent=head
-		local card=Instance.new("Frame",bb)
-		card.Size=UDim2.fromScale(1,1); card.BackgroundColor3=BLOOM.bgDeep
-		card.BackgroundTransparency=0.28; card.BorderSizePixel=0
-		Instance.new("UICorner",card).CornerRadius=UDim.new(0,6)
+		local bb=Instance.new("BillboardGui"); bb.Name="NihonESPTag"; bb.Adornee=head; bb.AlwaysOnTop=espAlwaysOnTop
+		bb.Size=UDim2.fromOffset(120,44); bb.StudsOffset=Vector3.new(0,2.8,0); bb.ResetOnSpawn=false; bb.Parent=head
+		local card=Instance.new("Frame",bb); card.Size=UDim2.fromScale(1,1); card.BackgroundColor3=BLOOM.bgDeep
+		card.BackgroundTransparency=0.28; card.BorderSizePixel=0; Instance.new("UICorner",card).CornerRadius=UDim.new(0,6)
 		local sk=Instance.new("UIStroke",card); sk.Color=col; sk.Thickness=1.2; sk.Transparency=0.05
-		local nl=Instance.new("TextLabel",card)
-		nl.Name="NameLbl"; nl.Size=UDim2.new(1,-8,0,18); nl.Position=UDim2.fromOffset(4,2)
+		local nl=Instance.new("TextLabel",card); nl.Name="NameLbl"; nl.Size=UDim2.new(1,-8,0,18); nl.Position=UDim2.fromOffset(4,2)
 		nl.BackgroundTransparency=1; nl.TextColor3=col; nl.Font=Enum.Font.GothamBold; nl.TextSize=11
-		nl.TextXAlignment=Enum.TextXAlignment.Center; nl.TextTruncate=Enum.TextTruncate.AtEnd
-		nl.Text="🌼 "..plr.Name; nl.Visible=espNames
-		local barBg=Instance.new("Frame",card)
-		barBg.Name="BarBg"; barBg.Size=UDim2.new(1,-10,0,5); barBg.Position=UDim2.new(0,5,0,23)
-		barBg.BackgroundColor3=BLOOM.bar; barBg.BorderSizePixel=0
-		Instance.new("UICorner",barBg).CornerRadius=UDim.new(1,0)
-		local bf=Instance.new("Frame",barBg)
-		bf.Name="Fill"; bf.Size=UDim2.fromScale(1,1); bf.BackgroundColor3=col; bf.BorderSizePixel=0
-		Instance.new("UICorner",bf).CornerRadius=UDim.new(1,0)
-		barBg.Visible=espHP
-		local hpLbl=Instance.new("TextLabel",card)
-		hpLbl.Name="HP"; hpLbl.Size=UDim2.new(1,-8,0,11); hpLbl.Position=UDim2.new(0,4,0,30)
-		hpLbl.BackgroundTransparency=1; hpLbl.TextColor3=BLOOM.txtMain
-		hpLbl.Font=Enum.Font.Gotham; hpLbl.TextSize=9
-		hpLbl.TextXAlignment=Enum.TextXAlignment.Center; hpLbl.Text="HP: ?"; hpLbl.Visible=espHP
-		data.bb=bb
+		nl.TextXAlignment=Enum.TextXAlignment.Center; nl.TextTruncate=Enum.TextTruncate.AtEnd; nl.Text="🌼 "..plr.Name; nl.Visible=espNames
+		local barBg=Instance.new("Frame",card); barBg.Name="BarBg"; barBg.Size=UDim2.new(1,-10,0,5); barBg.Position=UDim2.new(0,5,0,23)
+		barBg.BackgroundColor3=BLOOM.bar; barBg.BorderSizePixel=0; Instance.new("UICorner",barBg).CornerRadius=UDim.new(1,0)
+		local bf=Instance.new("Frame",barBg); bf.Name="Fill"; bf.Size=UDim2.fromScale(1,1); bf.BackgroundColor3=col; bf.BorderSizePixel=0
+		Instance.new("UICorner",bf).CornerRadius=UDim.new(1,0); barBg.Visible=espHP
+		local hpLbl=Instance.new("TextLabel",card); hpLbl.Name="HP"; hpLbl.Size=UDim2.new(1,-8,0,11); hpLbl.Position=UDim2.new(0,4,0,30)
+		hpLbl.BackgroundTransparency=1; hpLbl.TextColor3=BLOOM.txtMain; hpLbl.Font=Enum.Font.Gotham; hpLbl.TextSize=9
+		hpLbl.TextXAlignment=Enum.TextXAlignment.Center; hpLbl.Text="HP: ?"; hpLbl.Visible=espHP; data.bb=bb
 	end
 	espBoards[plr]=data
 end
@@ -828,26 +780,18 @@ local function updateESPFor(plr)
 	local char=data.char
 	if not char or not char.Parent then destroyESPFor(plr); return end
 	if not isEnemy(plr) then destroyESPFor(plr); return end
-	local col=getPlayerColor(plr)
-	local hum=char:FindFirstChildOfClass("Humanoid")
-	local hrpT=char:FindFirstChild("HumanoidRootPart")
-	local hrpL=lp.Character and lp.Character:FindFirstChild("HumanoidRootPart")
-	if data.hl then
-		data.hl.OutlineColor=col
-		if espBox then pcall(function() data.hl.FillColor=col end) end
-	end
+	local col=getPlayerColor(plr); local hum=char:FindFirstChildOfClass("Humanoid")
+	local hrpT=char:FindFirstChild("HumanoidRootPart"); local hrpL=lp.Character and lp.Character:FindFirstChild("HumanoidRootPart")
+	if data.hl then data.hl.OutlineColor=col; if espBox then pcall(function() data.hl.FillColor=col end) end end
 	if data.bb and data.bb.Parent then
 		local card=data.bb:FindFirstChildWhichIsA("Frame")
 		if card then
-			local nl=card:FindFirstChild("NameLbl")
-			local barBg=card:FindFirstChild("BarBg"); local fill=barBg and barBg:FindFirstChild("Fill")
+			local nl=card:FindFirstChild("NameLbl"); local barBg=card:FindFirstChild("BarBg"); local fill=barBg and barBg:FindFirstChild("Fill")
 			local hpLbl=card:FindFirstChild("HP"); local sk=card:FindFirstChildWhichIsA("UIStroke")
 			if sk then sk.Color=col end
 			if nl then
 				nl.Visible=espNames; nl.TextColor3=col
-				nl.Text=(espDist and hrpL and hrpT)
-					and ("🌼 "..plr.Name.."  ["..math.floor((hrpL.Position-hrpT.Position).Magnitude).."m]")
-					or  ("🌼 "..plr.Name)
+				nl.Text=(espDist and hrpL and hrpT) and ("🌼 "..plr.Name.."  ["..math.floor((hrpL.Position-hrpT.Position).Magnitude).."m]") or ("🌼 "..plr.Name)
 			end
 			if fill and hpLbl and hum then
 				barBg.Visible=espHP; hpLbl.Visible=espHP
@@ -862,11 +806,9 @@ local function updateESPFor(plr)
 		for _,d in ipairs(data.bones) do
 			local pA=char:FindFirstChild(d.a); local pB=char:FindFirstChild(d.b)
 			if espBones and pA and pB then
-				local sA,onA=cam:WorldToViewportPoint(pA.Position)
-				local sB,onB=cam:WorldToViewportPoint(pB.Position)
+				local sA,onA=cam:WorldToViewportPoint(pA.Position); local sB,onB=cam:WorldToViewportPoint(pB.Position)
 				if onA and onB and sA.Z>0 and sB.Z>0 then
-					d.line.From=Vector2.new(sA.X,sA.Y); d.line.To=Vector2.new(sB.X,sB.Y)
-					d.line.Color=col; d.line.Visible=true
+					d.line.From=Vector2.new(sA.X,sA.Y); d.line.To=Vector2.new(sB.X,sB.Y); d.line.Color=col; d.line.Visible=true
 				else d.line.Visible=false end
 			else d.line.Visible=false end
 		end
@@ -875,10 +817,7 @@ local function updateESPFor(plr)
 		if espTracers and hrpT then
 			local sT,onT=cam:WorldToViewportPoint(hrpT.Position)
 			if onT and sT.Z>0 then
-				local vp=cam.ViewportSize
-				data.tracer.From=Vector2.new(vp.X/2,vp.Y)
-				data.tracer.To=Vector2.new(sT.X,sT.Y)
-				data.tracer.Color=col; data.tracer.Visible=true
+				local vp=cam.ViewportSize; data.tracer.From=Vector2.new(vp.X/2,vp.Y); data.tracer.To=Vector2.new(sT.X,sT.Y); data.tracer.Color=col; data.tracer.Visible=true
 			else data.tracer.Visible=false end
 		else data.tracer.Visible=false end
 	end
@@ -895,35 +834,25 @@ end
 local function rebuildESP()
 	if not espEnabled then return end
 	for plr in pairs(espBoards) do destroyESPFor(plr) end
-	for _,plr in ipairs(Players:GetPlayers()) do
-		if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end
-	end
+	for _,plr in ipairs(Players:GetPlayers()) do if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end end
 end
 
--- ════════════════════════════════════════════
---   PLAYER MECHANICS
--- ════════════════════════════════════════════
-local flyEnabled=false;     local flySpeed=50
-local noclipEnabled=false;  local ghostEnabled=false
+local flyEnabled=false; local flySpeed=50
+local noclipEnabled=false; local ghostEnabled=false
 local freecamEnabled=false; local gravityEnabled=false; local gravityScale=1
-local infJump=false
-local flingEnabled=false;   local flingRange=15
-local flyConn,noclipConn,freecamConn=nil,nil,nil
-local freecamCF=CFrame.new()
+local infJump=false; local flingEnabled=false; local flingRange=15
+local flyConn,noclipConn,freecamConn=nil,nil,nil; local freecamCF=CFrame.new()
 
 local function stopFly()
 	if flyConn then flyConn:Disconnect(); flyConn=nil end
 	local c=lp.Character; if not c then return end
 	local hrp=c:FindFirstChild("HumanoidRootPart"); local hum=c:FindFirstChild("Humanoid")
-	if hrp then hrp.Velocity=Vector3.zero end
-	if hum then hum.PlatformStand=false end
+	if hrp then hrp.Velocity=Vector3.zero end; if hum then hum.PlatformStand=false end
 end
 local function startFly()
-	stopFly()
-	local c=lp.Character; if not c then return end
+	stopFly(); local c=lp.Character; if not c then return end
 	local hrp=c:FindFirstChild("HumanoidRootPart"); local hum=c:FindFirstChild("Humanoid")
-	if not hrp or not hum then return end
-	hum.PlatformStand=true
+	if not hrp or not hum then return end; hum.PlatformStand=true
 	flyConn=RunService.RenderStepped:Connect(function()
 		if not flyEnabled then stopFly(); return end
 		local dir=Vector3.zero
@@ -973,9 +902,7 @@ local function startFreecam()
 		if UserInputService:IsKeyDown(Enum.KeyCode.D) then d+=freecamCF.RightVector end
 		if UserInputService:IsKeyDown(Enum.KeyCode.E) then d+=Vector3.new(0,1,0)    end
 		if UserInputService:IsKeyDown(Enum.KeyCode.Q) then d-=Vector3.new(0,1,0)    end
-		if d.Magnitude>0 then
-			freecamCF=CFrame.new(freecamCF.Position+d.Unit*40*dt)*(freecamCF-freecamCF.Position)
-		end
+		if d.Magnitude>0 then freecamCF=CFrame.new(freecamCF.Position+d.Unit*40*dt)*(freecamCF-freecamCF.Position) end
 		local delta=UserInputService:GetMouseDelta()
 		freecamCF=freecamCF*CFrame.Angles(0,-delta.X*0.003,0)*CFrame.Angles(-delta.Y*0.003,0,0)
 		cam.CFrame=freecamCF
@@ -991,6 +918,7 @@ local aimlockFOV      = 120
 local aimlockBone     = "Head"
 local aimlockHoldOnly = false
 local aimlockDrawFOV  = true
+local currentTarget   = nil
 
 local fovCircle=Drawing.new("Circle")
 fovCircle.Visible=false; fovCircle.Filled=false
@@ -998,16 +926,13 @@ fovCircle.Color=Color3.fromRGB(255,180,80); fovCircle.Thickness=1.4
 fovCircle.NumSides=64; fovCircle.Transparency=0.35; fovCircle.Radius=120
 
 local function getAimlockTarget()
-	local vp=cam.ViewportSize
-	local center=Vector2.new(vp.X/2,vp.Y/2)
+	local vp=cam.ViewportSize; local center=Vector2.new(vp.X/2,vp.Y/2)
 	local best,bestDist=nil,aimlockFOV
 	for _,plr in ipairs(Players:GetPlayers()) do
 		if plr~=lp and plr.Character and isEnemy(plr) then
 			local hum=plr.Character:FindFirstChildOfClass("Humanoid")
 			if hum and hum.Health>0 then
-				local bone=plr.Character:FindFirstChild(aimlockBone)
-					or plr.Character:FindFirstChild("Head")
-					or plr.Character:FindFirstChild("HumanoidRootPart")
+				local bone=plr.Character:FindFirstChild(aimlockBone) or plr.Character:FindFirstChild("Head") or plr.Character:FindFirstChild("HumanoidRootPart")
 				if bone then
 					local sp,onScreen=cam:WorldToViewportPoint(bone.Position)
 					if onScreen and sp.Z>0 then
@@ -1021,20 +946,107 @@ local function getAimlockTarget()
 	return best
 end
 
+local function isTargetValid(bone)
+	if not bone or not bone.Parent then return false end
+	local plr=Players:GetPlayerFromCharacter(bone.Parent)
+	if not plr or plr==lp then return false end
+	local hum=bone.Parent:FindFirstChildOfClass("Humanoid")
+	if not hum or hum.Health<=0 then return false end
+	local sp,onScreen=cam:WorldToViewportPoint(bone.Position)
+	if not onScreen or sp.Z<=0 then return false end
+	local vp=cam.ViewportSize
+	return (Vector2.new(sp.X,sp.Y)-Vector2.new(vp.X/2,vp.Y/2)).Magnitude < aimlockFOV*1.5
+end
+
 -- ════════════════════════════════════════════
---   PLAYER HOOKS (respawn + new joiners)
+--   MOBILE AIMLOCK BUTTON
+-- ════════════════════════════════════════════
+local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+local mobileAimGui = nil
+local mobileAimHeld = false
+
+local function buildMobileAimButton()
+	if mobileAimGui then return end
+	mobileAimGui = Instance.new("ScreenGui")
+	mobileAimGui.Name = "NihonMobileAim"
+	mobileAimGui.ResetOnSpawn = false
+	mobileAimGui.DisplayOrder = 998
+	mobileAimGui.IgnoreGuiInset = true
+	mobileAimGui.Parent = playerGui
+
+	local btn = Instance.new("TextButton", mobileAimGui)
+	btn.Size = UDim2.fromOffset(80, 80)
+	btn.Position = UDim2.new(1, -100, 1, -180)
+	btn.AnchorPoint = Vector2.new(0, 0)
+	btn.BackgroundColor3 = Color3.fromRGB(28, 16, 10)
+	btn.BackgroundTransparency = 0.15
+	btn.BorderSizePixel = 0
+	btn.Text = "🎯"
+	btn.TextSize = 28
+	btn.Font = Enum.Font.Gotham
+	btn.TextColor3 = Color3.fromRGB(255, 180, 80)
+	btn.AutoButtonColor = false
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(1, 0)
+	local stroke = Instance.new("UIStroke", btn)
+	stroke.Color = Color3.fromRGB(255, 140, 80); stroke.Thickness = 2; stroke.Transparency = 0.2
+
+	local function setActive(v)
+		mobileAimHeld = v
+		TweenService:Create(btn, TweenInfo.new(0.1), {
+			BackgroundColor3 = v and Color3.fromRGB(200, 100, 30) or Color3.fromRGB(28, 16, 10),
+			BackgroundTransparency = v and 0 or 0.15,
+		}):Play()
+		TweenService:Create(stroke, TweenInfo.new(0.1), {
+			Transparency = v and 0 or 0.2,
+		}):Play()
+	end
+
+	btn.MouseButton1Down:Connect(function() setActive(true) end)
+	btn.MouseButton1Up:Connect(function() setActive(false) end)
+	btn.TouchLongPress:Connect(function() setActive(true) end)
+
+	UserInputService.TouchEnded:Connect(function()
+		if mobileAimHeld then setActive(false) end
+	end)
+
+	local dragging, dragStart, startPos = false, nil, nil
+	btn.InputBegan:Connect(function(inp)
+		if inp.UserInputType == Enum.UserInputType.Touch or inp.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true; dragStart = inp.Position; startPos = btn.Position
+		end
+	end)
+	btn.InputChanged:Connect(function(inp)
+		if dragging and (inp.UserInputType == Enum.UserInputType.Touch or inp.UserInputType == Enum.UserInputType.MouseMove) then
+			local delta = inp.Position - dragStart
+			btn.Position = UDim2.new(
+				startPos.X.Scale, startPos.X.Offset + delta.X,
+				startPos.Y.Scale, startPos.Y.Offset + delta.Y
+			)
+		end
+	end)
+	btn.InputEnded:Connect(function(inp)
+		if inp.UserInputType == Enum.UserInputType.Touch or inp.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = false
+		end
+	end)
+end
+
+local function destroyMobileAimButton()
+	mobileAimHeld = false
+	if mobileAimGui then mobileAimGui:Destroy(); mobileAimGui = nil end
+end
+
+-- ════════════════════════════════════════════
+--   PLAYER HOOKS
 -- ════════════════════════════════════════════
 local function applyToChar(plr)
 	if not plr or plr==lp or not isEnemy(plr) then return end
 	if espEnabled then destroyESPFor(plr); buildESPFor(plr) end
 	if hitboxEnabled then hitbox_orig[plr]=nil; hb_extend(plr) end
 end
-
 local function hookPlayer(plr)
 	plr.CharacterAdded:Connect(function(char)
-		char:WaitForChild("HumanoidRootPart",6)
-		task.wait(0.6)
-		applyToChar(plr)
+		char:WaitForChild("HumanoidRootPart",6); task.wait(0.6); applyToChar(plr)
 	end)
 	if plr.Character then task.defer(applyToChar,plr) end
 end
@@ -1058,21 +1070,14 @@ CombatTab:CreateSection("Team Check")
 CombatTab:CreateDropdown({
 	Name="Team Check",Options={"FFA","Team-Based","Everyone"},CurrentOption="FFA",
 	Callback=function(v)
-		teamCheckMode=v
-		if hitboxEnabled then hb_updateAll() end
-		rebuildESP()
+		teamCheckMode=v; if hitboxEnabled then hb_updateAll() end; rebuildESP()
 		Rayfield:Notify({Title="👥 Team Check",Content="Mode: "..v,Duration=2,Image=4483362458})
 	end
 })
 
 CombatTab:CreateSection("Hitbox Expander")
-CombatTab:CreateToggle({
-	Name="Hitbox Expander",CurrentValue=false,
-	Callback=function(v)
-		hitboxEnabled=v
-		if v then hb_startLoop() else hb_restoreAll() end
-	end
-})
+CombatTab:CreateToggle({Name="Hitbox Expander",CurrentValue=false,
+	Callback=function(v) hitboxEnabled=v; if v then hb_startLoop() else hb_restoreAll() end end})
 CombatTab:CreateSlider({Name="Hitbox Size",Range={1,50},Increment=1,Suffix=" Size",CurrentValue=21,
 	Callback=function(v) hitboxSize=v; if hitboxEnabled then hb_updateAll() end end})
 CombatTab:CreateSlider({Name="Hitbox Transparency",Range={0,10},Increment=1,Suffix="",CurrentValue=6,
@@ -1084,22 +1089,38 @@ CombatTab:CreateSection("AimLock")
 CombatTab:CreateToggle({
 	Name="AimLock",CurrentValue=false,
 	Callback=function(v)
-		aimlockEnabled=v
-		fovCircle.Visible=v and aimlockDrawFOV
+		aimlockEnabled=v; fovCircle.Visible=v and aimlockDrawFOV
+		if not v then currentTarget=nil end
 		Rayfield:Notify({Title="🎯 AimLock",Content=v and "AimLock enabled." or "AimLock disabled.",Duration=2,Image=4483362458})
 	end
 })
 CombatTab:CreateKeybind({
 	Name="AimLock Toggle Key",CurrentKeybind="Q",HoldToInteract=false,
 	Callback=function()
-		aimlockEnabled=not aimlockEnabled
-		fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
+		aimlockEnabled=not aimlockEnabled; fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
+		if not aimlockEnabled then currentTarget=nil end
 	end
 })
 CombatTab:CreateToggle({
 	Name="Hold RMB to Lock",CurrentValue=false,
 	Callback=function(v) aimlockHoldOnly=v end
 })
+
+-- Mobile button toggle — only shows on mobile, works on all platforms via the button
+CombatTab:CreateButton({
+	Name="📱 Mobile AimLock Button",
+	Description="Spawns a draggable on-screen hold button for aiming (auto-detects mobile)",
+	Callback=function()
+		if mobileAimGui then
+			destroyMobileAimButton()
+			Rayfield:Notify({Title="📱 Mobile Aim",Content="Button removed.",Duration=2,Image=4483362458})
+		else
+			buildMobileAimButton()
+			Rayfield:Notify({Title="📱 Mobile Aim",Content="Hold the 🎯 button to lock aim. Drag to reposition.",Duration=3,Image=4483362458})
+		end
+	end
+})
+
 CombatTab:CreateSlider({
 	Name="Smoothness",Range={1,100},Increment=1,Suffix="%",CurrentValue=18,
 	Callback=function(v) aimlockSmooth=v/100 end
@@ -1109,9 +1130,7 @@ CombatTab:CreateSlider({
 	Callback=function(v) aimlockFOV=v; fovCircle.Radius=v end
 })
 CombatTab:CreateDropdown({
-	Name="Target Bone",
-	Options={"Head","UpperTorso","HumanoidRootPart","LowerTorso"},
-	CurrentOption="Head",
+	Name="Target Bone",Options={"Head","UpperTorso","HumanoidRootPart","LowerTorso"},CurrentOption="Head",
 	Callback=function(v) aimlockBone=v end
 })
 CombatTab:CreateToggle({
@@ -1134,10 +1153,7 @@ VisualsTab:CreateToggle({
 	Name="Enable ESP",CurrentValue=false,
 	Callback=function(v)
 		espEnabled=v
-		if v then
-			for _,plr in ipairs(Players:GetPlayers()) do
-				if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end
-			end
+		if v then for _,plr in ipairs(Players:GetPlayers()) do if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end end
 		else destroyAllESP() end
 		Rayfield:Notify({Title="🌼 ESP",Content=v and "ESP enabled." or "ESP disabled.",Duration=2,Image=4483362458})
 	end
@@ -1194,10 +1210,7 @@ VisualsTab:CreateSlider({Name="ESP Transparency",Range={0,90},Increment=5,Suffix
 	Callback=function(v)
 		espTransparency=v/100
 		for _,data in pairs(espBoards) do
-			if data.hl then
-				data.hl.OutlineTransparency=espTransparency
-				pcall(function() data.hl.FillTransparency=math.min(1,espTransparency+0.5) end)
-			end
+			if data.hl then data.hl.OutlineTransparency=espTransparency; pcall(function() data.hl.FillTransparency=math.min(1,espTransparency+0.5) end) end
 			if data.bones then for _,d in ipairs(data.bones) do d.line.Transparency=espTransparency end end
 			if data.tracer then data.tracer.Transparency=espTransparency end
 		end
@@ -1207,8 +1220,7 @@ VisualsTab:CreateToggle({Name="Always On Top",CurrentValue=true,
 		espAlwaysOnTop=v
 		local mode=v and Enum.HighlightDepthMode.AlwaysOnTop or Enum.HighlightDepthMode.Occluded
 		for _,data in pairs(espBoards) do
-			if data.hl then data.hl.DepthMode=mode end
-			if data.bb then data.bb.AlwaysOnTop=v end
+			if data.hl then data.hl.DepthMode=mode end; if data.bb then data.bb.AlwaysOnTop=v end
 		end
 	end})
 VisualsTab:CreateSection("Misc Visuals")
@@ -1222,36 +1234,27 @@ VisualsTab:CreateToggle({Name="Full Bright",CurrentValue=false,
 local PlayerTab=Window:CreateTab("🌱 Player",4483362458)
 PlayerTab:CreateSection("Movement")
 PlayerTab:CreateSlider({Name="WalkSpeed",Range={16,300},Increment=1,Suffix=" Speed",CurrentValue=16,
-	Callback=function(v)
-		local c=lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.WalkSpeed=v end
-	end})
+	Callback=function(v) local c=lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.WalkSpeed=v end end})
 PlayerTab:CreateSlider({Name="JumpPower",Range={50,500},Increment=1,Suffix=" Power",CurrentValue=50,
-	Callback=function(v)
-		local c=lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.JumpPower=v end
-	end})
+	Callback=function(v) local c=lp.Character; if c and c:FindFirstChild("Humanoid") then c.Humanoid.JumpPower=v end end})
 PlayerTab:CreateToggle({Name="Infinite Jump",CurrentValue=false,Callback=function(v) infJump=v end})
 UserInputService.JumpRequest:Connect(function()
 	if not infJump or not lp.Character then return end
-	local hum=lp.Character:FindFirstChildOfClass("Humanoid")
-	if hum then hum:ChangeState(Enum.HumanoidStateType.Jumping) end
+	local hum=lp.Character:FindFirstChildOfClass("Humanoid"); if hum then hum:ChangeState(Enum.HumanoidStateType.Jumping) end
 end)
 PlayerTab:CreateToggle({Name="Fly",CurrentValue=false,
 	Callback=function(v)
 		flyEnabled=v
-		if v then startFly()
-		else stopFly(); local hum=lp.Character and lp.Character:FindFirstChild("Humanoid"); if hum then hum.PlatformStand=false end end
+		if v then startFly() else stopFly(); local hum=lp.Character and lp.Character:FindFirstChild("Humanoid"); if hum then hum.PlatformStand=false end end
 	end})
-PlayerTab:CreateSlider({Name="Fly Speed",Range={10,300},Increment=5,Suffix=" Speed",CurrentValue=50,
-	Callback=function(v) flySpeed=v end})
+PlayerTab:CreateSlider({Name="Fly Speed",Range={10,300},Increment=5,Suffix=" Speed",CurrentValue=50,Callback=function(v) flySpeed=v end})
 PlayerTab:CreateToggle({Name="Noclip",CurrentValue=false,
 	Callback=function(v) noclipEnabled=v; if v then startNoclip() else stopNoclip() end end})
-PlayerTab:CreateToggle({Name="Ghost Mode",CurrentValue=false,
-	Callback=function(v) ghostEnabled=v; setGhost(v) end})
+PlayerTab:CreateToggle({Name="Ghost Mode",CurrentValue=false,Callback=function(v) ghostEnabled=v; setGhost(v) end})
 PlayerTab:CreateToggle({Name="Freecam",CurrentValue=false,
 	Callback=function(v)
 		freecamEnabled=v
-		if v then startFreecam()
-			Rayfield:Notify({Title="🎥 Freecam",Content="WASD+Q/E move, mouse look.",Duration=3,Image=4483362458})
+		if v then startFreecam(); Rayfield:Notify({Title="🎥 Freecam",Content="WASD+Q/E move, mouse look.",Duration=3,Image=4483362458})
 		else stopFreecam() end
 	end})
 PlayerTab:CreateSection("Gravity")
@@ -1281,25 +1284,33 @@ FunTab:CreateSlider({Name="Fling Range",Range={5,60},Increment=1,Suffix=" Studs"
 -- ════════════════════════════════════════════
 --   MAIN LOOP
 -- ════════════════════════════════════════════
-local espTimer=0
+local espTimer=0; local lockRefresh=0
+
 RunService.RenderStepped:Connect(function(dt)
-	local char=lp.Character
-	local hrp=char and char:FindFirstChild("HumanoidRootPart")
+	local char=lp.Character; local hrp=char and char:FindFirstChild("HumanoidRootPart")
 	local vp=cam.ViewportSize
 
 	fovCircle.Position=Vector2.new(vp.X/2,vp.Y/2)
 	fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
 
-	local shouldLock=aimlockEnabled
-		and (not aimlockHoldOnly or UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2))
+	local shouldLock=aimlockEnabled and (
+		not aimlockHoldOnly
+		or UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
+		or mobileAimHeld
+	)
 
 	if shouldLock then
-		local target=getAimlockTarget()
-		if target then
-			local dir=(target.Position-cam.CFrame.Position).Unit
+		lockRefresh+=dt
+		if lockRefresh>=0.1 or not isTargetValid(currentTarget) then
+			lockRefresh=0; currentTarget=getAimlockTarget()
+		end
+		if currentTarget and isTargetValid(currentTarget) then
+			local dir=(currentTarget.Position-cam.CFrame.Position).Unit
 			local goalCF=CFrame.new(cam.CFrame.Position,cam.CFrame.Position+dir)
 			cam.CFrame=cam.CFrame:Lerp(goalCF,math.clamp(aimlockSmooth,0.01,1))
 		end
+	else
+		currentTarget=nil; lockRefresh=0
 	end
 
 	if flingEnabled and hrp then
@@ -1317,5 +1328,8 @@ RunService.RenderStepped:Connect(function(dt)
 	if espTimer>=0.5 then espTimer=0; refreshESP() end
 	if espEnabled then for plr in pairs(espBoards) do updateESPFor(plr) end end
 end)
+
+-- auto-spawn button on mobile
+if isMobile then buildMobileAimButton() end
 
 local m={}; m._ok=true; function m.init() end; return m
