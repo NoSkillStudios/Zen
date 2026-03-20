@@ -1,0 +1,24 @@
+local k = "NihonLoader_Key_Real"
+if getgenv()._nl ~= k then
+	warn("NihonHub: SecondScript loaded outside official loader.")
+	return {_ok=false}
+end
+
+local ALLOWED = {
+	["7398552394"]      = true,
+	["125224440903394"] = true,
+	["3286380229"]      = true,
+	["17887390746"]     = true,
+	["9294074907"]      = true,
+	["85207102870777"]  = true,
+}
+
+if not ALLOWED[tostring(game.PlaceId)] then
+	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
+	return
+end
+
+local m = {}
+m._ok = true
+function m.init() end
+return m
