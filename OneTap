@@ -634,12 +634,18 @@ local Window=Rayfield:CreateWindow({
 	KeySystem = false,
 })
 
+-- ════════════════════════════════════════════
+--   TEAM CHECK
+-- ════════════════════════════════════════════
 local teamCheckMode = "FFA"
 local function isEnemy(player)
 	if teamCheckMode=="FFA" or teamCheckMode=="Everyone" then return true end
 	return player.Team ~= lp.Team
 end
 
+-- ════════════════════════════════════════════
+--   HITBOX CORE
+-- ════════════════════════════════════════════
 local hitboxEnabled = false
 local noCollision   = false
 local hitboxSize    = 21
@@ -714,6 +720,9 @@ local function hb_startLoop()
 	end)
 end
 
+-- ════════════════════════════════════════════
+--   ESP SYSTEM
+-- ════════════════════════════════════════════
 local espEnabled      = false
 local espOutline      = false
 local espBox          = false
@@ -891,6 +900,9 @@ local function rebuildESP()
 	end
 end
 
+-- ════════════════════════════════════════════
+--   PLAYER MECHANICS
+-- ════════════════════════════════════════════
 local flyEnabled=false;     local flySpeed=50
 local noclipEnabled=false;  local ghostEnabled=false
 local freecamEnabled=false; local gravityEnabled=false; local gravityScale=1
@@ -970,14 +982,15 @@ local function startFreecam()
 	end)
 end
 
+-- ════════════════════════════════════════════
+--   AIMLOCK
+-- ════════════════════════════════════════════
 local aimlockEnabled  = false
 local aimlockSmooth   = 0.18
 local aimlockFOV      = 120
 local aimlockBone     = "Head"
 local aimlockHoldOnly = false
 local aimlockDrawFOV  = true
-local currentTarget   = nil
-local lockRefresh     = 0
 
 local fovCircle=Drawing.new("Circle")
 fovCircle.Visible=false; fovCircle.Filled=false
@@ -985,7 +998,8 @@ fovCircle.Color=Color3.fromRGB(255,180,80); fovCircle.Thickness=1.4
 fovCircle.NumSides=64; fovCircle.Transparency=0.35; fovCircle.Radius=120
 
 local function getAimlockTarget()
-	local vp=cam.ViewportSize; local center=Vector2.new(vp.X/2,vp.Y/2)
+	local vp=cam.ViewportSize
+	local center=Vector2.new(vp.X/2,vp.Y/2)
 	local best,bestDist=nil,aimlockFOV
 	for _,plr in ipairs(Players:GetPlayers()) do
 		if plr~=lp and plr.Character and isEnemy(plr) then
@@ -1007,99 +1021,20 @@ local function getAimlockTarget()
 	return best
 end
 
-local function isTargetValid(bone)
-	if not bone or not bone.Parent then return false end
-	local plr=Players:GetPlayerFromCharacter(bone.Parent)
-	if not plr or plr==lp then return false end
-	local hum=bone.Parent:FindFirstChildOfClass("Humanoid")
-	if not hum or hum.Health<=0 then return false end
-	local sp,onScreen=cam:WorldToViewportPoint(bone.Position)
-	if not onScreen or sp.Z<=0 then return false end
-	local vp=cam.ViewportSize
-	return (Vector2.new(sp.X,sp.Y)-Vector2.new(vp.X/2,vp.Y/2)).Magnitude < aimlockFOV*1.5
-end
-
 -- ════════════════════════════════════════════
---   MOBILE AIMLOCK BUTTON
+--   PLAYER HOOKS (respawn + new joiners)
 -- ════════════════════════════════════════════
-local mobileAimGui  = nil
-local mobileAimHeld = false
-
-local function buildMobileAimButton()
-	if mobileAimGui then return end
-	mobileAimGui = Instance.new("ScreenGui")
-	mobileAimGui.Name = "NihonMobileAim"
-	mobileAimGui.ResetOnSpawn = false
-	mobileAimGui.DisplayOrder = 998
-	mobileAimGui.IgnoreGuiInset = true
-	mobileAimGui.Parent = playerGui
-
-	local btn = Instance.new("TextButton", mobileAimGui)
-	btn.Size = UDim2.fromOffset(80, 80)
-	btn.Position = UDim2.new(1, -100, 1, -180)
-	btn.BackgroundColor3 = Color3.fromRGB(28, 16, 10)
-	btn.BackgroundTransparency = 0.15
-	btn.BorderSizePixel = 0
-	btn.Text = "🎯"
-	btn.TextSize = 28
-	btn.Font = Enum.Font.Gotham
-	btn.TextColor3 = Color3.fromRGB(255, 180, 80)
-	btn.AutoButtonColor = false
-	Instance.new("UICorner", btn).CornerRadius = UDim.new(1, 0)
-	local stroke = Instance.new("UIStroke", btn)
-	stroke.Color = Color3.fromRGB(255, 140, 80)
-	stroke.Thickness = 2
-	stroke.Transparency = 0.2
-
-	local function setActive(v)
-		mobileAimHeld = v
-		TweenService:Create(btn, TweenInfo.new(0.1), {
-			BackgroundColor3      = v and Color3.fromRGB(200,100,30) or Color3.fromRGB(28,16,10),
-			BackgroundTransparency = v and 0 or 0.15,
-		}):Play()
-		TweenService:Create(stroke, TweenInfo.new(0.1), {
-			Transparency = v and 0 or 0.2,
-		}):Play()
-	end
-
-	btn.MouseButton1Down:Connect(function() setActive(true) end)
-	btn.MouseButton1Up:Connect(function() setActive(false) end)
-	UserInputService.TouchEnded:Connect(function()
-		if mobileAimHeld then setActive(false) end
-	end)
-
-	local dragging, dragStart, startPos = false, nil, nil
-	btn.InputBegan:Connect(function(inp)
-		if inp.UserInputType==Enum.UserInputType.Touch or inp.UserInputType==Enum.UserInputType.MouseButton1 then
-			dragging=true; dragStart=inp.Position; startPos=btn.Position
-		end
-	end)
-	btn.InputChanged:Connect(function(inp)
-		if dragging and (inp.UserInputType==Enum.UserInputType.Touch or inp.UserInputType==Enum.UserInputType.MouseMove) then
-			local delta=inp.Position-dragStart
-			btn.Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+delta.X,startPos.Y.Scale,startPos.Y.Offset+delta.Y)
-		end
-	end)
-	btn.InputEnded:Connect(function(inp)
-		if inp.UserInputType==Enum.UserInputType.Touch or inp.UserInputType==Enum.UserInputType.MouseButton1 then
-			dragging=false
-		end
-	end)
-end
-
-local function destroyMobileAimButton()
-	mobileAimHeld=false
-	if mobileAimGui then mobileAimGui:Destroy(); mobileAimGui=nil end
-end
-
 local function applyToChar(plr)
 	if not plr or plr==lp or not isEnemy(plr) then return end
 	if espEnabled then destroyESPFor(plr); buildESPFor(plr) end
 	if hitboxEnabled then hitbox_orig[plr]=nil; hb_extend(plr) end
 end
+
 local function hookPlayer(plr)
 	plr.CharacterAdded:Connect(function(char)
-		char:WaitForChild("HumanoidRootPart",6); task.wait(0.6); applyToChar(plr)
+		char:WaitForChild("HumanoidRootPart",6)
+		task.wait(0.6)
+		applyToChar(plr)
 	end)
 	if plr.Character then task.defer(applyToChar,plr) end
 end
@@ -1115,12 +1050,17 @@ lp.CharacterAdded:Connect(function()
 	if noclipEnabled then startNoclip()   end
 end)
 
+-- ════════════════════════════════════════════
+--   TABS
+-- ════════════════════════════════════════════
 local CombatTab=Window:CreateTab("🌾 Combat",4483362458)
 CombatTab:CreateSection("Team Check")
 CombatTab:CreateDropdown({
 	Name="Team Check",Options={"FFA","Team-Based","Everyone"},CurrentOption="FFA",
 	Callback=function(v)
-		teamCheckMode=v; if hitboxEnabled then hb_updateAll() end; rebuildESP()
+		teamCheckMode=v
+		if hitboxEnabled then hb_updateAll() end
+		rebuildESP()
 		Rayfield:Notify({Title="👥 Team Check",Content="Mode: "..v,Duration=2,Image=4483362458})
 	end
 })
@@ -1128,7 +1068,10 @@ CombatTab:CreateDropdown({
 CombatTab:CreateSection("Hitbox Expander")
 CombatTab:CreateToggle({
 	Name="Hitbox Expander",CurrentValue=false,
-	Callback=function(v) hitboxEnabled=v; if v then hb_startLoop() else hb_restoreAll() end end
+	Callback=function(v)
+		hitboxEnabled=v
+		if v then hb_startLoop() else hb_restoreAll() end
+	end
 })
 CombatTab:CreateSlider({Name="Hitbox Size",Range={1,50},Increment=1,Suffix=" Size",CurrentValue=21,
 	Callback=function(v) hitboxSize=v; if hitboxEnabled then hb_updateAll() end end})
@@ -1141,33 +1084,21 @@ CombatTab:CreateSection("AimLock")
 CombatTab:CreateToggle({
 	Name="AimLock",CurrentValue=false,
 	Callback=function(v)
-		aimlockEnabled=v; fovCircle.Visible=v and aimlockDrawFOV
-		if not v then currentTarget=nil end
+		aimlockEnabled=v
+		fovCircle.Visible=v and aimlockDrawFOV
 		Rayfield:Notify({Title="🎯 AimLock",Content=v and "AimLock enabled." or "AimLock disabled.",Duration=2,Image=4483362458})
 	end
 })
 CombatTab:CreateKeybind({
 	Name="AimLock Toggle Key",CurrentKeybind="Q",HoldToInteract=false,
 	Callback=function()
-		aimlockEnabled=not aimlockEnabled; fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
-		if not aimlockEnabled then currentTarget=nil end
+		aimlockEnabled=not aimlockEnabled
+		fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
 	end
 })
 CombatTab:CreateToggle({
 	Name="Hold RMB to Lock",CurrentValue=false,
 	Callback=function(v) aimlockHoldOnly=v end
-})
-CombatTab:CreateButton({
-	Name="📱 Mobile Aim Button  (toggle)",
-	Callback=function()
-		if mobileAimGui then
-			destroyMobileAimButton()
-			Rayfield:Notify({Title="📱 Mobile Aim",Content="Button removed.",Duration=2,Image=4483362458})
-		else
-			buildMobileAimButton()
-			Rayfield:Notify({Title="📱 Mobile Aim",Content="Hold 🎯 to lock. Drag to move.",Duration=3,Image=4483362458})
-		end
-	end
 })
 CombatTab:CreateSlider({
 	Name="Smoothness",Range={1,100},Increment=1,Suffix="%",CurrentValue=18,
@@ -1203,7 +1134,10 @@ VisualsTab:CreateToggle({
 	Name="Enable ESP",CurrentValue=false,
 	Callback=function(v)
 		espEnabled=v
-		if v then for _,plr in ipairs(Players:GetPlayers()) do if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end end
+		if v then
+			for _,plr in ipairs(Players:GetPlayers()) do
+				if plr~=lp and plr.Character and isEnemy(plr) then buildESPFor(plr) end
+			end
 		else destroyAllESP() end
 		Rayfield:Notify({Title="🌼 ESP",Content=v and "ESP enabled." or "ESP disabled.",Duration=2,Image=4483362458})
 	end
@@ -1344,8 +1278,10 @@ FunTab:CreateToggle({Name="Fling Players",CurrentValue=false,Callback=function(v
 FunTab:CreateSlider({Name="Fling Range",Range={5,60},Increment=1,Suffix=" Studs",CurrentValue=15,
 	Callback=function(v) flingRange=v end})
 
+-- ════════════════════════════════════════════
+--   MAIN LOOP
+-- ════════════════════════════════════════════
 local espTimer=0
-
 RunService.RenderStepped:Connect(function(dt)
 	local char=lp.Character
 	local hrp=char and char:FindFirstChild("HumanoidRootPart")
@@ -1354,24 +1290,16 @@ RunService.RenderStepped:Connect(function(dt)
 	fovCircle.Position=Vector2.new(vp.X/2,vp.Y/2)
 	fovCircle.Visible=aimlockEnabled and aimlockDrawFOV
 
-	local shouldLock=aimlockEnabled and (
-		not aimlockHoldOnly
-		or UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
-		or mobileAimHeld
-	)
+	local shouldLock=aimlockEnabled
+		and (not aimlockHoldOnly or UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2))
 
 	if shouldLock then
-		lockRefresh+=dt
-		if lockRefresh>=0.1 or not isTargetValid(currentTarget) then
-			lockRefresh=0; currentTarget=getAimlockTarget()
-		end
-		if currentTarget and isTargetValid(currentTarget) then
-			local dir=(currentTarget.Position-cam.CFrame.Position).Unit
+		local target=getAimlockTarget()
+		if target then
+			local dir=(target.Position-cam.CFrame.Position).Unit
 			local goalCF=CFrame.new(cam.CFrame.Position,cam.CFrame.Position+dir)
 			cam.CFrame=cam.CFrame:Lerp(goalCF,math.clamp(aimlockSmooth,0.01,1))
 		end
-	else
-		currentTarget=nil; lockRefresh=0
 	end
 
 	if flingEnabled and hrp then
@@ -1389,9 +1317,5 @@ RunService.RenderStepped:Connect(function(dt)
 	if espTimer>=0.5 then espTimer=0; refreshESP() end
 	if espEnabled then for plr in pairs(espBoards) do updateESPFor(plr) end end
 end)
-
-if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled then
-	buildMobileAimButton()
-end
 
 local m={}; m._ok=true; function m.init() end; return m
