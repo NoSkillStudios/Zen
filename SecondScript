@@ -1,5 +1,8 @@
 local k = "NihonLoader_Key_Real"
-if getgenv()._nl ~= k then return end
+if getgenv()._nl ~= k then
+	warn("NihonHub: SecondScript loaded outside official loader.")
+	return {_ok=false}
+end
 
 local ALLOWED = {
 	["7398552394"]      = true,
