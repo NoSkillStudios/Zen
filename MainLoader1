@@ -11,103 +11,32 @@ local GAMES = {
 	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
--- Improved function with retry logic and better error handling
-local function safeLoad(url, maxRetries)
-	maxRetries = maxRetries or 3
-	local lastError
-	
-	for attempt = 1, maxRetries do
-		local success, result = pcall(function()
-			local response = game:HttpGet(url, true)
-			if not response or response == "" then
-				error("Empty response from server")
-			end
-			local fn = loadstring(response)
-			if not fn then
-				error("Failed to parse script")
-			end
-			return fn()
-		end)
-		
-		if success then
-			return result
-		end
-		
-		lastError = result
-		if attempt < maxRetries then
-			task.wait(0.5 * attempt) -- exponential backoff
-		end
-	end
-	
-	warn("Failed to load " .. url .. " after " .. maxRetries .. " attempts: " .. tostring(lastError))
-	return nil
+local function ld(u)
+	local s, r = pcall(function()
+		return loadstring(game:HttpGet(u))()
+	end)
+	if not s or not r then return nil end
+	return r
 end
 
--- Get PlaceId with validation
 local placeId = tostring(game.PlaceId)
-if not placeId or placeId == "0" then
-	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — Failed to detect game ID.")
-	return
-end
-
 local scriptUrl = GAMES[placeId]
-
--- Debug info (optional - comment out in production)
--- print("🌺 Nihon Hub — PlaceId: " .. placeId)
--- print("🌺 Nihon Hub — Script URL: " .. tostring(scriptUrl))
 
 if not scriptUrl then
 	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
 	return
 end
 
--- JavaScript execution function
-local function executeJS(jsCode)
-	local success, result = pcall(function()
-		if syn and syn.run_js then
-			return syn.run_js(jsCode)
-		elseif WebSocket then
-			-- Fallback for environments with WebSocket
-			return loadstring(jsCode)()
-		else
-			error("No JavaScript execution environment available")
-		end
-	end)
-	
-	if not success then
-		warn("JavaScript execution failed: " .. tostring(result))
-		return nil
-	end
-	return result
-end
-
--- Load main game script with retry logic
-local b = safeLoad(scriptUrl .. "?v=2", 3)
+local b = ld(scriptUrl.."?v=2")
 
 if not b then
-	error("🌺 Nihon Hub — Failed to load game script after retries.")
+	error("Loader error: script failed to load.")
 	return
 end
 
--- Validation
 if not b._ok then
-	error("🌺 Nihon Hub — Game script validation failed.")
+	error("Loader error: validation failed.")
 	return
 end
 
--- Safe initialization
-if b.init and typeof(b.init) == "function" then
-	local initSuccess, initError = pcall(b.init)
-	if not initSuccess then
-		warn("🌺 Nihon Hub — Game init warning: " .. tostring(initError))
-	end
-end
-
--- Execute JavaScript if available and script provides JS code
-if b.jsCode and typeof(b.jsCode) == "string" then
-	executeJS(b.jsCode)
-elseif b.executeJS and typeof(b.executeJS) == "function" then
-	b.executeJS(executeJS)
-end
-
-print("🌺 Nihon Hub — Loader initialized successfully!")
+if b.init then b.init() end
