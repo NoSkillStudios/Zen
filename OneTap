@@ -940,12 +940,23 @@ local function startFreecam()
 end
 
 -- Hooks
-Players.PlayerRemoving:Connect(function(plr) destroyESPFor(plr); restoredPart(plr); hitbox_orig[plr]=nil end)
-Players.PlayerAdded:Connect(function(plr)
-	plr.CharacterAdded:Connect(function() task.wait(0.5); if espEnabled and isEnemy(plr) then buildESPFor(plr) end end)
+local function onCharAdded(plr)
+	plr.CharacterAdded:Connect(function()
+		task.wait(0.5)
+		if not isEnemy(plr) then return end
+		destroyESPFor(plr)
+		hitbox_orig[plr] = nil
+		if espEnabled then buildESPFor(plr) end
+		if hitboxEnabled then extendHitbox(plr) end
+	end)
+end
+
+Players.PlayerRemoving:Connect(function(plr)
+	destroyESPFor(plr); restoredPart(plr); hitbox_orig[plr]=nil
 end)
+Players.PlayerAdded:Connect(function(plr) onCharAdded(plr) end)
 for _,plr in ipairs(Players:GetPlayers()) do
-	if plr~=lp then plr.CharacterAdded:Connect(function() task.wait(0.5); if espEnabled and isEnemy(plr) then buildESPFor(plr) end end) end
+	if plr~=lp then onCharAdded(plr) end
 end
 lp.CharacterAdded:Connect(function() task.wait(1); if ghostEnabled then setGhost(true) end end)
 
