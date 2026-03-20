@@ -24,16 +24,20 @@ local function load_script(url)
 		return nil
 	end
 	
-	local ok3, module = pcall(fn)
-	if not ok3 or not module then
+	local ok3, result = pcall(fn)
+	if not ok3 then
 		return nil
 	end
 	
-	if module._ok ~= true then
+	if type(result) ~= "table" then
 		return nil
 	end
 	
-	return module
+	if result._ok ~= true then
+		return nil
+	end
+	
+	return result
 end
 
 local v = tostring(math.random(10000000, 99999999))
@@ -41,15 +45,14 @@ local secUrl = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Second
 local gameUrl = GAMES[pid] .. "?v=" .. v
 
 local sec = load_script(secUrl)
-local main = load_script(gameUrl)
-
 if not sec then
-	error("Loader error: SecondScript failed to load.")
+	error("Loader error: SecondScript validation failed.")
 	return
 end
 
+local main = load_script(gameUrl)
 if not main then
-	error("Loader error: Game script failed to load.")
+	error("Loader error: Game script validation failed.")
 	return
 end
 
