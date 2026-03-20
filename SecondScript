@@ -1,6 +1,3 @@
 local k = "NihonLoader_Key_Real"
-if getgenv()._nl ~= k then
-	return {_ok=false}
-end
-
+if getgenv()._nl ~= k then return {_ok=false} end
 return {_ok=true, init=function() end}
