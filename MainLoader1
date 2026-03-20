@@ -7,7 +7,7 @@ local GAMES = {
 	["3286380229"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
 	["17887390746"]     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
 	["9294074907"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
-	["85207102870777"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 local placeId = tostring(game.PlaceId)
 local scriptUrl = GAMES[placeId]
