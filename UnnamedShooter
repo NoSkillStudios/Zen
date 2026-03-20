@@ -20,7 +20,6 @@ if getgenv()._nl ~= k then
 	return
 end
 
-local TweenService     = game:GetService("TweenService")
 local RunService       = game:GetService("RunService")
 local Players          = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -42,22 +41,36 @@ playSound("rbxassetid://102658972915929")
 Rayfield:Notify({Title="🌺 Nihon Hub | 日本", Content="Systems initialized. Have fun!", Duration=3, Image=4483362458})
 
 local Window = Rayfield:CreateWindow({
-	Name            = "🌺 Nihon Hub  -  Game = Unnamed Shooter",
+	Name            = "🌺 Nihon Hub  -  Game = One Tap",
 	LoadingTitle    = "Bloom Zen",
 	LoadingSubtitle = "by MrDuck",
 	Theme           = "AmberGlow",
-	ConfigurationSaving = {Enabled=true, FolderName="NihonHub", FileName="Config"},
+	ConfigurationSaving = {Enabled=true, FolderName="NihonHub", FileName="OneTap"},
 	KeySystem = false,
 })
 
 -- ════════════════════════════════════════════
---   HITBOX SYSTEM (AdvanceTech logic)
+--   TEAM CHECK HELPER
 -- ════════════════════════════════════════════
-local hitboxEnabled   = false
-local hitboxSize      = 21
-local hitboxTrans     = 6
-local teamCheck       = "FFA"
-local hitbox_orig     = {}
+-- Shared team check used by both hitbox and ESP.
+-- "FFA"        = affect everyone
+-- "Team-Based" = only affect enemies (different team)
+-- "Everyone"   = same as FFA
+
+local teamCheckMode = "FFA"
+
+local function isEnemy(player)
+	if teamCheckMode == "FFA" or teamCheckMode == "Everyone" then return true end
+	return player.Team ~= lp.Team
+end
+
+-- ════════════════════════════════════════════
+--   HITBOX SYSTEM
+-- ════════════════════════════════════════════
+local hitboxEnabled = false
+local hitboxSize    = 21
+local hitboxTrans   = 6
+local hitbox_orig   = {}
 
 local defaultBodyParts = {"UpperTorso","LowerTorso","Torso","Head","HumanoidRootPart"}
 
@@ -104,16 +117,14 @@ local function extendHitbox(player)
 	end
 end
 
-local function isEnemy(player)
-	if teamCheck == "FFA" or teamCheck == "Everyone" then return true end
-	return player.Team ~= lp.Team
-end
-
 local function updateHitboxes()
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= lp and player.Character then
-			if isEnemy(player) then extendHitbox(player)
-			else restoredPart(player) end
+			if isEnemy(player) then
+				extendHitbox(player)
+			else
+				restoredPart(player)
+			end
 		end
 	end
 end
@@ -151,6 +162,8 @@ end
 
 local function buildESPFor(plr)
 	if plr == lp then return end
+	-- Respect team check — only build for enemies
+	if not isEnemy(plr) then return end
 	destroyESPFor(plr)
 	local char = plr.Character; if not char then return end
 	local head = char:FindFirstChild("Head") or char:FindFirstChild("HumanoidRootPart")
@@ -167,7 +180,8 @@ local function buildESPFor(plr)
 
 	elseif espMethod == "Box" then
 		local hl = Instance.new("Highlight")
-		hl.Name = "NihonESP"; hl.FillColor = espColor; hl.FillTransparency = 0.75
+		hl.Name = "NihonESP"
+		hl.FillColor = espColor; hl.FillTransparency = 0.75
 		hl.OutlineColor = espColor; hl.OutlineTransparency = 0.1
 		hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 		hl.Parent = char; data.hl = hl
@@ -191,7 +205,7 @@ local function buildESPFor(plr)
 		end
 	end
 
-	-- Shared billboard tag + HP bar
+	-- Shared billboard + HP bar
 	local bb = Instance.new("BillboardGui")
 	bb.Name="NihonESPTag"; bb.Adornee=head; bb.AlwaysOnTop=true
 	bb.Size=UDim2.fromOffset(120,44); bb.StudsOffset=Vector3.new(0,2.8,0)
@@ -214,7 +228,8 @@ local function buildESPFor(plr)
 
 	local barBg=Instance.new("Frame",card)
 	barBg.Name="BarBg"; barBg.Size=UDim2.new(1,-10,0,5)
-	barBg.Position=UDim2.new(0,5,0,23); barBg.BackgroundColor3=BARCLR; barBg.BorderSizePixel=0
+	barBg.Position=UDim2.new(0,5,0,23)
+	barBg.BackgroundColor3=BARCLR; barBg.BorderSizePixel=0
 	Instance.new("UICorner",barBg).CornerRadius=UDim.new(1,0)
 	local bf=Instance.new("Frame",barBg)
 	bf.Name="Fill"; bf.Size=UDim2.fromScale(1,1)
@@ -222,7 +237,8 @@ local function buildESPFor(plr)
 	Instance.new("UICorner",bf).CornerRadius=UDim.new(1,0)
 
 	local hpLbl=Instance.new("TextLabel",card)
-	hpLbl.Name="HP"; hpLbl.Size=UDim2.new(1,-8,0,11); hpLbl.Position=UDim2.new(0,4,0,30)
+	hpLbl.Name="HP"; hpLbl.Size=UDim2.new(1,-8,0,11)
+	hpLbl.Position=UDim2.new(0,4,0,30)
 	hpLbl.BackgroundTransparency=1; hpLbl.TextColor3=TXTCLR
 	hpLbl.Font=Enum.Font.Gotham; hpLbl.TextSize=9
 	hpLbl.TextXAlignment=Enum.TextXAlignment.Center; hpLbl.Text="HP: ?"
@@ -236,6 +252,9 @@ local function updateESPFor(plr)
 	local char = data.char
 	if not char or not char.Parent then destroyESPFor(plr); return end
 
+	-- If player switched to same team, remove ESP
+	if not isEnemy(plr) then destroyESPFor(plr); return end
+
 	local hum = char:FindFirstChildOfClass("Humanoid")
 	if hum and data.bb and data.bb.Parent then
 		local card  = data.bb:FindFirstChildWhichIsA("Frame")
@@ -245,12 +264,15 @@ local function updateESPFor(plr)
 		if fill and hpL then
 			local r = math.clamp(hum.Health / math.max(hum.MaxHealth,1), 0, 1)
 			fill.Size = UDim2.fromScale(r,1)
-			fill.BackgroundColor3 = Color3.new(math.clamp(2*(1-r),0,1), math.clamp(2*r,0,1), 0.05)
+			fill.BackgroundColor3 = Color3.new(
+				math.clamp(2*(1-r),0,1),
+				math.clamp(2*r,0,1),
+				0.05
+			)
 			hpL.Text = "HP: "..math.floor(hum.Health).." / "..math.floor(hum.MaxHealth)
 		end
 	end
 
-	-- Bones: requires Z > 0 check so lines don't flip behind camera
 	if data.drawings then
 		local cam = workspace.CurrentCamera
 		for _, d in ipairs(data.drawings) do
@@ -281,11 +303,14 @@ local function refreshESP()
 	end
 	for _, plr in ipairs(Players:GetPlayers()) do
 		if plr ~= lp and plr.Character and not espBoards[plr] then
-			buildESPFor(plr)
+			if isEnemy(plr) then buildESPFor(plr) end
 		end
 	end
+	-- Remove ESP from players that are now teammates
 	for plr in pairs(espBoards) do
-		if not plr.Parent or not plr.Character then destroyESPFor(plr) end
+		if not plr.Parent or not plr.Character or not isEnemy(plr) then
+			destroyESPFor(plr)
+		end
 	end
 end
 
@@ -409,7 +434,7 @@ end)
 Players.PlayerAdded:Connect(function(plr)
 	plr.CharacterAdded:Connect(function()
 		task.wait(0.5)
-		if espEnabled then buildESPFor(plr) end
+		if espEnabled and isEnemy(plr) then buildESPFor(plr) end
 	end)
 end)
 
@@ -417,7 +442,7 @@ for _, plr in ipairs(Players:GetPlayers()) do
 	if plr ~= lp then
 		plr.CharacterAdded:Connect(function()
 			task.wait(0.5)
-			if espEnabled then buildESPFor(plr) end
+			if espEnabled and isEnemy(plr) then buildESPFor(plr) end
 		end)
 	end
 end
@@ -431,6 +456,27 @@ end)
 --   TAB 1 — COMBAT
 -- ════════════════════════════════════════════
 local CombatTab = Window:CreateTab("🌾 Combat", 4483362458)
+
+CombatTab:CreateSection("Team Check")
+
+CombatTab:CreateDropdown({
+	Name="Team Check", Options={"FFA","Team-Based","Everyone"}, CurrentOption="FFA",
+	Callback=function(v)
+		teamCheckMode = v
+		-- Reapply hitbox with new team filter
+		if hitboxEnabled then updateHitboxes() end
+		-- Rebuild ESP with new team filter
+		if espEnabled then
+			for plr in pairs(espBoards) do destroyESPFor(plr) end
+			for _, plr in ipairs(Players:GetPlayers()) do
+				if plr ~= lp and plr.Character and isEnemy(plr) then
+					buildESPFor(plr)
+				end
+			end
+		end
+		Rayfield:Notify({Title="👥 Team Check", Content="Mode: "..v, Duration=2, Image=4483362458})
+	end
+})
 
 CombatTab:CreateSection("Hitbox Expanders")
 
@@ -465,14 +511,6 @@ CombatTab:CreateSlider({
 	Name="Hitbox Transparency", Range={0,10}, Increment=1, Suffix="", CurrentValue=6,
 	Callback=function(v)
 		hitboxTrans = v
-		if hitboxEnabled then updateHitboxes() end
-	end
-})
-
-CombatTab:CreateDropdown({
-	Name="Team Check", Options={"FFA","Team-Based","Everyone"}, CurrentOption="FFA",
-	Callback=function(v)
-		teamCheck = v
 		if hitboxEnabled then updateHitboxes() end
 	end
 })
@@ -525,7 +563,9 @@ VisualsTab:CreateToggle({
 			for plr in pairs(espBoards) do destroyESPFor(plr) end
 		else
 			for _, plr in ipairs(Players:GetPlayers()) do
-				if plr ~= lp and plr.Character then buildESPFor(plr) end
+				if plr ~= lp and plr.Character and isEnemy(plr) then
+					buildESPFor(plr)
+				end
 			end
 		end
 		Rayfield:Notify({Title="🌼 ESP", Content=v and "ESP enabled." or "ESP disabled.", Duration=2, Image=4483362458})
@@ -539,7 +579,9 @@ VisualsTab:CreateDropdown({
 		if espEnabled then
 			for plr in pairs(espBoards) do destroyESPFor(plr) end
 			for _, plr in ipairs(Players:GetPlayers()) do
-				if plr ~= lp and plr.Character then buildESPFor(plr) end
+				if plr ~= lp and plr.Character and isEnemy(plr) then
+					buildESPFor(plr)
+				end
 			end
 		end
 		Rayfield:Notify({Title="🌺 ESP", Content="Method: "..opt, Duration=2, Image=4483362458})
@@ -584,8 +626,7 @@ VisualsTab:CreateToggle({
 			local hrp = lp.Character and lp.Character:FindFirstChild("HumanoidRootPart")
 			if not hrp then return end
 			for plr, data in pairs(espBoards) do
-				local tChar = plr.Character
-				local tHrp  = tChar and tChar:FindFirstChild("HumanoidRootPart")
+				local tHrp = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
 				if tHrp and data.bb and data.bb.Parent then
 					local dist = math.floor((hrp.Position - tHrp.Position).Magnitude)
 					local card = data.bb:FindFirstChildWhichIsA("Frame")
@@ -679,8 +720,7 @@ PlayerTab:CreateToggle({
 		flyEnabled = v
 		if v then startFly() else
 			stopFly()
-			local c = lp.Character
-			local hum = c and c:FindFirstChild("Humanoid")
+			local hum = lp.Character and lp.Character:FindFirstChild("Humanoid")
 			if hum then hum.PlatformStand = false end
 		end
 	end
@@ -801,7 +841,7 @@ RunService.RenderStepped:Connect(function(dt)
 
 	if killAuraOn and hrp then
 		for _, plr in ipairs(Players:GetPlayers()) do
-			if plr ~= lp and plr.Character then
+			if plr ~= lp and plr.Character and isEnemy(plr) then
 				local tHrp = plr.Character:FindFirstChild("HumanoidRootPart")
 				local tHum = plr.Character:FindFirstChild("Humanoid")
 				if tHrp and tHum and tHum.Health > 0 then
@@ -815,7 +855,7 @@ RunService.RenderStepped:Connect(function(dt)
 
 	if flingEnabled and hrp then
 		for _, plr in ipairs(Players:GetPlayers()) do
-			if plr ~= lp and plr.Character then
+			if plr ~= lp and plr.Character and isEnemy(plr) then
 				local tHrp = plr.Character:FindFirstChild("HumanoidRootPart")
 				if tHrp and (hrp.Position - tHrp.Position).Magnitude <= flingRange then
 					tHrp.Velocity = Vector3.new(
