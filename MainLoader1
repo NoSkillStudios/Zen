@@ -15,51 +15,31 @@ end
 
 local function load_script(url)
 	local ok, data = pcall(game.HttpGet, game, url)
-	if not ok or not data or #data == 0 then
-		return nil
-	end
+	if not ok or not data or #data == 0 then return nil end
 	
 	local ok2, fn = pcall(loadstring, data)
-	if not ok2 or not fn then
-		return nil
-	end
+	if not ok2 or not fn then return nil end
 	
 	local ok3, result = pcall(fn)
-	if not ok3 then
-		return nil
-	end
-	
-	if type(result) ~= "table" then
-		return nil
-	end
-	
-	if result._ok ~= true then
-		return nil
-	end
+	if not ok3 then return nil end
 	
 	return result
 end
 
 local v = tostring(math.random(10000000, 99999999))
-local secUrl = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v
-local gameUrl = GAMES[pid] .. "?v=" .. v
+local sec = load_script("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=" .. v)
+local main = load_script(GAMES[pid] .. "?v=" .. v)
 
-local sec = load_script(secUrl)
-if not sec then
-	error("Loader error: SecondScript validation failed.")
+if not sec or (type(sec) == "table" and sec._ok ~= true) then
+	error("Loader error: SecondScript failed.")
 	return
 end
 
-local main = load_script(gameUrl)
 if not main then
-	error("Loader error: Game script validation failed.")
+	error("Loader error: Game script failed to load.")
 	return
 end
 
-if sec.init and type(sec.init) == "function" then
-	pcall(sec.init)
-end
-
-if main.init and type(main.init) == "function" then
-	pcall(main.init)
-end
+if type(sec) == "table" and sec.init then pcall(sec.init) end
+if type(main) == "function" then pcall(main) end
+if type(main) == "table" and main.init then pcall(main.init) end
