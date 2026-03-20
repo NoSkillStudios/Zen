@@ -6,7 +6,7 @@ local ALLOWED = {
 	["125224440903394"] = true,
 	["3286380229"]      = true,
 	["17887390746"]     = true,
-	["85207102870777"]      = true,
+	["9294074907"]      = true,
 }
 
 if not ALLOWED[tostring(game.PlaceId)] then
