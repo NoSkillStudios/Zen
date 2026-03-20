@@ -1,49 +1,48 @@
-local k="NihonLoader_Key_Real"
-getgenv()._nl=k
+Didnt work..can you obfuscate it without it breaking the numbers?
 
-repeat task.wait() until game and game.PlaceId
 
-local p=game:GetService("Players")
-local lp=p.LocalPlayer
 
-local G={
-[7398552394]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-[125224440903394]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-[3286380229]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
-[17887390746]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
-[9294074907]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
-[90568084448279]="https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+local k = "NihonLoader_Key_Real"
+getgenv()._nl = k
+task.wait() -- ensure env propagates before loading scripts
+
+local GAMES = {
+	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["3286380229"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
+	["17887390746"]     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
+	["9294074907"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["85207102870777"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
-local pid=game.PlaceId
-local url=G[pid]
+local placeId = tostring(game.PlaceId)
+local scriptUrl = GAMES[placeId]
 
--- fallback (just in case)
-if not url then
-url=G[tonumber(pid)] or G[tostring(pid)]
-end
-
-if not url then
-warn("Unsupported PlaceId:",pid)
-lp:Kick("Nihon Hub — This game is not supported.")
-return
+if not scriptUrl then
+	game:GetService("Players").LocalPlayer:Kick("🌺 Nihon Hub — This game is not supported.")
+	return
 end
 
 local function ld(u)
-local ok,res=pcall(function()
-return loadstring(game:HttpGet(u))()
-end)
-
-if not ok then
-warn("Load failed:",u)
-return false
+	local s, r = pcall(function()
+		return loadstring(game:HttpGet(u))()
+	end)
+	if not s or not r then return nil end
+	return r
 end
 
-return true
+local a = ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=2")
+local b = ld(scriptUrl.."?v=2")
+
+if not a or not b then
+	error("Loader error: scripts failed to load.")
+	return
 end
 
-local success=ld(url.."?v="..math.random(1,9999))
-
-if not success then
-error("Loader error: failed to load script.")
+if not a._ok or not b._ok then
+	error("Loader error: validation failed.")
+	return
 end
+
+if a.init then a.init() end
+if b.init then b.init() end
