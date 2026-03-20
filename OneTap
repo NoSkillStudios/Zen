@@ -1,23 +1,7 @@
 local k = "NihonLoader_Key_Real"
 if getgenv()._nl ~= k then
-	local g = Instance.new("ScreenGui")
-	g.Name = "warn"
-	g.Parent = game:GetService("CoreGui")
-	local f = Instance.new("Frame", g)
-	f.Size = UDim2.new(0, 420, 0, 140)
-	f.Position = UDim2.new(0.5, -210, 0.5, -70)
-	f.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	f.BorderSizePixel = 0
-	Instance.new("UICorner", f).CornerRadius = UDim.new(0, 10)
-	local t = Instance.new("TextLabel", f)
-	t.Size = UDim2.new(1, -20, 1, -20)
-	t.Position = UDim2.new(0, 10, 0, 10)
-	t.BackgroundTransparency = 1
-	t.TextColor3 = Color3.fromRGB(255, 80, 80)
-	t.TextScaled = true; t.TextWrapped = true
-	t.Font = Enum.Font.GothamBold
-	t.Text = "Warning: NihonHub will not run without the official loader."
-	return
+	warn("NihonHub: OneTap loaded outside official loader.")
+	return {_ok=false}
 end
 
 local RunService       = game:GetService("RunService")
