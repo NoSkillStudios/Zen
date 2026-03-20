@@ -18,7 +18,7 @@ local G={
 local pid=game.PlaceId
 local url=G[pid]
 
--- fallback check (string just in case)
+-- fallback (just in case)
 if not url then
 url=G[tonumber(pid)] or G[tostring(pid)]
 end
@@ -36,29 +36,14 @@ end)
 
 if not ok then
 warn("Load failed:",u)
-return nil
+return false
 end
 
-return res
+return true
 end
 
-local a=ld("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v="..math.random(1,9999))
-local b=ld(url.."?v="..math.random(1,9999))
+local success=ld(url.."?v="..math.random(1,9999))
 
-if not a or not b then
-error("Loader error: script fetch failed.")
-return
+if not success then
+error("Loader error: failed to load script.")
 end
-
-if not a._ok or not b._ok then
-error("Loader error: validation failed.")
-return
-end
-
-task.spawn(function()
-if a.init then a.init() end
-end)
-
-task.spawn(function()
-if b.init then b.init() end
-end)
