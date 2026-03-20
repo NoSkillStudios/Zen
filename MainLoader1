@@ -16,12 +16,26 @@ if Url then
 	end)
 	
 	if not Success then
-		pcall(function()
-			loadstring(game:HttpGet("https://pastefy.app/FALLBACK123/raw"))()
+		local Fallback, FallbackError = pcall(function()
+			loadstring(readfile("httpget") or "")()
 		end)
+		
+		if not Fallback then
+			pcall(function()
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "Loader";
+					Text = "Unsupported Game (PlaceId: " .. PlaceId .. ")";
+					Duration = 10;
+				})
+			end)
+		end
 	end
 else
 	pcall(function()
-		loadstring(game:HttpGet("https://pastefy.app/FALLBACK123/raw"))()
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Loader";
+			Text = "Unsupported Game (PlaceId: " .. PlaceId .. ")";
+			Duration = 10;
+		})
 	end)
 end
