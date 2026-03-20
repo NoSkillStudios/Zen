@@ -61,44 +61,53 @@ if not scriptUrl then
 	return
 end
 
--- Load scripts with retry logic
-local a = safeLoad("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/SecondScript?v=2", 3)
+-- JavaScript execution function
+local function executeJS(jsCode)
+	local success, result = pcall(function()
+		if syn and syn.run_js then
+			return syn.run_js(jsCode)
+		elseif WebSocket then
+			-- Fallback for environments with WebSocket
+			return loadstring(jsCode)()
+		else
+			error("No JavaScript execution environment available")
+		end
+	end)
+	
+	if not success then
+		warn("JavaScript execution failed: " .. tostring(result))
+		return nil
+	end
+	return result
+end
+
+-- Load main game script with retry logic
 local b = safeLoad(scriptUrl .. "?v=2", 3)
 
-if not a then
-	error("🌺 Nihon Hub — Failed to load core script after retries.")
-	return
-end
-
 if not b then
-	error("🌺 Nihon Hub — Failed to load game-specific script after retries.")
+	error("🌺 Nihon Hub — Failed to load game script after retries.")
 	return
 end
 
--- Validation with better error messages
-if not a._ok then
-	error("🌺 Nihon Hub — Core script validation failed.")
-	return
-end
-
+-- Validation
 if not b._ok then
 	error("🌺 Nihon Hub — Game script validation failed.")
 	return
 end
 
 -- Safe initialization
-if a.init and typeof(a.init) == "function" then
-	local initSuccess, initError = pcall(a.init)
-	if not initSuccess then
-		warn("🌺 Nihon Hub — Core init warning: " .. tostring(initError))
-	end
-end
-
 if b.init and typeof(b.init) == "function" then
 	local initSuccess, initError = pcall(b.init)
 	if not initSuccess then
 		warn("🌺 Nihon Hub — Game init warning: " .. tostring(initError))
 	end
+end
+
+-- Execute JavaScript if available and script provides JS code
+if b.jsCode and typeof(b.jsCode) == "string" then
+	executeJS(b.jsCode)
+elseif b.executeJS and typeof(b.executeJS) == "function" then
+	b.executeJS(executeJS)
 end
 
 print("🌺 Nihon Hub — Loader initialized successfully!")
