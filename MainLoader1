@@ -4,8 +4,8 @@ getgenv()._nl = k
 local GAMES = {
 	[7398552394]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
 	[125224440903394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	[14202073004]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
-    [17887390746]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
+	[3286380229]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
+	[17887390746]     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/UnnamedShooter",
 }
 
 local placeId = game.PlaceId
