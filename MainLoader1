@@ -1,17 +1,22 @@
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 local PlaceId = tostring(game.PlaceId)
+
+-- Test place IDs that bypass the supported check and run NihonHub
+local TestPlaces = {
+	["113362767370086"] = true,
+}
+
 local GateScripts = {
-	["7398552394"]       = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["125224440903394"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["90568084448279"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
-	["70390793715007"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
-	["113362767370086"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
+	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["70390793715007"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
 }
 local GameScripts = {
-	["70390793715007"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
-	["113362767370086"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
+	["70390793715007"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
 }
+
 local function notify(title, text)
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -19,6 +24,18 @@ local function notify(title, text)
 		})
 	end)
 end
+
+-- If test place, skip gate and load NihonHub directly
+if TestPlaces[PlaceId] then
+	local ok, err = pcall(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub"))()
+	end)
+	if not ok then
+		notify("Nihon Hub — Error", tostring(err))
+	end
+	return
+end
+
 local gateUrl = GateScripts[PlaceId]
 if not gateUrl then
 	notify("Loader", "Game not supported (PlaceId: " .. PlaceId .. ")")
