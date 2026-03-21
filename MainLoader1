@@ -2,7 +2,7 @@ local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 local PlaceId = tostring(game.PlaceId)
 
--- Test place IDs that bypass the supported check and run NihonHub
+
 local TestPlaces = {
 	["113362767370086"] = true,
 }
@@ -25,7 +25,7 @@ local function notify(title, text)
 	end)
 end
 
--- If test place, skip gate and load NihonHub directly
+
 if TestPlaces[PlaceId] then
 	local ok, err = pcall(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub"))()
