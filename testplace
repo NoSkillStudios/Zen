@@ -263,14 +263,30 @@ local function makeGameBtn(game, index)
 		task.wait(0.28)
 		ScreenGui:Destroy()
 
-		-- Execute selected script
+		-- Fetch script content first so we can see HTTP errors separately
+		local content, fetchErr = nil, nil
+		local fetchOk = pcall(function()
+			content = game:HttpGet(game.url)
+		end)
+		if not fetchOk or not content or content == "" then
+			pcall(function()
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title    = "Nihon Hub — Fetch Error",
+					Text     = "Could not download: " .. game.url,
+					Duration = 10,
+				})
+			end)
+			return
+		end
+
+		-- Execute
 		local ok, err = pcall(function()
-			loadstring(game:HttpGet(game.url))()
+			loadstring(content)()
 		end)
 		if not ok then
 			pcall(function()
 				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title    = "Nihon Hub — Error",
+					Title    = "Nihon Hub — Script Error",
 					Text     = tostring(err),
 					Duration = 10,
 				})
