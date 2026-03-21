@@ -24,7 +24,7 @@ local GAMES = {
 		icon    = "🎣",
 		desc    = "Game | Hooked",
 		color   = Color3.fromRGB(232, 39, 75),
-		url     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
+		url     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
 	},
 	{
 		name    = "A Desrt",
