@@ -2,19 +2,15 @@ local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 local PlaceId = tostring(game.PlaceId)
 
-
-local TestPlaces = {
-	["113362767370086"] = true,
-}
-
 local GateScripts = {
-	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
-	["70390793715007"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
+	["7398552394"]       = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["125224440903394"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["90568084448279"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["70390793715007"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
+	["113362767370086"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/TestSelector",
 }
 local GameScripts = {
-	["70390793715007"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
+	["70390793715007"]   = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub",
 }
 
 local function notify(title, text)
@@ -25,35 +21,26 @@ local function notify(title, text)
 	end)
 end
 
-
-if TestPlaces[PlaceId] then
-	local ok, err = pcall(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonHub"))()
-	end)
-	if not ok then
-		notify("Nihon Hub — Error", tostring(err))
-	end
-	return
-end
-
 local gateUrl = GateScripts[PlaceId]
 if not gateUrl then
 	notify("Loader", "Game not supported (PlaceId: " .. PlaceId .. ")")
 	return
 end
+
 local gateOk, gateErr = pcall(function()
 	loadstring(game:HttpGet(gateUrl))()
 end)
 if not gateOk then
-	notify("Nihon Hub — Gate Error", tostring(gateErr))
+	notify("Nihon Hub — Error", tostring(gateErr))
 	return
 end
+
 local gameUrl = GameScripts[PlaceId]
 if gameUrl then
 	local ok, err = pcall(function()
 		loadstring(game:HttpGet(gameUrl))()
 	end)
 	if not ok then
-		notify("Nihon Hub — Script Error", tostring(err))
+		notify("Nihon Hub — Error", tostring(err))
 	end
 end
