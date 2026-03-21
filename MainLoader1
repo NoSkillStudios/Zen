@@ -6,6 +6,7 @@ local Scripts = {
 	[7398552394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
 	[125224440903394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
 	[90568084448279] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	[9663968307] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
 }
 
 local Url = Scripts[PlaceId]
