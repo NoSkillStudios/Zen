@@ -1,12 +1,12 @@
 local k = "NihonLoader_Key_Real"
 getgenv()._nl = k
 
-local PlaceId = game.PlaceId
+local PlaceId = tostring(game.PlaceId)
 local Scripts = {
-	[7398552394]     = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	[125224440903394] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
-	[90568084448279]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
-	[70390793715007]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
+	["7398552394"]      = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["125224440903394"] = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/NihonZen",
+	["90568084448279"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/OneTap",
+	["70390793715007"]  = "https://raw.githubusercontent.com/NoSkillStudios/Zen/main/Hooked!",
 }
 
 local function notify(title, text)
@@ -28,5 +28,5 @@ if Url then
 		notify("Nihon Hub — Error", tostring(err))
 	end
 else
-	notify("Loader", "Game not supported (PlaceId: " .. tostring(PlaceId) .. ")")
+	notify("Loader", "Game not supported (PlaceId: " .. PlaceId .. ")")
 end
